@@ -20,16 +20,17 @@ export async function sendRequestToDelete(url, method = 'DELETE') {
 	return await fetch(url, options)
 }
 
-export default async function sendRequest(url, method="GET", payload=null) {
+export async function sendRequest(url, method="GET", payload=null) {
     const options = { method }
     if (payload){
         options.headers = { "Content-Type": "application/json" }
         options.body = JSON.stringify(payload)
     }
-    const token = getToken()
+    const token = localStorage.getItem('token')
     if(token) {
         options.headers = options.headers || {}
-        options.headers.Authorization = `Token ${token}`
+        options.headers.Authorization = `Basic ${token}`
+		console.log(options.headers.Authorization)
     }
     const res = await fetch(url, options)
     if(res.ok) {

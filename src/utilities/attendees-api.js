@@ -11,7 +11,8 @@ export function indexAttendees() {
 }
 
 export function addAttendee(data){
-    return sendRequest(`${BASE_URL}/`, 'POST', data)
+    console.log(data)
+    return sendRequest(`${BASE_URL}`, 'POST', data)
 }
 
 export function updateAttendee(participantId, participant){
