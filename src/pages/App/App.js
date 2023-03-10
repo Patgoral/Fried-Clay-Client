@@ -16,20 +16,15 @@ function App() {
 		<main className="App">
       {user ? (
 			<>
-				<NavBar />
+				<NavBar user={user} setUser={setUser}/>
 				<Routes>
 					<Route path="/" element={<EventPage />} />
 					<Route path="/register" element={<RegistrationPage />} />
 					<Route path="/update" element={<UpdatePage />} />
-
-					<Route
-						path="/auth"
-						element={<AuthPage setUser={setUser} user={user} />}
-					/>
 				</Routes>
 			</>
       ) : (
-        <AuthPage serUser={setUser} user={user} />
+				<AuthPage setUser={setUser} user={user} />
       )}
 		</main>
 	)

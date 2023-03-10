@@ -39,6 +39,7 @@ export default class SignUpModal extends Component {
         try {
             const formData = { ...this.state }
             delete formData.error
+            delete formData.isOpen
             const user = await signUp(formData)
             this.props.setUser(user)
             this.closeModal();
