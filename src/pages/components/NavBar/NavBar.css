@@ -18,6 +18,12 @@ nav{
     align-self: center;
     padding: 1rem;
 }
+
+.navlogo{
+    width: 250px;
+    height: 80px;
+}
+
 .welcome{
     font-size: min(4vw, 24px);
     font-style: italic;

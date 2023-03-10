@@ -1,15 +1,19 @@
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 // import * as userService from '../../../utilities/users-services'
 import './NavBar.css'
+import logo from '../../../images/logo.png'
 
 export default function NavBar() {
 	return (
 		<div className="top-nav-container">
 			<div className="top-nav">
-                <nav>
-				<span className='link'><button>Submit Registration</button></span> 
+				<Link to="/"> <img className="navlogo" src={logo} alt={'logo'}/></Link>
+				<nav>
+				<Link className='link' to="/register"><button>Submit Registration</button></Link> 
 				<span className="divider">|</span> &nbsp;
-                <span className='link'><button>Login</button></span> 
+                <Link className='link' to="/update"><button>Update</button></Link> 
+				<span className="divider">|</span> &nbsp;
+                <Link className='link' to="/auth"><button>Login</button></Link> 
 
                 </nav>
 			</div>

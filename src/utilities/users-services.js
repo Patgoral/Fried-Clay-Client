@@ -10,10 +10,6 @@ export async function signUp(userData) {
 
 
 export function getToken() {
-    // get the token from local storage
-    // get the token's payload
-    // check if the token has expired
-    // if it hasn't return the token
     const token = 0
     if (!token) return null
     const payload = token.split('.')[1]
@@ -31,17 +27,20 @@ export function getToken() {
 
 
 
-export function getUser() {
+export function getUser(csrfToken) {
     const token = getToken()
     if (token) {
-    const payload = token.split('.')[1]
-    const decodedPayload = atob(payload)
-    const parsedPayload = JSON.parse(decodedPayload)
-    return parsedPayload.user
+      const payload = token.split('.')[1]
+      const decodedPayload = atob(payload)
+      const parsedPayload = JSON.parse(decodedPayload)
+      if (csrfToken !== parsedPayload.csrfToken) {
+        throw new Error('CSRF token mismatch')
+      }
+      return parsedPayload.user
     } else {
-        return null
+      return null
     }
-}
+  }
 
 export function logOut() {
     localStorage.removeItem('token')

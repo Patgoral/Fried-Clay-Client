@@ -6,7 +6,7 @@ export default class SignUpModal extends Component {
     state = {
         email: '',
         password: '',
-        confirm: '',
+        password_confirmation: '',
         error: '',
         isOpen: false
     }
@@ -20,7 +20,7 @@ export default class SignUpModal extends Component {
         this.setState({
             email: '',
             password: '',
-            confirm: '',
+            password_confirmation: '',
             error: '',
             isOpen: false
         });
@@ -52,7 +52,7 @@ export default class SignUpModal extends Component {
 
     render() {
         let signUpForm = this.state.isOpen;
-        const disable = this.state.password !== this.state.confirm;
+        const disable = this.state.password !== this.state.password_confirmation;
         
         //SWAPPING TEXT OPEN/CLOSE FUNCTIONALITY ON LOGIN PAGE
         function signInMessages(openSignUp, closeSignUp) {
@@ -74,7 +74,7 @@ export default class SignUpModal extends Component {
                         <SignUpForm
                             email={this.state.email}
                             password={this.state.password}
-                            confirm={this.state.confirm}
+                            password_confirmation={this.state.confirm}
                             error={this.state.error}
                             handleChange={this.handleChange}
                             handleSubmit={this.handleSubmit}
@@ -111,8 +111,8 @@ function SignUpForm(props) {
                 <label className='signup-labels'>Confirm</label>
                 <input
                     type='password'
-                    name='confirm'
-                    value={props.confirm}
+                    name='password_confirmation'
+                    value={props.password_confirmation}
                     onChange={props.handleChange}
                     required
                 />

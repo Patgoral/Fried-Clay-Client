@@ -15,7 +15,7 @@ export async function sendRequestToDelete(url, method = 'DELETE') {
 	const token = getToken()
 	if (token) {
 		options.headers = options.headers || {}
-		options.headers.Authorization = `Bearer ${token}`
+		options.headers.Authorization = `Token ${token}`
 	}
 	return await fetch(url, options)
 }
@@ -29,7 +29,7 @@ export async function sendRequest(url, method = 'GET', payload = null) {
 	const token = getToken()
 	if (token) {
 		options.headers = options.headers || {}
-		options.headers.Authorization = `Bearer ${token}`
+		options.headers.Authorization = `Token ${token}`
 	}
 	const res = await fetch(url, options)
 	if (res.ok) {
