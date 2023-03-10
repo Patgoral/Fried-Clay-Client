@@ -10,8 +10,9 @@ export async function signUp(userData) {
 
 
 export function getToken() {
-    const token = 0
-    if (!token) return null
+    const token = localStorage.getItem('token')
+    console.log(token)
+     if (!token) return null
     const payload = token.split('.')[1]
     const decodedPayload = atob(payload)
     const parsedPayload = JSON.parse(decodedPayload)
@@ -24,7 +25,6 @@ export function getToken() {
         return token
     }
 }
-
 
 
 export function getUser(csrfToken) {
@@ -50,6 +50,7 @@ export function logOut() {
 export async function logIn(credentials) {
     const token = await usersAPI.logIn(credentials)
     localStorage.setItem('token', token)
+    console.log(credentials)
     return getUser()
 
 

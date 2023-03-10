@@ -7,6 +7,7 @@ export async function signUp(userData) {
 }
 
 export async function logIn(credentials) {
+	console.log(credentials)
 	return sendRequest(BASE_URL + 'sign-in/', 'POST', credentials)
 
 }
@@ -30,6 +31,7 @@ export async function sendRequest(url, method = 'GET', payload = null) {
 	if (token) {
 		options.headers = options.headers || {}
 		options.headers.Authorization = `Token ${token}`
+		console.log(token)
 	}
 	const res = await fetch(url, options)
 	if (res.ok) {
