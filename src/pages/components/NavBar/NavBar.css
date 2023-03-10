@@ -1,0 +1,40 @@
+
+.top-nav-container{
+    display: grid;
+    justify-items: center;
+    background-color: black;
+}
+.top-nav{
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+}
+
+nav{
+    display: flexbox;
+    font-family: sans-serif;
+    font-size: min(4vw, 24px);
+    justify-content: center;
+    align-self: center;
+    padding: 1rem;
+}
+.welcome{
+    font-size: min(4vw, 24px);
+    font-style: italic;
+    color: green;
+    background-color: black;
+    padding: 0 1rem;
+}
+.link{
+    color: lightblue;
+    background-color: black;
+    text-decoration: none;
+    padding: 0 20px;
+}
+.link:hover{
+    color:aliceblue;
+}
+.divider{
+    color: green;
+    font-size: x-large;
+}

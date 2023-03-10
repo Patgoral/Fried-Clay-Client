@@ -1,0 +1,33 @@
+.form-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin-top: 10px;
+}
+form{
+    display: grid;
+}
+form > button{
+    background-color: darkslategray;
+    border-radius: 10px;
+    color: yellowgreen;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: auto;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+form > button:hover {
+    background-color: yellowgreen;
+    color: darkslategray;
+}
+.login-labels{
+    align-content: center;
+    text-align: left;
+    font-size: 20px;
+    background-color: transparent;
+}

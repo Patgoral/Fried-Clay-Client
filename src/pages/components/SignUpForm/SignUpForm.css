@@ -1,0 +1,77 @@
+.sign-up-container {
+    padding-top: 20px;
+}
+
+.form-container {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    width: 70%;
+    gap: 1rem;
+}
+
+form > button {
+    display: grid;
+    grid-column: span 2;
+    border: none;
+}
+
+.signup-labels {
+    background-color: transparent;
+    padding-top: 1vmin;
+    border-radius: 10px;
+}
+
+input {
+    background-color: white;
+    border: solid grey;
+    color: black;
+    padding: 1vmin 0 1vmin 0;
+    text-shadow: none;
+    font-size: larger;
+}
+
+.sign-up-button {
+    background-color: darkslategray;
+    border-radius: 10px;
+    color: yellowgreen;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: auto;
+    transition-duration: 0.4s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.sign-up-button:hover {
+    background-color: yellowgreen;
+    color: darkslategray;
+}
+
+.close:hover {
+    cursor: pointer;
+}
+
+span {
+    font-size: 20px;
+}
+
+.openModal,
+.closeModal {
+    background-color: transparent;
+    padding: 2px;
+    border-radius: 0;
+    font-size: 20px;
+    color: yellowgreen;
+    border: none;
+    cursor: pointer;
+}
