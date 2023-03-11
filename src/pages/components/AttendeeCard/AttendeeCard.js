@@ -5,9 +5,9 @@ export default function AttendeeCard({ attendee }) {
    
 
   return (
-    <div className="AttendeeCard">
-      <Link to={`/attendees/${attendee._id}`}>
-      <button>{attendee.name}, {attendee.date}</button>
+    <div className='attendee-card'>
+      <Link className='link' to={`/attendees/${attendee._id}`}>
+     {attendee.name}, {attendee.date}
       </Link>
     </div>
   );

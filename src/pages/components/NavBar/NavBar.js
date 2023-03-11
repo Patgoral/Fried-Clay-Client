@@ -13,12 +13,10 @@ export default function NavBar({ user, setUser }) {
 		<div className="top-nav-container">
 			<div className="top-nav">
 				<Link to="/"> <img className="navlogo" src={logo} alt={'logo'}/></Link>
-				<nav>
-				<Link className='link' to="/register"><button>Submit Registration</button></Link> 
-				<span className="divider">|</span> &nbsp;
-                <Link className='link' to="/update"><button>Update</button></Link> 
-				<span className="divider">|</span> &nbsp;
-                <Link className='link' to="" onClick={handleLogOut}><button>Log Out</button></Link> 
+				<nav className='nav'>
+                <Link className='link' to="/update">Update Submission</Link> 
+				<span className="divider"></span> &nbsp;
+                <Link className='link' to="" onClick={handleLogOut}>Log Out</Link> 
 
                 </nav>
 			</div>

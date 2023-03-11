@@ -31,7 +31,7 @@ export default function RegistrationPage({ attendee, setAttendee }) {
 			<div className="register-page">
 				<div className="register-form-container">
 					<div className="register-header">
-						Enter your Info below to Join Us!
+						Submit Your Time
 					</div>
 					<form className="register-form" onSubmit={handleAddAttendee}>
 						<div>
@@ -42,15 +42,18 @@ export default function RegistrationPage({ attendee, setAttendee }) {
 								onChange={handleInputChange}
 							/>
 							<div>
-								<input 
+                                <DateTimePicker
+                                onChange={handleInputChange}
+                                value={attendee.date || ''}  />
+								{/* <input 
                                 placeholder="Date"
 								name="date"
                                 onChange={handleInputChange}
-                                 value={attendee.date || ''} />
+                                 value={attendee.date || ''} /> */}
 							</div>
 						</div>
 						<button className="register-button" type="submit">
-							Register
+							Submit
 						</button>
 					</form>
 				</div>
