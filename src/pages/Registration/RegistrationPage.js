@@ -1,12 +1,10 @@
 import { useNavigate } from 'react-router-dom'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import './RegistrationPage.css'
-// import DatePicker from '../components/DatePicker/DatePicker'
-// import TimePicker from 'react-time-picker'
+import DateTimePicker from 'react-datetime-picker'
 
 export default function RegistrationPage({ attendee, setAttendee }) {
 	const navigate = useNavigate()
-    
 
 	async function handleAddAttendee(event) {
 		event.preventDefault()
@@ -21,10 +19,11 @@ export default function RegistrationPage({ attendee, setAttendee }) {
 		const addNewAttendee = {
 			...attendee,
 			[event.target.name]: event.target.value,
-			[event.target.date]: event.target.value,
-			[event.target.time]: event.target.value,
+            [event.target.date]: event.target.value,
+
 		}
 		setAttendee(addNewAttendee)
+		console.log(addNewAttendee)
 	}
 
 	return (
@@ -42,14 +41,13 @@ export default function RegistrationPage({ attendee, setAttendee }) {
 								value={attendee.name || ''}
 								onChange={handleInputChange}
 							/>
-							{/* <DatePicker 
-								value={attendee.date || ''}
-								onChange={handleInputChange}
-							/>
-							<TimePicker
-								value={attendee.time || ''}
-								onChange={handleInputChange}
-							/> */}
+							<div>
+								<input 
+                                placeholder="Date"
+								name="date"
+                                onChange={handleInputChange}
+                                 value={attendee.date || ''} />
+							</div>
 						</div>
 						<button className="register-button" type="submit">
 							Register

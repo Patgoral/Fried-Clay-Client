@@ -4,9 +4,10 @@ import "./SignUpForm.css"
 
 export default class SignUpModal extends Component {
     state = {
+        name: '',
         email: '',
         password: '',
-        password_confirmation: '',
+        confirm: '',
         error: '',
         isOpen: false
     }
@@ -18,9 +19,10 @@ export default class SignUpModal extends Component {
 
     closeModal = () => {
         this.setState({
+            name: '',
             email: '',
             password: '',
-            password_confirmation: '',
+            confirm: '',
             error: '',
             isOpen: false
         });
@@ -39,7 +41,7 @@ export default class SignUpModal extends Component {
         try {
             const formData = { ...this.state }
             delete formData.error
-            delete formData.isOpen
+            delete formData.confirm
             const user = await signUp(formData)
             this.props.setUser(user)
             this.closeModal();
@@ -53,7 +55,7 @@ export default class SignUpModal extends Component {
 
     render() {
         let signUpForm = this.state.isOpen;
-        const disable = this.state.password !== this.state.password_confirmation;
+        const disable = this.state.password !== this.state.confirm;
         
         //SWAPPING TEXT OPEN/CLOSE FUNCTIONALITY ON LOGIN PAGE
         function signInMessages(openSignUp, closeSignUp) {
@@ -73,9 +75,10 @@ export default class SignUpModal extends Component {
                 {this.state.isOpen && (
                     <div className="modal">
                         <SignUpForm
+                            name={this.state.name}
                             email={this.state.email}
                             password={this.state.password}
-                            password_confirmation={this.state.confirm}
+                            confirm={this.state.confirm}
                             error={this.state.error}
                             handleChange={this.handleChange}
                             handleSubmit={this.handleSubmit}
@@ -92,7 +95,14 @@ function SignUpForm(props) {
     return (
         <div className='form-container'>
             <form autoComplete='off' onSubmit={props.handleSubmit}>
-            
+                <label className='signup-labels'>Name</label>
+                <input
+                    type='text'
+                    name='name'
+                    value={props.name}
+                    onChange={props.handleChange}
+                    required
+                />
                 <label className='signup-labels'>Email</label>
                 <input
                     type='email'
@@ -112,8 +122,8 @@ function SignUpForm(props) {
                 <label className='signup-labels'>Confirm</label>
                 <input
                     type='password'
-                    name='password_confirmation'
-                    value={props.password_confirmation}
+                    name='confirm'
+                    value={props.confirm}
                     onChange={props.handleChange}
                     required
                 />

@@ -8,12 +8,13 @@ import AuthPage from '../AuthPage/AuthPage'
 import NavBar from '../components/NavBar/NavBar'
 
 import { getUser } from '../../utilities/users-services'
+import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
 
 function App() {
 	const [user, setUser] = useState(getUser())
 	const [attendee, setAttendee] = useState({
-		name: ''
-		// date: '',
+		name: '',
+		date: ''
 		// time: '',
 	})
 
@@ -34,6 +35,7 @@ function App() {
 							}
 						/>
 						<Route path="/update" element={<UpdatePage />} />
+            <Route path="/attendeeDetail/:attendeeName" element={<AttendeeDetail />} />
 					</Routes>
 				</>
 			) : (

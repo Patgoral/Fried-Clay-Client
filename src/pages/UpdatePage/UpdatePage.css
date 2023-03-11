@@ -1,0 +1,83 @@
+body {
+    background-color: rgb(0, 0, 0);
+}
+*{
+    border: 0px solid red;
+}
+.manage-page{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    margin: auto;
+    min-width: 480px;
+    max-width: 960px;
+    background-color: rgb(35, 35, 35);
+    border-radius: 10px;
+    border: 0px solid rgb(60, 0, 255);
+}
+.user-attendees{
+    display: grid;
+    grid-template-columns:2fr 2fr;
+    margin: 20px;
+    background-color: rgb(65, 65, 65);
+    padding: 20px 30px;
+    border-radius: 5px;
+    border: 0px solid red;
+}
+#message-container{
+    margin-bottom: 0px;
+    font-weight: 100;
+    color: yellowgreen
+}
+.location-container, .name-container{
+    text-align: left;
+}
+.manage-labels{
+    padding: 5px 18px;
+    font-size: 19px;
+    color: white;
+}
+.current-field-desc{
+    color: yellowgreen;
+}
+.current-field-value{
+    color: white;
+}
+.input-container {
+    padding: 5px 10px;
+}
+.input-container > input{
+    text-indent: 5px;
+    width: 240px
+}
+.button-container{
+    display: grid;
+    grid-column: span 2;
+}
+.edit-button, .delete-button{
+    background-color: darkslategray;
+    color: yellowgreen;
+    margin: auto;
+    margin-top: 10px;
+    padding: 8px;
+    text-align: center;
+    font-size: 20px;
+    width: 95%;
+    transition-duration: 0.4s;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.edit-button:hover{
+    background-color: yellowgreen;
+    color: darkslategray;
+}
+.delete-button{
+    background-color: darkred;
+    color: rgb(255, 180, 130);
+}
+.delete-button:hover{
+    background-color: rgb(255, 180, 130);
+    color: darkred;
+}
