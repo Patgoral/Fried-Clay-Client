@@ -2,6 +2,8 @@ import "./UpdatePage.css"
 import { getUser } from '../../utilities/users-services';
 import { useState, useEffect } from 'react'
 import * as attendeesAPI from '../../utilities/attendees-api'
+import { dateFormatter } from "../utils/dateFormatter";
+
 
 export default function ManagePage() {
     const [attendees, setAttendees] = useState([])
@@ -27,7 +29,7 @@ export default function ManagePage() {
         async function getAllAttendees() {
             const attendees = await attendeesAPI.showAttendees()
             setAttendees(attendees)
-            messageContainer.innerHTML = 'Registrar Deleted'
+            messageContainer.innerHTML = 'Entry Deleted'
         }
         getAllAttendees()
     }
@@ -40,7 +42,7 @@ export default function ManagePage() {
             const attendees = await attendeesAPI.showAttendees()
             setAttendees(attendees)
             setCopy(attendees)
-            messageContainer.innerHTML = 'Registrar Updated'
+            messageContainer.innerHTML = 'Entry Updated'
         }
         getAllAttendees()
     }
@@ -76,7 +78,7 @@ export default function ManagePage() {
         }
         else if (value === 'date') {
             return valueHolder.map((tmp, index) => (
-            <span key={index} className='current-field-value'>{tmp.date}</span>))
+            <span key={index} className='current-field-value'>{dateFormatter(tmp.date)}</span>))
         }
     }
     //MAPS EVERYTHING TO INTERFACE
@@ -101,7 +103,7 @@ export default function ManagePage() {
                     className='date-input'
                     placeholder='Date'
                     name='date'
-                    value={attendee.date || ''}
+                    value={(attendee.date) || ''}
                     onChange={(event) => handleInputChange(event, attendee._id)}></input>
             </div>
             <div className="button-container">

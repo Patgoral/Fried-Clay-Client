@@ -12,11 +12,7 @@ import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
 
 function App() {
 	const [user, setUser] = useState(getUser())
-	const [attendee, setAttendee] = useState({
-		name: '',
-		date: ''
-		// time: '',
-	})
+	
 
 	return (
 		<main className="App">
@@ -29,13 +25,12 @@ function App() {
 							path="/register"
 							element={
 								<RegistrationPage
-									attendee={attendee}
-									setAttendee={setAttendee}
+									
 								/>
 							}
 						/>
 						<Route path="/update" element={<UpdatePage />} />
-            <Route path="/attendeeDetail/:attendeeName" element={<AttendeeDetail />} />
+            <Route path="/attendees/:id" element={<AttendeeDetail />} />
 					</Routes>
 				</>
 			) : (

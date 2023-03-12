@@ -18,6 +18,15 @@ export default function EventPage() {
 		useEffect(function () {
 			async function getAllAttendees() {
 				const attendees = await attendeesAPI.showAttendees()
+				attendees.attendees.forEach((attendee) => {
+					const attendeeDate = new Date(attendee.date);
+					const referenceDate = new Date("3/11/2023");
+					attendee.timeDifference = Math.abs(referenceDate - attendeeDate);
+				});
+		
+				// Sort the attendees by the time difference in ascending order
+				attendees.attendees.sort((a, b) => a.timeDifference - b.timeDifference);
+		
 				setAttendees(attendees)
 			}
 			getAllAttendees()

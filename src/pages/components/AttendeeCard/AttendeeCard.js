@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
+import { dateFormatter } from "../../utils/dateFormatter";
 
-
-export default function AttendeeCard({ attendee }) {
+export default function AttendeeCard({ attendee, index }) {
    
 
   return (
     <div className='attendee-card'>
-      <Link className='link' to={`/attendees/${attendee._id}`}>
-     {attendee.name}, {attendee.date}
+      {index+1}
+      <Link state={{ position: index+1 }} className='link' to={`/attendees/${attendee._id}`}>
+      {attendee.name}, {dateFormatter(attendee.date)}
       </Link>
     </div>
   );

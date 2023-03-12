@@ -129,10 +129,11 @@ p {
 	align-items: center;
 	padding: 0;
 	margin: 0 auto;
+	
 }
 .list-of-attendees > div {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	align-self: center;
 	text-align: left;
 	font-size: 14px;

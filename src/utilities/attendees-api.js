@@ -1,4 +1,4 @@
-import {sendRequest, sendRequestToDelete} from './users-api'
+import {sendRequest, sendRequestToDelete, sendFormRequest} from './users-api'
 
 const BASE_URL = 'http://localhost:3000/api/attendees'
 
@@ -25,3 +25,7 @@ export function updateAttendee(attendeeId, attendee){
 export function removeAttendee(attendeeId){
     return sendRequestToDelete(`${BASE_URL}/${attendeeId}`, 'DELETE')
 }
+
+// export function addAttendeeForm(formData){ 
+//     return sendFormRequest(`${BASE_URL}`, 'POST', formData)
+// }
