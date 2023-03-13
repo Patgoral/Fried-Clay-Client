@@ -18,6 +18,7 @@
     "django": "^1.0.0",
     "dotenv": "^16.0.3",
     "form-data": "^4.0.0",
+    "gpxparser": "^3.0.8",
     "jsonwebtoken": "^9.0.0",
     "leaflet-gpx": "^1.7.0",
     "proxy": "^1.0.2",

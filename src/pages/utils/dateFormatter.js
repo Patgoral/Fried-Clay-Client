@@ -14,7 +14,7 @@ export const dateFormatter = (date) => {
 }
 
 export const elapsedTime = (formattedDate) => {
-    const targetDate = new Date("3/09/2023 8:00 AM");
+    const targetDate = new Date("3/11/2023 8:00 AM");
     const elapsedMilliseconds = Math.abs(targetDate - new Date(formattedDate));
     const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
     const elapsedMinutes = Math.floor(elapsedSeconds / 60);

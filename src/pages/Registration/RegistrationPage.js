@@ -9,6 +9,7 @@ export default function RegistrationPage() {
 	const [name, setName] = useState('')
 	const [date, setDate] = useState(new Date())
 	const [image, setImage] = useState(undefined)
+    const [gpx, setGpx] = useState(undefined)
 
 	async function handleAddAttendee(event) {
 		event.preventDefault()
@@ -20,7 +21,7 @@ export default function RegistrationPage() {
     
         // append the image file to the formData object
         formData.append('image', image)
-    
+        formData.append('gpx', gpx)
         console.log('formData:', formData)
     
         await attendeesAPI.addAttendee(formData)
@@ -52,8 +53,14 @@ export default function RegistrationPage() {
 							/>
 							<input
 								type="file"
+                                
 								name="image"
 								onChange={(e) => setImage(e.target.files[0])}
+							/>
+                            	<input
+								type="file"
+								name="gpx"
+								onChange={(e) => setGpx(e.target.files[0])}
 							/>
 						</div>
 						<button className="register-button" type="submit">
