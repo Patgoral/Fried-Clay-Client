@@ -12,17 +12,20 @@ export default function RegistrationPage() {
 
 	async function handleAddAttendee(event) {
 		event.preventDefault()
-		const attendeeData = {
-			attendee: {
-				name,
-				date,
-				
-			},
-		}
-        console.log(attendeeData)
-		await attendeesAPI.addAttendee(attendeeData)
-		navigate('/')
-	}
+        const formData = new FormData()
+
+        // append the attendee name and date to the formData object
+        formData.append('attendee[name]', name)
+        formData.append('attendee[date]', date)
+    
+        // append the image file to the formData object
+        formData.append('image', image)
+    
+        console.log('formData:', formData)
+    
+        await attendeesAPI.addAttendee(formData)
+        navigate('/')
+      }
 
 	function handleInputChange(event) {
 		setName(event.target.value)
@@ -33,7 +36,7 @@ export default function RegistrationPage() {
 			<div className="register-page">
 				<div className="register-form-container">
 					<div className="register-header">Submit Your Time</div>
-					<form className="register-form" onSubmit={handleAddAttendee} >
+					<form className="register-form" onSubmit={handleAddAttendee} encType="multipart/form">
 						<div>
 							<input
 								placeholder="Name"

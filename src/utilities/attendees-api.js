@@ -15,7 +15,7 @@ export function indexEachAttendee(attendeeId){
 
 export function addAttendee(data){
     console.log(data)
-    return sendRequest(`${BASE_URL}`, 'POST', data)
+    return sendFormRequest(`${BASE_URL}`, 'POST', data)
 }
 
 export function updateAttendee(attendeeId, attendee){
@@ -26,6 +26,3 @@ export function removeAttendee(attendeeId){
     return sendRequestToDelete(`${BASE_URL}/${attendeeId}`, 'DELETE')
 }
 
-// export function addAttendeeForm(formData){ 
-//     return sendFormRequest(`${BASE_URL}`, 'POST', formData)
-// }

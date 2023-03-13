@@ -6,7 +6,7 @@ import { elapsedTime } from "../../utils/dateFormatter";
 
 
 export default function AttendeeDetailPage() {
-  const [attendee, setAttendee] = useState({ name: '', date: ''})
+  const [attendee, setAttendee] = useState({ name: '', date: '', image: ''})
   const { id } = useParams();
   const location = useLocation()
   const { position } = location.state
@@ -31,7 +31,7 @@ export default function AttendeeDetailPage() {
      <h2>Position: {position ?? 'Check Back Later'}</h2>
     </div>
     <div className="img">
-    <img width='400px' src="https://bikepacking.com/wp-content/uploads/2021/03/2021-fried-clay-200-recap_3.jpg" />
+    <img width='400px' src={attendee.image} />
     </div>
     <div className="gpx">
       <iframe height='300px' width='400px'src="https://ridewithgps.com/embeds?type=route&id=41706571&hideSurface=true" ></iframe>
