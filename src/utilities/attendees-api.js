@@ -14,7 +14,6 @@ export function indexEachAttendee(attendeeId){
 }
 
 export function addAttendee(data){
-    console.log(data)
     return sendFormRequest(`${BASE_URL}`, 'POST', data)
 }
 

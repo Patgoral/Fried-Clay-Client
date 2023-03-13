@@ -1,0 +1,8 @@
+.attendee-detail{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.map{
+margin: 20px;
+}
