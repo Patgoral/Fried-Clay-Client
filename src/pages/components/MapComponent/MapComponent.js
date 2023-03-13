@@ -19,11 +19,14 @@ export default function MapComponent({ gpx }) {
     return null
   }
 
+  const centerIndex = Math.floor(positions.length / 15)
+  const center = positions[centerIndex]
+
   return (
     <MapContainer
       zoom={10}
-      style={{ height: '300px', width: '500px' }}
-      center={positions[200]}
+      style={{ height: '400px', width: '600px' }}
+      center={center}
       scrollWheelZoom={true}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
