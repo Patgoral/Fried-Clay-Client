@@ -38,7 +38,7 @@ export default function EventPage() {
 		//SHOW A LIST OF ATTENDEES
 		if (attendees.length !== 0) {
 			attendeeList = attendees.attendees.map((attendee, index) => (
-				<div className='list-of-attendees' key={attendee._id}>
+				<div className='list-of-attendees' key={attendee._id}> 
 					<AttendeeCard attendee={attendee} key={index} index={index} />
 				</div>
 			))
