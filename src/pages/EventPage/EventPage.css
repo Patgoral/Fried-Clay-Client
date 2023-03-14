@@ -114,6 +114,7 @@ p {
 	min-width: min-content;
 	padding: 15px;
 	align-items: center;
+	
 }
 .list-container-overflow {
 	background-color: rgb(65, 65, 65);
@@ -121,7 +122,7 @@ p {
 	min-height: 500px;
 	max-height: 500px;
 	overflow: auto;
-	border: 0px solid red;
+	
 }
 .list-of-attendees {
 	display: flex;
@@ -129,7 +130,7 @@ p {
 	align-items: center;
 	padding: 0;
 	margin: 0 auto;
-	
+
 }
 .list-of-attendees > div {
 	display: flex;
@@ -146,8 +147,11 @@ p {
 	padding: 8px 16px;
 	text-align: center;
 	font-size: min(2.5vw, 24px);
-	text-decoration: none;
+	
 	transition-duration: 0.4s;
 	cursor: pointer;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.list-cards{
+	text-decoration: none;
 }

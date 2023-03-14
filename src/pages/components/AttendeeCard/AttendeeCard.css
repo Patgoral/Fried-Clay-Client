@@ -1,13 +1,14 @@
 .attendee-card {
 	align-self: self-start;
 	padding: 5px 0 10px 0;
+
 }
 
 .attendee-card > .link {
-text-decoration: none;
+font-weight: bold;
 }
 
-.button-div > .link:hover {
+.attendee-card > .link:hover {
 	color: rgb(65, 65, 65);
 
 }
