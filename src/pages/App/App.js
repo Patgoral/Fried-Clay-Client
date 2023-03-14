@@ -11,7 +11,7 @@ import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
 
 function App() {
 	const [user, setUser] = useState(getUser())
-	
+
 
 	return (
 		<main className="App">
@@ -35,6 +35,7 @@ function App() {
 			) : (
 				<AuthPage setUser={setUser} user={user} />
 			)}
+		
 		</main>
 	)
 }
