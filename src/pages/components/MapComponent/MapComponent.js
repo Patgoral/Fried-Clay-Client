@@ -8,7 +8,7 @@ export default function MapComponent({ gpx }) {
 
   useEffect(() => {
     async function getPositions() {
-      const positions = await gpx.tracks[0].points.map(p => [p.lat, p.lon])
+      const positions = await gpx.map(p => [p.lat, p.lon])
       setPositions(positions)
     }
 
