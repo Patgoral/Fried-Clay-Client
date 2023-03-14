@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# TRACKR
+## An Adventure Race Scoring App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="500px" src='readme_img/logo.png'> 
 
-## Available Scripts
 
-In the project directory, you can run:
+### TRACKR is a web app designed to create an interactive leaderboard for self-supported adventure races
 
-### `npm start`
+Many adventure races don't have a timing system in place.  To verify your placing, most races require a GPX file upload which shows your exact GPS track that you followed during the event.  As an organizer of such event, I have relied on spreadsheets and Google Forms for participants to submit their results in the past.  This app allows users to enter their information, and submit files for automatic scoring.  It also allows participants to see their position updated live.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started:
 
-### `npm test`
+# See the deployed app here: [Trackr App](https://trackr-client.onrender.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<table>
+<tr>
+<td>
+  Upon loading the page, you are prompted to sign in or sign up for the service.  Once registered and signed in, you will view a leaderboard of eveyone who has already submitted their results.  Clicking the "Submit Your Time" button will allow you to enter your name, time, and upload both an image and GPX file.  If you click on any name on the leaderboard it will show you the details for that participant along with the photo and GPX map data.
+</td>
+</tr>
+</table>
 
-### `npm run build`
+---
+## Screenshots
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<div align="center">
+<img width="250px" height="250px" src='readme_img/main.png'> |
+<img width="250px" height="250px" src='readme_img/post.png'> 
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img width="250px" height="250px" src='readme_img/user.png'> |
+<img width="250px" height="250px" src='readme_img/update.png'>  |
+</div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Technologies Used
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Technologies Used](https://skillicons.dev/icons?i=react,aws,nodejs,express,mongodb,js,html,css)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Code       |           |
+| ---------- | --------- |
+| React      | Express   |
+| JavaScript | Node      |
+| HTML5      | Mongoose  |
+| Mongoose   | CSS3      |
+| leaflet    | Amazon S3 |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Entity Relationship Diagram
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img width="600px" src='readme_img/erd.png'> 
 
-## Learn More
+---
+## Wireframe
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<img width="600px" src='readme_img/wireframe.png'> 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Planning Docs:
+---
 
-### Analyzing the Bundle Size
+### Trello Board:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[View Trello Board](https://trello.com/b/Od0prVVK/race-tracker)
 
-### Making a Progressive Web App
+<img width="500px" src='img/trello.png'>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Future Goals:
 
-### Deployment
+#### Version 2:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+-As a user I want to sort the leaderboard based on different params (age, gender, etc.)
 
-### `npm run build` fails to minify
+-As a user I want to be share my results on social media
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+-As a user I want to have a search function for attendees
+
+-As an admin I want to be able to manage submissions
+
+#### Version 3:
+
+-As a user I want to see a map that live tracks based on gps position
+
+-As an admin I want to be able to create multiple events
+
+-As a user I want to be able to submit more info (bike details, etc.)
