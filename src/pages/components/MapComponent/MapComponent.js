@@ -1,26 +1,25 @@
-// import 'leaflet/dist/leaflet.css'
 import React, { useState, useEffect } from 'react';
 import { MapContainer, Polyline, TileLayer } from 'react-leaflet'
 
-
 export default function MapComponent({ gpx }) {
-  const [positions, setPositions] = useState([])
+  const [polyline, setPolyline] = useState(null)
 
   useEffect(() => {
-    async function getPositions() {
+    async function getPolyline() {
       const positions = await gpx.map(p => [p.lat, p.long])
-      setPositions(positions)
+      const polyline = <Polyline pathOptions={{ fillColor: 'red', color: 'blue' }} positions={positions} />
+      setPolyline(polyline)
     }
 
-    getPositions()
+    getPolyline()
   }, [gpx])
 
-  if (positions.length === 0) {
+  if (!polyline) {
     return null
   }
 
-  const centerIndex = Math.floor(positions.length / 15)
-  const center = positions[centerIndex]
+  const centerIndex = Math.floor(gpx.length / 15)
+  const center = [gpx[centerIndex].lat, gpx[centerIndex].long]
 
   return (
     <MapContainer
@@ -32,7 +31,7 @@ export default function MapComponent({ gpx }) {
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Polyline
         pathOptions={{ fillColor: 'red', color: 'blue' }}
-        positions={positions}
+        positions={polyline.props.positions}
       />
     </MapContainer>
   )
