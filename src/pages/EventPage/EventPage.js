@@ -48,7 +48,9 @@ export default function EventPage() {
 		<div className="event-page">
 			<div className="event-page-container-top">
 				<p>Congratulations on completing the Fried Clay 200k!</p>
-				<p>Click the button to submit your finishing info!</p>
+				<p>Click the button to submit your time!</p>
+				<p>Click on a name on the leaderboard to view details.</p>
+				<br></br>
 					<div className="button-div">
 					<Link className='link' to="/register">Submit Your Time</Link>
 				</div>

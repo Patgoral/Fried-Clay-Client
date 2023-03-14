@@ -19,7 +19,7 @@ export default function AttendeeDetailPage() {
 	const { position } = location.state
 
 	useEffect(() => {
-		let active = true
+		// let active = true
 		async function getSingleAttendee() {
 			const singleAttendee = await indexEachAttendee(id)
 			setAttendee(singleAttendee.attendees)
@@ -29,7 +29,7 @@ export default function AttendeeDetailPage() {
 		getSingleAttendee()
 
 		return () => {
-			active = false
+			// active = false
 		}
 	}, [id])
 
