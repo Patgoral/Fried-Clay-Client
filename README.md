@@ -6,12 +6,18 @@
 
 ### TRACKR is a web app designed to create an interactive leaderboard for self-supported adventure races
 
-Many adventure races don't have a timing system in place.  To verify your placing, most races require a GPX file upload which shows your exact GPS track that you followed during the event.  As an organizer of such event, I have relied on spreadsheets and Google Forms for participants to submit their results in the past.  This app allows users to enter their information, and submit files for automatic scoring.  It also allows participants to see their position updated live.
 
+<table>
+<tr>
+<td>
+Many adventure races don't have a timing system in place.  To verify your placing, most races require a GPX file upload which shows your exact GPS track that you followed during the event.  As an organizer of such event, I have relied on spreadsheets and Google Forms for participants to submit their results in the past.  This app allows users to enter their information, and submit files for automatic scoring.  It also allows participants to see their position updated live.
+</td>
+</tr>
+</table>
 
 ## Getting Started:
 
-# See the deployed app here: [Trackr App](https://trackr-client.onrender.com/)
+### See the deployed app here: [Trackr App](https://trackr-client.onrender.com/)
 
 <table>
 <tr>
@@ -46,26 +52,7 @@ Many adventure races don't have a timing system in place.  To verify your placin
 | Mongoose   | CSS3      |
 | leaflet    | Amazon S3 |
 
-## Entity Relationship Diagram
 
-<img width="600px" src='readme_img/erd.png'> 
-
----
-## Wireframe
-
-<img width="600px" src='readme_img/wireframe.png'> 
-
-
----
-
-## Planning Docs:
----
-
-### Trello Board:
-
-[View Trello Board](https://trello.com/b/Od0prVVK/race-tracker)
-
-<img width="500px" src='img/trello.png'>
 
 ---
 
