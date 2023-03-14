@@ -136,8 +136,6 @@ p {
 	display: flex;
 	flex-direction: row;
 	align-self: center;
-	text-align: left;
-	font-size: 14px;
 	margin: 7px;
 	width: 80%;
 	background-color: darkslategray;
@@ -146,7 +144,10 @@ p {
 	border-radius: 10px;
 	padding: 8px 16px;
 	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
 	font-size: min(2.5vw, 24px);
+	
 	
 	transition-duration: 0.4s;
 	cursor: pointer;

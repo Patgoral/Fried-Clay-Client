@@ -57,7 +57,7 @@ export default function AttendeeDetailPage() {
             <h2>Position: {position ?? 'Check Back Later'}</h2>
 
             <div className="img">
-              <img width='400px' src={attendee.image} />
+              <img alt="image" width='400px' src={attendee.image} />
             </div>
             <div className="map">
               <MapComponent gpx={attendee.gpx}/>

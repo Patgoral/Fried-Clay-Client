@@ -4,9 +4,7 @@
 
 }
 
-.attendee-card > .link {
-font-weight: bold;
-}
+
 
 .attendee-card > .link:hover {
 	color: rgb(65, 65, 65);
