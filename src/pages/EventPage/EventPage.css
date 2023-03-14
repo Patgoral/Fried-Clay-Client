@@ -28,6 +28,7 @@
 	height: min(32vw, 150px);
 	border-radius: 4px;
 	background-color: lightslategray;
+	
 }
 
 .event-caption {
@@ -53,6 +54,7 @@
 	transition-duration: 0.4s;
 	cursor: pointer;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	
 }
 
 .button-div > .link:hover {
@@ -75,6 +77,8 @@
 	min-height: auto;
 	margin: 0 10px 60px 10px;
 	border-radius: 15px;
+	
+	
 }
 .event-desc-container {
 	display: flex;
@@ -84,6 +88,8 @@
 	max-width: 600px;
 	line-height: 1.2;
 	border-radius: 16px;
+	
+	
 }
 .event-desc-header,
 .attendees-header {
@@ -92,6 +98,7 @@
 	font-size: 24px;
 	text-align: left;
 	font-weight: bold;
+	
 }
 .event-desc-body {
 	display: flex;
@@ -114,6 +121,7 @@ p {
 	min-width: min-content;
 	padding: 15px;
 	align-items: center;
+	
 	
 }
 .list-container-overflow {

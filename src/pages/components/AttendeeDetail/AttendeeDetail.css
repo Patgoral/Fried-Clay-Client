@@ -1,9 +1,17 @@
+.attendee-detail-container{
+    display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 .attendee-detail{
     display: flex;
 	flex-direction: column;
 	align-items: center;
 	background-color: rgb(21, 50, 25);
 	min-height: auto;
+    max-width: 80vw;
+    min-width: 40vw;
 	margin: 0 10px 60px 10px;
 	border-radius: 15px;
     
