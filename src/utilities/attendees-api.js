@@ -1,6 +1,6 @@
 import {sendRequest, sendRequestToDelete, sendFormRequest} from './users-api'
 
-const BASE_URL = 'https://trackr-client.onrender.com/api/attendees'
+const BASE_URL = 'https://trackr-server.onrender.com/api/attendees'
 
 export function showAttendees() {
     return sendRequest(BASE_URL)}
