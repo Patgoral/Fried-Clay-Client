@@ -53,6 +53,12 @@ Many adventure races don't have a timing system in place.  To verify your placin
 | leaflet    | Amazon S3 |
 
 
+---
+## Entity Relationship Diagram
+
+<img width="600px" src='readme_img/erd.png'> 
+
+
 
 ---
 
