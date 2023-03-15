@@ -49,7 +49,7 @@ Many adventure races don't have a timing system in place.  To verify your placin
 | React      | Express   |
 | JavaScript | Node      |
 | HTML5      | Mongoose  |
-| Mongoose   | CSS3      |
+| MongoDb    | CSS3      |
 | leaflet    | Amazon S3 |
 
 
