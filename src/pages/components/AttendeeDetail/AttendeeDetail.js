@@ -24,7 +24,7 @@ export default function AttendeeDetailPage() {
 			const singleAttendee = await indexEachAttendee(id)
 			setAttendee(singleAttendee.attendees)
 
-			setIsDataReady(true) // set the flag to true when the data is ready
+			setIsDataReady(true) 
 		}
 		getSingleAttendee()
 
