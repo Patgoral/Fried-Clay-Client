@@ -1,5 +1,5 @@
 import { getToken } from './users-services'
-const BASE_URL = 'https://fried-clay-server.onrender.com/api/users'
+const BASE_URL = 'https://fried-clay-server.onrender.com/api/attendees'
 
 export async function signUp(userData) {
 	console.log(userData)
@@ -49,13 +49,12 @@ export async function sendFormRequest(url, method = 'GET', payload = null) {
 
   
 	const res = await fetch(url, options)
-  
+  console.log(res)
 	if (res.ok) {
 		console.log('HI')
 	  return res.json()
 	} else {
 		console.log('BYE')
-
 	  throw new Error('Bad Request')
 	}
   }

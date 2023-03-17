@@ -24,7 +24,6 @@ export default function MapComponent({ gpx }) {
   }
 
 
-console.log(polyline)
   return (
     <MapContainer
       zoom={10}
