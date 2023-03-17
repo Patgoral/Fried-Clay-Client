@@ -70,3 +70,14 @@ body{
     height: 40px;
     margin: 10px;
 }
+
+.logo {
+    width: 100%;
+    max-width: 500px;
+  }
+  
+  @media (min-width: 600px) {
+    .logo {
+      width: auto;
+    }
+  }

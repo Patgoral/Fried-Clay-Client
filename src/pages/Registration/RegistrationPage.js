@@ -57,7 +57,7 @@ export default function RegistrationPage() {
     <div className="wrap-div">
       <div className="register-page">
         <div className="register-form-container">
-        <Link className='link' to="/"><img width="500px" alt="logo" src={logo} /></Link>
+        <Link className='link' to="/"><img className="logo" alt="logo" src={logo} /></Link>
 
           <div className="register-header">Submit Your Time</div>
           <form className="register-form" onSubmit={handleAddAttendee} encType="multipart/form">

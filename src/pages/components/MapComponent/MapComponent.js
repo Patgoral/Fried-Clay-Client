@@ -1,3 +1,5 @@
+import 'leaflet/dist/leaflet.css'
+import './MapComponent.css'
 import React, { useState, useEffect } from 'react';
 import { MapContainer, Polyline, TileLayer } from 'react-leaflet'
 const decodePolyline = require('decode-google-map-polyline')
@@ -23,17 +25,19 @@ export default function MapComponent({ gpx }) {
     return null
   }
 
+  const middleIndex = Math.floor(polyline.length / 25);
+
 
   return (
     <MapContainer
-      zoom={10}
-      style={{ height: '400px', width: '600px' }}
-      center={polyline[0]}
+      zoom={10.4}
+      center={polyline[middleIndex]}
       scrollWheelZoom={true}
+      
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Polyline
-        pathOptions={{ fillColor: 'red', color: 'blue' }}
+        pathOptions={{ fillColor: 'red', color: 'red' }}
         positions={polyline}
       />
     </MapContainer>

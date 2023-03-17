@@ -19,3 +19,29 @@
 .map{
 margin: 20px;
 }
+
+/* add this media query for smaller screens */
+@media (max-width: 767px) {
+	.attendee-detail {
+	  display: flex;
+	  flex-direction: column;
+	  align-items: center;
+	}
+  
+	/* adjust the width of the logo */
+	.attendee-detail img {
+	  width: 80%;
+	  max-width: 300px;
+	}
+  
+	/* adjust the width of the attendee image */
+	.attendee-detail .img img {
+	  width: 80%;
+	  max-width: 300px;
+	}
+  
+	/* adjust the size of the map */
+	/* .attendee-detail .map {
+	  width: 30%;
+	} */
+  }

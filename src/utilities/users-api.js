@@ -1,5 +1,5 @@
 import { getToken } from './users-services'
-const BASE_URL = 'https://fried-clay-server.onrender.com/api/users'
+const BASE_URL = 'https://trackr-server.onrender.com/api/users'
 
 export async function signUp(userData) {
 	console.log(userData)
