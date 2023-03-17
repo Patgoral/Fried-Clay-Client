@@ -35,7 +35,7 @@ export default function AccessPage() {
             <Link className='link' to="/"><img className="logo" alt="logo" src={logo} /></Link>                
             </div>
 			<div className="form-container">
-            <h3>Enter access code to post result!</h3>
+            <h2>Enter access code to post result!</h2>
 				<form className="access-form" onSubmit={handleAccessToken}>
                     <div>
 					<input
@@ -48,6 +48,7 @@ export default function AccessPage() {
 					<button className="submit-button" type="submit">
 						Submit
 					</button>
+                
 				</form>
                 <h3 id='message-container2'></h3>
 			</div>
