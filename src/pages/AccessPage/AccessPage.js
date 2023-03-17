@@ -14,7 +14,7 @@ export default function AccessPage() {
         event.preventDefault()
         const secretCode ='x395e7'
 
-        if(input === secretCode){
+        if(input.toLowerCase() === secretCode){
             navigate('/register')
         }
         else{
