@@ -1,5 +1,5 @@
 import { getToken } from './users-services'
-const BASE_URL = 'https://fried-clay-server.onrender.com/api/users'
+const BASE_URL = 'https://trackr-server.onrender.com/api/users'
 
 export async function signUp(userData) {
 	console.log(userData)
@@ -27,7 +27,11 @@ export async function sendRequest(url, method = 'GET', payload = null) {
 		options.headers = { 'Content-Type': 'application/json' }
 		options.body = JSON.stringify(payload)
 	}
-
+	const token = getToken()
+	if (token) {
+		options.headers = options.headers || {}
+		options.headers.Authorization = `Bearer ${token}`
+	}
 	const res = await fetch(url, options)
 	if (res.ok) {
 		return res.json()
@@ -39,6 +43,7 @@ export async function sendRequest(url, method = 'GET', payload = null) {
 
 export async function sendFormRequest(url, method = 'GET', payload = null) {
 	const options = { method }
+	const token = getToken()
   
 	if (payload instanceof FormData) {
 	  options.body = payload
@@ -46,15 +51,17 @@ export async function sendFormRequest(url, method = 'GET', payload = null) {
 	  options.headers = { 'Content-Type': 'application/json' }
 	  options.body = JSON.stringify(payload)
 	}
-
+  
+	if (token) {
+	  options.headers = options.headers || {}
+	  options.headers.Authorization = `Bearer ${token}`
+	}
   
 	const res = await fetch(url, options)
-  console.log(res)
+  
 	if (res.ok) {
-		console.log('HI')
 	  return res.json()
 	} else {
-		console.log('BYE')
 	  throw new Error('Bad Request')
 	}
   }
