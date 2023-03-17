@@ -27,11 +27,7 @@ export async function sendRequest(url, method = 'GET', payload = null) {
 		options.headers = { 'Content-Type': 'application/json' }
 		options.body = JSON.stringify(payload)
 	}
-	// const token = getToken()
-	// if (token) {
-	// 	options.headers = options.headers || {}
-	// 	options.headers.Authorization = `Bearer ${token}`
-	// }
+
 	const res = await fetch(url, options)
 	if (res.ok) {
 		return res.json()
@@ -43,7 +39,6 @@ export async function sendRequest(url, method = 'GET', payload = null) {
 
 export async function sendFormRequest(url, method = 'GET', payload = null) {
 	const options = { method }
-	const token = getToken()
   
 	if (payload instanceof FormData) {
 	  options.body = payload
@@ -51,11 +46,7 @@ export async function sendFormRequest(url, method = 'GET', payload = null) {
 	  options.headers = { 'Content-Type': 'application/json' }
 	  options.body = JSON.stringify(payload)
 	}
-  
-	if (token) {
-	  options.headers = options.headers || {}
-	  options.headers.Authorization = `Bearer ${token}`
-	}
+
   
 	const res = await fetch(url, options)
   
