@@ -124,6 +124,11 @@ p {
 	
 	
 }
+
+.message-container {
+ color: yellowgreen;
+ font-weight: bold;
+}
 .list-container-overflow {
 	background-color: rgb(65, 65, 65);
 	border-radius: 5px;
