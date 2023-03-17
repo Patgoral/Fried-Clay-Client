@@ -4,6 +4,9 @@ import { indexEachAttendee } from '../../../utilities/attendees-api'
 import { useState, useEffect } from 'react'
 import { elapsedTime } from '../../utils/dateFormatter'
 import MapComponent from '../MapComponent/MapComponent'
+import logo from '../../../images/fried-clay.png'
+import { Link } from 'react-router-dom'
+
 
 export default function AttendeeDetailPage() {
 	const [attendee, setAttendee] = useState({
@@ -51,7 +54,7 @@ export default function AttendeeDetailPage() {
         )}
           {isDataReady && (
 			  <div className="attendee-detail">
-       
+            <Link className='link' to="/"><img width="500px" alt="logo" src={logo} /></Link>
             <h2>Title: {attendee.name} </h2>
             <h2>Finishing Time: {elapsedTime(attendee.date)} </h2>
             <h2>Position: {position ?? 'Check Back Later'}</h2>

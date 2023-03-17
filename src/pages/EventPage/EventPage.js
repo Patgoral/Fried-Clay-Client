@@ -5,6 +5,7 @@ import './EventPage.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
+import logo from '../../images/fried-clay.png'
 
 
 
@@ -47,6 +48,8 @@ export default function EventPage() {
 	return (
 		<div className="event-page">
 			<div className="event-page-container-top">
+			<Link className='link' to="/"><img width="300px" alt="logo" src={logo} /></Link>
+
 				<p>Congratulations on completing the Fried Clay 200k!</p>
 				<p>Click the button to submit your time!</p>
 				<p>Click on a name on the leaderboard to view details.</p>

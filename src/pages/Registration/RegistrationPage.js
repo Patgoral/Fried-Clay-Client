@@ -3,6 +3,9 @@ import * as attendeesAPI from '../../utilities/attendees-api';
 import './RegistrationPage.css';
 import DateTimePicker from 'react-datetime-picker';
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
+import logo from '../../images/fried-clay.png'
+
 
 export default function RegistrationPage() {
   const navigate = useNavigate();
@@ -54,6 +57,8 @@ export default function RegistrationPage() {
     <div className="wrap-div">
       <div className="register-page">
         <div className="register-form-container">
+        <Link className='link' to="/"><img width="500px" alt="logo" src={logo} /></Link>
+
           <div className="register-header">Submit Your Time</div>
           <form className="register-form" onSubmit={handleAddAttendee} encType="multipart/form">
             <div>
