@@ -51,8 +51,11 @@ export async function sendFormRequest(url, method = 'GET', payload = null) {
 	const res = await fetch(url, options)
   
 	if (res.ok) {
+		console.log('HI')
 	  return res.json()
 	} else {
+		console.log('BYE')
+
 	  throw new Error('Bad Request')
 	}
   }
