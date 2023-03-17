@@ -55,6 +55,7 @@ export default function RegistrationPage() {
 
   return (
     <div className="wrap-div">
+
       <div className="register-page">
         <div className="register-form-container">
         <Link className='link' to="/"><img className="logo" alt="logo" src={logo} /></Link>

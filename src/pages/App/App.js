@@ -6,6 +6,7 @@ import RegistrationPage from '../Registration/RegistrationPage'
 import AuthPage from '../AuthPage/AuthPage'
 import NavBar from '../components/NavBar/NavBar'
 import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
+import AccessPage from '../AccessPage/AccessPage'
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
 							}
 						/>
 						<Route path="/update" element={<UpdatePage />} />
+						<Route path="/access" element={<AccessPage />} />
             <Route path="/attendees/:id" element={<AttendeeDetail />} />
 					</Routes>
 				</>

@@ -55,7 +55,7 @@ export default function EventPage() {
 				<p>Click on a name on the leaderboard to view details.</p>
 				<br></br>
 					<div className="button-div">
-					<Link className='link' to="/register">Submit Your Time</Link>
+					<Link className='link' to="/access">Submit Your Time</Link>
 				</div>
 			</div>
 			<div className="event-page-list-container">
