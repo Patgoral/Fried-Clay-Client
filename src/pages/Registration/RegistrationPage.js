@@ -69,14 +69,12 @@ export default function RegistrationPage() {
                 value={name}
                 onChange={handleInputChange}
               />
-
               <DateTimePicker
                 disableClock="true"
                 className="date-time"
                 minDate={new Date("03/25/2023 7:00 AM EST")}
                 maxDate={new Date ("03-27-2023")}
-
-                
+                required= 'true'
                 onChange={setDate}
                 value={date}
               />
