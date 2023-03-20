@@ -3,6 +3,8 @@ import { getUser } from '../../utilities/users-services'
 import { useState, useEffect } from 'react'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import { dateFormatter } from '../utils/dateFormatter'
+import logo from '../../images/fried-clay.png'
+import { Link } from 'react-router-dom'
 
 export default function ManagePage() {
 	const [attendees, setAttendees] = useState([])
@@ -141,6 +143,7 @@ export default function ManagePage() {
 
 	return (
 		<div className="manage-page">
+			<Link className='link' to="/"><img className="logo" alt="logo" src={logo} /></Link>
             <div className="lds-roller">
 				<div></div>
 				<div></div>
