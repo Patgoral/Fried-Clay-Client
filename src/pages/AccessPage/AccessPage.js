@@ -4,11 +4,9 @@ import { useNavigate, Link } from 'react-router-dom';
 import  logo  from '../../images/fried-clay.png'
 
 
-
 export default function AccessPage() {
     const [input, setInput]= useState('')
     const navigate = useNavigate();
-
 
     function handleAccessToken(event) {
         event.preventDefault()

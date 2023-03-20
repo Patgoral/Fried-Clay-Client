@@ -78,6 +78,7 @@ export default function RegistrationPage() {
                 onChange={setDate}
                 value={date}
               />
+                
               <p>Upload Image</p>
               <input
                 type="file"
@@ -109,6 +110,8 @@ export default function RegistrationPage() {
         </div>
         
       </div>
+   
+     
     </div>
   );
 }

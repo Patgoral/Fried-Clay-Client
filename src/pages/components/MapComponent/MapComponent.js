@@ -37,7 +37,7 @@ export default function MapComponent({ gpx }) {
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       <Polyline
-        pathOptions={{ fillColor: 'red', color: 'red' }}
+        pathOptions={{ fillColor: 'red', color: 'blue' }}
         positions={polyline}
       />
     </MapContainer>
