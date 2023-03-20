@@ -66,7 +66,7 @@ export default function EventPage() {
 			</div>
 			<div className="event-page-list-container">
 				<div className="attendees-container">
-					<div className="attendees-header"><Link to="/update">Leaderboard</Link></div>
+					<div className="attendees-header">Leaderboard</div>
 					<div className="message-container">{messagecontainer}</div>
 					{!isPageLoaded && (
 						<div className="lds-roller">

@@ -11,9 +11,13 @@ export default function AccessPage() {
     function handleAccessToken(event) {
         event.preventDefault()
         const secretCode ='x395e7'
+        const adminCode ='br549'
 
         if(input.toLowerCase() === secretCode){
             navigate('/register')
+        }
+        if(input.toLowerCase() === adminCode){
+            navigate('/update')
         }
         else{
             document.getElementById('message-container2').innerHTML = 'Invalid Access Code';
