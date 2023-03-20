@@ -61,9 +61,8 @@ export default function ManagePage() {
 	//CREATES AN ARRAY TO MAP THE ATTENDEES
 	if (attendees.length !== 0 && attendees.attendees !== undefined) {
 		attendees.attendees.forEach(function (attendee) {
-			if (attendee.owner === currentUser._id) {
 				userListOfAttendees.push(attendee)
-			}
+			
 		})
 	}
 	//STORES A COPY OF THE PREVIOUS STATE BEFORE EDIT/UPDATE
