@@ -73,7 +73,7 @@ export default function RegistrationPage() {
                 disableClock="true"
                 className="date-time"
                 minDate={new Date("03/25/2023 7:00 AM EST")}
-                maxDate={new Date ("03-27-2023")}
+                maxDate={new Date ("03/27/2023 9:00 PM EST")}
                 required= 'true'
                 onChange={setDate}
                 value={date}
