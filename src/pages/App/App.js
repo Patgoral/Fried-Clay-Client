@@ -28,6 +28,8 @@ function App() {
 						<Route path="/update" element={<UpdatePage />} />
 						<Route path="/access" element={<AccessPage />} />
             <Route path="/attendees/:id" element={<AttendeeDetail />} />
+			<Route path="*" element={<EventPage />} />
+   
 			
 					</Routes>
 				</>
