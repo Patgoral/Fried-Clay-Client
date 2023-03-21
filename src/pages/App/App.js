@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, redirect } from 'react-router-dom'
 import UpdatePage from '../UpdatePage/UpdatePage'
 import EventPage from '../EventPage/EventPage'
 import RegistrationPage from '../Registration/RegistrationPage'
@@ -28,7 +28,7 @@ function App() {
 						<Route path="/update" element={<UpdatePage />} />
 						<Route path="/access" element={<AccessPage />} />
             <Route path="/attendees/:id" element={<AttendeeDetail />} />
-			<Route path="*" render={() => <Redirect to="/" />} />
+			<Route path="*" render={() => <redirect to="/" />} />
    
 			
 					</Routes>
