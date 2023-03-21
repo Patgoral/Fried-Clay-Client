@@ -28,7 +28,7 @@ function App() {
 						<Route path="/update" element={<UpdatePage />} />
 						<Route path="/access" element={<AccessPage />} />
             <Route path="/attendees/:id" element={<AttendeeDetail />} />
-			<Route path="*" render={() => <redirect to="/" />} />
+			<Route path="/*" render={() => <redirect to="/" />} />
    
 			
 					</Routes>
