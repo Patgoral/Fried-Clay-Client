@@ -64,7 +64,7 @@ export default function RegistrationPage() {
           <form className="register-form" onSubmit={handleAddAttendee} encType="multipart/form">
             <div>
               <input
-                placeholder="Name"
+                placeholder="Full Name"
                 name="name"
                 value={name}
                 onChange={handleInputChange}

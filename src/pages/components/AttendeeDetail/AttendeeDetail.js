@@ -55,7 +55,7 @@ export default function AttendeeDetailPage() {
           {isDataReady && (
 			  <div className="attendee-detail">
             <Link className='link' to="/"><img width="500px" alt="logo" src={logo} /></Link>
-            <h2>Title: {attendee.name} </h2>
+            <h2>Name: {attendee.name} </h2>
             <h2>Finishing Time: {elapsedTime(attendee.date)} </h2>
             <h2>Position: {position ?? 'Check Back Later'}</h2>
 
