@@ -11,8 +11,10 @@ export default function EventPage() {
 	// const navigate = useNavigate()
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
+	const [applyLinkClass, setApplyLinkClass] = useState(true)
+	const targetDate = new Date('2023-04-02')
 	let attendeeList
-	let messagecontainer 
+	let messagecontainer
 
 	//READ ATTENDEES
 	useEffect(function () {
@@ -33,35 +35,49 @@ export default function EventPage() {
 		getAllAttendees()
 	}, [])
 
+	useEffect(() => {
+		const currentDate = new Date()
+		if (currentDate.getTime() >= targetDate.getTime()) {
+			setApplyLinkClass(false)
+		}
+	}, [])
+
 	//SHOW A LIST OF ATTENDEES
 
 	if (attendees.length !== 0) {
 		attendeeList = attendees.attendees.map((attendee, index) => (
-		  <div className="list-of-attendees" key={attendee._id}>
-			<AttendeeCard attendee={attendee} key={index} index={index} />
-		  </div>
+			<div className="list-of-attendees" key={attendee._id}>
+				<AttendeeCard attendee={attendee} key={index} index={index} />
+			</div>
 		))
 		if (!attendees.attendees[0]) {
-		  messagecontainer = "No Results Yet"
+			messagecontainer = 'No Results Yet'
 		}
-	  } else {
-		messagecontainer = "No Results Yet"
-	  }
+	} else {
+		messagecontainer = 'No Results Yet'
+	}
 	return (
 		<div className="event-page">
 			<div className="event-page-container-top">
-				<Link className="link" to="/">
+				<a className="link" to="/">
 					<img width="300px" alt="logo" src={logo} />
-				</Link>
+				</a>
 
 				<p>Congratulations on completing the Fried Clay 200k!</p>
 				<p>Click the button to submit your time!</p>
 				<p>Click on a name on the leaderboard to view details.</p>
 				<br></br>
 				<div className="button-div">
-					<Link className="link" to="/access">
-						Submit Your Time
-					</Link>
+					{applyLinkClass ? (
+						<Link className="link" to="/access">
+							Submit Your Time
+						</Link>
+					) : (
+						<a className="link">Submission Closed</a>
+					)}
+					<br></br>
+					<br></br>
+					<p>Submissions close 4/2/2023</p>
 				</div>
 			</div>
 			<div className="event-page-list-container">
@@ -82,7 +98,6 @@ export default function EventPage() {
 					)}
 
 					<div className="list-container-overflow">{attendeeList}</div>
-
 				</div>
 			</div>
 		</div>
