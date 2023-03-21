@@ -97,7 +97,7 @@
 .event-desc-header,
 .attendees-header {
 	display: flex;
-	padding: 10px;
+	margin-top: 10px;
 	font-size: 24px;
 	text-align: left;
 	font-weight: bold;
@@ -131,6 +131,7 @@ p {
 .message-container {
  color: yellowgreen;
  font-weight: bold;
+ font-size: min(10.5vw, 44px);
 }
 .list-container-overflow {
 	background-color: rgb(65, 65, 65);
