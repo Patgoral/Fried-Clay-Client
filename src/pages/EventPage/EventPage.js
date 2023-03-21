@@ -83,9 +83,9 @@ export default function EventPage() {
 				<div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
 					<p>Click a name to view details</p>
-						<br></br>
+						
 					<div className="message-container">{messagecontainer}</div>
-					<br></br>
+					
 					{!isPageLoaded && (
 						<div className="lds-roller">
 							<div></div>

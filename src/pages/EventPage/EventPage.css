@@ -78,7 +78,7 @@
 	align-items: center;
 	background-color: rgb(21, 50, 25);
 	min-height: auto;
-	margin: 0 10px 60px 10px;
+	margin: 0 10px 30px 10px;
 	border-radius: 15px;
 	
 	
@@ -97,7 +97,7 @@
 .event-desc-header,
 .attendees-header {
 	display: flex;
-	padding: 10px;
+	margin-top: 3px;
 	font-size: 24px;
 	text-align: left;
 	font-weight: bold;
@@ -122,7 +122,6 @@ p {
 	align-content: center;
 	border-radius: 0;
 	min-width: min-content;
-	padding: 15px;
 	align-items: center;
 	
 	
@@ -132,6 +131,7 @@ p {
  color: yellowgreen;
  font-weight: bold;
  font-size: min(10.5vw, 44px);
+ margin: 5px;
 }
 .list-container-overflow {
 	background-color: rgb(65, 65, 65);
@@ -139,6 +139,8 @@ p {
 	min-height: 500px;
 	max-height: 500px;
 	overflow: auto;
+	margin-bottom: 20px;
+	min-width: 300px;
 	
 }
 .list-of-attendees {
