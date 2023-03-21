@@ -1,5 +1,4 @@
 import './UpdatePage.css'
-import { getUser } from '../../utilities/users-services'
 import { useState, useEffect } from 'react'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import { dateFormatter } from '../utils/dateFormatter'
@@ -10,7 +9,6 @@ export default function ManagePage() {
 	const [attendees, setAttendees] = useState([])
 	const [copy, setCopy] = useState([])
 	let valueHolder = []
-	const currentUser = getUser()
 	let attendeeList
 	let userListOfAttendees = []
 	const messageContainer = document.querySelector('#message-container')
