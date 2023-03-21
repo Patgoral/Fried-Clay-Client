@@ -65,7 +65,6 @@ export default function EventPage() {
 
 				<p>Congratulations on completing the Fried Clay 200k!</p>
 				<p>Click the button to submit your time!</p>
-				<p>Click on a name on the leaderboard to view details.</p>
 				<br></br>
 				<div className="button-div">
 					{applyLinkClass ? (
@@ -83,6 +82,8 @@ export default function EventPage() {
 			<div className="event-page-list-container">
 				<div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
+					<p>Click on a name to view details</p>
+						<br></br>
 					<div className="message-container">{messagecontainer}</div>
 					{!isPageLoaded && (
 						<div className="lds-roller">
