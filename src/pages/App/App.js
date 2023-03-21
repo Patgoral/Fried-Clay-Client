@@ -19,6 +19,7 @@ function App() {
 					<Route path="/access" element={<AccessPage />} />
 					<Route path="/attendees/:id" element={<AttendeeDetail />} />
 					<Route path="*" element={<EventPage />} />
+					<Route path="/attendees/*" element={<EventPage />} />
 					
 
 				</Routes>
