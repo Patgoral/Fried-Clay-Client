@@ -59,9 +59,9 @@ export default function EventPage() {
 	return (
 		<div className="event-page">
 			<div className="event-page-container-top">
-				<a className="link" to="/">
+				<p className="link" to="/">
 					<img width="300px" alt="logo" src={logo} />
-				</a>
+				</p>
 
 				<p>Congratulations on completing the Fried Clay 200k!</p>
 				<p>Click the button to submit your time!</p>
