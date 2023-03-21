@@ -20,6 +20,10 @@ function App() {
 					<Route path="/attendees/:id" element={<AttendeeDetail />} />
 					<Route path="*" element={<EventPage />} />
 					<Route path="/attendees/*" element={<EventPage />} />
+					<Route path="/access/*" element={<EventPage />} />
+					<Route path="/register/*" element={<EventPage />} />
+
+
 					
 
 				</Routes>
