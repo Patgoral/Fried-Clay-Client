@@ -30,11 +30,18 @@ export default function RegistrationPage() {
 			return
 		}
 
+    if (!gpx) {
+			document.getElementById('message-container').innerHTML =
+				'GPX File Upload Is Required'
+			return
+		}
+
+
 		const validImageFileTypes = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.heic']
 		const imageFileType = image.name.substr(image.name.lastIndexOf('.'))
 		if (!validImageFileTypes.includes(imageFileType.toLowerCase())) {
 			document.getElementById('message-container').innerHTML =
-				'Invalid Image file'
+				'Invalid Image File'
 			return
 		}
 
@@ -48,7 +55,7 @@ export default function RegistrationPage() {
 		const gpxFile = gpx && gpx.name.endsWith('.gpx') ? gpx : undefined
 		if (!gpxFile) {
 			document.getElementById('message-container').innerHTML =
-				'Invalid GPX file type'
+				'Invalid GPX File Type'
 			return
 		}
 		formData.append('gpx', gpxFile)
