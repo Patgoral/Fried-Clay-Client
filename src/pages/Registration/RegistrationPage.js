@@ -92,7 +92,7 @@ export default function RegistrationPage() {
 						encType="multipart/form"
 					>
 						<div className='input'>
-							<input
+							<input className='name'
 								placeholder="Full Name"
 								name="name"
 								value={name}
@@ -110,11 +110,8 @@ export default function RegistrationPage() {
                 monthPlaceholder='03'
                 yearPlaceholder='2023'
                 showLeadingZeros={true}
-               
-                
-              
-
-
+                calendarIcon={null}
+                           
 							/>
 
 							<p>Upload Image</p>
