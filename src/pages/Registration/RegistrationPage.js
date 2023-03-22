@@ -9,7 +9,7 @@ import logo from '../../images/fried-clay.png'
 export default function RegistrationPage() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
-	const [date, setDate] = useState('')
+	const [date, setDate] = useState()
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
 	const [isLoading, setIsLoading] = useState(false) 
@@ -91,7 +91,7 @@ export default function RegistrationPage() {
 						onSubmit={handleAddAttendee}
 						encType="multipart/form"
 					>
-						<div>
+						<div className='input'>
 							<input
 								placeholder="Full Name"
 								name="name"
@@ -109,9 +109,11 @@ export default function RegistrationPage() {
                 dayPlaceholder="25"
                 monthPlaceholder='03'
                 yearPlaceholder='2023'
-                minutePlaceholder='00'
-                hourPlaceholder='08'
+                showLeadingZeros={true}
+               
                 
+              
+
 
 							/>
 

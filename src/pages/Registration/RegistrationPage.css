@@ -68,14 +68,19 @@ body{
     border-radius: 10px;
 }
 
+.input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .date-time{
     background-color: white;
     color: black;
     height: 40px;
-    width: 270px;
+    max-width: 290px;
    font-size: 19px;
-   margin: 10px auto;
-
+   margin: 10px, auto;
 }
 
 .logo {
@@ -87,4 +92,5 @@ body{
     .logo {
       width: auto;
     }
+    
   }
