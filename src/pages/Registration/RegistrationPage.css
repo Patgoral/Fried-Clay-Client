@@ -38,6 +38,10 @@ body{
     font-size: 24px;
     color: white;
     margin: 20px auto;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px antiquewhite;
+
+
 }
 .register-form{
     display: grid;
