@@ -6,9 +6,10 @@ export const dateFormatter = (date) => {
 	const hours = utcDate.getHours()
 	const minutes = utcDate.getMinutes()
 	const meridian = hours < 12 ? 'AM' : 'PM' // Determine if it's AM or PM
-	const formattedDate = `${month}/${day}/${year} ${hours % 12}:${minutes
-		.toString()
-		.padStart(2, '0')}${meridian}`
+	const hoursFormatted = hours % 12 === 0 ? 12 : hours % 12;
+	const formattedDate = `${month}/${day}/${year} ${hoursFormatted}:${minutes
+	  .toString()
+	  .padStart(2, "0")}${meridian}`;
 
 	return formattedDate
 }

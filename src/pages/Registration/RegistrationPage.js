@@ -13,6 +13,7 @@ export default function RegistrationPage() {
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
 	const [isLoading, setIsLoading] = useState(false) 
+  
 
 	async function handleAddAttendee(event) {
 		event.preventDefault()
