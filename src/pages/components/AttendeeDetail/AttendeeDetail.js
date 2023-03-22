@@ -38,7 +38,7 @@ export default function AttendeeDetailPage() {
 
 	return (
 		<>
-      test
+      
         <div className='attendee-detail-container'>
         {!isDataReady && (
           <div className="lds-roller">
