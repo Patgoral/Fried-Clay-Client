@@ -46,9 +46,9 @@ export default function EventPage() {
 
 	if (attendees.length !== 0) {
 		attendeeList = attendees.attendees.map((attendee, index) => (
-			<Link className="list-of-attendees" key={attendee._id} to={`/attendees/${attendee._id}`} >
+			<div className="list-of-attendees" key={attendee._id} >
 				<AttendeeCard attendee={attendee} key={index} index={index} />
-			</Link>
+			</div>
 		))
 		if (!attendees.attendees[0]) {
 			messagecontainer = 'No Results Yet'
