@@ -67,11 +67,18 @@ export default function RegistrationPage() {
 		}
 		formData.append('gpx', gpxFile)
 
+  
+
 		setIsLoading(true) 
 		await attendeesAPI.addAttendee(formData)
 		setIsLoading(false) 
 		navigate('/')
 	}
+
+  if (isLoading) {
+    document.getElementById('message-container').innerHTML =
+    ''
+  }
 
 	function handleInputChange(event) {
 		setName(event.target.value)
@@ -103,7 +110,6 @@ export default function RegistrationPage() {
 								className="date-time"
 								minDate={new Date('03/25/2023 7:00 AM EST')}
 								maxDate={new Date('03/27/2023 9:00 PM EST')}
-								required={true}
 								onChange={setDate}
 								value={date}
                 dayPlaceholder="25"
