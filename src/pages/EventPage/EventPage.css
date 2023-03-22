@@ -146,6 +146,7 @@ p {
 	width: 90%;
 	background-color: darkslategray;
 	color: antiquewhite;
+	text-decoration: none;
 	border: none;
 	border-radius: 10px;
 	padding: 8px 16px;
@@ -162,8 +163,8 @@ p {
 	text-shadow: 1px 1px 2px olive;
 }
 
-.list-of-attendees > div > .link {
-	text-decoration: none;
+.link {
+	text-decoration:none;
 }
 
 .attendee-card {
