@@ -12,7 +12,7 @@ export default function EventPage() {
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
-	const targetDate = new Date('2023-04-02')
+	const targetDate = new Date('2023-04-03')
 	let attendeeList
 	let messagecontainer
 
