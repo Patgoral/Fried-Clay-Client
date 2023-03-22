@@ -46,9 +46,9 @@ export default function EventPage() {
 
 	if (attendees.length !== 0) {
 		attendeeList = attendees.attendees.map((attendee, index) => (
-			<div className="list-of-attendees" key={attendee._id}>
+			<Link className="list-of-attendees" key={attendee._id} to={`/attendees/${attendee._id}`} >
 				<AttendeeCard attendee={attendee} key={index} index={index} />
-			</div>
+			</Link>
 		))
 		if (!attendees.attendees[0]) {
 			messagecontainer = 'No Results Yet'
@@ -63,8 +63,8 @@ export default function EventPage() {
 					<img width="300px" alt="logo" src={logo} />
 				</div>
 
-				<p>Congratulations on completing the Fried Clay 200k!</p>
-				<p>Click the button to submit your time!</p>
+				<p className='text'>Congratulations on completing the Fried Clay 200k!</p>
+				<p className='text'>Click the button to submit your time!</p>
 				<br></br>
 				<div className="button-div">
 					{applyLinkClass ? (
@@ -76,7 +76,7 @@ export default function EventPage() {
 					)}
 					<br></br>
 					<br></br>
-					<p>Submissions close 4/2/2023</p>
+					<p className="close">Submissions close 4/2/2023</p>
 				</div>
 			</div>
 			<div className="event-page-list-container">

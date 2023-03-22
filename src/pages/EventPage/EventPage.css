@@ -23,15 +23,12 @@
 	height: min(32vw, 300px);
 }
 
-
-
 .description-container {
 	display: flex;
 	flex-direction: column;
 	height: min(32vw, 150px);
 	border-radius: 4px;
 	background-color: lightslategray;
-	
 }
 
 .event-caption {
@@ -41,7 +38,6 @@
 	align-self: center;
 	padding: 5px 0 10px 0;
 	text-decoration: none;
-
 }
 
 .button-div > .link {
@@ -57,16 +53,14 @@
 	transition-duration: 0.4s;
 	cursor: pointer;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	
+	text-shadow: 2px 1px 2px black;
+	font-weight: bold;
 }
 
 .button-div > .link:hover {
 	color: rgb(65, 65, 65);
 	text-decoration: none;
-
 }
-
-
 
 .registration-container > div > button:hover {
 	background-color: rgb(39, 53, 12);
@@ -80,8 +74,6 @@
 	min-height: auto;
 	margin: 0 10px 30px 10px;
 	border-radius: 15px;
-	
-	
 }
 .event-desc-container {
 	display: flex;
@@ -91,8 +83,6 @@
 	max-width: 600px;
 	line-height: 1.2;
 	border-radius: 16px;
-	
-	
 }
 .event-desc-header,
 .attendees-header {
@@ -101,7 +91,6 @@
 	font-size: 24px;
 	text-align: left;
 	font-weight: bold;
-	
 }
 .event-desc-body {
 	display: flex;
@@ -123,15 +112,13 @@ p {
 	border-radius: 0;
 	min-width: min-content;
 	align-items: center;
-	
-	
 }
 
 .message-container {
- color: yellowgreen;
- font-weight: bold;
- font-size: min(10.5vw, 44px);
- margin: 5px;
+	color: yellowgreen;
+	font-weight: bold;
+	font-size: min(10.5vw, 44px);
+	margin: 5px;
 }
 .list-container-overflow {
 	background-color: rgb(65, 65, 65);
@@ -140,7 +127,6 @@ p {
 	max-height: 500px;
 	overflow: auto;
 	margin-bottom: 20px;
-	
 }
 .list-of-attendees {
 	display: flex;
@@ -149,7 +135,7 @@ p {
 	padding: 0;
 	margin: 0 auto;
 	min-width: 300px;
-
+	text-decoration: none;
 
 }
 .list-of-attendees > div {
@@ -157,7 +143,7 @@ p {
 	flex-direction: row;
 	align-self: center;
 	margin: 7px;
-	width: 80%;
+	width: 90%;
 	background-color: darkslategray;
 	color: antiquewhite;
 	border: none;
@@ -176,12 +162,20 @@ p {
 	text-shadow: 1px 1px 2px olive;
 }
 
-
-
 .list-of-attendees > div > .link {
 	text-decoration: none;
 }
 
-.attendee-card{
+.attendee-card {
 	text-decoration: none;
+}
+
+.close {
+	color: red;
+	text-shadow: 2px 1px 2px maroon;
+	font-weight: bold;
+}
+
+.text {
+	font-weight: bold;
 }
