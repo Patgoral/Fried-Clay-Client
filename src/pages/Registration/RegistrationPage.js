@@ -9,7 +9,7 @@ import logo from '../../images/fried-clay.png'
 export default function RegistrationPage() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
-	const [date, setDate] = useState(new Date())
+	const [date, setDate] = useState('')
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
 	const [isLoading, setIsLoading] = useState(false) 
@@ -22,6 +22,12 @@ export default function RegistrationPage() {
 		if (!name) {
 			document.getElementById('message-container').innerHTML =
 				'Name Field Is Required'
+			return
+		}
+
+    if (!date) {
+			document.getElementById('message-container').innerHTML =
+				'Date Field Is Required'
 			return
 		}
 
@@ -100,6 +106,13 @@ export default function RegistrationPage() {
 								required={true}
 								onChange={setDate}
 								value={date}
+                dayPlaceholder="25"
+                monthPlaceholder='03'
+                yearPlaceholder='2023'
+                minutePlaceholder='00'
+                hourPlaceholder='08'
+                
+
 							/>
 
 							<p>Upload Image</p>
