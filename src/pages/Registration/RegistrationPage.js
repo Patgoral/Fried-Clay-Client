@@ -12,7 +12,7 @@ export default function RegistrationPage() {
 	const [date, setDate] = useState(new Date())
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
-	const [isLoading, setIsLoading] = useState(false) // state variable for loading indicator
+	const [isLoading, setIsLoading] = useState(false) 
 
 	async function handleAddAttendee(event) {
 		event.preventDefault()
@@ -60,9 +60,9 @@ export default function RegistrationPage() {
 		}
 		formData.append('gpx', gpxFile)
 
-		setIsLoading(true) // set loading state to true before making API call
+		setIsLoading(true) 
 		await attendeesAPI.addAttendee(formData)
-		setIsLoading(false) // set loading state to false after API call is complete
+		setIsLoading(false) 
 		navigate('/')
 	}
 

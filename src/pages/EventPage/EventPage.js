@@ -70,15 +70,19 @@ export default function EventPage() {
 				<br></br>
 				<div className="button-div">
 					{applyLinkClass ? (
+						<>
 						<Link className="link" to="/access">
 							Submit Your Time
 						</Link>
+						<div className='closed'>
+						<br></br>
+						<p className="close">Submissions close 4/2/2023</p>
+					</div>
+					</>
 					) : (
-						<p className="link">Submission Closed</p>
+						<p className="link">Submissions Closed</p>
 					)}
-					<br></br>
-					<br></br>
-					<p className="close">Submissions close 4/2/2023</p>
+					
 				</div>
 			</div>
 			<div className="event-page-list-container">
