@@ -76,7 +76,7 @@ export default function EventPage() {
 						</Link>
 						<div className='closed'>
 						<br></br>
-						<p className="close">Submissions close 4/2/2023</p>
+						<p className="close">Submissions Close 4/2/2023</p>
 					</div>
 					</>
 					) : (
