@@ -51,7 +51,7 @@ export default function EventPage() {
 			setApplyButtonClass(true)
 		}
 	}, [])
-	console.log(applyButtonClass)
+
 	//SHOW A LIST OF ATTENDEES
 
 	if (attendees.length !== 0) {
@@ -87,7 +87,7 @@ export default function EventPage() {
 				<div className="button-div">
 					{!applyButtonClass ? (
 						<>
-						<p className="link">Submissions Begin 3/25</p>
+						<p className="link">Submissions Open 3/25</p>
 						
 						</>
 					) : applyLinkClass ? (
