@@ -92,12 +92,16 @@ export default function RegistrationPage() {
 						<img className="logo" alt="logo" src={logo} />
 					</Link>
 
-					<div className="register-header">Submit Your Time</div>
+					<div className="register-header">Submit Your Time
+          </div>
+          <h3 id="message-container">&nbsp;</h3>
+
 					<form
 						className="register-form"
 						onSubmit={handleAddAttendee}
 						encType="multipart/form"
 					>
+            
 						<div className='input'>
 							<input className='name'
 								placeholder="Full Name"
@@ -134,6 +138,7 @@ export default function RegistrationPage() {
 								onChange={(e) => setGpx(e.target.files[0])}
 							/>
 						</div>
+
 						<button
 							className="register-button"
 							type="submit"
@@ -142,7 +147,7 @@ export default function RegistrationPage() {
 							Submit
 						</button>
 					</form>
-					<h3 id="message-container">&nbsp;</h3>
+					
 					{isLoading && ( // show loading indicator if API call is being made
 						<div className="lds-roller">
 							<div></div>
