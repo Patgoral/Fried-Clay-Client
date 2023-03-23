@@ -12,9 +12,12 @@ export default function EventPage() {
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
-	const targetDate = new Date('2023-04-03')
+	const [applyButtonClass, setApplyButtonClass] = useState(false)
+	const endDate = new Date('2023-04-03')
+	const startDate = new Date('2023-03-25')
 	let attendeeList
 	let messagecontainer
+
 
 	//READ ATTENDEES
 	useEffect(function () {
@@ -37,19 +40,30 @@ export default function EventPage() {
 
 	useEffect(() => {
 		const currentDate = new Date()
-		if (currentDate.getTime() >= targetDate.getTime()) {
+		if (currentDate.getTime() >= endDate.getTime()) {
 			setApplyLinkClass(false)
 		}
 	}, [])
 
+	useEffect(() => {
+		const currentDate = new Date()
+		if (currentDate.getTime() >= startDate.getTime()) {
+			setApplyButtonClass(true)
+		}
+	}, [])
+	console.log(applyButtonClass)
 	//SHOW A LIST OF ATTENDEES
 
 	if (attendees.length !== 0) {
 		attendeeList = attendees.attendees.map((attendee, index) => (
-			<Link className='link' state={{ position: index+1 }} to={`/attendees/${attendee._id}`}>
-			<div className="list-of-attendees" key={attendee._id} >
-				<AttendeeCard attendee={attendee} key={index} index={index} />
-			</div>
+			<Link
+				className="link"
+				state={{ position: index + 1 }}
+				to={`/attendees/${attendee._id}`}
+			>
+				<div className="list-of-attendees" key={attendee._id}>
+					<AttendeeCard attendee={attendee} key={index} index={index} />
+				</div>
 			</Link>
 		))
 		if (!attendees.attendees[0]) {
@@ -65,33 +79,39 @@ export default function EventPage() {
 					<img width="300px" alt="logo" src={logo} />
 				</div>
 
-				<p className='text'>Congratulations on completing the Fried Clay 200k!</p>
-				<p className='text'>Click the button to submit your time!</p>
+				<p className="text">
+					Congratulations on completing the Fried Clay 200k!
+				</p>
+				<p className="text">Click the button to submit your time!</p>
 				<br></br>
 				<div className="button-div">
-					{applyLinkClass ? (
+					{!applyButtonClass ? (
 						<>
-						<Link className="link" to="/access">
-							Submit Your Time
-						</Link>
-						<div className='closed'>
-						<br></br>
-						<p className="close">Submissions Close 4/2/2023</p>
-					</div>
-					</>
+						<p className="link">Submissions Begin 3/25</p>
+						
+						</>
+					) : applyLinkClass ? (
+						<>
+							<Link className="link" to="/access">
+								Submit Your Time
+							</Link>
+							<div className="closed">
+								<br></br>
+								<p className="close">Submissions Close 4/2/2023</p>
+							</div>
+						</>
 					) : (
 						<p className="link">Submissions Closed</p>
 					)}
-					
 				</div>
 			</div>
 			<div className="event-page-list-container">
 				<div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
 					<p>Click a name to view details</p>
-						
+
 					<div className="message-container">{messagecontainer}</div>
-					
+
 					{!isPageLoaded && (
 						<div className="lds-roller">
 							<div></div>
