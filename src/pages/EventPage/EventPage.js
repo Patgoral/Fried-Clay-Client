@@ -13,11 +13,11 @@ export default function EventPage() {
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
-	const endDate = new Date('2023-04-03')
-	const startDate = new Date('2023-03-24')
+	const endDate = new Date('04/03/2023')
+	const startDate = new Date('03/24/2023')
+	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
-
 
 	//READ ATTENDEES
 	useEffect(function () {
@@ -87,8 +87,7 @@ export default function EventPage() {
 				<div className="button-div">
 					{!applyButtonClass ? (
 						<>
-						<p className="link">Submissions Open 3/25</p>
-						
+							<p className="link">Submissions Open 3/25</p>
 						</>
 					) : applyLinkClass ? (
 						<>
