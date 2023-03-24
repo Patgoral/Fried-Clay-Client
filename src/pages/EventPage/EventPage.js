@@ -87,7 +87,7 @@ export default function EventPage() {
 				<div className="button-div">
 					{!applyButtonClass ? (
 						<>
-							<p className="link">Submissions Open 3/25</p>
+							<p id='dead' className="dead">Submissions Open 3/25</p>
 						</>
 					) : applyLinkClass ? (
 						<>
@@ -100,7 +100,7 @@ export default function EventPage() {
 							</div>
 						</>
 					) : (
-						<p className="link">Submissions Closed</p>
+						<p className="dead">Submissions Closed</p>
 					)}
 				</div>
 			</div>
