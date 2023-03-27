@@ -1,10 +1,10 @@
-# TRACKR
+# Fried Clay Leaderboard
 ## An Adventure Race Scoring App
 
 <img width="300px" src='readme_img/logo.png'> 
 
 
-### TRACKR is a web app designed to create an interactive leaderboard for self-supported adventure races
+### FriedClay.com is a web app designed to create an interactive leaderboard for self-supported adventure races
 
 
 <table>
@@ -17,7 +17,8 @@ Many adventure races don't have a timing system in place.  To verify your placin
 
 ## Getting Started:
 
-### See the deployed app here: [Trackr App](https://trackr-client.onrender.com/)
+### See the deployed app here: [Friedclay.com](https://friedclay.com/)
+### See the server source code: [Server Source Code](https://github.com/Patgoral/TRACKR-server2)
 
 <table>
 <tr>
@@ -35,7 +36,7 @@ Many adventure races don't have a timing system in place.  To verify your placin
 <img width="250px" height="250px" src='readme_img/post.png'> 
 
 <img width="250px" height="250px" src='readme_img/user.png'> |
-<img width="250px" height="250px" src='readme_img/update.png'>  |
+<img width="250px" height="250px" src='readme_img/access.png'>  |
 </div>
 
 ---
@@ -51,6 +52,42 @@ Many adventure races don't have a timing system in place.  To verify your placin
 | HTML5      | Mongoose  |
 | MongoDb    | CSS3      |
 | leaflet    | Amazon S3 |
+
+---
+## Challenges
+
+<table>
+<tr>
+<td>
+  This project had a few major challenges I had to deal with to make it functional.  GPX files are massive XML files that list individual lat/long coordinates, a timestamp, and an elevation point for each unique point on a track.  With this event being 130 miles long, these files created a huge data problem.  This image shows a clip of what the GPX file looked like:
+</td>
+</tr>
+</table>
+<img width="600px" src='readme_img/gpx.png'> 
+
+<table>
+<tr>
+<td>
+  Once I got the server to handle the upload of these files, my load times were terrible.  The payload for only 5 uploads was over 1.4 million lines of code, and the page would take roughly 15 seconds to load.  I did some research and found a package called GPX parser which broke that array down into only the lat/long coordinates.  This sped things up, but only by about 2 seconds.  From there I found a technology called encoded Polyline.  This allowed me to take the parsed information, and convert it into an encoded string, which was then decoded once it hit the map component on the front end.
+</td>
+</tr>
+</table>
+
+<img width="600px" src='readme_img/polyline.png'> 
+
+<table>
+<tr>
+<td>
+This sped things up considerably, but since there was so much happening on the server side post request, it would crash the server upon upload.  To handle this I ran yet another parser called Sax to break down the read stream into chunks and make the function far more efficient.  This entire process took the initial payload for 5 uploads from 1.4 million lines, down to around 50.  This also took page render times from 15 seconds down to less than one second. 
+</td>
+</tr>
+</table>
+
+<img width="600px" src='readme_img/code.png'> 
+
+
+
+
 
 
 ---
