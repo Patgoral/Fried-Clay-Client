@@ -6,6 +6,8 @@
 
 ### FriedClay.com is a web app designed to create an interactive leaderboard for self-supported adventure races
 
+#### This app is actually in production use for participants of the 2023 Fried Clay 200k race that I organize.
+
 
 <table>
 <tr>
@@ -23,7 +25,7 @@ Many adventure races don't have a timing system in place.  To verify your placin
 <table>
 <tr>
 <td>
-  Upon loading the page, you are prompted to sign in or sign up for the service.  Once registered and signed in, you will view a leaderboard of eveyone who has already submitted their results.  Clicking the "Submit Your Time" button will allow you to enter your name, time, and upload both an image and GPX file.  If you click on any name on the leaderboard it will show you the details for that participant along with the photo and GPX map data.
+  Upon loading the page, you will view a leaderboard of eveyone who has already submitted their results.  Clicking the "Submit Your Time" button will take you to an access page.  This requires an access code, that has been sent to participants to permit submission.  Once validated, you will see a registration page that will allow you to enter your name, time, and upload both an image and GPX file.  If you click on any name on the leaderboard it will show you the details for that participant along with the photo and GPX map data.
 </td>
 </tr>
 </table>
