@@ -25,4 +25,4 @@ export function removeAttendee(attendeeId){
     return sendRequestToDelete(`${BASE_URL}/${attendeeId}`, 'DELETE')
 }
 
-// 
+// z

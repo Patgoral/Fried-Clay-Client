@@ -7,7 +7,6 @@ import MapComponent from '../MapComponent/MapComponent'
 import logo from '../../../images/fried-clay.png'
 import { Link } from 'react-router-dom'
 
-
 export default function AttendeeDetailPage() {
 	const [attendee, setAttendee] = useState({
 		name: '',
@@ -27,7 +26,7 @@ export default function AttendeeDetailPage() {
 			const singleAttendee = await indexEachAttendee(id)
 			setAttendee(singleAttendee.attendees)
 
-			setIsDataReady(true) 
+			setIsDataReady(true)
 		}
 		getSingleAttendee()
 
@@ -38,39 +37,45 @@ export default function AttendeeDetailPage() {
 
 	return (
 		<>
-      
-        <div className='attendee-detail-container'>
-        {!isDataReady && (
-          <div className="lds-roller">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        )}
-          {isDataReady && (
-			  <div className="attendee-detail">
-            <Link className='logo' to="/"><img width="500px" alt="logo" src={logo} /></Link>
-            <h2>Name: {attendee.name} </h2>
-            <h2>Finishing Time: {elapsedTime(attendee.date)} </h2>
-            <h2>Position: {position ?? 'Check Back Later'}</h2>
+			<div className="attendee-detail-container">
+				{!isDataReady && (
+					<div className="lds-roller">
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+						<div></div>
+					</div>
+				)}
+				{isDataReady && (
+					<div className="attendee-detail">
+						<Link className="logo" to="/">
+							<img width="500px" alt="logo" src={logo} />
+						</Link>
+						<h2>Name: {attendee.name} </h2>
+						<h2>Finishing Time: {elapsedTime(attendee.date)} </h2>
+						<h2>Position: {position ?? 'Check Back Later'}</h2>
 
-            <div className="img">
-              <img alt="attendeeimage" width='400px' src={attendee.image} />
-            </div>
-            <div className="map">
-              <MapComponent gpx={attendee.gpx}/>
-            </div>
+						<div className="img">
+							<img alt="attendeeimage" width="400px" src={attendee.image} />
+						</div><div className='key'>
+            
+            <div className="box red"></div>
+            <p className='key-text' style={{marginRight: "10px"}}>Official Route</p>
           
-       
-      </div>
-      )}
-      </div>
-     
-    </>
-  );
+              <div className="box blue"></div>
+              <p className='key-text'> Uploaded Route</p>
+
+              </div>
+						<div className="map">
+							<MapComponent gpx={attendee.gpx} />
+						</div>
+					</div>
+				)}
+			</div>
+		</>
+	)
 }
