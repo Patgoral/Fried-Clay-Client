@@ -92,6 +92,7 @@ margin-top: 3px;
 
   
 	.key {
+		margin: 0px;
 		height: 20%;
 		padding: 4px;
 		font-size: 60%;
