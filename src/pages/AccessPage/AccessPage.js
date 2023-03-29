@@ -37,7 +37,7 @@ export default function AccessPage() {
             <Link className='link' to="/"><img className="logo" alt="logo" src={logo} /></Link>                
             </div>
 			<div className="form-container">
-            <h2>Enter access code to post result!</h2>
+            <h2 className='access-text'>Enter access code to post result!</h2>
 				<form className="access-form" onSubmit={handleAccessToken}>
                     <div>
 					<input
