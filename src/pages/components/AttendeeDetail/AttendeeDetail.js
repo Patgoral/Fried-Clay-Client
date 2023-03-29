@@ -55,10 +55,11 @@ export default function AttendeeDetailPage() {
 						<Link className="logo" to="/">
 							<img width="500px" alt="logo" src={logo} />
 						</Link>
+            <div className='attendee-info'>
 						<h2>Name: {attendee.name} </h2>
 						<h2>Finishing Time: {elapsedTime(attendee.date)} </h2>
 						<h2>Position: {position ?? 'Check Back Later'}</h2>
-
+            </div>
 						<div className="img">
 							<img alt="attendeeimage" width="400px" src={attendee.image} />
 						</div><div className='key'>

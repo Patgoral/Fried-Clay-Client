@@ -17,7 +17,12 @@
 	
     
 }
-
+.attendee-info {
+	border: 2px solid antiquewhite;
+	margin: 4px;
+	padding: 4px;
+	background-color: gray;
+}
 h2 {
     display: block;
     font-size: 1.5em;
@@ -26,7 +31,7 @@ h2 {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
-	text-shadow: 20px lightblue;
+	color: black;
 	
 }
 
@@ -81,9 +86,10 @@ margin-top: 3px;
   
 	/* adjust the width of the attendee image */
 	.attendee-detail .img img {
-	  width: 80%;
+	  width: 60%;
 	  max-width: 300px;
 	}
+
   
 	.key {
 		height: 20%;
@@ -93,6 +99,14 @@ margin-top: 3px;
 	.box {
 		width: 10px;
 		height: 10px;
+	}
+	.attendee-info {
+		width: 80%;
+		margin-right: 8px;
+		margin-left: 8px;
+		font-size: .8em;
+		padding: 1px;
+
 	}
   }
 

@@ -10,6 +10,8 @@ const decodePolyline = require('decode-google-map-polyline')
 export default function MapComponent({ gpx }) {
   const [polyline, setPolyline] = useState(null)
   const [basePolyline, setBasePolyline] = useState(null)
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     async function getPolyline() {
       const decoded = decodePolyline(gpx)
@@ -38,6 +40,14 @@ export default function MapComponent({ gpx }) {
 
 
 
+  useEffect(() => {
+    if (window.innerWidth < 600) {
+      setIsMobile(true);
+    }
+  }, []);
+
+
+
     if (!polyline) {
     return null
   }
@@ -51,8 +61,8 @@ export default function MapComponent({ gpx }) {
 
   return (
     <MapContainer
-      zoom={10.4}
-      center={polyline[middleIndex]}
+    zoom={isMobile ? 9 : 10.49}
+    center={polyline[middleIndex]}
       scrollWheelZoom={true}
       
     >
