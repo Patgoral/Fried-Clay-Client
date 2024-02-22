@@ -11,7 +11,7 @@
 	display: flex;
 	flex-direction: column;
 	grid-template-columns: auto 1fr;
-	background-color: rgb(7, 75, 49);
+	background-color: rgb(80, 52, 89);
 	margin: 10px;
 	padding: 20px;
 	border-radius: 15px;
@@ -28,7 +28,7 @@
 	flex-direction: column;
 	height: min(32vw, 150px);
 	border-radius: 4px;
-	background-color: lightslategray;
+	background-color: rgb(119, 153, 125);
 }
 
 .event-caption {
@@ -92,7 +92,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: rgb(21, 50, 25);
+	background-color: rgb(69, 48, 73);
 	min-height: auto;
 	margin: 0 10px 30px 10px;
 	border-radius: 15px;
@@ -166,7 +166,7 @@ p {
 	align-self: center;
 	margin: 7px;
 	width: 90%;
-	background-color: darkslategray;
+	background-color: rgb(47, 79, 50);
 	color: antiquewhite;
 	text-decoration: none;
 	border: none;
@@ -182,7 +182,7 @@ p {
 
 .list-of-attendees > div:hover {
 	color: rgb(65, 65, 65);
-	text-shadow: 1px 1px 2px olive;
+	text-shadow: 1px 1px 2px rgb(128, 0, 124);
 }
 
 .link {
