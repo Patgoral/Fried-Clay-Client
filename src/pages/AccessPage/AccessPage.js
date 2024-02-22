@@ -12,6 +12,9 @@ export default function AccessPage() {
         event.preventDefault()
         const secretCode = process.env.REACT_APP_SECRETCODE
         const adminCode = process.env.REACT_APP_ADMINCODE
+        console.log('howdy')
+        console.log(secretCode)
+
 
         if(input.toLowerCase() === secretCode){
             navigate('/register')
