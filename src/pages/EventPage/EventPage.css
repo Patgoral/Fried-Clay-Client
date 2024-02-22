@@ -137,7 +137,7 @@ p {
 }
 
 .message-container {
-	color: yellowgreen;
+	color: rgb(235, 225, 33);
 	font-weight: bold;
 	font-size: min(10.5vw, 44px);
 	margin: 5px;
@@ -166,7 +166,7 @@ p {
 	align-self: center;
 	margin: 7px;
 	width: 90%;
-	background-color: rgb(105, 111, 106);
+	background-color: rgb(71, 71, 71);
 	color: antiquewhite;
 	text-decoration: none;
 	border: none;
@@ -181,7 +181,7 @@ p {
 }
 
 .list-of-attendees > div:hover {
-	color: rgb(65, 65, 65);
+	color: rgb(89, 89, 89);
 	text-shadow: 1px 1px 2px rgb(128, 0, 124);
 }
 
