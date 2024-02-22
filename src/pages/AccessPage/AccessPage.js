@@ -14,7 +14,7 @@ export default function AccessPage() {
         const adminCode = process.env.REACT_APP_ADMINCODE
         console.log('howdy')
         console.log(secretCode)
-        console.log(input.toLowerCase())
+        console.log(adminCode)
 
         if(input.toLowerCase() === secretCode){
             console.log('yeehaw')
