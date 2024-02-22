@@ -13,8 +13,8 @@ export default function EventPage() {
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
-	const endDate = new Date('04/03/2023')
-	const startDate = new Date('03/25/2023')
+	const endDate = new Date('04/06/2023')
+	const startDate = new Date('03/23/2024')
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
@@ -25,7 +25,7 @@ export default function EventPage() {
 			const attendees = await attendeesAPI.showAttendees()
 			attendees.attendees.forEach((attendee) => {
 				const attendeeDate = new Date(attendee.date)
-				const referenceDate = new Date('3/25/2023')
+				const referenceDate = new Date('3/23/2024')
 				attendee.timeDifference = Math.abs(referenceDate - attendeeDate)
 			})
 
@@ -87,7 +87,7 @@ export default function EventPage() {
 				<div className="button-div">
 					{!applyButtonClass ? (
 						<>
-							<p id='dead' className="dead">Submissions Open 3/25</p>
+							<p id='dead' className="dead">Submissions Open 3/23</p>
 						</>
 					) : applyLinkClass ? (
 						<>
@@ -96,7 +96,7 @@ export default function EventPage() {
 							</Link>
 							<div className="closed">
 								<br></br>
-								<p className="close">Submissions Close 4/2/2023</p>
+								<p className="close">Submissions Close 4/6/2024</p>
 							</div>
 						</>
 					) : (
