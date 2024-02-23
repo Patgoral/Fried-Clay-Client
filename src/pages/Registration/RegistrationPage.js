@@ -9,7 +9,7 @@ import logo from '../../images/fried-clay.png'
 export default function RegistrationPage() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
-	const [date, setDate] = useState(new Date('2024-03-01T00:00:00')) 
+	const [date, setDate] = useState(new Date('2024-03-23T00:00:00')) 
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
 	const [isLoading, setIsLoading] = useState(false) 
