@@ -108,6 +108,7 @@ export default function RegistrationPage() {
 								value={name}
 								onChange={handleInputChange}
 							/>
+						<p>Finishing Date/Time</p>
 							<DateTimePicker
 								disableClock={true}
 								className="date-time"
@@ -123,7 +124,7 @@ export default function RegistrationPage() {
                            
 							/>
 
-							<p>Upload Image</p>
+							<p>Upload Finishing Image</p>
 							<input
 								type="file"
 								name="image"
