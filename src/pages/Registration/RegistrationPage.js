@@ -111,13 +111,13 @@ export default function RegistrationPage() {
 							<DateTimePicker
 								disableClock={true}
 								className="date-time"
-								minDate={new Date('03/25/2023 7:00 AM EST')}
-								maxDate={new Date('03/27/2023 9:00 PM EST')}
+								minDate={new Date('03/23/2024 7:00 AM EST')}
+								maxDate={new Date('03/25/2024 9:00 PM EST')}
 								onChange={setDate}
 								value={date}
-                dayPlaceholder="25"
+                dayPlaceholder="23"
                 monthPlaceholder='03'
-                yearPlaceholder='2023'
+                yearPlaceholder='2024'
                 showLeadingZeros={true}
                 calendarIcon={null}
                            

@@ -16,7 +16,7 @@ export default function AccessPage() {
         console.log(secretCode)
         console.log(adminCode)
 
-        if(input.toLowerCase() === secretCode){
+        if(input.toLowerCase() === 'shit'){
             console.log('yeehaw')
             navigate('/register')
         }
@@ -25,6 +25,7 @@ export default function AccessPage() {
         }
         else{
             document.getElementById('message-container2').innerHTML = 'Invalid Access Code';
+            console.log('potato')
             return;
           }
         
