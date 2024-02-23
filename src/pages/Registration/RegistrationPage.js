@@ -108,7 +108,7 @@ export default function RegistrationPage() {
 								value={name}
 								onChange={handleInputChange}
 							/>
-						<p>Finishing Date/Time</p>
+						<p>Finishing Date & Time</p>
 							<DateTimePicker
 								disableClock={true}
 								className="date-time"
