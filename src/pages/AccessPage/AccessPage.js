@@ -16,7 +16,7 @@ export default function AccessPage() {
         console.log(secretCode)
         console.log(adminCode)
 
-        if(input.toLowerCase() === 'shit'){
+        if(input.toLowerCase() === secretCode){
             console.log('yeehaw')
             navigate('/register')
         }
