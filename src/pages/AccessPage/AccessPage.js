@@ -17,15 +17,14 @@ export default function AccessPage() {
         console.log(adminCode)
 
         if(input.toLowerCase() === secretCode){
-            console.log('yeehaw')
             navigate('/register')
         }
-        if(input.toLowerCase() === adminCode){
+        else if(input.toLowerCase() === adminCode){
             navigate('/update')
         }
         else{
             document.getElementById('message-container2').innerHTML = 'Invalid Access Code';
-            console.log('potato')
+            console.log(input)
             return;
           }
         
