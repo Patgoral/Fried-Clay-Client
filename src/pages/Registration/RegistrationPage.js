@@ -112,11 +112,11 @@ export default function RegistrationPage() {
 								disableClock={true}
 								className="date-time"
 								minDate={new Date('03/23/2024 7:00 AM EST')}
-								maxDate={new Date('03/25/2024 9:00 PM EST')}
+								maxDate={new Date('03/26/2024 9:00 PM EST')}
 								onChange={setDate}
 								value={date}
                 dayPlaceholder="23"
-                monthPlaceholder='04'
+                monthPlaceholder='03'
                 yearPlaceholder='2024'
                 showLeadingZeros={true}
                 calendarIcon={null}
