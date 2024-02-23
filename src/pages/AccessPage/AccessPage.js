@@ -12,19 +12,16 @@ export default function AccessPage() {
         event.preventDefault()
         const secretCode = process.env.REACT_APP_SECRETCODE
         const adminCode = process.env.REACT_APP_ADMINCODE
-        console.log('howdy')
-        console.log(secretCode)
-        console.log(adminCode)
+  
 
-        if(input.toLowerCase() === secretCode){
+        if(input.toLowerCase() === secretCode.toLowerCase()){
             navigate('/register')
         }
-        else if(input.toLowerCase() === adminCode){
+        else if(input.toLowerCase() === adminCode.toLowerCase()){
             navigate('/update')
         }
         else{
             document.getElementById('message-container2').innerHTML = 'Invalid Access Code';
-            console.log(input)
             return;
           }
         
