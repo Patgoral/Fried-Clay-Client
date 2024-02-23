@@ -116,7 +116,7 @@ export default function RegistrationPage() {
 								onChange={setDate}
 								value={date}
                 dayPlaceholder="23"
-                monthPlaceholder='03'
+                monthPlaceholder='04'
                 yearPlaceholder='2024'
                 showLeadingZeros={true}
                 calendarIcon={null}
