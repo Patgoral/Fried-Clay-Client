@@ -13,7 +13,7 @@ export default function EventPage() {
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
-	const endDate = new Date('04/06/2024')
+	const endDate = new Date('03/31/2024')
 	const startDate = new Date('3/23/2024')
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
@@ -96,7 +96,7 @@ export default function EventPage() {
 							</Link>
 							<div className="closed">
 								<br></br>
-								<p className="close">Submissions Close 4/6/2024</p>
+								<p className="close">Submissions Close 3/31/2024</p>
 							</div>
 						</>
 					) : (
