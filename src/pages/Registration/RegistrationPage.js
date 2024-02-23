@@ -115,11 +115,11 @@ export default function RegistrationPage() {
 								maxDate={new Date('03/26/2024 9:00 PM EST')}
 								onChange={setDate}
 								value={date}
-                dayPlaceholder="23"
-                monthPlaceholder='03'
-                yearPlaceholder='2024'
-                showLeadingZeros={true}
-                calendarIcon={null}
+								dayPlaceholder="23"
+								monthPlaceholder='03'
+								yearPlaceholder='2024'
+								showLeadingZeros={true}
+								calendarIcon={null}
                            
 							/>
 
