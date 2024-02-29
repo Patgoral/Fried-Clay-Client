@@ -127,10 +127,10 @@ export default function RegistrationPage() {
 
 							>
 							<option value="" disabled>Select Gender</option>
-							<option value="male">Male</option>
-							<option value="female">Female</option>
-							<option value="non-binary">Non-binary</option>
-							<option value="prefer-not-to-say">I prefer not to say</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+							<option value="Non-Binary">Non-Binary</option>
+							<option value="Not Disclosed">I Prefer Not to Say</option>
 						</select>
 
 						<p>Finishing Date & Time</p>
