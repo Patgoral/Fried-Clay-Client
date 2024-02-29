@@ -115,13 +115,12 @@ export default function RegistrationPage() {
 							/>
 						<p>Gender</p>
 						<select 
-							className='name'
+							className='gender'
 							name="gender"
 							value={gender}
 							onChange={handleGenderChange}
 
 							>
-							<option value="">Select Gender Identity</option>
 							<option value="male">Male</option>
 							<option value="female">Female</option>
 							<option value="non-binary">Non-binary</option>
