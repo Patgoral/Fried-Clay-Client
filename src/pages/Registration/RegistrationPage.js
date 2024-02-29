@@ -121,6 +121,7 @@ export default function RegistrationPage() {
 							onChange={handleGenderChange}
 
 							>
+							<option value="" disabled>Select Gender</option>
 							<option value="male">Male</option>
 							<option value="female">Female</option>
 							<option value="non-binary">Non-binary</option>
