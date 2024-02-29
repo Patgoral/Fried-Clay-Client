@@ -113,7 +113,6 @@ export default function RegistrationPage() {
 							className='name'
 							name="gender"
 							value={gender}
-							onChange={handleInputChange}
 							>
 							<option value="">Select Gender Identity</option>
 							<option value="male">Male</option>
