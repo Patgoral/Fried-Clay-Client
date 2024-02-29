@@ -25,7 +25,11 @@ export default function RegistrationPage() {
 				'Name Field Is Required'
 			return
 		}
-
+		if (!gender) {
+			document.getElementById('message-container').innerHTML =
+				'Gender Field Is Required'
+			return
+		}
     if (!date) {
 			document.getElementById('message-container').innerHTML =
 				'Date Field Is Required'
@@ -55,6 +59,7 @@ export default function RegistrationPage() {
 
 		// append the attendee name and date to the formData object
 		formData.append('attendee[name]', name)
+		formData.append('attendee[gender]', gender)
 		formData.append('attendee[date]', date)
 
 		// append the image file to the formData object
