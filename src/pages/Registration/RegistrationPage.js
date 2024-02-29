@@ -108,12 +108,19 @@ export default function RegistrationPage() {
 								value={name}
 								onChange={handleInputChange}
 							/>
-							<input className='name'
-								placeholder="Gender Identity"
-								name="name"
-								value={name}
-								onChange={handleInputChange}
-							/>
+						<select 
+							className='name'
+							name="gender"
+							value={gender}
+							onChange={handleInputChange}
+							>
+							<option value="">Select Gender Identity</option>
+							<option value="male">Male</option>
+							<option value="female">Female</option>
+							<option value="non-binary">Non-binary</option>
+							<option value="prefer-not-to-say">I prefer not to say</option>
+						</select>
+						
 						<p>Finishing Date & Time</p>
 							<DateTimePicker
 								disableClock={true}
