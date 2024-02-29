@@ -9,6 +9,7 @@ import logo from '../../images/fried-clay.png'
 export default function RegistrationPage() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
+	const [gender, setGender] = useState('')
 	const [date, setDate] = useState(new Date('2024-03-23T08:00:00')) 
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
@@ -84,6 +85,10 @@ export default function RegistrationPage() {
 		setName(event.target.value)
 	}
 
+	function handleGenderChange(event) {
+		setGender(event.target.value)
+	}
+
 	return (
 		<div className="wrap-div">
 			<div className="register-page">
@@ -113,6 +118,8 @@ export default function RegistrationPage() {
 							className='name'
 							name="gender"
 							value={gender}
+							onChange={handleGenderChange}
+
 							>
 							<option value="">Select Gender Identity</option>
 							<option value="male">Male</option>
