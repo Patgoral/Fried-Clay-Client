@@ -108,6 +108,7 @@ export default function RegistrationPage() {
 								value={name}
 								onChange={handleInputChange}
 							/>
+						<p>Gender</p>
 						<select 
 							className='name'
 							name="gender"
@@ -120,7 +121,7 @@ export default function RegistrationPage() {
 							<option value="non-binary">Non-binary</option>
 							<option value="prefer-not-to-say">I prefer not to say</option>
 						</select>
-						
+
 						<p>Finishing Date & Time</p>
 							<DateTimePicker
 								disableClock={true}
