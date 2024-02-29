@@ -10,7 +10,7 @@ export default function AccessPage() {
 
     function handleAccessToken(event) {
         event.preventDefault()
-        const secretCode = 123
+        const secretCode = 'shit'
         const adminCode = process.env.REACT_APP_ADMINCODE
   
 
