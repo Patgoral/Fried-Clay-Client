@@ -18,9 +18,9 @@ export default function EventPage() {
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
-	let malePosition
-	let femalePosition
-	let nbPosition
+	let malePosition = ''
+	// let femalePosition
+	// let nbPosition
 
 
 
@@ -70,8 +70,8 @@ export default function EventPage() {
 				to={`/attendees/${attendee._id}`}
 			>
 				<div className="list-of-attendees" key={attendee._id}>
-				{attendee.gender === 'male' && index === 0 && (
-                    malePosition == 1
+				{attendee.gender == 'male' && index === 0 && (
+                    malePosition = 1
                 )}
 					<AttendeeCard attendee={attendee} key={index} index={index} genderPosition={malePosition} />
 				</div>
