@@ -58,6 +58,11 @@ export default function EventPage() {
 	}, [])
 
 	//SHOW A LIST OF ATTENDEES
+	if (attendees.length !== 0) {
+		attendeeList = attendees.attendees.map((attendee, index) => (
+
+	console.log(attendee)
+		))}
 
 
 	if (attendees.length !== 0) {
@@ -70,9 +75,7 @@ export default function EventPage() {
 				to={`/attendees/${attendee._id}`}
 			>
 				<div className="list-of-attendees" key={attendee._id}>
-				{attendee.gender == 'male' && index === 0 && (
-                    malePosition = 1
-                )}
+				
 					<AttendeeCard attendee={attendee} key={index} index={index} genderPosition={malePosition} />
 				</div>
 			</Link>
