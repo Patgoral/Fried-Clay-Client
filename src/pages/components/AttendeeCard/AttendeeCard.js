@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { dateFormatter } from "../../utils/dateFormatter";
 import './AttendeeCard.css'
 
-export default function AttendeeCard({ attendee, index }) {
+export default function AttendeeCard({ attendee, index, genderPosition }) {
    
 
   return (
