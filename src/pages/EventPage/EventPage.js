@@ -18,9 +18,8 @@ export default function EventPage() {
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
-	let malePosition = ''
-	// let femalePosition
-	// let nbPosition
+	let genderPosition 
+
 
 
 
@@ -58,12 +57,6 @@ export default function EventPage() {
 	}, [])
 
 	//SHOW A LIST OF ATTENDEES
-	if (attendees.length !== 0) {
-		attendeeList = attendees.attendees.map((attendee, index) => (
-
-	console.log(attendee)
-		))}
-
 
 	if (attendees.length !== 0) {
 		attendeeList = attendees.attendees.map((attendee, index) => (
@@ -71,12 +64,12 @@ export default function EventPage() {
 		
 			<Link
 				className="link"
-				state={{ position: index + 1 }}
+				state={{ position: index + 1}}
 				to={`/attendees/${attendee._id}`}
 			>
 				<div className="list-of-attendees" key={attendee._id}>
 				
-					<AttendeeCard attendee={attendee} key={index} index={index} genderPosition={malePosition} />
+					<AttendeeCard attendee={attendee} key={index} index={index} />
 				</div>
 			</Link>
 		))
