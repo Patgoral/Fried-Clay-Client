@@ -18,6 +18,11 @@ export default function EventPage() {
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
+	let malePosition
+	let femalePosition
+	let nbPosition
+
+
 
 	//READ ATTENDEES
 	useEffect(function () {
