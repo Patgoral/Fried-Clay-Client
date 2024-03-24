@@ -8,7 +8,7 @@ export default function AttendeeCard({ attendee, index }) {
   return (
     
     <div className='attendee-card' >
-      {index+1}&nbsp;&nbsp;&nbsp;
+      {index+1}&nbsp;&nbsp;&nbsp;{genderPosition};
       <Link className="link" state={{ position: index+1 }} to={`/attendees/${attendee._id}`} style={{ color: "#dbafea"}}>
       {attendee.name}, {dateFormatter(attendee.date)}
       </Link>
