@@ -98,7 +98,6 @@ export default function EventPage() {
 						</>
 					) : applyLinkClass ? (
 						<>
-							
 							<Link className="link" to="/access">
 								Submit Your Time
 							</Link>
@@ -109,8 +108,8 @@ export default function EventPage() {
 							</div>
 						</>
 					) : (
-					<Link className="link" to="/2024">
-2024 Results							</Link>					)}
+						<p className="dead">Submissions Closed</p>
+					)}
 				</div>
 			</div>
 			<div className="event-page-list-container">
