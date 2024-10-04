@@ -110,7 +110,9 @@ export default function EventPage() {
 						</>
 					) : (
 					<Link className="link" to="/2024">
-2024 Results							</Link>					)}
+						2024 Results
+					</Link>	
+				)}
 				</div>
 			</div>
 			<div className="event-page-list-container">
