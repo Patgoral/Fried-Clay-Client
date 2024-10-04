@@ -1,7 +1,7 @@
 // import { checkToken } from '../../utilities/users-services'
 // import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import './EventPage.css'
+import './Results2024.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
