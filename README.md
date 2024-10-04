@@ -4,7 +4,7 @@
 <img width="300px" src='readme_img/logo.png'> 
 
 
-### FriedClay.com is a web app designed to create an interactive leaderboard for self-supported adventure races
+### FriedClay.com is a new web app designed to create an interactive leaderboard for self-supported adventure races
 
 #### This app is actually in production use for participants of the 2023 Fried Clay 200k race that I organize.
 
