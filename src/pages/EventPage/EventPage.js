@@ -13,12 +13,12 @@ export default function EventPage() {
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
-	const endDate = new Date('03/31/2024')
-	const startDate = new Date('3/23/2024')
+	const endDate = new Date('03/30/2025')
+	const startDate = new Date('3/22/2025')
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
-	let genderPosition 
+	// let genderPosition 
 
 
 
@@ -29,7 +29,7 @@ export default function EventPage() {
 			const attendees = await attendeesAPI.showAttendees()
 			attendees.attendees.forEach((attendee) => {
 				const attendeeDate = new Date(attendee.date)
-				const referenceDate = new Date('3/23/2024')
+				const referenceDate = new Date('3/22/2025')
 				attendee.timeDifference = Math.abs(referenceDate - attendeeDate)
 			})
 
