@@ -89,8 +89,7 @@ export default function EventPage() {
 				<p className="text">
 					2024 Results
 				</p>
-				<p className="text">Click the button to submit your time!</p>
-				<br></br>
+			
 				<div className="button-div">
 					{!applyButtonClass ? (
 						<>

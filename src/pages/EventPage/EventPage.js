@@ -110,7 +110,7 @@ export default function EventPage() {
 						</>
 					) : (
 					<Link className="link" to="/2024">
-						2024 Results
+						View Results
 					</Link>	
 				)}
 				</div>
