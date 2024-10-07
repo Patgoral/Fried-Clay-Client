@@ -87,7 +87,7 @@ export default function EventPage() {
 				</div>
 
 				<p className="text">
-					2024 Results
+					Results
 				</p>
 				<p className="text">Click the button to submit your time!</p>
 				<br></br>
