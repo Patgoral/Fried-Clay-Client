@@ -13,8 +13,8 @@ export default function EventPage() {
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
-	const endDate = new Date('03/31/2024')
-	const startDate = new Date('3/23/2024')
+	const endDate = new Date('03/22/2025')
+	const startDate = new Date('3/24/2025')
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
@@ -101,7 +101,7 @@ export default function EventPage() {
 				<div className="button-div">
 					{!applyButtonClass ? (
 						<>
-							<p id='dead' className="dead">Submissions Open 3/23</p>
+							<p id='dead' className="dead">Submissions Open 3/22</p>
 						</>
 					) : applyLinkClass ? (
 						<>
@@ -112,15 +112,15 @@ export default function EventPage() {
 							<div className="closed">
 								<br></br>
 								<p className="close">Final Results Pending Verification</p>
-								<p className="close">Submissions Close 3/31/2024</p>
+								<p className="close">Submissions Close 3/30/2025</p>
 							</div>
 						</>
 					) : (
 					<p className="close">Submissions Close 3/31/2024</p>
 				)}
 				<Link className="link" to="/2024">
-						2024 Results
-					</Link>
+					Past Results
+				</Link>
 				</div>
 
 			</div>
