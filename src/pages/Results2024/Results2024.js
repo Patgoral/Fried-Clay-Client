@@ -24,23 +24,27 @@ export default function EventPage() {
 
 
 	//READ ATTENDEES
-	useEffect(function () {
-		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees()
-			attendees.attendees.forEach((attendee) => {
-				const attendeeDate = new Date(attendee.date)
-				const referenceDate = new Date('3/23/2024')
-				attendee.timeDifference = Math.abs(referenceDate - attendeeDate)
-			})
+//READ ATTENDEES
+useEffect(function () {
+	async function getAllAttendees() {
+		const attendees = await attendeesAPI.showAttendees();
+		
 
-			// Sort the attendees by the time difference in ascending order
-			attendees.attendees.sort((a, b) => a.timeDifference - b.timeDifference)
+		// Filter attendees based on the date range
+		const filteredAttendees = attendees.attendees.filter((attendee) => {
+			const attendeeDate = new Date(attendee.date);
+			return attendeeDate >= startDate && attendeeDate <= endDate;
+		});
 
-			setAttendees(attendees)
-			setIsPageLoaded(true)
-		}
-		getAllAttendees()
-	}, [])
+		// Sort the filtered attendees by date (optional)
+		filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+		setAttendees({ attendees: filteredAttendees });
+		setIsPageLoaded(true);
+	}
+	getAllAttendees();
+}, []);
+
 
 	useEffect(() => {
 		const currentDate = new Date()
