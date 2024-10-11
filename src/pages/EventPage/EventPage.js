@@ -112,7 +112,10 @@ export default function EventPage() {
 					) : (
 					<p className="close">Submissions Close 3/30/2025</p>
 				)}
+			
+				</div>
 				<br></br>
+				<div className="button-div">
 				<Link className="link" to="/2024">
 					Past Results
 				</Link>
