@@ -29,7 +29,7 @@ export default function EventPage() {
 			const attendees = await attendeesAPI.showAttendees();
 			
 			// Define the date range
-			const startDate = new Date('3/24/2024');
+			const startDate = new Date('3/24/2025');
 			const endDate = new Date('3/21/2025');
 	
 			// Filter attendees based on the date range
