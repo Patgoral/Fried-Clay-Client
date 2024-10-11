@@ -95,7 +95,7 @@ export default function EventPage() {
 				<div className="button-div">
 					{!applyButtonClass ? (
 						<>
-							<p id='close' className="close">Submissions Open 3/22</p>
+							<p >Submissions Open 3/22</p>
 						</>
 					) : applyLinkClass ? (
 						<>
