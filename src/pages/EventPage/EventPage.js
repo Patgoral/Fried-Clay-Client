@@ -18,7 +18,7 @@ export default function EventPage() {
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
-	let genderPosition 
+	// let genderPosition 
 
 
 
@@ -26,35 +26,42 @@ export default function EventPage() {
 	//READ ATTENDEES
 	useEffect(function () {
 		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees()
-			attendees.attendees.forEach((attendee) => {
-				const attendeeDate = new Date(attendee.date)
-				const referenceDate = new Date('3/23/2024')
-				attendee.timeDifference = Math.abs(referenceDate - attendeeDate)
-			})
-
-			// Sort the attendees by the time difference in ascending order
-			attendees.attendees.sort((a, b) => a.timeDifference - b.timeDifference)
-
-			setAttendees(attendees)
-			setIsPageLoaded(true)
+			const attendees = await attendeesAPI.showAttendees();
+			
+			// Define the date range
+			const startDate = new Date('3/24/2024');
+			const endDate = new Date('3/21/2025');
+	
+			// Filter attendees based on the date range
+			const filteredAttendees = attendees.attendees.filter((attendee) => {
+				const attendeeDate = new Date(attendee.date);
+				return attendeeDate >= startDate && attendeeDate <= endDate;
+			});
+	
+			// Sort the filtered attendees by date
+			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
+	
+			setAttendees({ attendees: filteredAttendees });
+			setIsPageLoaded(true);
 		}
-		getAllAttendees()
-	}, [])
+		getAllAttendees();
+	}, []);
+	
 
 	useEffect(() => {
-		const currentDate = new Date()
+		const currentDate = new Date();
 		if (currentDate.getTime() >= endDate.getTime()) {
-			setApplyLinkClass(false)
+			setApplyLinkClass(false);
 		}
-	}, [])
+	}, [endDate]); // Add 'endDate' to the dependency array
+	
 
 	useEffect(() => {
 		const currentDate = new Date()
 		if (currentDate.getTime() >= startDate.getTime()) {
 			setApplyButtonClass(true)
 		}
-	}, [])
+	}, [startDate])
 
 	//SHOW A LIST OF ATTENDEES
 
