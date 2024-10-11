@@ -5,7 +5,7 @@ import './EventPage.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
-import logo from '../../images/fried-clay.png'
+import logo from '../../images/FriedClay5_v1-01.png'
 
 export default function EventPage() {
 	// const navigate = useNavigate()
@@ -116,11 +116,13 @@ export default function EventPage() {
 							</div>
 						</>
 					) : (
-					<Link className="link" to="/2024">
-						2024 Results
-					</Link>	
+					<p className="close">Submissions Close 3/31/2024</p>
 				)}
+				<Link className="link" to="/2024">
+						2024 Results
+					</Link>
 				</div>
+
 			</div>
 			<div className="event-page-list-container">
 				<div className="attendees-container">
