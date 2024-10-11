@@ -90,10 +90,7 @@ export default function EventPage() {
 					<img width="300px" alt="logo" src={logo} />
 				</Link>
 
-				<p className="text">
-					Results
-				</p>
-				<p className="text">Click the button to submit your time!</p>
+				<p className="text">Submit Your Time Below</p>
 				<br></br>
 				<div className="button-div">
 					{!applyButtonClass ? (
@@ -113,8 +110,9 @@ export default function EventPage() {
 							</div>
 						</>
 					) : (
-					<p className="close">Submissions Close 3/31/2024</p>
+					<p className="close">Submissions Close 3/30/2025</p>
 				)}
+				<br></br>
 				<Link className="link" to="/2024">
 					Past Results
 				</Link>
