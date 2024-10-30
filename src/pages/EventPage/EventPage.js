@@ -81,12 +81,12 @@ export default function EventPage() {
 	}
 	return (
 		<div className="event-page">
-			{/* <div className="event-page-container-top">
+			<div className="event-page-container-top">
 				<div className="link" to="/">
 					<img width="300px" alt="logo" src={logo} />
 				</div>
 
-				<p className="text">
+				{/* <p className="text">
 					Congratulations on completing the Fried Clay 200k!
 				</p>
 				<p className="text">Click the button to submit your time!</p>
@@ -110,8 +110,8 @@ export default function EventPage() {
 					) : (
 						<p className="dead">Submissions Closed</p>
 					)}
-				</div>
-			</div> */}
+				</div> */}
+			</div>
 			<div className="event-page-list-container">
 				{/* <div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
