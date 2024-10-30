@@ -84,8 +84,8 @@ useEffect(function () {
 		messagecontainer = 'No Results Yet'
 	}
 	return (
-		<div className="event-page">
-			<div className="event-page-container-top">
+		<div className="past-results-page">
+			<div className="past-results-page-container-top">
 				<Link className="link" to="/">
 					<img width="300px" alt="logo" src={logo} />
 				</Link>
@@ -112,13 +112,13 @@ useEffect(function () {
 							</div>
 						</>
 					) : (
-					<Link className="link" to="/2024">
-						2024 Results
-					</Link>	
+					// <Link className="link" to="/2024">
+					// 	2024 Results
+					// </Link>	
 				)}
 				</div>
 			</div>
-			<div className="event-page-list-container">
+			<div className="past-results-page-list-container">
 				<div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
 					<p>Click a name to view details</p>

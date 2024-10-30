@@ -1,4 +1,4 @@
-.event-page {
+.past-results-page {
 	display: grid;
 	justify-content: center;
 	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,7 +7,7 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-.event-page-container-top {
+.past-results-container-top {
 	display: flex;
 	flex-direction: column;
 	grid-template-columns: auto 1fr;
@@ -16,10 +16,10 @@
 	padding: 20px;
 	border-radius: 15px;
 }
-.event-logo {
+.past-results-logo {
 	display: grid;
 }
-.event-logo > img {
+.past-results-logo > img {
 	height: min(32vw, 300px);
 }
 
@@ -88,7 +88,7 @@
 	background-color: rgb(39, 53, 12);
 	color: darkslategray;
 }
-.event-page-list-container {
+.past-results-list-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
