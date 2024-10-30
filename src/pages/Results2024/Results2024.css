@@ -88,7 +88,7 @@
 	background-color: rgb(39, 53, 12);
 	color: darkslategray;
 }
-.past-results-list-container {
+.past-results-page-list-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
