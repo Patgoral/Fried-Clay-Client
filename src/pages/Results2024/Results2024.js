@@ -94,29 +94,7 @@ useEffect(function () {
 					2024 Results
 				</p>
 			
-				<div className="button-div">
-					{!applyButtonClass ? (
-						<>
-							<p id='dead' className="dead">Submissions Open 3/23</p>
-						</>
-					) : applyLinkClass ? (
-						<>
-							
-							<Link className="link" to="/access">
-								Submit Your Time
-							</Link>
-							<div className="closed">
-								<br></br>
-								<p className="close">Final Results Pending Verification</p>
-								<p className="close">Submissions Close 3/31/2024</p>
-							</div>
-						</>
-					) : (
-					// <Link className="link" to="/2024">
-					// 	2024 Results
-					// </Link>	
-				)}
-				</div>
+
 			</div>
 			<div className="past-results-page-list-container">
 				<div className="attendees-container">
