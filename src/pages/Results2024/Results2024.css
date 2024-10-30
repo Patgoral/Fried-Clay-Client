@@ -7,7 +7,7 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
-.past-results-container-top {
+.past-results-page-container-top {
 	display: flex;
 	flex-direction: column;
 	grid-template-columns: auto 1fr;
