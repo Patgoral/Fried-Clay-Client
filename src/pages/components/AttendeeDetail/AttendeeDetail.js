@@ -52,7 +52,7 @@ export default function AttendeeDetailPage() {
 				)}
 				{isDataReady && (
 					<div className="attendee-detail">
-						<Link className="logo" to="/">
+						<Link className="logo" to="/2024">
 							<img width="500px" alt="logo" src={logo} />
 						</Link>
             <div className='attendee-info'>

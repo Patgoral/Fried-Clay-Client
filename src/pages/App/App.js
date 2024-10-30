@@ -2,9 +2,9 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import UpdatePage from '../UpdatePage/UpdatePage'
 import EventPage from '../EventPage/EventPage'
+import Results2024 from '../Results2024/Results2024'
 import RegistrationPage from '../Registration/RegistrationPage'
-import AuthPage from '../AuthPage/AuthPage'
-import NavBar from '../components/NavBar/NavBar'
+// import NavBar from '../components/NavBar/NavBar'
 import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
 import AccessPage from '../AccessPage/AccessPage'
 
@@ -14,6 +14,7 @@ function App() {
 			<>
 				<Routes>
 					<Route path="/" element={<EventPage />} />
+					<Route path="/2024" element={<Results2024/>} />
 					<Route path="/register" element={<RegistrationPage />} />
 					<Route path="/update" element={<UpdatePage />} />
 					<Route path="/access" element={<AccessPage />} />

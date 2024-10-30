@@ -1,11 +1,11 @@
 // import { checkToken } from '../../utilities/users-services'
 // import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import './EventPage.css'
+import './Results2024.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
-import logo from '../../images/FriedClay5_v1-01.png'
+import logo from '../../images/fried-clay.png'
 
 export default function EventPage() {
 	// const navigate = useNavigate()
@@ -13,52 +13,52 @@ export default function EventPage() {
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
-	const endDate = new Date('03/22/2025')
-	const startDate = new Date('3/24/2025')
+	const endDate = new Date('03/31/2024')
+	const startDate = new Date('3/23/2024')
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
-	// let genderPosition 
+	let genderPosition 
 
 
 
 
 	//READ ATTENDEES
-	useEffect(function () {
-		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees();
-			
-	
-			// Filter attendees based on the date range
-			const filteredAttendees = attendees.attendees.filter((attendee) => {
-				const attendeeDate = new Date(attendee.date);
-				return attendeeDate >= startDate && attendeeDate <= endDate;
-			});
-	
-			// Sort the filtered attendees by date
-			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
-	
-			setAttendees({ attendees: filteredAttendees });
-			setIsPageLoaded(true);
-		}
-		getAllAttendees();
-	}, []);
-	
+//READ ATTENDEES
+useEffect(function () {
+	async function getAllAttendees() {
+		const attendees = await attendeesAPI.showAttendees();
+		
+
+		// Filter attendees based on the date range
+		const filteredAttendees = attendees.attendees.filter((attendee) => {
+			const attendeeDate = new Date(attendee.date);
+			return attendeeDate >= startDate && attendeeDate <= endDate;
+		});
+
+		// Sort the filtered attendees by date (optional)
+		filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+		setAttendees({ attendees: filteredAttendees });
+		setIsPageLoaded(true);
+	}
+	getAllAttendees();
+}, []);
+
 
 	useEffect(() => {
-		const currentDate = new Date();
+		const currentDate = new Date()
 		if (currentDate.getTime() >= endDate.getTime()) {
-			setApplyLinkClass(false);
+			setApplyLinkClass(false)
 		}
-	}, [endDate]); // Add 'endDate' to the dependency array
-	
+	}, [])
 
 	useEffect(() => {
 		const currentDate = new Date()
 		if (currentDate.getTime() >= startDate.getTime()) {
 			setApplyButtonClass(true)
 		}
-	}, [startDate])
+	}, [])
 
 	//SHOW A LIST OF ATTENDEES
 
@@ -85,19 +85,19 @@ export default function EventPage() {
 	}
 	return (
 		<div className="event-page">
-			{/* <div className="event-page-container-top">
-				<div className="link" to="/">
 			<div className="event-page-container-top">
 				<Link className="link" to="/">
 					<img width="300px" alt="logo" src={logo} />
 				</Link>
 
-				<p className="text">Submit Your Time Below</p>
-				<br></br>
+				<p className="text">
+					2024 Results
+				</p>
+			
 				<div className="button-div">
 					{!applyButtonClass ? (
 						<>
-							<p id='close' className="close">Submissions Open 3/22</p>
+							<p id='dead' className="dead">Submissions Open 3/23</p>
 						</>
 					) : applyLinkClass ? (
 						<>
@@ -108,19 +108,38 @@ export default function EventPage() {
 							<div className="closed">
 								<br></br>
 								<p className="close">Final Results Pending Verification</p>
-								<p className="close">Submissions Close 3/30/2025</p>
+								<p className="close">Submissions Close 3/31/2024</p>
 							</div>
 						</>
 					) : (
-					<p className="close">Submissions Close 3/30/2025</p>
+					<Link className="link" to="/2024">
+						2024 Results
+					</Link>	
 				)}
-			
 				</div>
-			</div> */}
-
 			</div>
 			<div className="event-page-list-container">
-			<iframe src="https://www.eventbrite.com/e/fried-clay-200k-2025-tickets-1046921529477" width="100%" height="400" />
+				<div className="attendees-container">
+					<div className="attendees-header">Leaderboard</div>
+					<p>Click a name to view details</p>
+
+					<div className="message-container">{messagecontainer}</div>
+
+					{!isPageLoaded && (
+						<div className="lds-roller">
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+							<div></div>
+						</div>
+					)}
+
+					<div className="list-container-overflow">{attendeeList}</div>
+				</div>
 			</div>
 		</div>
 	)
