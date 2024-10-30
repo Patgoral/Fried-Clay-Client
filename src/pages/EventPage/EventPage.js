@@ -5,7 +5,7 @@ import './EventPage.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
-import logo from '../../images/fried-clay.png'
+import logo from '../../images/FriedClay5_v1-01.png'
 
 export default function EventPage() {
 	// const navigate = useNavigate()
@@ -18,7 +18,7 @@ export default function EventPage() {
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
-	let genderPosition 
+	// let genderPosition 
 
 
 
@@ -86,54 +86,9 @@ export default function EventPage() {
 					<img width="300px" alt="logo" src={logo} />
 				</div>
 
-				{/* <p className="text">
-					Congratulations on completing the Fried Clay 200k!
-				</p>
-				<p className="text">Click the button to submit your time!</p>
-				<br></br>
-				<div className="button-div">
-					{!applyButtonClass ? (
-						<>
-							<p id='dead' className="dead">Submissions Open 3/23</p>
-						</>
-					) : applyLinkClass ? (
-						<>
-							<Link className="link" to="/access">
-								Submit Your Time
-							</Link>
-							<div className="closed">
-								<br></br>
-								<p className="close">Final Results Pending Verification</p>
-								<p className="close">Submissions Close 3/31/2024</p>
-							</div>
-						</>
-					) : (
-						<p className="dead">Submissions Closed</p>
-					)}
-				</div> */}
 			</div>
 			<div className="event-page-list-container">
-				{/* <div className="attendees-container">
-					<div className="attendees-header">Leaderboard</div>
-					<p>Click a name to view details</p>
-
-					<div className="message-container">{messagecontainer}</div>
-
-					{!isPageLoaded && (
-						<div className="lds-roller">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					)}
-
-					<div className="list-container-overflow">{attendeeList}</div>
-				</div> */}
+				
 				 <iframe src="https://www.eventbrite.com/e/fried-clay-200k-2025-tickets-1046921529477" width="100%" height="1000" />
 			</div>
 		</div>
