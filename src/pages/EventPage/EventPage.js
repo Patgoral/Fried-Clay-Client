@@ -137,7 +137,7 @@ export default function EventPage() {
 
 					<div className="list-container-overflow">{attendeeList}</div>
 				</div> */}
-				 <iframe src="https://www.halcyondcms.com/platinumDEV3/DirectPet/?cid=1&uid=7761&locid=1" width="100%" height="600" />
+				 <iframe src="https://www.eventbrite.com/e/fried-clay-200k-2025-tickets-1046921529477" width="100%" height="600" />
 			</div>
 		</div>
 	)
