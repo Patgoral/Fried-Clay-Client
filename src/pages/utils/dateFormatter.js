@@ -15,7 +15,11 @@ export const dateFormatter = (date) => {
 }
 
 export const elapsedTime = (formattedDate) => {
-    const targetDate = new Date("3/23/2024 8:00 AM");
+	const date = new Date(formattedDate);
+    const year = date.getFullYear();
+
+    const targetDate = new Date(year === 2025 ? "3/22/2025 8:00 AM" : "3/23/2024 8:00 AM");
+	
     const elapsedMilliseconds = Math.abs(targetDate - new Date(formattedDate));
     const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
     const elapsedMinutes = Math.floor(elapsedSeconds / 60);
