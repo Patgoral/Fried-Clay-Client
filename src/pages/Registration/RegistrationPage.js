@@ -144,8 +144,8 @@ export default function RegistrationPage() {
 								className="date-time"
 								minDate={new Date('03/22/2025 4:30 PM EST')}
 								maxDate={new Date('03/26/2025 9:00 PM EST')}
-								// onChange={setDate}
-								value={date}
+								onChange={setDate}
+								// value={date}
 								dayPlaceholder=""
 								monthPlaceholder=""
 								yearPlaceholder=""

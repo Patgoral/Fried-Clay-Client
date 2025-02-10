@@ -89,7 +89,7 @@ useEffect(function () {
 	return (
 		<div className="event-page">
 			<div className="event-page-container-top">
-				<Link className="link" to="/">
+				<Link className="link" to="/EventPage">
 					<img width="300px" alt="logo" src={logo} />
 				</Link>
 
@@ -115,9 +115,7 @@ useEffect(function () {
 							</div>
 						</>
 					) : (
-					<Link className="link" to="/2025">
-						2025 Results
-					</Link>	
+					<p id='dead' className="dead">Submission Period Closed</p>
 				)}
 				</div>
 			</div>
