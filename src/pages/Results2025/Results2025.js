@@ -57,6 +57,9 @@ useEffect(function () {
 		const currentDate = new Date()
 		if (currentDate.getTime() >= startDate.getTime()) {
 			setApplyButtonClass(true)
+		} else {
+			setApplyButtonClass(true)
+
 		}
 	}, [])
 
