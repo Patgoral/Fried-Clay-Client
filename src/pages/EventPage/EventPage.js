@@ -48,11 +48,14 @@ export default function EventPage() {
 				<br></br>
 					Your registration gets you the GPX route, an in-depth route guide, and a limited edition patch.
 					<br></br>
+					<br></br>
 					We will have a camp setup the night before if you choose to come down the night before!
+					<br></br>
 					<br></br>
 					You will receive more details via email once registered.
 					<br></br>
-					This event will take place rain or shine!
+					<br></br>
+					<b>This event will take place rain or shine!</b>
 					<br></br>
 				</div>
 			</div>
