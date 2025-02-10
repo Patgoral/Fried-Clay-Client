@@ -10,6 +10,13 @@ import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
 import AccessPage from '../AccessPage/AccessPage'
 
 function App() {
+
+	const currentDate = new Date();
+	const startDate = new Date('2025-01-22');
+	const endDate = new Date('2025-04-01');
+
+	const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;
+
 	return (
 		<main className="App">
 			<>
@@ -21,7 +28,7 @@ function App() {
 					<Route path="/update" element={<UpdatePage />} />
 					<Route path="/access" element={<AccessPage />} />
 					<Route path="/attendees/:id" element={<AttendeeDetail />} />
-					<Route path="*" element={<EventPage />} />
+        			<Route path="*" element={isWithinDateRange ? <Results2025 /> : <EventPage />} />
 					<Route path="/attendees/*" element={<EventPage />} />
 					<Route path="/access/*" element={<EventPage />} />
 					<Route path="/register/*" element={<EventPage />} />
