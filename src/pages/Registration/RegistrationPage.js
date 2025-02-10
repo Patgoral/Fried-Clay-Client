@@ -115,7 +115,8 @@ export default function RegistrationPage() {
 						encType="multipart/form"
 					>
             
-						<div className='input register-header'>
+						<div className='input'>
+						<p className="register-header2">Full Name</p>
 							<input className='name'
 								placeholder="Full Name"
 								name="name"
