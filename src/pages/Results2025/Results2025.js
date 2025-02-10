@@ -91,13 +91,13 @@ useEffect(function () {
 				</Link>
 
 				<p className="text">
-					2024 Results
+					2025 Results
 				</p>
 			
 				<div className="button-div">
 					{!applyButtonClass ? (
 						<>
-							<p id='dead' className="dead">Submissions Open 3/23</p>
+							<p id='dead' className="dead">Submissions Open 3/22</p>
 						</>
 					) : applyLinkClass ? (
 						<>
@@ -108,12 +108,12 @@ useEffect(function () {
 							<div className="closed">
 								<br></br>
 								<p className="close">Final Results Pending Verification</p>
-								<p className="close">Submissions Close 3/31/2024</p>
+								<p className="close">Submissions Close 4/1/2025</p>
 							</div>
 						</>
 					) : (
 					<Link className="link" to="/2024">
-						2024 Results
+						2025 Results
 					</Link>	
 				)}
 				</div>
