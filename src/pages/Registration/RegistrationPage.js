@@ -7,7 +7,7 @@ import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../images/fried-clay.png'
+import logo from '../../images/FriedClay5_v1-01.png'
 
 export default function RegistrationPage() {
 	const navigate = useNavigate()
