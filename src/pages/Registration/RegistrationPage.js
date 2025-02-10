@@ -105,8 +105,9 @@ export default function RegistrationPage() {
 						<img className="logo" alt="logo" src={logo} />
 					</Link>
 
-					<div className="register-header">Submit Your Time
-          </div>
+					<div className="register-header">
+						Submit Your Time
+          			</div>
 
 					<form
 						className="register-form"
@@ -114,14 +115,14 @@ export default function RegistrationPage() {
 						encType="multipart/form"
 					>
             
-						<div className='input'>
+						<div className='input register-header'>
 							<input className='name'
 								placeholder="Full Name"
 								name="name"
 								value={name}
 								onChange={handleInputChange}
 							/>
-						<p>Gender</p>
+						<p className="register-header">Gender</p>
 						<select 
 							className='gender'
 							name="gender"
@@ -136,7 +137,7 @@ export default function RegistrationPage() {
 							<option value="Not Disclosed">I Prefer Not to Say</option>
 						</select>
 
-						<p>Finishing Date & Time</p>
+						<p className="register-header">Finishing Date & Time</p>
 							<DateTimePicker
 								disableClock={true}
 								className="date-time"
@@ -152,13 +153,13 @@ export default function RegistrationPage() {
                            
 							/>
 
-							<p>Upload Finishing Image</p>
+							<p className="register-header">Upload Finishing Image</p>
 							<input
 								type="file"
 								name="image"
 								onChange={(e) => setImage(e.target.files[0])}
 							/>
-							<p>Upload GPX File</p>
+							<p className="register-header">Upload GPX File</p>
 
 							<input
 								type="file"
