@@ -12,7 +12,7 @@ import AccessPage from '../AccessPage/AccessPage'
 function App() {
 
 	const currentDate = new Date();
-	const startDate = new Date('2025-01-22');
+	const startDate = new Date('2025-03-22');
 	const endDate = new Date('2025-04-01');
 	
 	const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;

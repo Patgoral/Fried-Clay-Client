@@ -93,7 +93,7 @@ useEffect(function () {
 					<img width="300px" alt="logo" src={logo} />
 				</Link>
 
-				<p className="text">
+				<p className="text submitTitle">
 					2025 Results
 				</p>
 			
@@ -105,7 +105,7 @@ useEffect(function () {
 					) : applyLinkClass ? (
 						<>
 							
-							<Link className="link" to="/access">
+							<Link className="link submitTitle" to="/access">
 								Submit Your Time
 							</Link>
 							<div className="closed">
@@ -115,7 +115,7 @@ useEffect(function () {
 							</div>
 						</>
 					) : (
-					<Link className="link" to="/2024">
+					<Link className="link" to="/2025">
 						2025 Results
 					</Link>	
 				)}
