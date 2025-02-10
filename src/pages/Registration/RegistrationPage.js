@@ -10,7 +10,7 @@ export default function RegistrationPage() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
 	const [gender, setGender] = useState('')
-	const [date, setDate] = useState(new Date('2024-03-23T08:00:00')) 
+	const [date, setDate] = useState(new Date('2054-03-22T08:00:00')) 
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
 	const [isLoading, setIsLoading] = useState(false) 
@@ -137,13 +137,13 @@ export default function RegistrationPage() {
 							<DateTimePicker
 								disableClock={true}
 								className="date-time"
-								minDate={new Date('03/23/2024 4:30 PM EST')}
-								maxDate={new Date('03/26/2024 9:00 PM EST')}
+								minDate={new Date('03/22/2025 4:30 PM EST')}
+								maxDate={new Date('03/26/2025 9:00 PM EST')}
 								onChange={setDate}
 								value={date}
-								dayPlaceholder="23"
+								dayPlaceholder="22"
 								monthPlaceholder='03'
-								yearPlaceholder='2024'
+								yearPlaceholder='2025'
 								showLeadingZeros={true}
 								calendarIcon={null}
                            
