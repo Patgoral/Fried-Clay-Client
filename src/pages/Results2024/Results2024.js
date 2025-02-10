@@ -90,7 +90,7 @@ useEffect(function () {
 					<img width="300px" alt="logo" src={logo} />
 				</Link>
 
-				<p className="text">
+				<p className="text submitTitle">
 					2024 Results
 				</p>
 			

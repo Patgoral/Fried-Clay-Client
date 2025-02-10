@@ -41,10 +41,9 @@
 }
 .button-div {
     display: flex;
-    justify-content: space-between; /* Space between the buttons */
     align-items: center;            /* Vertically center items */
     flex-wrap: wrap;                /* Allow items to wrap in smaller screens */
-    gap: 20px;                      /* Gap between buttons */
+    gap: 10px;                      /* Gap between buttons */
     width: 100%;                    /* Ensure it takes the full width of the container */
     max-width: 800px;               /* Optional: set a max-width for better alignment */
     margin: 0 auto;                 /* Center the button container horizontally */

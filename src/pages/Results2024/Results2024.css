@@ -84,6 +84,16 @@
 	text-decoration: none;
 }
 
+.submitTitle{
+    font-size: 24px;
+    color: white;
+    margin: 20px auto;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px antiquewhite;
+
+}
+
+
 .registration-container > div > button:hover {
 	background-color: rgb(39, 53, 12);
 	color: darkslategray;
