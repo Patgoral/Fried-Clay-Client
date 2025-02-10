@@ -2,6 +2,9 @@ import { useNavigate } from 'react-router-dom'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import './RegistrationPage.css'
 import DateTimePicker from 'react-datetime-picker'
+import 'react-datetime-picker/dist/DateTimePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-clock/dist/Clock.css';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/fried-clay.png'
@@ -10,7 +13,7 @@ export default function RegistrationPage() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
 	const [gender, setGender] = useState('')
-	const [date, setDate] = useState(new Date('2054-03-22T08:00:00')) 
+	const [date, setDate] = useState(new Date('2025-03-22T08:00:00')) 
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
 	const [isLoading, setIsLoading] = useState(false) 
