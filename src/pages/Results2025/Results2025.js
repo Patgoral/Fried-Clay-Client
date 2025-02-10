@@ -13,7 +13,7 @@ export default function EventPage() {
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
-	const endDate = new Date('04/01/2025')
+	const endDate = new Date('03/30/2025')
 	const startDate = new Date('3/22/2025')
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
@@ -108,7 +108,7 @@ useEffect(function () {
 							<div className="closed">
 								<br></br>
 								<p className="close">Final Results Pending Verification</p>
-								<p className="close">Submissions Close 4/1/2025</p>
+								<p className="close">Submissions Close 3/29/2025</p>
 							</div>
 						</>
 					) : (
