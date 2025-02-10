@@ -15,6 +15,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<EventPage />} />
 					<Route path="/2024" element={<Results2024/>} />
+					<Route path="/2025" element={<Results2025/>} />
 					<Route path="/register" element={<RegistrationPage />} />
 					<Route path="/update" element={<UpdatePage />} />
 					<Route path="/access" element={<AccessPage />} />

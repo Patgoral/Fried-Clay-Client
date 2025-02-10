@@ -1,7 +1,7 @@
 // import { checkToken } from '../../utilities/users-services'
 // import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import './EventPage.css'
+import './Results2025.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
@@ -13,8 +13,8 @@ export default function EventPage() {
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
-	const endDate = new Date('03/31/2024')
-	const startDate = new Date('3/23/2024')
+	const endDate = new Date('04/01/2025')
+	const startDate = new Date('3/22/2025')
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
@@ -24,23 +24,27 @@ export default function EventPage() {
 
 
 	//READ ATTENDEES
-	useEffect(function () {
-		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees()
-			attendees.attendees.forEach((attendee) => {
-				const attendeeDate = new Date(attendee.date)
-				const referenceDate = new Date('3/23/2024')
-				attendee.timeDifference = Math.abs(referenceDate - attendeeDate)
-			})
+//READ ATTENDEES
+useEffect(function () {
+	async function getAllAttendees() {
+		const attendees = await attendeesAPI.showAttendees();
+		
 
-			// Sort the attendees by the time difference in ascending order
-			attendees.attendees.sort((a, b) => a.timeDifference - b.timeDifference)
+		// Filter attendees based on the date range
+		const filteredAttendees = attendees.attendees.filter((attendee) => {
+			const attendeeDate = new Date(attendee.date);
+			return attendeeDate >= startDate && attendeeDate <= endDate;
+		});
 
-			setAttendees(attendees)
-			setIsPageLoaded(true)
-		}
-		getAllAttendees()
-	}, [])
+		// Sort the filtered attendees by date (optional)
+		filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+		setAttendees({ attendees: filteredAttendees });
+		setIsPageLoaded(true);
+	}
+	getAllAttendees();
+}, []);
+
 
 	useEffect(() => {
 		const currentDate = new Date()
@@ -82,22 +86,22 @@ export default function EventPage() {
 	return (
 		<div className="event-page">
 			<div className="event-page-container-top">
-				<div className="link" to="/">
+				<Link className="link" to="/">
 					<img width="300px" alt="logo" src={logo} />
-				</div>
+				</Link>
 
-				{/* <p className="text">
-					Congratulations on completing the Fried Clay 200k!
+				<p className="text">
+					2024 Results
 				</p>
-				<p className="text">Click the button to submit your time!</p> */}
-				<br></br>
+			
 				<div className="button-div">
-					{/* {!applyButtonClass ? (
+					{!applyButtonClass ? (
 						<>
 							<p id='dead' className="dead">Submissions Open 3/23</p>
 						</>
 					) : applyLinkClass ? (
 						<>
+							
 							<Link className="link" to="/access">
 								Submit Your Time
 							</Link>
@@ -108,18 +112,14 @@ export default function EventPage() {
 							</div>
 						</>
 					) : (
-						<p className="dead">Submissions Closed</p>
-					)} */}
 					<Link className="link" to="/2024">
-					 2024 Results
-					</Link>
-					<Link className="link" to="/2025">
-					 2025 Results
-					</Link>
+						2024 Results
+					</Link>	
+				)}
 				</div>
 			</div>
 			<div className="event-page-list-container">
-				{/* <div className="attendees-container">
+				<div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
 					<p>Click a name to view details</p>
 
@@ -139,8 +139,7 @@ export default function EventPage() {
 					)}
 
 					<div className="list-container-overflow">{attendeeList}</div>
-				</div> */}
-				 <iframe src="https://www.eventbrite.com/e/fried-clay-200k-2025-tickets-1046921529477" width="100%" height="600" />
+				</div>
 			</div>
 		</div>
 	)
