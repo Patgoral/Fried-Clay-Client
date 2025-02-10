@@ -2,6 +2,7 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 import UpdatePage from '../UpdatePage/UpdatePage'
 import EventPage from '../EventPage/EventPage'
+import Results2023 from '../Results2024/Results2023'
 import Results2024 from '../Results2024/Results2024'
 import Results2025 from '../Results2025/Results2025'
 import RegistrationPage from '../Registration/RegistrationPage'
@@ -23,6 +24,7 @@ function App() {
 				<Routes>
 					{/* <Route path="/" element={<EventPage />} /> */}
 					<Route path="/" element={isWithinDateRange ? <Results2025 /> : <EventPage />} />
+					<Route path="/2023" element={<Results2023/>} />
 					<Route path="/2024" element={<Results2024/>} />
 					<Route path="/2025" element={<Results2025/>} />
 					<Route path="/register" element={<RegistrationPage />} />
