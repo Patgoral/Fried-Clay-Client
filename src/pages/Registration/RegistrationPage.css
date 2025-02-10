@@ -42,8 +42,14 @@ body{
     font-weight: bold;
     text-shadow: 1px 1px 2px antiquewhite;
 
-
 }
+
+.register-header2{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
 .register-form{
     display: grid;
     grid-template-columns: 1fr;

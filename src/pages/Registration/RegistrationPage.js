@@ -122,7 +122,7 @@ export default function RegistrationPage() {
 								value={name}
 								onChange={handleInputChange}
 							/>
-						<p className="register-header">Gender</p>
+						<p className="register-header2">Gender</p>
 						<select 
 							className='gender'
 							name="gender"
@@ -137,7 +137,7 @@ export default function RegistrationPage() {
 							<option value="Not Disclosed">I Prefer Not to Say</option>
 						</select>
 
-						<p className="register-header">Finishing Date & Time</p>
+						<p className="register-header2">Finishing Date & Time</p>
 							<DateTimePicker
 								disableClock={true}
 								className="date-time"
@@ -153,13 +153,13 @@ export default function RegistrationPage() {
                            
 							/>
 
-							<p className="register-header">Upload Finishing Image</p>
+							<p className="register-header2">Upload Finishing Image</p>
 							<input
 								type="file"
 								name="image"
 								onChange={(e) => setImage(e.target.files[0])}
 							/>
-							<p className="register-header">Upload GPX File</p>
+							<p className="register-header2">Upload GPX File</p>
 
 							<input
 								type="file"

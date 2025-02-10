@@ -12,23 +12,24 @@ import AccessPage from '../AccessPage/AccessPage'
 function App() {
 
 	const currentDate = new Date();
-	const startDate = new Date('2025-01-22');
+	const startDate = new Date('2025-03-22');
 	const endDate = new Date('2025-04-01');
-
+	
 	const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;
 
 	return (
 		<main className="App">
 			<>
 				<Routes>
-					<Route path="/" element={<EventPage />} />
+					{/* <Route path="/" element={<EventPage />} /> */}
+					<Route path="/" element={isWithinDateRange ? <Results2025 /> : <EventPage />} />
 					<Route path="/2024" element={<Results2024/>} />
 					<Route path="/2025" element={<Results2025/>} />
 					<Route path="/register" element={<RegistrationPage />} />
 					<Route path="/update" element={<UpdatePage />} />
 					<Route path="/access" element={<AccessPage />} />
 					<Route path="/attendees/:id" element={<AttendeeDetail />} />
-        			<Route path="*" element={isWithinDateRange ? <Results2025 /> : <EventPage />} />
+					<Route path="*" element={<EventPage />} />
 					<Route path="/attendees/*" element={<EventPage />} />
 					<Route path="/access/*" element={<EventPage />} />
 					<Route path="/register/*" element={<EventPage />} />
