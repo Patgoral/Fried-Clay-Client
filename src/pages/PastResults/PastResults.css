@@ -142,7 +142,7 @@ p {
 }
 
 .message-container {
-	color: rgb(235, 225, 33);
+	color: rgb(255, 0, 0);
 	font-weight: bold;
 	font-size: min(10.5vw, 44px);
 	margin: 5px;

@@ -66,7 +66,7 @@ body{
     margin: 10px 0 10px 16px;
     text-align: center;
 }
-.register-button{
+.register-button {
     display: grid;
     margin: auto;
     width: 30%;
@@ -75,6 +75,12 @@ body{
     border-radius: 10px;
 }
 
+@media (max-width: 600px) {
+    .register-button {
+        width: 80%; /* Adjust width on smaller screens */
+        font-size: 18px; /* Optionally adjust font size on smaller screens */
+    }
+}
 
 .name{
    
