@@ -112,22 +112,26 @@
 	background-color: rgb(39, 53, 12);
 	color: darkslategray;
 }
+.video-frame {
+    width: 100%; /* Full width for responsiveness */
+    max-width: 560px; /* Restricts width on larger screens */
+    aspect-ratio: 16 / 9; /* Ensures correct video proportions */
+    border-radius: 10px; /* Optional: rounded corners */
+}
+
+/* Ensures proper spacing and centering */
 .event-page-list-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: rgb(69, 48, 73);
     width: 100%;
-    margin: 0 10px 30px 10px;
+    max-width: 600px; /* Prevents excessive stretching */
+    margin: 10px auto 30px auto; /* Centers horizontally and adds vertical spacing */
+    padding: 10px; /* Adds inner spacing */
     border-radius: 15px;
 }
-.video-frame {
-    width: 100%; /* Ensures full width on smaller screens */
-    max-width: 560px; /* Restricts width on larger screens */
-    aspect-ratio: 16 / 9; /* Maintains proper video ratio */
-    border-radius: 10px; /* Optional: adds rounded corners */
-    margin: 10px 0; /* Adds vertical margin */
-}
+
 .event-desc-container {
 	display: flex;
 	flex-direction: column;
