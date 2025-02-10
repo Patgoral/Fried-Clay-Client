@@ -36,7 +36,13 @@ export default function EventPage() {
 				</div>
 			</div>
 			<div className="event-page-list-container">
-				 <iframe src="https://www.eventbrite.com/e/fried-clay-200k-2025-tickets-1046921529477" width="100%" height="600" />
+				<iframe width="560" height="315" 
+					src="https://www.youtube.com/embed/G6uKLOmRxuE" 
+					title="YouTube video player" 
+					frameborder="0" 
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+					allowfullscreen>
+				</iframe>
 			</div>
 		</div>
 	)
