@@ -40,42 +40,48 @@
 	padding-bottom: 10px;
 }
 .button-div {
-    display: flex;               /* Flexbox for row layout */
-    justify-content: space-between;  /* Space between the buttons in a row */
-    align-items: center;         /* Center vertically */
-    padding: 5px 5px 10px 0;
+    display: flex;
+    justify-content: space-between; /* Space between the buttons */
+    align-items: center;            /* Vertically center items */
+    flex-wrap: wrap;                /* Allow items to wrap in smaller screens */
+    gap: 20px;                      /* Gap between buttons */
+    width: 100%;                    /* Ensure it takes the full width of the container */
+    max-width: 800px;               /* Optional: set a max-width for better alignment */
+    margin: 0 auto;                 /* Center the button container horizontally */
+}
+
+.button-div > .link {
+    background-color: rgb(82, 97, 171);
+    color: antiquewhite;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;             /* Adjust padding for consistent size */
+    text-align: center;
+    font-size: 16px;                /* Fixed font size for consistency */
+    text-decoration: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-shadow: 2px 1px 2px black;
+    font-weight: bold;
+    width: 30%;                     /* Make each button 30% of the container width */
+    min-width: 150px;               /* Ensure buttons don't get too small on mobile */
+    text-align: center;
 }
 
 @media (max-width: 600px) {
     .button-div {
-        flex-direction: column;  /* Stack buttons vertically on smaller screens */
-        align-items: flex-start;  /* Align items to the start on small screens */
+        flex-direction: column;  /* Stack buttons vertically */
+        align-items: center;     /* Center buttons horizontally */
     }
 
-    .button-div a,
-    .button-div .link {
-        margin-right: 0;  /* Remove right margin when stacked vertically */
-        margin-bottom: 10px;  /* Add space between buttons */
+    .button-div > .link {
+        width: 100%;             /* Make buttons take full width on small screens */
+        margin-bottom: 10px;     /* Space between stacked buttons */
     }
 }
 
-.button-div > .link {
-	width: 80%;
-	background-color: rgb(82, 97, 171);
-	color: antiquewhite;
-	border: none;
-	border-radius: 10px;
-	padding: 8px 16px;
-	text-align: center;
-	font-size: min(5vw, 24px);
-	text-decoration: none;
-	transition-duration: 0.4s;
-	cursor: pointer;
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	text-shadow: 2px 1px 2px black;
-	font-weight: bold;
-	
-}
+
 
 .button-div > .link:hover {
 	color: rgb(65, 65, 65);
