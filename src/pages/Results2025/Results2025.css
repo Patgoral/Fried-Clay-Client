@@ -39,13 +39,13 @@
 .event-caption {
 	padding-bottom: 10px;
 }
-.button-div {
+.heading-div {
 	align-self: center;
 	padding: 5px 0 10px 0;
 	text-decoration: none;
 }
 
-.button-div > .link {
+.heading-div > .link {
 	width: 80%;
 	background-color: rgb(82, 97, 171);
 	color: antiquewhite;
@@ -62,12 +62,12 @@
 	font-weight: bold;
 }
 
-.button-div > .link:hover {
+.heading-div > .link:hover {
 	color: rgb(65, 65, 65);
 	text-decoration: none;
 }
 
-.button-div > .dead {
+.heading-div > .dead {
 	width: 80%;
 	background-color: darkslategray;
 	color: antiquewhite;
@@ -84,7 +84,7 @@
 	font-weight: bold;
 }
 
-.button-div > .dead:hover {
+.heading-div > .dead:hover {
 	color: red;
 	text-decoration: none;
 }

@@ -40,12 +40,12 @@
 	padding-bottom: 10px;
 }
 .button-div {
-    display: flex;          /* Use flexbox */
-    flex-wrap: wrap;        /* Allow wrapping on smaller screens */
-    justify-content: space-between; /* Add space between the items on large screens */
-    align-items: center;    /* Vertically align items */
+    display: flex;               /* Flexbox for row layout */
+    justify-content: space-between;  /* Space between the buttons in a row */
+    align-items: center;         /* Center vertically */
     padding: 5px 5px 10px 0;
 }
+
 @media (max-width: 600px) {
     .button-div {
         flex-direction: column;  /* Stack buttons vertically on smaller screens */

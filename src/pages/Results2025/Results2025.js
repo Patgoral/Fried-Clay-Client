@@ -97,7 +97,7 @@ useEffect(function () {
 					2025 Results
 				</p>
 			
-				<div className="button-div">
+				<div className="heading-div">
 					{!applyButtonClass ? (
 						<>
 							<p id='dead' className="dead">Submissions Open 3/22</p>
