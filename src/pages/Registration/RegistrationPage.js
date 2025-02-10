@@ -13,7 +13,7 @@ export default function RegistrationPage() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
 	const [gender, setGender] = useState('')
-	const [date, setDate] = useState(new Date('2025-03-22T08:00:00')) 
+	const [date, setDate] = useState('') 
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
 	const [isLoading, setIsLoading] = useState(false) 
@@ -145,7 +145,7 @@ export default function RegistrationPage() {
 								minDate={new Date('03/22/2025 4:30 PM EST')}
 								maxDate={new Date('03/26/2025 9:00 PM EST')}
 								onChange={setDate}
-								// value={date}
+								value={date}
 								dayPlaceholder=""
 								monthPlaceholder=""
 								yearPlaceholder=""
