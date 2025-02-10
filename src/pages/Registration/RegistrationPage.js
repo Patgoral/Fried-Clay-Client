@@ -145,8 +145,8 @@ export default function RegistrationPage() {
 								onChange={setDate}
 								value={date}
 								dayPlaceholder=""
-								monthPlaceholder=''
-								yearPlaceholder=''
+								monthPlaceholder=""
+								yearPlaceholder=""
 								showLeadingZeros={true}
 								calendarIcon={null}
                            
