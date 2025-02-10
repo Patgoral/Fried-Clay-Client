@@ -131,7 +131,15 @@
     padding: 10px; /* Adds inner spacing */
     border-radius: 15px;
 }
-
+.event-desc {
+    max-width: 600px; /* Prevents overly wide text */
+    text-align: center; /* Centers text */
+    margin-top: 15px; /* Adds spacing from video */
+    padding: 10px;
+    color: antiquewhite; /* Adjust for readability */
+    font-size: 1rem;
+    line-height: 1.4;
+}
 .event-desc-container {
 	display: flex;
 	flex-direction: column;
