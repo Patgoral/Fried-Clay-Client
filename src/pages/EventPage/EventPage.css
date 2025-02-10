@@ -126,7 +126,6 @@
     align-items: center;
     background-color: rgb(69, 48, 73);
     width: 100%;
-    max-width: 600px; /* Prevents excessive stretching */
     margin: 10px auto 30px auto; /* Centers horizontally and adds vertical spacing */
     padding: 10px; /* Adds inner spacing */
     border-radius: 15px;
