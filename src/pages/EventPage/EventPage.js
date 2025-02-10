@@ -36,7 +36,7 @@ export default function EventPage() {
 				</div>
 			</div>
 			<div className="event-page-list-container">
-				<iframe width="560" height="315" 
+				<iframe className="video-frame" 
 					src="https://www.youtube.com/embed/G6uKLOmRxuE" 
 					title="YouTube video player" 
 					frameborder="0" 

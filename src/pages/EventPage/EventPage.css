@@ -121,6 +121,13 @@
     margin: 0 10px 30px 10px;
     border-radius: 15px;
 }
+.video-frame {
+    width: 100%; /* Ensures full width on smaller screens */
+    max-width: 560px; /* Restricts width on larger screens */
+    aspect-ratio: 16 / 9; /* Maintains proper video ratio */
+    border-radius: 10px; /* Optional: adds rounded corners */
+    margin: 10px 0; /* Adds vertical margin */
+}
 .event-desc-container {
 	display: flex;
 	flex-direction: column;
