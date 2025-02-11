@@ -24,7 +24,7 @@ export default function PastResults() {
 				<div className="button-div">
 					
 	
-						{today >= targetDate && (
+						{today <= targetDate && (
 							<Link className="link" to="/2025">
 								2025 Results
 							</Link>
