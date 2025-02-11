@@ -71,7 +71,7 @@ useEffect(function () {
 		<div className="past-results-page">
 			<div className="past-results-page-container-top">
 				<Link className="link" to="/">
-					<img width="300px" alt="logo" src={logo} />
+					<img width="200px" alt="logo" src={logo} />
 				</Link>
 
 				<p className="text submitTitle">
