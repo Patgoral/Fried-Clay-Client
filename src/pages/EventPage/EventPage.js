@@ -28,6 +28,11 @@ export default function EventPage() {
 				  Past Results
 				</Link>
 
+				<a className="link" href="mailto:patpattersonridesbikes@gmail.com">
+				Contact
+				</a>
+
+
 				
 
 					
