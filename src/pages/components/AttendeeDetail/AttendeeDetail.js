@@ -4,6 +4,7 @@ import { indexEachAttendee } from '../../../utilities/attendees-api'
 import { useState, useEffect } from 'react'
 import { elapsedTime } from '../../utils/dateFormatter'
 import MapComponent from '../MapComponent/MapComponent'
+import logo2023 from '../../../images/fc23logo.png'
 import logo2024 from '../../../images/fried-clay.png'
 import logo2025 from '../../../images/FriedClay5_v1-01.png'
 import { Link } from 'react-router-dom'
@@ -37,10 +38,9 @@ export default function AttendeeDetailPage() {
 	}, [id])
 
 	const year = attendee.date ? new Date(attendee.date).getFullYear() : null;
-	const logoToShow = year === 2024 ? logo2024 : logo2025;
-	const linkTo = year === 2024 ? '/2024' : '/2025';
-	console.log(year);
-
+	const logoToShow = year === 2023 ? logo2023 : year === 2024 ? logo2024 : logo2025;
+	const linkTo = year === 2023 ? '/2023' : year === 2024 ? '/2024' : '/2025';
+	
 	return (
 		<>
 			<div className="attendee-detail-container">
@@ -59,7 +59,7 @@ export default function AttendeeDetailPage() {
 				{isDataReady && (
 					<div className="attendee-detail">
 						<Link className="logo" to={linkTo}>
-							<img width="500px" alt="logo" src={logoToShow} />
+							<img width="300px" alt="logo" src={logoToShow} />
 						</Link>
 			
             <div className='attendee-info'>
@@ -69,7 +69,7 @@ export default function AttendeeDetailPage() {
 						<h2>Overall Position: {position ?? 'Check Back Later'}</h2>
             </div>
 						<div className="img">
-							<img alt="attendeeimage" width="400px" src={attendee.image} />
+							<img alt="attendeeimage" width="250px" src={attendee.image} />
 						</div><div className='key'>
             
             <div className="box red"></div>
