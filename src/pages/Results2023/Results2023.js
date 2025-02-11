@@ -11,14 +11,11 @@ export default function EventPage() {
 	// const navigate = useNavigate()
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
-	const [applyLinkClass, setApplyLinkClass] = useState(true)
-	const [applyButtonClass, setApplyButtonClass] = useState(false)
 	const endDate = new Date('03/30/2023')
 	const startDate = new Date('3/25/2023')
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
-	// let genderPosition 
 
 
 
@@ -57,7 +54,7 @@ useEffect(function () {
 		const currentDate = new Date()
 		if (currentDate.getTime() >= startDate.getTime()) {
 			setApplyButtonClass(true)
-		} 
+		}
 	}, [])
 
 	//SHOW A LIST OF ATTENDEES
@@ -84,30 +81,27 @@ useEffect(function () {
 		messagecontainer = 'No Results Yet'
 	}
 	return (
-		<div className="event-page">
-			<div className="event-page-container-top">
-				<Link className="link" to="/EventPage">
-					<img width="200px" alt="logo" src={logo} />
+		<div className="past-results-page">
+			<div className="past-results-page-container-top">
+				<Link className="link" to="/">
+					<img width="300px" alt="logo" src={logo} />
 				</Link>
 
 				<p className="text submitTitle">
-					2023 Results
+					2024 Results
 				</p>
-
 				<div className="button-div">						
 					<Link className="link" to="/PastResults">
 					 	Back To Past Results
 					</Link>
 				</div>
-			
 
 			</div>
-			<div className="event-page-list-container">
+			<div className="past-results-page-list-container">
 				<div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
 					<p>Click a name to view details</p>
 
-					<div className="message-container">{messagecontainer}</div>
 
 					{!isPageLoaded && (
 						<div className="lds-roller">
