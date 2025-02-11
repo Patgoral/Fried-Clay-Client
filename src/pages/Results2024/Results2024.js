@@ -93,7 +93,11 @@ useEffect(function () {
 				<p className="text submitTitle">
 					2024 Results
 				</p>
-			
+				<div className="button-div">						
+					<Link className="link" to="/PastResults">
+					 	Results
+					</Link>
+				</div>
 
 			</div>
 			<div className="past-results-page-list-container">
