@@ -45,6 +45,7 @@
     flex-wrap: wrap; /* Allow wrapping if needed */
     gap: 10px; /* Adds space between buttons */
     width: 100%; /* Make sure it takes full width */
+	max-width: 100%; /* Make sure it takes full width */
     padding: 5px 0 10px 0;
 }
 
