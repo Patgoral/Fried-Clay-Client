@@ -5,7 +5,7 @@ import './Results2023.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
-import logo from '../../images/FriedClay5_v1-01.png'
+import logo from '../../images/fc23logo.png'
 
 export default function EventPage() {
 	// const navigate = useNavigate()
