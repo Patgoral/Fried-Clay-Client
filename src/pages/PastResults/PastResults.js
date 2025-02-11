@@ -6,7 +6,7 @@ import logo from '../../images/FriedClay5_v1-01.png'
 
 export default function PastResults() {
 
-	const targetDate = new Date("2025-01-22");
+	const targetDate = new Date("2025-03-22");
 	const today = new Date();
     today.setHours(0, 0, 0, 0);
 
