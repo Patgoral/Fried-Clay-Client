@@ -1,15 +1,11 @@
 .event-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px; /* Add this line if you want a max width constraint */
-    margin: 0 auto; /* Center on page if there's max-width */
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	display: grid;
+	justify-content: center;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .event-page-container-top {
@@ -45,6 +41,7 @@
     flex-direction: column; /* Stacks children vertically */
     align-items: center; /* Centers children horizontally */
 }
+
 
 .heading-div > .link {
 	width: 80%;

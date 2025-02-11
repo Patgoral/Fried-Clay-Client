@@ -106,9 +106,7 @@ useEffect(function () {
 							<Link className="link submitTitle" to="/access">
 								Submit Your Time
 							</Link>
-							<Link className="link" to="/PastResults">
-								Back To Past Results
-							</Link>
+						
 								
 							<div className="closed">
 								<br></br>
