@@ -105,7 +105,6 @@ useEffect(function () {
 					<div className="attendees-header">Leaderboard</div>
 					<p>Click a name to view details</p>
 
-					<div className="message-container">{messagecontainer}</div>
 
 					{!isPageLoaded && (
 						<div className="lds-roller">

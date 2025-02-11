@@ -21,36 +21,25 @@ export default function PastResults() {
 		
 				<br></br>
 				<div className="button-div">
-	
-					<Link className="link" to="/EventPage">
-					 	Past Results
-					</Link>
 					
-				</div>
+	
+						<Link className="link" to="/2025">
+						 2025 Results
+						</Link>
+	
+						<Link className="link" to="/2024">
+						 2024 Results
+						</Link>
+
+						<Link className="link" to="/2023">
+						 2023 Results
+						</Link>
+	
+						
+					</div>
 			</div>
-			<div className="event-page-list-container">
-				{/* <div className="attendees-container">
-					<div className="attendees-header">Leaderboard</div>
-					<p>Click a name to view details</p>
-
-					<div className="message-container">{messagecontainer}</div>
-
-					{!isPageLoaded && (
-						<div className="lds-roller">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					)}
-
-					<div className="list-container-overflow">{attendeeList}</div>
-				</div> */}
-				 <iframe src="https://www.eventbrite.com/e/fried-clay-200k-2025-tickets-1046921529477" width="100%" height="600" />
+			<div className="past-event-list-container">
+		
 			</div>
 		</div>
 	)
