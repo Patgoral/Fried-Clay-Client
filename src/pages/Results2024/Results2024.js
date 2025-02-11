@@ -95,7 +95,7 @@ useEffect(function () {
 				</p>
 				<div className="button-div">						
 					<Link className="link" to="/PastResults">
-					 	Results
+					 	Back To Past Results
 					</Link>
 				</div>
 
