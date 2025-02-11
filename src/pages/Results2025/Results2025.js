@@ -14,7 +14,7 @@ export default function EventPage() {
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
 	const endDate = new Date('03/30/2025')
-	const startDate = new Date('1/22/2025')
+	const startDate = new Date('3/22/2025')
 	startDate.setHours(8, 0, 0, 0)
 	let attendeeList
 	let messagecontainer
