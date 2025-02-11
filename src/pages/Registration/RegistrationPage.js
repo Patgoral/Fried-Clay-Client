@@ -102,7 +102,7 @@ export default function RegistrationPage() {
 			<div className="register-page">
 				<div className="register-form-container">
 					<Link className="link" to="/">
-						<img className="logo" alt="logo" src={logo} />
+					<img width="300px" alt="logo" src={logo} />
 					</Link>
 
 					<div className="register-header">
@@ -142,7 +142,7 @@ export default function RegistrationPage() {
 							<DateTimePicker
 								disableClock={true}
 								className="date-time"
-								minDate={new Date('03/22/2025 2:00 PM EST')}
+								minDate={new Date('03/22/2025 3:00 PM EST')}
 								maxDate={new Date('03/26/2025 9:00 PM EST')}
 								onChange={setDate}
 								value={date}
