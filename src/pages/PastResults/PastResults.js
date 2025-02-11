@@ -6,9 +6,9 @@ import logo from '../../images/FriedClay5_v1-01.png'
 
 export default function PastResults() {
 
-
-
-
+	const targetDate = new Date("2025-03-22");
+	const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
 
 	return (
@@ -24,9 +24,11 @@ export default function PastResults() {
 				<div className="button-div">
 					
 	
-						<Link className="link" to="/2025">
-						 2025 Results
-						</Link>
+						{today >= targetDate && (
+							<Link className="link" to="/2025">
+								2025 Results
+							</Link>
+						)}
 	
 						<Link className="link" to="/2024">
 						 2024 Results

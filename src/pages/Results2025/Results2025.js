@@ -98,9 +98,11 @@ useEffect(function () {
 					{!applyButtonClass ? (
 						<>
 							<p id='dead' className="dead">Submissions Open 3/22</p>
-							<Link className="link" to="/PastResults">
-							 	Back To Past Results
-							</Link>
+							<div className="button-div">						
+								<Link className="link" to="/PastResults">
+									Back To Past Results
+								</Link>
+							</div>		
 						</>
 					) : applyLinkClass ? (
 						<>
