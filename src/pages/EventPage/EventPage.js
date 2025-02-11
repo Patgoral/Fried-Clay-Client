@@ -24,7 +24,7 @@ export default function EventPage() {
 					Register
 				</a>
 
-				<Link className="link" to="/Past Results">
+				<Link className="link" to="/PastResults">
 				  Past Results
 				</Link>
 
