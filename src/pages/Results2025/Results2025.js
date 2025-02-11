@@ -112,7 +112,11 @@ useEffect(function () {
 							</div>
 						</>
 					) : (
-					<p id='dead' className="dead">Submission Period Closed</p>
+						<div className="button-div">						
+						<Link className="link" to="/PastResults">
+							 Back To Past Results
+						</Link>
+					</div>				
 				)}
 				</div>
 			</div>
