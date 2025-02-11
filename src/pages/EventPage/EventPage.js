@@ -24,13 +24,11 @@ export default function EventPage() {
 					Register
 				</a>
 
-				<Link className="link" to="/2025">
-					 2025 Results
-					</Link>
+				<Link className="link" to="/Past Results">
+				  Past Results
+				</Link>
 
-					<Link className="link" to="/2024">
-					 2024 Results
-					</Link>
+				
 
 					
 				</div>

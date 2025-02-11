@@ -15,9 +15,10 @@ export default function PastResults() {
 		<div className="event-page">
 			<div className="event-page-container-top">
 				<div className="link" to="/">
-					<img width="300px" alt="logo" src={logo} />
+					<Link className="link" to="/">
+						<img width="300px" alt="logo" src={logo} />
+					</Link>
 				</div>
-
 		
 				<br></br>
 				<div className="button-div">
