@@ -42,7 +42,8 @@
 .heading-div {
     width: 100%;  /* Ensures it spans the full container */
     display: flex;
-    justify-content: center; /* Centers children horizontally */
+    flex-direction: column; /* Stacks children vertically */
+    align-items: center; /* Centers children horizontally */
 }
 
 .heading-div > .link {
