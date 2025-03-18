@@ -48,17 +48,17 @@ useEffect(function () {
             
             switch (attendee.gender) {
                 case "Male":
-                    genderCode = "M";
+                    genderCode = "Male ";
                     genderCount.Male += 1;
                     attendee.genderPosition = `${genderCode}${genderCount.Male}`;
                     break;
                 case "Female":
-                    genderCode = "F";
+                    genderCode = "Female ";
                     genderCount.Female += 1;
                     attendee.genderPosition = `${genderCode}${genderCount.Female}`;
                     break;
                 case "Non-Binary":
-                    genderCode = "NB";
+                    genderCode = "Non-Binary ";
                     genderCount["Non-Binary"] += 1;
                     attendee.genderPosition = `${genderCode}${genderCount["Non-Binary"]}`;
                     break;
