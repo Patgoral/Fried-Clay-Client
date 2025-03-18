@@ -1,5 +1,3 @@
-// import { checkToken } from '../../utilities/users-services'
-// import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import './Results2025.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
@@ -8,71 +6,65 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay5_v1-01.png'
 
 export default function EventPage() {
-	// const navigate = useNavigate()
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
+	const [logoLinkPath, setLogoLinkPath] = useState('/EventPage')  // Dynamic link path
+
 	const endDate = new Date('03/30/2025')
-	const startDate = new Date('03/18/2025')
+	const startDate = new Date('03/22/2025')
 	startDate.setHours(8, 0, 0, 0)
+
 	let attendeeList
 	let messagecontainer
-	// let genderPosition 
 
-
-
-
-	//READ ATTENDEES
-//READ ATTENDEES
-useEffect(function () {
-	async function getAllAttendees() {
-		const attendees = await attendeesAPI.showAttendees();
-		
-
-		// Filter attendees based on the date range
-		const filteredAttendees = attendees.attendees.filter((attendee) => {
-			const attendeeDate = new Date(attendee.date);
-			return attendeeDate >= startDate && attendeeDate <= endDate;
-		});
-
-		// Sort the filtered attendees by date (optional)
-		filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-		setAttendees({ attendees: filteredAttendees });
-		setIsPageLoaded(true);
-	}
-	getAllAttendees();
-}, []);
-
-
+	// READ ATTENDEES
 	useEffect(() => {
-		const currentDate = new Date()
-		if (currentDate.getTime() >= endDate.getTime()) {
-			setApplyLinkClass(false)
+		async function getAllAttendees() {
+			const attendees = await attendeesAPI.showAttendees();
+
+			// Filter attendees based on the date range
+			const filteredAttendees = attendees.attendees.filter((attendee) => {
+				const attendeeDate = new Date(attendee.date);
+				return attendeeDate >= startDate && attendeeDate <= endDate;
+			});
+
+			// Sort the filtered attendees by date (optional)
+			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+			setAttendees({ attendees: filteredAttendees });
+			setIsPageLoaded(true);
 		}
-	}, [])
+		getAllAttendees();
+	}, []);
 
+	// Handle link path dynamically based on current date
 	useEffect(() => {
 		const currentDate = new Date()
-		if (currentDate.getTime() >= startDate.getTime()) {
-			setApplyButtonClass(true)
-		} 
-	}, [])
 
-	//SHOW A LIST OF ATTENDEES
+		// Set link to "/" if current date >= startDate or endDate
+		if (currentDate >= startDate || currentDate >= endDate) {
+			setLogoLinkPath('/');
+		} else {
+			setLogoLinkPath('/EventPage');
+		}
 
+		// Set button classes
+		setApplyLinkClass(currentDate < endDate);
+		setApplyButtonClass(currentDate >= startDate);
+	}, [startDate, endDate]);
+
+	// SHOW A LIST OF ATTENDEES
 	if (attendees.length !== 0) {
 		attendeeList = attendees.attendees.map((attendee, index) => (
-
-		
 			<Link
 				className="link"
-				state={{ position: index + 1}}
+				state={{ position: index + 1 }}
 				to={`/attendees/${attendee._id}`}
+				key={attendee._id}
 			>
-				<div className="list-of-attendees" key={attendee._id}>
-				
+				<div className="list-of-attendees">
 					<AttendeeCard attendee={attendee} key={index} index={index} />
 				</div>
 			</Link>
@@ -83,46 +75,44 @@ useEffect(function () {
 	} else {
 		messagecontainer = 'No Results Yet'
 	}
+
 	return (
 		<div className="event-page">
 			<div className="event-page-container-top">
-				<Link className="link" to="/EventPage">
+				{/* Dynamic logo link */}
+				<Link className="link" to={logoLinkPath}>
 					<img width="300px" alt="logo" src={logo} />
 				</Link>
 
-				<p className="text submitTitle">
-					2025 Results
-				</p>
-			
+				<p className="text submitTitle">2025 Results</p>
+
 				<div className="heading-div">
 					{!applyButtonClass ? (
 						<>
 							<p id='dead' className="dead">Submissions Open 3/22</p>
-							
 						</>
 					) : applyLinkClass ? (
 						<>
-							
 							<Link className="link submitTitle" to="/access">
 								Submit Your Time
 							</Link>
-						
-								
+
 							<div className="closed">
-								<br></br>
+								<br />
 								<p className="close">Final Results Pending Verification</p>
 								<p className="close">Submissions Close 3/29/2025</p>
 							</div>
 						</>
 					) : (
-						<div className="button-div">						
-						<Link className="link" to="/PastResults">
-							 Back To Past Results
-						</Link>
-					</div>				
-				)}
+						<div className="button-div">
+							<Link className="link" to="/PastResults">
+								Back To Past Results
+							</Link>
+						</div>
+					)}
 				</div>
 			</div>
+
 			<div className="event-page-list-container">
 				<div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
