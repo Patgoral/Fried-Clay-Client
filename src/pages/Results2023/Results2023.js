@@ -7,13 +7,15 @@ import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/fc23logo.png'
 
+const endDate = new Date('03/30/2023')
+const startDate = new Date('3/25/2023')
+startDate.setHours(8, 0, 0, 0)
+
 export default function EventPage() {
 	// const navigate = useNavigate()
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
-	const endDate = new Date('03/30/2023')
-	const startDate = new Date('3/25/2023')
-	startDate.setHours(8, 0, 0, 0)
+
 	let attendeeList
 	let messagecontainer
 
@@ -35,38 +37,6 @@ export default function EventPage() {
 			// Sort the filtered attendees by date (optional)
 			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-			// Initialize counters for each gender
-			const genderCount = {
-				Male: 0,
-				Female: 0,
-				"Non-Binary": 0
-			};
-
-			// Add genderPosition property
-			filteredAttendees.forEach((attendee) => {
-				let genderCode;
-				
-				switch (attendee.gender) {
-					case "Male":
-						genderCode = "Male ";
-						genderCount.Male += 1;
-						attendee.genderPosition = `${genderCode}${genderCount.Male}`;
-						break;
-					case "Female":
-						genderCode = "Female ";
-						genderCount.Female += 1;
-						attendee.genderPosition = `${genderCode}${genderCount.Female}`;
-						break;
-					case "Non-Binary":
-						genderCode = "Non-Binary ";
-						genderCount["Non-Binary"] += 1;
-						attendee.genderPosition = `${genderCode}${genderCount["Non-Binary"]}`;
-						break;
-					default:
-						attendee.genderPosition = "N/A";  // Fallback for unknown gender
-						break;
-				}
-			});
 
 			setAttendees({ attendees: filteredAttendees });
 			setIsPageLoaded(true);

@@ -7,9 +7,9 @@ import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/fried-clay.png'
 
-const endDate = new Date('03/31/2024')
-const startDate = new Date('3/23/2024')
-startDate.setHours(8, 0, 0, 0)
+	const endDate = new Date('03/31/2024')
+	const startDate = new Date('3/23/2024')
+	startDate.setHours(8, 0, 0, 0)
 
 export default function EventPage() {
 	// const navigate = useNavigate()
