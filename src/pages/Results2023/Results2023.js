@@ -21,26 +21,58 @@ export default function EventPage() {
 
 
 	//READ ATTENDEES
-//READ ATTENDEES
-useEffect(function () {
-	async function getAllAttendees() {
-		const attendees = await attendeesAPI.showAttendees();
-		
+	//READ ATTENDEES
+	useEffect(function () {
+		async function getAllAttendees() {
+			const attendees = await attendeesAPI.showAttendees();
 
-		// Filter attendees based on the date range
-		const filteredAttendees = attendees.attendees.filter((attendee) => {
-			const attendeeDate = new Date(attendee.date);
-			return attendeeDate >= startDate && attendeeDate <= endDate;
-		});
+			// Filter attendees based on the date range
+			const filteredAttendees = attendees.attendees.filter((attendee) => {
+				const attendeeDate = new Date(attendee.date);
+				return attendeeDate >= startDate && attendeeDate <= endDate;
+			});
 
-		// Sort the filtered attendees by date (optional)
-		filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
+			// Sort the filtered attendees by date (optional)
+			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-		setAttendees({ attendees: filteredAttendees });
-		setIsPageLoaded(true);
-	}
-	getAllAttendees();
-}, []);
+			// Initialize counters for each gender
+			const genderCount = {
+				Male: 0,
+				Female: 0,
+				"Non-Binary": 0
+			};
+
+			// Add genderPosition property
+			filteredAttendees.forEach((attendee) => {
+				let genderCode;
+				
+				switch (attendee.gender) {
+					case "Male":
+						genderCode = "Male ";
+						genderCount.Male += 1;
+						attendee.genderPosition = `${genderCode}${genderCount.Male}`;
+						break;
+					case "Female":
+						genderCode = "Female ";
+						genderCount.Female += 1;
+						attendee.genderPosition = `${genderCode}${genderCount.Female}`;
+						break;
+					case "Non-Binary":
+						genderCode = "Non-Binary ";
+						genderCount["Non-Binary"] += 1;
+						attendee.genderPosition = `${genderCode}${genderCount["Non-Binary"]}`;
+						break;
+					default:
+						attendee.genderPosition = "N/A";  // Fallback for unknown gender
+						break;
+				}
+			});
+
+			setAttendees({ attendees: filteredAttendees });
+			setIsPageLoaded(true);
+		}
+		getAllAttendees();
+	}, [startDate, endDate]);
 
 
 
