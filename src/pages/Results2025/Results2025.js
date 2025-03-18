@@ -13,7 +13,7 @@ export default function EventPage() {
 	const [logoLinkPath, setLogoLinkPath] = useState('/EventPage')  // Dynamic link path
 
 	const endDate = new Date('03/30/2025')
-	const startDate = new Date('03/17/2025')
+	const startDate = new Date('03/18/2025')
 	startDate.setHours(8, 0, 0, 0)
 
 	let attendeeList
