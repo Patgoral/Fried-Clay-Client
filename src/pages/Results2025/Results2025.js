@@ -39,21 +39,61 @@ export default function EventPage() {
 		getAllAttendees();
 	}, []);
 
-	// Handle link path dynamically based on current date
-	useEffect(() => {
-		const currentDate = new Date()
+//READ ATTENDEES
+//READ ATTENDEES
+useEffect(function () {
+    async function getAllAttendees() {
+        const attendees = await attendeesAPI.showAttendees();
 
-		// Set link to "/" if current date >= startDate or endDate
-		if (currentDate >= startDate || currentDate >= endDate) {
-			setLogoLinkPath('/');
-		} else {
-			setLogoLinkPath('/EventPage');
-		}
+        // Filter attendees based on the date range
+        const filteredAttendees = attendees.attendees.filter((attendee) => {
+            const attendeeDate = new Date(attendee.date);
+            return attendeeDate >= startDate && attendeeDate <= endDate;
+        });
 
-		// Set button classes
-		setApplyLinkClass(currentDate < endDate);
-		setApplyButtonClass(currentDate >= startDate);
-	}, [startDate, endDate]);
+        // Sort the filtered attendees by date (optional)
+        filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+        // Initialize counters for each gender
+        const genderCount = {
+            Male: 0,
+            Female: 0,
+            "Non-Binary": 0
+        };
+
+        // Add genderPosition property
+        filteredAttendees.forEach((attendee) => {
+            let genderCode;
+            
+            switch (attendee.gender) {
+                case "Male":
+                    genderCode = "Male ";
+                    genderCount.Male += 1;
+                    attendee.genderPosition = `${genderCode}${genderCount.Male}`;
+                    break;
+                case "Female":
+                    genderCode = "Female ";
+                    genderCount.Female += 1;
+                    attendee.genderPosition = `${genderCode}${genderCount.Female}`;
+                    break;
+                case "Non-Binary":
+                    genderCode = "Non-Binary ";
+                    genderCount["Non-Binary"] += 1;
+                    attendee.genderPosition = `${genderCode}${genderCount["Non-Binary"]}`;
+                    break;
+                default:
+                    attendee.genderPosition = "N/A";  // Fallback for unknown gender
+                    break;
+            }
+        });
+
+        setAttendees({ attendees: filteredAttendees });
+        setIsPageLoaded(true);
+    }
+    getAllAttendees();
+}, [startDate, endDate]);
+
+
 
 	// SHOW A LIST OF ATTENDEES
 	if (attendees.length !== 0) {
