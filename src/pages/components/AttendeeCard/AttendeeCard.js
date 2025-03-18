@@ -23,8 +23,9 @@ export default function AttendeeCard({ attendee, index }) {
         to={`/attendees/${attendee._id}`} 
         style={{ color: "#dbafea" }}
       >
-        {attendee.name}, {dateFormatter(attendee.date)}{genderSuffix ? ` - ${genderSuffix}` : ""}
+        {attendee.name}, {dateFormatter(attendee.date)} 
+        {genderSuffix ? <span style={{ color: "yellow" }}> - {genderSuffix}</span> : ""}
       </Link>
     </div>
   );
-}
+  
