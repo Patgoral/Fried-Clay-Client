@@ -21,7 +21,7 @@ export default function PastResults() {
 				</div>
 		
 				<br></br>
-				<div className="button-div">
+				<div className="button-div-results">
 					
 	
 						{today >= targetDate && (
