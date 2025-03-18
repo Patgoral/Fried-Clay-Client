@@ -40,59 +40,45 @@
 	padding-bottom: 10px;
 }
 .button-div {
-    display: flex;  /* Ensure buttons are laid out properly */
-    justify-content: center; /* Center them */
-    flex-wrap: wrap; /* Allow wrapping if needed */
-    gap: 10px; /* Adds space between buttons */
-    width: 100%; /* Make sure it takes full width */
-	max-width: 100%; /* Make sure it takes full width */
+    display: flex;  
+    flex-direction: column;  /* Make it a vertical column */
+    align-items: center;     /* Center buttons horizontally */
+    gap: 10px;               /* Adds space between buttons */
+    width: 100%;             /* Take full width */
     padding: 5px 0 10px 0;
 }
 
-
-.button-div > .link {
-	width: auto; /* Instead of 80%, let the content dictate size */
-    min-width: 120px; /* Ensure a reasonable size */
-	background-color: rgb(82, 97, 171);
-	color: antiquewhite;
-	border: none;
-	border-radius: 10px;
-	padding: 8px 16px;
-	text-align: center;
-	font-size: min(5vw, 24px);
-	text-decoration: none;
-	transition-duration: 0.4s;
-	cursor: pointer;
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	text-shadow: 2px 1px 2px black;
-	font-weight: bold;
+.button-div > .link,
+.button-div > .dead {
+    width: auto;             /* Let content dictate size */
+    min-width: 120px;        /* Ensure a reasonable size */
+    background-color: rgb(82, 97, 171);
+    color: antiquewhite;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    text-align: center;
+    font-size: min(5vw, 24px);
+    text-decoration: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-shadow: 2px 1px 2px black;
+    font-weight: bold;
 }
 
 .button-div > .link:hover {
-	color: rgb(65, 65, 65);
-	text-decoration: none;
+    color: rgb(65, 65, 65);
+    text-decoration: none;
 }
 
 .button-div > .dead {
-	width: 100%;
-	background-color: darkslategray;
-	color: antiquewhite;
-	border: none;
-	border-radius: 10px;
-	padding: 8px 16px;
-	text-align: center;
-	font-size: min(5vw, 24px);
-	text-decoration: none;
-	transition-duration: 0.4s;
-	cursor: pointer;
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	text-shadow: 2px 1px 2px black;
-	font-weight: bold;
+    background-color: darkslategray;
 }
 
 .button-div > .dead:hover {
-	color: red;
-	text-decoration: none;
+    color: red;
+    text-decoration: none;
 }
 
 .registration-container > div > button:hover {
