@@ -21,6 +21,8 @@ export default function AttendeeDetailPage() {
 	const { id } = useParams()
 	const location = useLocation()
 	const { position } = location.state
+	const { genderPosition } = location.state
+
 
 	useEffect(() => {
 		// let active = true
@@ -65,7 +67,7 @@ export default function AttendeeDetailPage() {
             <div className='attendee-info'>
 						<h2>Name: {attendee.name} </h2>
 						{attendee.gender && <h2>Gender: {attendee.gender}</h2>}
-						<h2>Gender Position: {attendee.genderPosition} </h2>
+						<h2>Gender Position: {genderPosition} </h2>
  						<h2>Finishing Time: {elapsedTime(attendee.date)} </h2>
 						<h2>Overall Position: {position ?? 'Check Back Later'}</h2>
             </div>
