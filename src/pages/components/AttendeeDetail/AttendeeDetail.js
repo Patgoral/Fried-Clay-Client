@@ -69,7 +69,7 @@ export default function AttendeeDetailPage() {
 						{attendee.gender && <h2>Gender: {attendee.gender}</h2>}
 						<h2>Finishing Time: {elapsedTime(attendee.date)} </h2>
 						<h2>Overall Position: {position ?? 'Check Back Later'}</h2>
-						{attendee.genderPosition && (<h2>Gender Position: {attendee.genderPosition}</h2>)}
+						{genderPosition && (<h2>Gender Position: {genderPosition}</h2>)}
 
             </div>
 						<div className="img">

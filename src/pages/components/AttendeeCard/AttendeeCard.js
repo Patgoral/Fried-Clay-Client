@@ -10,8 +10,9 @@ export default function AttendeeCard({ attendee, index }) {
     if (genderPosition === "Non-Binary 1") return "1st Non-Binary";
     return "";
   };
-
-  const genderSuffix = getGenderSuffix(attendee.genderPosition);
+  
+  const genderSuffix = attendee?.genderPosition ? getGenderSuffix(attendee.genderPosition) : "";
+  
 
   return (
     <div className='attendee-card'>
