@@ -42,7 +42,7 @@ console.log(attendee);
 	const year = attendee.date ? new Date(attendee.date).getFullYear() : null;
 	const logoToShow = year === 2023 ? logo2023 : year === 2024 ? logo2024 : logo2025;
 	const linkTo = year === 2023 ? '/2023' : year === 2024 ? '/2024' : '/2025';
-	
+	console.log(genderPosition);
 	return (
 		<>
 			<div className="attendee-detail-container">
