@@ -23,7 +23,7 @@ export default function AttendeeDetailPage() {
 	const { position } = location.state
 	const { genderPosition } = location.state
 
-
+console.log(attendee);
 	useEffect(() => {
 		// let active = true
 		async function getSingleAttendee() {
