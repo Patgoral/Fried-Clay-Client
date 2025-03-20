@@ -77,7 +77,12 @@ export default function AttendeeDetailPage() {
 
             </div>
 						<div className="img">
-							<img alt="attendeeimage" width="250px" src={attendee.image} onError={(e) => e.target.src = noPhoto} />
+						<img
+							alt="attendeeimage"
+							width="250px"
+							src={attendee.image || noPhoto}
+							onError={(e) => e.target.src = noPhoto}
+							/>
 						</div><div className='key'>
             
             <div className="box red"></div>

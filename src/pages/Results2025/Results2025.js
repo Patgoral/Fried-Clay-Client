@@ -107,6 +107,7 @@ export default function EventPage() {
 		const currentDate = new Date()
 		if (currentDate.getTime() >= startDate.getTime()) {
 			setApplyButtonClass(true)
+			setLogoLinkPath('/');
 		}
 	}, [])
 
