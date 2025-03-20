@@ -22,10 +22,7 @@ export default function AttendeeDetailPage() {
 	const { id } = useParams()
 	const location = useLocation()
 	const { position, genderPosition } = location.state || {};
-	console.log(attendee);
 
-	console.log(genderPosition);
-	console.log(position);
 
 
 	useEffect(() => {
