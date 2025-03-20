@@ -88,7 +88,10 @@ useEffect(function () {
 		
 			<Link
 				className="link"
-				state={{ position: index + 1}}
+				state={{ 
+					position: index + 1, 
+					genderPosition: attendee.genderPosition 
+				}}
 				to={`/attendees/${attendee._id}`}
 			>
 				<div className="list-of-attendees" key={attendee._id}>
