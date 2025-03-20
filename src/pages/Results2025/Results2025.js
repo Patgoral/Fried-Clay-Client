@@ -159,7 +159,7 @@ export default function EventPage() {
 							<div className="closed">
 								<br />
 								<p className="close">Final Results Pending Verification</p>
-								<p className="close">Submissions Close 3/29/2025</p>
+								<p className="close">Submissions Close 3/30/2025</p>
 							</div>
 						</>
 					) : (

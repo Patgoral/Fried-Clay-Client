@@ -54,6 +54,7 @@ export default function RegistrationPage() {
 
 		const validImageFileTypes = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.heic']
 		const imageFileType = image.name.substr(image.name.lastIndexOf('.'))
+		console.log(imageFileType, image.type);
 		if (!validImageFileTypes.includes(imageFileType.toLowerCase())) {
 			document.getElementById('message-container').innerHTML =
 				'Invalid Image File'
