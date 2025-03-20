@@ -96,6 +96,20 @@ export default function EventPage() {
 	}, [startDate, endDate]);
 
 
+	useEffect(() => {
+		const currentDate = new Date()
+		if (currentDate.getTime() >= endDate.getTime()) {
+			setApplyLinkClass(false)
+		}
+	}, [])
+
+	useEffect(() => {
+		const currentDate = new Date()
+		if (currentDate.getTime() >= startDate.getTime()) {
+			setApplyButtonClass(true)
+		}
+	}, [])
+
 
 	// SHOW A LIST OF ATTENDEES
 	if (attendees.length !== 0) {
