@@ -22,6 +22,10 @@ code {
   z-index: 0;
 }
 
+.detailDescDiv {
+  color: yellow; 
+}
+
 /* LOADING SPINNER */
 
 .lds-roller {
