@@ -21,9 +21,12 @@ export default function AttendeeDetailPage() {
 	const { id } = useParams()
 	const location = useLocation()
 	const { position, genderPosition } = location.state || {};
+	console.log(attendee);
+
+	console.log(genderPosition);
+	console.log(position);
 
 
-console.log(attendee);
 	useEffect(() => {
 		// let active = true
 		async function getSingleAttendee() {
@@ -42,7 +45,7 @@ console.log(attendee);
 	const year = attendee.date ? new Date(attendee.date).getFullYear() : null;
 	const logoToShow = year === 2023 ? logo2023 : year === 2024 ? logo2024 : logo2025;
 	const linkTo = year === 2023 ? '/2023' : year === 2024 ? '/2024' : '/2025';
-	console.log(genderPosition);
+
 	return (
 		<>
 			<div className="attendee-detail-container">
