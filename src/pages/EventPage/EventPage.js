@@ -9,7 +9,7 @@ export default function EventPage() {
 
 	const currentDate = new Date();
 	const startDate = new Date('2024-10-22');
-	const endDate = new Date('2025-03-22');
+	const endDate = new Date('2025-03-20');
 
 	const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;
 
