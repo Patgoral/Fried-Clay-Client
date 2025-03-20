@@ -102,11 +102,14 @@ export default function EventPage() {
 		attendeeList = attendees.attendees.map((attendee, index) => (
 			<Link
 				className="link"
-				state={{ position: index + 1 }}
+				state={{ 
+					position: index + 1, 
+					genderPosition: attendee.genderPosition 
+				}}
 				to={`/attendees/${attendee._id}`}
-				key={attendee._id}
 			>
-				<div className="list-of-attendees">
+				<div className="list-of-attendees" key={attendee._id}>
+				
 					<AttendeeCard attendee={attendee} key={index} index={index} />
 				</div>
 			</Link>
