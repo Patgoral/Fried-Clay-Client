@@ -26,24 +26,28 @@ export default function EventPage() {
 	//READ ATTENDEES
 	useEffect(function () {
 		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees();
-
+			// Extract the year from startDate (you can also use endDate if needed)
+			const year = startDate.getFullYear();
+	
+			// Pass the year as a query parameter to the API
+			const attendees = await attendeesAPI.showAttendees(year);
+	
 			// Filter attendees based on the date range
 			const filteredAttendees = attendees.attendees.filter((attendee) => {
 				const attendeeDate = new Date(attendee.date);
 				return attendeeDate >= startDate && attendeeDate <= endDate;
 			});
-
+	
 			// Sort the filtered attendees by date (optional)
 			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-
+	
 			setAttendees({ attendees: filteredAttendees });
 			setIsPageLoaded(true);
 		}
+	
 		getAllAttendees();
 	}, [startDate, endDate]);
-
+	
 
 
 	//SHOW A LIST OF ATTENDEES
@@ -67,7 +71,7 @@ export default function EventPage() {
 			messagecontainer = 'No Results Yet'
 		}
 	} else {
-		messagecontainer = 'No Results Yet'
+		messagecontainer = 'Loading Results'
 	}
 	return (
 		<div className="past-results-page">
