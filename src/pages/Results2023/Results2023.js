@@ -26,27 +26,18 @@ export default function EventPage() {
 	//READ ATTENDEES
 	useEffect(function () {
 		async function getAllAttendees() {
-			// Extract the year from startDate (you can also use endDate if needed)
-			const year = startDate.getFullYear();
-	
+			// Extract the year from startDate
+			const year = 2023;
+		
 			// Pass the year as a query parameter to the API
 			const attendees = await attendeesAPI.showAttendees(year);
-	
-			// Filter attendees based on the date range
-			const filteredAttendees = attendees.attendees.filter((attendee) => {
-				const attendeeDate = new Date(attendee.date);
-				return attendeeDate >= startDate && attendeeDate <= endDate;
-			});
-	
-			// Sort the filtered attendees by date (optional)
-			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
-	
-			setAttendees({ attendees: filteredAttendees });
+		
+			setAttendees({ attendees: attendees.attendees });
 			setIsPageLoaded(true);
 		}
 	
 		getAllAttendees();
-	}, [startDate, endDate]);
+	}, []);
 	
 
 

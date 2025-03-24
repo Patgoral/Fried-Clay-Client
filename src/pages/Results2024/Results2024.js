@@ -23,20 +23,11 @@ export default function EventPage() {
 
 
 	//READ ATTENDEES
-//READ ATTENDEES
+	//READ ATTENDEES
 	useEffect(() => {
 		async function getAllAttendees() {
-			const year = 2025;  // Example: Use the desired year here
-			const attendees = await attendeesAPI.showAttendees(year); // Pass year as query parameter
-			
-			// Filter and sort attendees based on the date
-			const filteredAttendees = attendees.attendees.filter((attendee) => {
-				const attendeeDate = new Date(attendee.date);
-				return attendeeDate >= startDate && attendeeDate <= endDate;
-			});
-
-			// Sort attendees by date (oldest first)
-			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
+			const year = 2024;  // Extract the year from startDate
+			const attendees = await attendeesAPI.showAttendees(year);
 
 			// Initialize counters for each gender
 			const genderCount = {
@@ -46,7 +37,7 @@ export default function EventPage() {
 			};
 
 			// Add genderPosition property
-			filteredAttendees.forEach((attendee) => {
+			attendees.attendees.forEach((attendee) => {
 				let genderCode;
 
 				switch (attendee.gender) {
@@ -71,12 +62,12 @@ export default function EventPage() {
 				}
 			});
 
-			setAttendees({ attendees: filteredAttendees });
+			setAttendees({ attendees: attendees.attendees });
 			setIsPageLoaded(true);
 		}
 
 		getAllAttendees();
-	}, [startDate, endDate]);  // Make sure to re-fetch when startDate or endDate changes
+	}, []);
 
 
 

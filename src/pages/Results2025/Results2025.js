@@ -5,9 +5,9 @@ import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay5_v1-01.png'
 
-	const endDate = new Date('03/30/2025')
-	const startDate = new Date('03/22/2025')
-	startDate.setHours(8, 0, 0, 0)
+const endDate = new Date('03/30/2025')
+const startDate = new Date('03/22/2025')
+startDate.setHours(8, 0, 0, 0)
 
 
 export default function EventPage() {
@@ -21,31 +21,11 @@ export default function EventPage() {
 	let attendeeList
 	let messagecontainer
 
-	// // READ ATTENDEES
-	// useEffect(() => {
-	// 	async function getAllAttendees() {
-	// 		const attendees = await attendeesAPI.showAttendees();
-
-	// 		// Filter attendees based on the date range
-	// 		const filteredAttendees = attendees.attendees.filter((attendee) => {
-	// 			const attendeeDate = new Date(attendee.date);
-	// 			return attendeeDate >= startDate && attendeeDate <= endDate;
-	// 		});
-
-	// 		// Sort the filtered attendees by date (optional)
-	// 		filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
-
-	// 		setAttendees({ attendees: filteredAttendees });
-	// 		setIsPageLoaded(true);
-	// 	}
-	// 	getAllAttendees();
-	// }, []);
-
 	//READ ATTENDEES
 	//READ ATTENDEES
 	useEffect(() => {
 		async function getAllAttendees() {
-			const year = new Date(startDate).getFullYear();  // Extract the year from startDate
+			const year = 2025;  // Extract the year from startDate
 			const attendees = await attendeesAPI.showAttendees(year);
 	
 			// Initialize counters for each gender
@@ -86,7 +66,7 @@ export default function EventPage() {
 		}
 	
 		getAllAttendees();
-	}, [startDate, endDate]);
+	}, []);
 	
 
 
