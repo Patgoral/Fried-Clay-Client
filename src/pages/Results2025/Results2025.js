@@ -43,30 +43,31 @@ export default function EventPage() {
 
 	//READ ATTENDEES
 	//READ ATTENDEES
-	useEffect(function () {
+	useEffect(() => {
 		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees();
-
-			// Filter attendees based on the date range
+			const year = new Date(startDate).getFullYear();  // Extract the year from startDate
+			const attendees = await attendeesAPI.showAttendees(year);
+	
+			// Filter attendees based on the exact date range
 			const filteredAttendees = attendees.attendees.filter((attendee) => {
 				const attendeeDate = new Date(attendee.date);
 				return attendeeDate >= startDate && attendeeDate <= endDate;
 			});
-
-			// Sort the filtered attendees by date (optional)
+	
+			// Sort attendees by date (oldest first)
 			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
-
+	
 			// Initialize counters for each gender
 			const genderCount = {
 				Male: 0,
 				Female: 0,
 				"Non-Binary": 0
 			};
-
+	
 			// Add genderPosition property
 			filteredAttendees.forEach((attendee) => {
 				let genderCode;
-				
+	
 				switch (attendee.gender) {
 					case "Male":
 						genderCode = "Male ";
@@ -88,12 +89,14 @@ export default function EventPage() {
 						break;
 				}
 			});
-
+	
 			setAttendees({ attendees: filteredAttendees });
 			setIsPageLoaded(true);
 		}
+	
 		getAllAttendees();
 	}, [startDate, endDate]);
+	
 
 
 	useEffect(() => {

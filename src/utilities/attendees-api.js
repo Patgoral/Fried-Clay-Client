@@ -2,8 +2,10 @@ import {sendRequest, sendRequestToDelete, sendFormRequest} from './users-api'
 
 const BASE_URL = 'https://fried-clay-server.onrender.com/api/attendees'
 
-export function showAttendees() {
-    return sendRequest(BASE_URL)}
+export function showAttendees(year = null) {
+    const url = year ? `${BASE_URL}?year=${year}` : BASE_URL;
+    return sendRequest(url);
+}
 
 export function indexAttendees() {
     return sendRequest(`${BASE_URL}/user`, 'POST')
