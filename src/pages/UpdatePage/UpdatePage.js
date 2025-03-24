@@ -16,7 +16,8 @@ export default function ManagePage() {
 	//READ THE ATTENDEES
 	useEffect(function () {
 		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees()
+			const year = 2025;
+			const attendees = await attendeesAPI.showAttendees(year)
 			setAttendees(attendees)
 			setCopy(attendees)
 		}
