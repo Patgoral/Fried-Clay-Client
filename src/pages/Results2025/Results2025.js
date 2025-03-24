@@ -130,10 +130,10 @@ export default function EventPage() {
 			</Link>
 		))
 		if (!attendees.attendees[0]) {
-			messagecontainer = 'No Results Yet'
+			messagecontainer = 'Loading Results'
 		}
 	} else {
-		messagecontainer = 'No Results Yet'
+		messagecontainer = 'Loading Results'
 	}
 
 	return (
