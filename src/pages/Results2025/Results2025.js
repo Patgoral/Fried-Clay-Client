@@ -21,25 +21,25 @@ export default function EventPage() {
 	let attendeeList
 	let messagecontainer
 
-	// READ ATTENDEES
-	useEffect(() => {
-		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees();
+	// // READ ATTENDEES
+	// useEffect(() => {
+	// 	async function getAllAttendees() {
+	// 		const attendees = await attendeesAPI.showAttendees();
 
-			// Filter attendees based on the date range
-			const filteredAttendees = attendees.attendees.filter((attendee) => {
-				const attendeeDate = new Date(attendee.date);
-				return attendeeDate >= startDate && attendeeDate <= endDate;
-			});
+	// 		// Filter attendees based on the date range
+	// 		const filteredAttendees = attendees.attendees.filter((attendee) => {
+	// 			const attendeeDate = new Date(attendee.date);
+	// 			return attendeeDate >= startDate && attendeeDate <= endDate;
+	// 		});
 
-			// Sort the filtered attendees by date (optional)
-			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
+	// 		// Sort the filtered attendees by date (optional)
+	// 		filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-			setAttendees({ attendees: filteredAttendees });
-			setIsPageLoaded(true);
-		}
-		getAllAttendees();
-	}, []);
+	// 		setAttendees({ attendees: filteredAttendees });
+	// 		setIsPageLoaded(true);
+	// 	}
+	// 	getAllAttendees();
+	// }, []);
 
 	//READ ATTENDEES
 	//READ ATTENDEES
