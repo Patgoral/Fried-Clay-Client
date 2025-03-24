@@ -48,15 +48,6 @@ export default function EventPage() {
 			const year = new Date(startDate).getFullYear();  // Extract the year from startDate
 			const attendees = await attendeesAPI.showAttendees(year);
 	
-			// Filter attendees based on the exact date range
-			const filteredAttendees = attendees.attendees.filter((attendee) => {
-				const attendeeDate = new Date(attendee.date);
-				return attendeeDate >= startDate && attendeeDate <= endDate;
-			});
-	
-			// Sort attendees by date (oldest first)
-			filteredAttendees.sort((a, b) => new Date(a.date) - new Date(b.date));
-	
 			// Initialize counters for each gender
 			const genderCount = {
 				Male: 0,
@@ -65,7 +56,7 @@ export default function EventPage() {
 			};
 	
 			// Add genderPosition property
-			filteredAttendees.forEach((attendee) => {
+			attendees.attendees.forEach((attendee) => {
 				let genderCode;
 	
 				switch (attendee.gender) {
@@ -90,7 +81,7 @@ export default function EventPage() {
 				}
 			});
 	
-			setAttendees({ attendees: filteredAttendees });
+			setAttendees({ attendees: attendees.attendees });
 			setIsPageLoaded(true);
 		}
 	
