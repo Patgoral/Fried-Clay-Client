@@ -38,45 +38,43 @@ export default function EventPage() {
 				"Non-Binary": 0
 			}
 
-			let lastDate = null; // To keep track of the last processed date
+			let tieGroupCount = 1  // To track how many people are in the current tie group
 
 			attendees.attendees.forEach((attendee, index) => {
-				// If the date is different from the last processed one, we move the position forward
-				if (attendee.date !== lastDate) {
-					lastDate = attendee.date;
-					// If it's a new date, we assign the new position
-					if (index !== 0 && attendees.attendees[index - 1].date !== attendee.date) {
-						currentPos = index + 1; // Move to the next position after the group
-					}
+				// Assign position for the first attendee or non-tie
+				if (index === 0 || attendee.date !== attendees.attendees[index - 1].date) {
+					attendee.position = currentPos
+					tieGroupCount = 1  // Reset the tie group count for new position
+				} else {
+					// Use the same position for ties
+					attendee.position = attendees.attendees[index - 1].position
+					tieGroupCount++
 				}
-				
-				// Assign position for each attendee
-				attendee.position = currentPos;
+			
+				// Increment currentPos only after finishing a tie group
+				if (index === attendees.attendees.length - 1 || attendee.date !== attendees.attendees[index + 1].date) {
+					currentPos += tieGroupCount  // Move to the next rank based on the number of tied attendees
+				}
 			
 				// Gender position logic
 				switch (attendee.gender) {
 					case "Male":
-						genderCount.Male++;
-						attendee.genderPosition = `Male ${genderCount.Male}`;
-						break;
+						genderCount.Male++
+						attendee.genderPosition = `Male ${genderCount.Male}`
+						break
 					case "Female":
-						genderCount.Female++;
-						attendee.genderPosition = `Female ${genderCount.Female}`;
-						break;
+						genderCount.Female++
+						attendee.genderPosition = `Female ${genderCount.Female}`
+						break
 					case "Non-Binary":
-						genderCount["Non-Binary"]++;
-						attendee.genderPosition = `Non-Binary ${genderCount["Non-Binary"]}`;
-						break;
+						genderCount["Non-Binary"]++
+						attendee.genderPosition = `Non-Binary ${genderCount["Non-Binary"]}`
+						break
 					default:
-						attendee.genderPosition = "N/A";
-						break;
+						attendee.genderPosition = "N/A"
+						break
 				}
-			
-				// Increment currentPos only after the group ends (when the next date is different)
-				if (index === attendees.attendees.length - 1 || attendees.attendees[index + 1].date !== attendee.date) {
-					currentPos++;
-				}
-			});
+			})
 			
 
 			// Set attendees with both position and genderPosition
