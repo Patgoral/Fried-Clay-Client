@@ -46,12 +46,12 @@ export default function EventPage() {
 					// Use the same position for ties
 					attendee.position = attendees.attendees[index - 1].position
 				}
-
-				// Only increment currentPos if it's not a tie or at the end of the tie group
+			
+				// Increment position only when moving past a tie group
 				if (index === attendees.attendees.length - 1 || attendee.date !== attendees.attendees[index + 1].date) {
-					currentPos++
+					currentPos = index + 2  // Move to the next rank based on index
 				}
-
+			
 				// Gender position logic
 				switch (attendee.gender) {
 					case "Male":
