@@ -38,22 +38,18 @@ export default function EventPage() {
 				"Non-Binary": 0
 			}
 
-			let tieGroupCount = 1  // To track how many people are in the current tie group
-
 			attendees.attendees.forEach((attendee, index) => {
 				// Assign position for the first attendee or non-tie
 				if (index === 0 || attendee.date !== attendees.attendees[index - 1].date) {
 					attendee.position = currentPos
-					tieGroupCount = 1  // Reset the tie group count for new position
 				} else {
 					// Use the same position for ties
 					attendee.position = attendees.attendees[index - 1].position
-					tieGroupCount++
 				}
 			
-				// Increment currentPos only after finishing a tie group
+				// Increment position only when moving past a tie group
 				if (index === attendees.attendees.length - 1 || attendee.date !== attendees.attendees[index + 1].date) {
-					currentPos += tieGroupCount  // Move to the next rank based on the number of tied attendees
+					currentPos = index + 2  // Move to the next rank based on index
 				}
 			
 				// Gender position logic
