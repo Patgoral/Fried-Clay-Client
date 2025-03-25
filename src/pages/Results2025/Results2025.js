@@ -39,22 +39,19 @@ export default function EventPage() {
 			}
 
 			attendees.attendees.forEach((attendee, index) => {
-				// Overall position logic
-				if (index > 0 && attendee.date === attendees.attendees[index - 1].date) {
-					// If tied, use the same position as the previous attendee
-					attendee.position = attendees.attendees[index - 1].position
-				} else {
+				// Assign position for the first attendee or non-tie
+				if (index === 0 || attendee.date !== attendees.attendees[index - 1].date) {
 					attendee.position = currentPos
+				} else {
+					// Use the same position for ties
+					attendee.position = attendees.attendees[index - 1].position
 				}
-			
-				// Increment position only after all ties
-				if (
-					index === attendees.attendees.length - 1 || 
-					attendee.date !== attendees.attendees[index + 1].date
-				) {
+
+				// Only increment currentPos if it's not a tie or at the end of the tie group
+				if (index === attendees.attendees.length - 1 || attendee.date !== attendees.attendees[index + 1].date) {
 					currentPos++
 				}
-			
+
 				// Gender position logic
 				switch (attendee.gender) {
 					case "Male":
