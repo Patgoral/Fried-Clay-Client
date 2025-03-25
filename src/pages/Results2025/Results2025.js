@@ -29,29 +29,24 @@ export default function EventPage() {
 			attendees.attendees.sort((a, b) => new Date(a.date) - new Date(b.date))
 
 			// Assign overall positions
-			let currentPos = 1
-
-			// Initialize gender counters
+			let currentPos = 1;
 			const genderCount = {
 				Male: 0,
 				Female: 0,
 				"Non-Binary": 0
-			}
-
+			};
 			let lastDate = null; // To keep track of the last processed date
-
+			
 			attendees.attendees.forEach((attendee, index) => {
-				// If the date is different from the last processed one, we move the position forward
+				// If the date is different from the last processed one, update the position
 				if (attendee.date !== lastDate) {
 					lastDate = attendee.date;
-					// If it's a new date, we assign the new position
-					if (index !== 0 && attendees.attendees[index - 1].date !== attendee.date) {
-						currentPos = index + 1; // Move to the next position after the group
-					}
+					// Assign the position directly, no need to skip or reset
+					attendee.position = currentPos;
+				} else {
+					// If the date is the same as the last one, assign the same position
+					attendee.position = currentPos;
 				}
-				
-				// Assign position for each attendee
-				attendee.position = currentPos;
 			
 				// Gender position logic
 				switch (attendee.gender) {
@@ -72,11 +67,10 @@ export default function EventPage() {
 						break;
 				}
 			
-				// Increment currentPos only after the group ends (when the next date is different)
-				if (index === attendees.attendees.length - 1 || attendees.attendees[index + 1].date !== attendee.date) {
-					currentPos++;
-				}
+				// Increment currentPos at the end of processing each attendee, after assigning the position
+				currentPos++;
 			});
+			
 			
 
 			// Set attendees with both position and genderPosition
