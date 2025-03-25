@@ -45,9 +45,16 @@ export default function EventPage() {
 					attendee.position = attendees.attendees[index - 1].position
 				} else {
 					attendee.position = currentPos
-					currentPos++  
 				}
-
+			
+				// Increment position only after all ties
+				if (
+					index === attendees.attendees.length - 1 || 
+					attendee.date !== attendees.attendees[index + 1].date
+				) {
+					currentPos++
+				}
+			
 				// Gender position logic
 				switch (attendee.gender) {
 					case "Male":
@@ -67,6 +74,7 @@ export default function EventPage() {
 						break
 				}
 			})
+			
 
 			// Set attendees with both position and genderPosition
 			setAttendees({ attendees: attendees.attendees })
