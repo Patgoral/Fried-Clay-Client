@@ -19,31 +19,56 @@ export default function EventPage() {
 	let attendeeList
 	let messagecontainer
 
-	//READ ATTENDEES
+	// READ ATTENDEES
 	useEffect(() => {
 		async function getAllAttendees() {
-			const year = 2025;  
+			const year = 2025  
 			const attendees = await attendeesAPI.showAttendees(year)
 
 			// Sort attendees by date first
 			attendees.attendees.sort((a, b) => new Date(a.date) - new Date(b.date))
 
-			// Assign positions
-			let currentPos = 1;
+			// Assign overall positions
+			let currentPos = 1
+
+			// Initialize gender counters
+			const genderCount = {
+				Male: 0,
+				Female: 0,
+				"Non-Binary": 0
+			}
 
 			attendees.attendees.forEach((attendee, index) => {
+				// Overall position logic
 				if (index > 0 && attendee.date === attendees.attendees[index - 1].date) {
 					// If tied, use the same position as the previous attendee
-					attendee.position = attendees.attendees[index - 1].position;
+					attendee.position = attendees.attendees[index - 1].position
 				} else {
-					// Assign a new position only when no tie
-					attendee.position = currentPos;
-					currentPos++;  // Only increment for unique positions
+					attendee.position = currentPos
+					currentPos++  
 				}
-			});
 
+				// Gender position logic
+				switch (attendee.gender) {
+					case "Male":
+						genderCount.Male++
+						attendee.genderPosition = `Male ${genderCount.Male}`
+						break
+					case "Female":
+						genderCount.Female++
+						attendee.genderPosition = `Female ${genderCount.Female}`
+						break
+					case "Non-Binary":
+						genderCount["Non-Binary"]++
+						attendee.genderPosition = `Non-Binary ${genderCount["Non-Binary"]}`
+						break
+					default:
+						attendee.genderPosition = "N/A"
+						break
+				}
+			})
 
-			// Set attendees with updated positions
+			// Set attendees with both position and genderPosition
 			setAttendees({ attendees: attendees.attendees })
 			setIsPageLoaded(true)
 		}
@@ -79,12 +104,15 @@ export default function EventPage() {
 				to={`/attendees/${attendee._id}`}
 			>
 				<div className="list-of-attendees">
-					<AttendeeCard attendee={attendee}
-					 position={attendee.position}
-					 />
+					<AttendeeCard 
+						attendee={attendee}
+						position={attendee.position}
+						genderPosition={attendee.genderPosition}
+					/>
 				</div>
 			</Link>
 		))
+
 		if (!attendees.attendees[0]) {
 			messagecontainer = 'Loading Results'
 		}
