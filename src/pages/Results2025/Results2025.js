@@ -29,18 +29,19 @@ export default function EventPage() {
 			attendees.attendees.sort((a, b) => new Date(a.date) - new Date(b.date))
 
 			// Assign positions
-			let currentPos = 1
+			let currentPos = 1;
 
 			attendees.attendees.forEach((attendee, index) => {
 				if (index > 0 && attendee.date === attendees.attendees[index - 1].date) {
-					// If the current date matches the previous attendee's date, use the same position
-					attendee.position = attendees.attendees[index - 1].position
+					// If tied, use the same position as the previous attendee
+					attendee.position = attendees.attendees[index - 1].position;
 				} else {
-					// Otherwise, assign a new position
-					attendee.position = currentPos
+					// Assign a new position only when no tie
+					attendee.position = currentPos;
+					currentPos++;  // Only increment for unique positions
 				}
-				currentPos++
-			})
+			});
+
 
 			// Set attendees with updated positions
 			setAttendees({ attendees: attendees.attendees })
