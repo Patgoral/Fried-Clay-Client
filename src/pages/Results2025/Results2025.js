@@ -9,7 +9,6 @@ const endDate = new Date('03/30/2025')
 const startDate = new Date('03/22/2025')
 startDate.setHours(8, 0, 0, 0)
 
-
 export default function EventPage() {
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
@@ -17,58 +16,39 @@ export default function EventPage() {
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
 	const [logoLinkPath, setLogoLinkPath] = useState('/EventPage')  // Dynamic link path
 
-
 	let attendeeList
 	let messagecontainer
 
 	//READ ATTENDEES
-	//READ ATTENDEES
 	useEffect(() => {
 		async function getAllAttendees() {
-			const year = 2025;  // Extract the year from startDate
-			const attendees = await attendeesAPI.showAttendees(year);
-	
-			// Initialize counters for each gender
-			const genderCount = {
-				Male: 0,
-				Female: 0,
-				"Non-Binary": 0
-			};
-	
-			// Add genderPosition property
-			attendees.attendees.forEach((attendee) => {
-				let genderCode;
-	
-				switch (attendee.gender) {
-					case "Male":
-						genderCode = "Male ";
-						genderCount.Male += 1;
-						attendee.genderPosition = `${genderCode}${genderCount.Male}`;
-						break;
-					case "Female":
-						genderCode = "Female ";
-						genderCount.Female += 1;
-						attendee.genderPosition = `${genderCode}${genderCount.Female}`;
-						break;
-					case "Non-Binary":
-						genderCode = "Non-Binary ";
-						genderCount["Non-Binary"] += 1;
-						attendee.genderPosition = `${genderCode}${genderCount["Non-Binary"]}`;
-						break;
-					default:
-						attendee.genderPosition = "N/A";  // Fallback for unknown gender
-						break;
-				}
-			});
-	
-			setAttendees({ attendees: attendees.attendees });
-			setIsPageLoaded(true);
-		}
-	
-		getAllAttendees();
-	}, []);
-	
+			const year = 2025;  
+			const attendees = await attendeesAPI.showAttendees(year)
 
+			// Sort attendees by date first
+			attendees.attendees.sort((a, b) => new Date(a.date) - new Date(b.date))
+
+			// Assign positions
+			let currentPos = 1
+
+			attendees.attendees.forEach((attendee, index) => {
+				if (index > 0 && attendee.date === attendees.attendees[index - 1].date) {
+					// If the current date matches the previous attendee's date, use the same position
+					attendee.position = attendees.attendees[index - 1].position
+				} else {
+					// Otherwise, assign a new position
+					attendee.position = currentPos
+				}
+				currentPos++
+			})
+
+			// Set attendees with updated positions
+			setAttendees({ attendees: attendees.attendees })
+			setIsPageLoaded(true)
+		}
+
+		getAllAttendees()
+	}, [])
 
 	useEffect(() => {
 		const currentDate = new Date()
@@ -81,25 +61,26 @@ export default function EventPage() {
 		const currentDate = new Date()
 		if (currentDate.getTime() >= startDate.getTime()) {
 			setApplyButtonClass(true)
-			setLogoLinkPath('/');
+			setLogoLinkPath('/')
 		}
 	}, [])
 
-
 	// SHOW A LIST OF ATTENDEES
 	if (attendees.length !== 0) {
-		attendeeList = attendees.attendees.map((attendee, index) => (
+		attendeeList = attendees.attendees.map((attendee) => (
 			<Link
+				key={attendee._id}
 				className="link"
 				state={{ 
-					position: index + 1, 
+					position: attendee.position, 
 					genderPosition: attendee.genderPosition 
 				}}
 				to={`/attendees/${attendee._id}`}
 			>
-				<div className="list-of-attendees" key={attendee._id}>
-				
-					<AttendeeCard attendee={attendee} key={index} index={index} />
+				<div className="list-of-attendees">
+					<AttendeeCard attendee={attendee}
+					 position={attendee.position}
+					 />
 				</div>
 			</Link>
 		))
@@ -113,7 +94,6 @@ export default function EventPage() {
 	return (
 		<div className="event-page">
 			<div className="event-page-container-top">
-				{/* Dynamic logo link */}
 				<Link className="link" to={logoLinkPath}>
 					<img width="300px" alt="logo" src={logo} />
 				</Link>
@@ -150,7 +130,7 @@ export default function EventPage() {
 			<div className="event-page-list-container">
 				<div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
-					<p class="detailDescDiv">Click a name to view details</p>
+					<p className="detailDescDiv">Click a name to view details</p>
 
 					<div className="message-container">{messagecontainer}</div>
 

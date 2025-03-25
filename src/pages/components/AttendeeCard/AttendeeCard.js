@@ -1,7 +1,7 @@
 import { dateFormatter } from "../../utils/dateFormatter";
 import './AttendeeCard.css';
 
-export default function AttendeeCard({ attendee, index }) {
+export default function AttendeeCard({ attendee, position }) {
 
   const getGenderSuffix = (genderPosition) => {
     if (genderPosition === "Male 1") return "1st Male";
@@ -14,7 +14,7 @@ export default function AttendeeCard({ attendee, index }) {
 
   return (
     <div className='attendee-card'>
-      {index + 1}&nbsp;&nbsp;&nbsp;
+      {position}&nbsp;&nbsp;&nbsp;  {/* Use position here */}
       <span style={{ color: "#dbafea" }}>
         {attendee.name}, {dateFormatter(attendee.date)}
         {genderSuffix ? <span style={{ color: "yellow" }}> - {genderSuffix}</span> : ""}
