@@ -133,7 +133,11 @@ export default function EventPage() {
 				</Link>
 
 				<p className="text submitTitle">2025 Results</p>
-
+				<div className="button-div">						
+					<Link className="link" to="/PastResults">
+					 	Past Results
+					</Link>
+				</div>
 				<div className="heading-div">
 					{!applyButtonClass ? (
 						<>

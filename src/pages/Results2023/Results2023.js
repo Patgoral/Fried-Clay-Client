@@ -7,7 +7,6 @@ import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/fc23logo.png'
 
-const endDate = new Date('03/30/2023')
 const startDate = new Date('3/25/2023')
 startDate.setHours(8, 0, 0, 0)
 
