@@ -18,55 +18,67 @@ export default function EventPage() {
 	let attendeeList
 	let messagecontainer
 
-
-
-
-	//READ ATTENDEES
-	//READ ATTENDEES
+	// READ ATTENDEES
 	useEffect(() => {
 		async function getAllAttendees() {
-			const year = 2024;  // Extract the year from startDate
-			const attendees = await attendeesAPI.showAttendees(year);
+			const year = 2025  
+			const attendees = await attendeesAPI.showAttendees(year)
 
-			// Initialize counters for each gender
+			// Sort attendees by date first
+			attendees.attendees.sort((a, b) => new Date(a.date) - new Date(b.date))
+
+			// Assign overall positions
+			let currentPos = 1
+
+			// Initialize gender counters
 			const genderCount = {
 				Male: 0,
 				Female: 0,
 				"Non-Binary": 0
-			};
+			}
 
-			// Add genderPosition property
-			attendees.attendees.forEach((attendee) => {
-				let genderCode;
-
+			attendees.attendees.forEach((attendee, index) => {
+				// Assign position for the first attendee or non-tie
+				if (index === 0 || attendee.date !== attendees.attendees[index - 1].date) {
+					attendee.position = currentPos
+				} else {
+					// Use the same position for ties
+					attendee.position = attendees.attendees[index - 1].position
+				}
+			
+				// Increment position only when moving past a tie group
+				if (index === attendees.attendees.length - 1 || attendee.date !== attendees.attendees[index + 1].date) {
+					currentPos = index + 2  // Move to the next rank based on index
+				}
+			
+				// Gender position logic
 				switch (attendee.gender) {
 					case "Male":
-						genderCode = "Male ";
-						genderCount.Male += 1;
-						attendee.genderPosition = `${genderCode}${genderCount.Male}`;
-						break;
+						genderCount.Male++
+						attendee.genderPosition = `Male ${genderCount.Male}`
+						break
 					case "Female":
-						genderCode = "Female ";
-						genderCount.Female += 1;
-						attendee.genderPosition = `${genderCode}${genderCount.Female}`;
-						break;
+						genderCount.Female++
+						attendee.genderPosition = `Female ${genderCount.Female}`
+						break
 					case "Non-Binary":
-						genderCode = "Non-Binary ";
-						genderCount["Non-Binary"] += 1;
-						attendee.genderPosition = `${genderCode}${genderCount["Non-Binary"]}`;
-						break;
+						genderCount["Non-Binary"]++
+						attendee.genderPosition = `Non-Binary ${genderCount["Non-Binary"]}`
+						break
 					default:
-						attendee.genderPosition = "N/A";  // Fallback for unknown gender
-						break;
+						attendee.genderPosition = "N/A"
+						break
 				}
-			});
+			})
+			
 
-			setAttendees({ attendees: attendees.attendees });
-			setIsPageLoaded(true);
+			// Set attendees with both position and genderPosition
+			setAttendees({ attendees: attendees.attendees })
+			setIsPageLoaded(true)
 		}
 
-		getAllAttendees();
-	}, []);
+		getAllAttendees()
+	}, [])
 
 
 

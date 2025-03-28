@@ -18,27 +18,44 @@ export default function EventPage() {
 	let attendeeList
 	let messagecontainer
 
-
-
-
-	//READ ATTENDEES
-	//READ ATTENDEES
-	useEffect(function () {
+	// READ ATTENDEES
+	useEffect(() => {
 		async function getAllAttendees() {
-			// Extract the year from startDate
-			const year = 2023;
-		
-			// Pass the year as a query parameter to the API
-			const attendees = await attendeesAPI.showAttendees(year);
-		
-			setAttendees({ attendees: attendees.attendees });
-			setIsPageLoaded(true);
-		}
-	
-		getAllAttendees();
-	}, []);
+			const year = 2025  
+			const attendees = await attendeesAPI.showAttendees(year)
+
+			// Sort attendees by date first
+			attendees.attendees.sort((a, b) => new Date(a.date) - new Date(b.date))
+
+			// Assign overall positions
+			let currentPos = 1
+
 	
 
+			attendees.attendees.forEach((attendee, index) => {
+				// Assign position for the first attendee or non-tie
+				if (index === 0 || attendee.date !== attendees.attendees[index - 1].date) {
+					attendee.position = currentPos
+				} else {
+					// Use the same position for ties
+					attendee.position = attendees.attendees[index - 1].position
+				}
+			
+				// Increment position only when moving past a tie group
+				if (index === attendees.attendees.length - 1 || attendee.date !== attendees.attendees[index + 1].date) {
+					currentPos = index + 2  // Move to the next rank based on index
+				}
+			
+			})
+			
+
+			// Set attendees with both position and genderPosition
+			setAttendees({ attendees: attendees.attendees })
+			setIsPageLoaded(true)
+		}
+
+		getAllAttendees()
+	}, [])
 
 	//SHOW A LIST OF ATTENDEES
 
