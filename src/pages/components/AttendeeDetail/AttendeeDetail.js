@@ -41,8 +41,6 @@ export default function AttendeeDetailPage() {
 	}, [id])
 
 	const year = attendee.date ? new Date(attendee.date).getFullYear() : null;
-	console.log('yeet');
-	console.log(year);
 	const logoToShow = year === 2023 ? logo2023 : year === 2024 ? logo2024 : logo2025;
 	const linkTo = year === 2023 ? '/2023' : year === 2024 ? '/2024' : '/2025';
 
