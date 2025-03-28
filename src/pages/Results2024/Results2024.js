@@ -21,7 +21,7 @@ export default function EventPage() {
 	// READ ATTENDEES
 	useEffect(() => {
 		async function getAllAttendees() {
-			const year = 2025  
+			const year = 2024  
 			const attendees = await attendeesAPI.showAttendees(year)
 
 			// Sort attendees by date first
