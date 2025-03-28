@@ -70,7 +70,8 @@ export default function EventPage() {
 			>
 				<div className="list-of-attendees" key={attendee._id}>
 				
-					<AttendeeCard attendee={attendee} key={index} index={index} />
+					<AttendeeCard attendee={attendee} key={index} index={index} position={attendee.position}
+ />
 				</div>
 			</Link>
 		))
