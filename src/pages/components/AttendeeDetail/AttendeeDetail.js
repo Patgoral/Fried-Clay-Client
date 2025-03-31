@@ -8,6 +8,9 @@ import noPhoto from '../../../images/noPhoto.png'
 import logo2023 from '../../../images/fc23logo.png'
 import logo2024 from '../../../images/fried-clay.png'
 import logo2025 from '../../../images/FriedClay5_v1-01.png'
+// UPDATE LOGO FOR 2026
+import logo2026 from '../../../images/FriedClay5_v1-01.png'
+
 import { Link } from 'react-router-dom'
 
 export default function AttendeeDetailPage() {
@@ -41,8 +44,21 @@ export default function AttendeeDetailPage() {
 	}, [id])
 
 	const year = attendee.date ? new Date(attendee.date).getFullYear() : null;
-	const logoToShow = year === 2023 ? logo2023 : year === 2024 ? logo2024 : logo2025;
-	const linkTo = year === 2023 ? '/2023' : year === 2024 ? '/2024' : '/2025';
+	const logoToShow = year === 2023 
+    ? logo2023 
+    : year === 2024 
+    ? logo2024 
+    : year === 2025 
+    ? logo2025 
+    : logo2026;
+
+	const linkTo = year === 2023 
+		? '/2023' 
+		: year === 2024 
+		? '/2024' 
+		: year === 2025 
+		? '/2025' 
+		: '/2026';
 
 	return (
 		<>
