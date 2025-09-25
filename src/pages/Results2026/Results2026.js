@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay5_v1-01.png'
 
 const endDate = new Date('03/30/2026')
-const startDate = new Date('03/21/2026')
+const startDate = new Date('03/21/2025')
 startDate.setHours(8, 0, 0, 0)
 
 export default function EventPage() {
