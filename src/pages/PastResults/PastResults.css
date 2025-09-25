@@ -53,7 +53,7 @@
 .button-div > .link {
 	width: auto; /* Instead of 80%, let the content dictate size */
     min-width: 120px; /* Ensure a reasonable size */
-	background-color: rgb(82, 97, 171);
+	background-color: rgb(222, 112, 106);
 	color: antiquewhite;
 	border: none;
 	border-radius: 10px;
