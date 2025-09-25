@@ -15,7 +15,7 @@ export default function AttendeeCard({ attendee, position }) {
   return (
     <div className='attendee-card'>
       {position}&nbsp;&nbsp;&nbsp;  {/* Use position here */}
-      <span style={{ color: "#dbafea" }}>
+      <span style={{ color: "#e07373" }}>
         {attendee.name}, {dateFormatter(attendee.date)}
         {genderSuffix ? <span style={{ color: "yellow" }}> - {genderSuffix}</span> : ""}
       </span>
