@@ -54,9 +54,9 @@ export default function EventPage() {
 			<h1 class ="dateh1">
 					Fried Clay 2026 is coming!
 				</h1>
-				<h1 class ="dateh1">
+				<h2 class ="dateh1">
 					03/21/2026
-				</h1>
+				</h2>
 			<iframe className="video-frame" 
 					src="https://www.youtube.com/embed/G6uKLOmRxuE" 
 					title="YouTube video player" 
