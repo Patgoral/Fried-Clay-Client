@@ -8,7 +8,7 @@ import logo from '../../images/FriedClay5_v1-01.png'
 export default function EventPage() {
 
 	const currentDate = new Date();
-	const startDate = new Date('2025-9-22');
+	const startDate = new Date('2025-10-01');
 	const endDate = new Date('2026-03-21');
 
 	const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;

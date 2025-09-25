@@ -142,8 +142,8 @@ export default function RegistrationPage() {
 							<DateTimePicker
 								disableClock={true}
 								className="date-time"
-								minDate={new Date('03/22/2025 3:00 PM EST')}
-								maxDate={new Date('03/26/2025 9:00 PM EST')}
+								minDate={new Date('03/21/2026 3:00 PM EST')}
+								maxDate={new Date('03/24/2026 9:00 PM EST')}
 								onChange={setDate}
 								value={date}
 								dayPlaceholder=""
