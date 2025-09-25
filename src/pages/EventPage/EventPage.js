@@ -51,7 +51,10 @@ export default function EventPage() {
 				</div>
 			</div>
 			<div className="event-page-list-container">
-				<h1 id ="dateh1">
+			<h1 class ="dateh1">
+					Fried Clay 2026 is coming!
+				</h1>
+				<h1 class ="dateh1">
 					03/21/2026
 				</h1>
 			<iframe className="video-frame" 

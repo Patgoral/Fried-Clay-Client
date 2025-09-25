@@ -48,7 +48,7 @@
     margin: 0 auto;                 /* Center the button container horizontally */
 }
 
-#dateh1 {
+.dateh1 {
     color: antiquewhite;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
