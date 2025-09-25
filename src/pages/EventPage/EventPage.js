@@ -8,8 +8,8 @@ import logo from '../../images/FriedClay5_v1-01.png'
 export default function EventPage() {
 
 	const currentDate = new Date();
-	const startDate = new Date('2024-10-22');
-	const endDate = new Date('2025-03-22');
+	const startDate = new Date('2025-9-22');
+	const endDate = new Date('2026-03-21');
 
 	const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;
 
@@ -26,7 +26,7 @@ export default function EventPage() {
 				{isWithinDateRange ? (
 					<a
 						className="link"
-						href="https://www.eventbrite.com/e/fried-clay-200k-2025-tickets-1046921529477"
+						href="https://www.eventbrite.com/e/fried-clay-200k-2026-tickets-1739216727049?aff=oddtdtcreator"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
