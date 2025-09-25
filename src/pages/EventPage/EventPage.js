@@ -51,7 +51,9 @@ export default function EventPage() {
 				</div>
 			</div>
 			<div className="event-page-list-container">
-		
+				<h1 id ="dateh1">
+					03/21/2026
+				</h1>
 			<iframe className="video-frame" 
 					src="https://www.youtube.com/embed/G6uKLOmRxuE" 
 					title="YouTube video player" 
