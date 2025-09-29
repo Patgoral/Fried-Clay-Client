@@ -21,12 +21,18 @@
     padding: 20px;
     border-radius: 15px;
 }
-.event-logo {
+#logo-container {
     display: flex;
-    justify-content: center; /* centers horizontally */
-    align-items: center;     /* centers vertically if needed */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
+.event-logo {
+    height: min(30vw, 400px);
+    width: auto;
+    display: block;
+}
 
 .event-logo > img {
     height: min(30vw, 400px); /* desktop & tablet */
