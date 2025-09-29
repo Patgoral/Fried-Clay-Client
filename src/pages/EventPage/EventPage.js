@@ -56,6 +56,7 @@ export default function EventPage() {
 				</h1>
 				<h1 class ="dateh1">
 					Cedar Creek Checking Station
+				
 					Eatonton, GA
 					03/21/2026
 					8:00 AM
