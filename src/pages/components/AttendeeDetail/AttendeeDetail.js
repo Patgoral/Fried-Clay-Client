@@ -8,8 +8,7 @@ import noPhoto from '../../../images/noPhoto.png'
 import logo2023 from '../../../images/fc23logo.png'
 import logo2024 from '../../../images/fried-clay.png'
 import logo2025 from '../../../images/FriedClay5_v1-01.png'
-// UPDATE LOGO FOR 2026
-import logo2026 from '../../../images/FriedClay5_v1-01.png'
+import logo2026 from '../../../images/FriedClay200k26.png'
 
 import { Link } from 'react-router-dom'
 

@@ -3,7 +3,7 @@ import './Results2026.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
-import logo from '../../images/FriedClay5_v1-01.png'
+import logo from '../../images/FriedClay200k26.png'
 
 const endDate = new Date('03/30/2026')
 const startDate = new Date('03/21/2026')

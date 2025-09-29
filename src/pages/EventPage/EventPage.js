@@ -3,7 +3,7 @@
 import './EventPage.css'
 
 import { Link } from 'react-router-dom'
-import logo from '../../images/FriedClay5_v1-01.png'
+import logo from '../../images/FriedClay200k26.png.png'
 
 export default function EventPage() {
 
