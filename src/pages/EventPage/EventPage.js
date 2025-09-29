@@ -17,7 +17,7 @@ export default function EventPage() {
 		<div className="event-page">
 			<div className="event-page-container-top">
 				<div className="link" to="/">
-					<img width="300px" alt="logo" src={logo} />
+					<img width="300px" class='event-logo' alt="logo" src={logo} />
 				</div>
 
 				
