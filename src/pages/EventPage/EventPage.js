@@ -60,13 +60,16 @@ export default function EventPage() {
 				<p>Eatonton, GA</p>
 				<p>03/21/2026 – 8:00 AM</p>
 			</div>
-			<iframe className="video-frame" 
-					src="https://www.youtube.com/embed/mbBdRVkyhhY" 
-					title="YouTube video player" 
-					frameborder="0" 
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-					allowfullscreen>
-				</iframe>
+			{isWithinDateRange ? (
+					<iframe className="video-frame" 
+						src="https://www.youtube.com/embed/mbBdRVkyhhY" 
+						title="YouTube video player" 
+						frameborder="0" 
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+						allowfullscreen>
+					</iframe>
+				) : null}							
+			
 				<div className="event-desc">
 				Fried Clay is a <b>self-supported</b> endurance gravel event that takes you through 130ish miles of the Chattahoochee-Oconee National Forest. Expect a grueling trip down some of the best gravel roads middle Georgia has to offer. The route combines the popular Red Clay Ramble and Fried Green Tomatoes routes plus a lot of weird junk I added to make it even harder! You will need a GPS or a smart phone to navigate as there will be no markings on the route at all! Expect long stretches of gravel, singletrack, water crossings, horse trails, and mud. If you've been thinking about giving this whole endurance gravel/bikepacking thing a shot, this is the perfect event. Some riders will choose to race, while others will party pace it. This event can be the perfect opportunity to try a longer gravel race, or a tough overnighter if you want to bikepack it. If you chose to camp on the route, there will be marked primitive campsites on the route guide you will receive via e-mail before the event.
 					<br></br>
