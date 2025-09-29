@@ -21,9 +21,7 @@
     padding: 20px;
     border-radius: 15px;
 }
-.event-logo {
-	display: flex;
-}
+
 .event-logo > img {
     height: min(30vw, 400px); /* desktop & tablet */
     width: auto;
@@ -31,7 +29,7 @@
 
 @media (max-width: 600px) {
   .event-logo > img {
-    height: min(18vw, 100px); /* smaller on phones */
+    height: min(10vw, 80px); /* smaller on phones */
   }
 }
 
