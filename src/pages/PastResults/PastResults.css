@@ -41,7 +41,7 @@
 
 @media (max-width: 600px) {
   .event-logo > img {
-    height: min(10vw, 80px); /* smaller on phones */
+    height: min(12vw, 150px); /* smaller on phones */
   }
 }
 
