@@ -25,7 +25,7 @@
 	display: flex;
 }
 .event-logo > img {
-	height: min(25vw, 400px);
+	height: min(15vw, 400px);
 }
 
 .description-container {
