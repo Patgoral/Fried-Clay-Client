@@ -2,7 +2,7 @@
 // import { useNavigate } from 'react-router-dom'
 import './PastResults.css'
 import { Link } from 'react-router-dom'
-import logo from '../../images/FriedClay5_v1-01.png'
+import logo from '../../images/FriedClay200k26.png'
 
 export default function PastResults() {
 

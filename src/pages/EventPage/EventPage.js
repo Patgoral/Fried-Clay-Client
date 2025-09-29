@@ -52,11 +52,11 @@ export default function EventPage() {
 			</div>
 			<div className="event-page-list-container">
 			<h1 class ="dateh1">
-					Fried Clay 2026 is coming!
+					Fried Clay 200k is back!
 				</h1>
-				<h2 class ="dateh1">
+				<h1 class ="dateh1">
 					03/21/2026
-				</h2>
+				</h1>
 			<iframe className="video-frame" 
 					src="https://www.youtube.com/embed/mbBdRVkyhhY" 
 					title="YouTube video player" 
