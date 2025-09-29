@@ -51,16 +51,15 @@ export default function EventPage() {
 				</div>
 			</div>
 			<div className="event-page-list-container">
-			<h1 class ="dateh1">
-					Fried Clay 200k is back!
-				</h1>
-				<h1 class ="dateh1">
-					Cedar Creek Checking Station
-				
-					Eatonton, GA
-					03/21/2026
-					8:00 AM
-				</h1>
+			<h1 class="event-title">
+				Fried Clay 200k is back!
+			</h1>
+
+			<div class="event-details">
+				<h2>Cedar Creek Checking Station</h2>
+				<p>Eatonton, GA</p>
+				<p>03/21/2026 – 8:00 AM</p>
+			</div>
 			<iframe className="video-frame" 
 					src="https://www.youtube.com/embed/mbBdRVkyhhY" 
 					title="YouTube video player" 
