@@ -55,7 +55,10 @@ export default function EventPage() {
 					Fried Clay 200k is back!
 				</h1>
 				<h1 class ="dateh1">
+					Cedar Creek Checking Station
+					Eatonton, GA
 					03/21/2026
+					8:00 AM
 				</h1>
 			<iframe className="video-frame" 
 					src="https://www.youtube.com/embed/mbBdRVkyhhY" 
