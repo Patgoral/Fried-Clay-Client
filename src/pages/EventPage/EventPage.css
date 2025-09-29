@@ -25,8 +25,10 @@
 	display: flex;
 }
 .event-logo > img {
-	height: min(15vw, 400px);
+    height: min(30vw, 400px); /* bigger base scaling */
+    width: auto;             /* keeps proportions */
 }
+
 
 .description-container {
 	display: flex;
@@ -73,6 +75,7 @@
 
 .event-details h2 {
     font-size: 1.75rem;
+	color: antiquewhite;
     margin: 0 0 0.5rem;
     font-weight: bold;
 }

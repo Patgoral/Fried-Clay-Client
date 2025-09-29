@@ -52,7 +52,7 @@ export default function EventPage() {
 			</div>
 			<div className="event-page-list-container">
 			<h1 class="event-title">
-				Fried Clay 200k is back!
+				Fried Clay 200k Is Back!
 			</h1>
 
 			<div class="event-details">
