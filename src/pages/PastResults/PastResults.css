@@ -21,6 +21,11 @@
     padding: 20px;
     border-radius: 15px;
 }
+.event-logo {
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center;     /* centers vertically if needed */
+}
 
 .event-logo > img {
     height: min(30vw, 400px); /* desktop & tablet */
