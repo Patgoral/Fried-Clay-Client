@@ -49,30 +49,47 @@
 }
 
 .event-title {
-	font-size: 2.5rem;
-	font-weight: bold;
-	color: antiquewhite;
-	text-shadow: 2px 2px 4px black;
-	margin-bottom: 1rem;
-  }
-  
-  .event-details {
-	background: rgba(0, 0, 0, 0.6);
-	color: white;
-	padding: 1rem 1.5rem;
-	border-radius: 12px;
-	display: inline-block;
-  }
-  
-  .event-details h2 {
-	font-size: 1.5rem;
-	margin: 0 0 0.5rem;
-  }
-  
-  .event-details p {
-	margin: 0.25rem 0;
-	font-size: 1rem;
-  }
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: antiquewhite;
+    text-shadow: 2px 2px 4px black;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.event-details {
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 1.2rem 2rem;
+    border-radius: 12px;
+    display: inline-block;
+    margin: 1rem 0 2rem;  /* spacing above and below */
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.15);
+    max-width: 600px;
+    width: 90%;
+}
+
+.event-details h2 {
+    font-size: 1.75rem;
+    margin: 0 0 0.5rem;
+    font-weight: bold;
+}
+
+.event-details p {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+    opacity: 0.9; /* softer so the title stands out */
+}
+
+.video-frame {
+    width: 100%;
+    max-width: 600px;  /* match the event details box */
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
   
 .button-div > .link {
 	background-color: rgb(222, 112, 106);
@@ -138,12 +155,7 @@
 	background-color: rgb(39, 53, 12);
 	color: darkslategray;
 }
-.video-frame {
-    width: 100%; /* Full width for responsiveness */
-    max-width: 560px; /* Restricts width on larger screens */
-    aspect-ratio: 16 / 9; /* Ensures correct video proportions */
-    border-radius: 10px; /* Optional: rounded corners */
-}
+
 
 /* Ensures proper spacing and centering */
 .event-page-list-container {
