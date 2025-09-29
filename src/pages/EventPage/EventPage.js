@@ -3,7 +3,7 @@
 import './EventPage.css'
 
 import { Link } from 'react-router-dom'
-import logo from '../../images/FriedClay200k26.png.png'
+import logo from '../../images/FriedClay200k26.png'
 
 export default function EventPage() {
 
@@ -58,7 +58,7 @@ export default function EventPage() {
 					03/21/2026
 				</h2>
 			<iframe className="video-frame" 
-					src="https://www.youtube.com/embed/G6uKLOmRxuE" 
+					src="https://www.youtube.com/embed/mbBdRVkyhhY" 
 					title="YouTube video player" 
 					frameborder="0" 
 					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
