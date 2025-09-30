@@ -4,6 +4,9 @@ import './EventPage.css'
 
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
+import ig from '../../images/ig_icon.png'
+import fb from '../../images/fb_icon.png'
+
 
 export default function EventPage() {
 
@@ -86,6 +89,13 @@ export default function EventPage() {
 					<b>This event will take place rain or shine!</b>
 					<br></br>
 				</div>
+
+				<div id="link-container" >
+				<img alt="logo" src={ig} />
+				<img alt="logo" src={fb} />
+
+			</div>
+
 			</div>
 		</div>
 	)
