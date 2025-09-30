@@ -34,6 +34,11 @@
   #link-container a:last-child {
 	margin-right: 0; /* removes the extra margin on the last one */
   }
+  
+  #link-container img {
+	transform: scale(0.6); /* 60% of original size → 40% smaller */
+	transform-origin: center;
+  }
 
 .event-logo {
     height: min(30vw, 400px);
