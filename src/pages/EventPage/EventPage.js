@@ -90,11 +90,15 @@ export default function EventPage() {
 					<br></br>
 				</div>
 
-				<div id="link-container" >
-				<img alt="logo" src={ig} />
-				<img alt="logo" src={fb} />
+				<div id="link-container">
+					<a href="https://www.instagram.com/friedclay200k/" target="_blank" rel="noopener noreferrer">
+						<img alt="Instagram" src={ig} />
+					</a>
+					<a href="https://www.facebook.com/Friedclay" target="_blank" rel="noopener noreferrer">
+						<img alt="Facebook" src={fb} />
+					</a>
+				</div>
 
-			</div>
 
 			</div>
 		</div>

@@ -27,6 +27,13 @@
     align-items: center;
     width: 100%;
 }
+#link-container a {
+	margin-right: 10px;
+  }
+  
+  #link-container a:last-child {
+	margin-right: 0; /* removes the extra margin on the last one */
+  }
 
 .event-logo {
     height: min(30vw, 400px);
