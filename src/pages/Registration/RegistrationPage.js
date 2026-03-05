@@ -13,6 +13,7 @@ export default function RegistrationPage() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
 	const [gender, setGender] = useState('')
+	const [geared, setGeared] = useState('')
 	const [date, setDate] = useState('') 
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
@@ -31,6 +32,11 @@ export default function RegistrationPage() {
 		if (!gender) {
 			document.getElementById('message-container').innerHTML =
 				'Gender Field Is Required'
+			return
+		}
+		if (!geared) {
+			document.getElementById('message-container').innerHTML =
+				'Geared Field Is Required'
 			return
 		}
     if (!date) {
@@ -97,6 +103,10 @@ export default function RegistrationPage() {
 		setGender(event.target.value)
 	}
 
+	function handleGearedChange(event) {
+		setGeared(event.target.value)
+	}
+
 	return (
 		<div className="wrap-div">
 			<div className="register-page">
@@ -136,6 +146,19 @@ export default function RegistrationPage() {
 							<option value="Female">Female</option>
 							<option value="Non-Binary">Non-Binary</option>
 							<option value="Not Disclosed">I Prefer Not to Say</option>
+						</select>
+
+						<p className="register-header2">Geared, SS, Fixed?</p>
+						<select 
+							className='geared'
+							name="geared"
+							value={geared}
+							onChange={handleGearedChange}
+
+							>
+							<option value="Geared">Geared</option>
+							<option value="SS">Single Speed</option>
+							<option value="Fixed">Fixed</option>
 						</select>
 
 						<p className="register-header2">Finishing Date & Time</p>
