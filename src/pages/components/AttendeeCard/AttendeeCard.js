@@ -3,21 +3,42 @@ import './AttendeeCard.css';
 
 export default function AttendeeCard({ attendee, position }) {
 
-  const getGenderSuffix = (genderPosition) => {
-    if (genderPosition === "Male 1") return "1st Male";
-    if (genderPosition === "Female 1") return "1st Female";
-    if (genderPosition === "Non-Binary 1") return "1st Non-Binary";
+  const getSuffix = (attendee) => {
+    const gender = attendee?.genderPosition;
+    const geared = attendee?.gearedPosition;
+
+    const genderMap = {
+      "Male": "M",
+      "Female": "F",
+      "Non-Binary": "NB"
+    };
+
+    const gearedMap = {
+      "Single-Speed": "SS",
+      "Fixed": "Fixed"
+    };
+
+    const genderParts = gender?.split(" ");
+    const gearedParts = geared?.split(" ");
+
+    const genderCode = genderParts && genderParts[1] === "1" ? genderMap[genderParts[0]] : null;
+    const gearedCode = gearedParts && gearedParts[1] === "1" ? gearedMap[gearedParts[0]] : null;
+
+    if (genderCode && gearedCode) return `1st ${genderCode}/${gearedCode}`;
+    if (genderCode) return `1st ${genderParts[0]}`;
+    if (gearedCode) return `1st ${gearedCode}`;
+
     return "";
   };
 
-  const genderSuffix = attendee?.genderPosition ? getGenderSuffix(attendee.genderPosition) : "";
+  const suffix = getSuffix(attendee);
 
   return (
     <div className='attendee-card'>
-      {position}&nbsp;&nbsp;&nbsp;  {/* Use position here */}
+      {position}&nbsp;&nbsp;&nbsp;
       <span style={{ color: "#d3a9a9" }}>
         {attendee.name}, {dateFormatter(attendee.date)}
-        {genderSuffix ? <span style={{ color: "yellow" }}> - {genderSuffix}</span> : ""}
+        {suffix && <span style={{ color: "yellow" }}> - {suffix}</span>}
       </span>
     </div>
   );

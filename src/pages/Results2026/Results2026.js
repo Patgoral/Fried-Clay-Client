@@ -38,6 +38,11 @@ export default function EventPage() {
 				"Non-Binary": 0
 			}
 
+			const gearedCount = {
+			"Single-Speed": 0,
+			"Fixed": 0
+			};
+
 			attendees.attendees.forEach((attendee, index) => {
 				// Overall position logic
 				if (index > 0 && attendee.date === attendees.attendees[index - 1].date) {
@@ -73,6 +78,17 @@ export default function EventPage() {
 						attendee.genderPosition = "N/A"
 						break
 				}
+
+				switch (attendee.geared) {
+				case "Single-Speed":
+					gearedCount["Single-Speed"]++;
+					attendee.gearedPosition = `Single-Speed ${gearedCount["Single-Speed"]}`;
+					break;
+				case "Fixed":
+					gearedCount["Fixed"]++;
+					attendee.gearedPosition = `Fixed ${gearedCount["Fixed"]}`;
+					break;				
+				}
 			})
 			
 
@@ -107,7 +123,9 @@ export default function EventPage() {
 				className="link"
 				state={{ 
 					position: attendee.position, 
-					genderPosition: attendee.genderPosition 
+					genderPosition: attendee.genderPosition,
+					gearedPosition: attendee.gearedPosition 
+
 				}}
 				to={`/attendees/${attendee._id}`}
 			>
@@ -116,6 +134,8 @@ export default function EventPage() {
 						attendee={attendee}
 						position={attendee.position}
 						genderPosition={attendee.genderPosition}
+						gearedPosition={attendee.gearedPosition}
+
 					/>
 				</div>
 			</Link>
