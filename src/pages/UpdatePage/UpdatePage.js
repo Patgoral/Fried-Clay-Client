@@ -12,11 +12,11 @@ export default function ManagePage() {
 	let attendeeList
 	let userListOfAttendees = []
 	const messageContainer = document.querySelector('#message-container')
+			const year = new Date().getFullYear(); 
 
 	//READ THE ATTENDEES
 	useEffect(function () {
 		async function getAllAttendees() {
-			const year = new Date().getFullYear(); 
 			const attendees = await attendeesAPI.showAttendees(year)
 			setAttendees(attendees)
 			setCopy(attendees)
@@ -30,7 +30,7 @@ export default function ManagePage() {
 	async function handleDeleteAttendee(id) {
 		await attendeesAPI.removeAttendee(id)
 		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees()
+			const attendees = await attendeesAPI.showAttendees(year)
 			setAttendees(attendees)
 			messageContainer.innerHTML = 'Entry Deleted'
 		}
@@ -42,7 +42,7 @@ export default function ManagePage() {
 
 		await attendeesAPI.updateAttendee(id, updatedAttendee)
 		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees()
+			const attendees = await attendeesAPI.showAttendees(year)
 			setAttendees(attendees)
 			setCopy(attendees)
 			messageContainer.innerHTML = 'Entry Updated'
