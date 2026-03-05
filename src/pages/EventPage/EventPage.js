@@ -9,7 +9,7 @@ import fb from '../../images/fb_icon.png'
 
 
 export default function EventPage() {
-	
+
 const currentDate = new Date();
 const blockedStart = new Date('2026-03-21');
 const blockedEnd = new Date('2026-03-30');
@@ -47,8 +47,6 @@ const isWithinDateRange = currentDate < blockedStart || currentDate > blockedEnd
 				<a className="link" href="mailto:patpattersonridesbikes@gmail.com" rel="noopener noreferrer">
 				Contact
 				</a>
-
-
 
 				
 
