@@ -12,7 +12,7 @@ export default function EventPage() {
 
 	const currentDate = new Date();
 	const startDate = new Date('2025-10-01');
-	const endDate = new Date('2026-03-21');
+	const endDate = new Date('2026-03-02');
 
 	const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;
 
@@ -35,7 +35,9 @@ export default function EventPage() {
 					>
 						Register
 					</a>
-				) : null}
+				) : <Link className="link" to="/access">
+				  Submit Results
+				</Link>}
 							
 
 				<Link className="link" to="/PastResults">
