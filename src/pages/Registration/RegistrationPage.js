@@ -69,6 +69,7 @@ export default function RegistrationPage() {
 		// append the attendee name and date to the formData object
 		formData.append('attendee[name]', name)
 		formData.append('attendee[gender]', gender)
+		formData.append('attendee[geared]', geared)
 		formData.append('attendee[date]', date)
 
 		// append the image file to the formData object
