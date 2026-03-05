@@ -35,7 +35,7 @@ export default function AccessPage() {
 
 		<div className="access-container">
             <div className="access-header">
-            <Link className='link' to="/"><img className="logo" alt="logo" src={logo} /></Link>                
+            <Link className='link' to="/"><img className="logo" alt="logo" src={logo} style={{ width: "50%" }} /></Link>                
             </div>
 			<div className="form-container">
             <h2 className='access-text'>Enter access code to post result!</h2>
