@@ -10,7 +10,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: rgb(35, 35, 35);
+    background-color: rgb(145, 144, 144);
     margin: 10px auto;
     padding: 10px;
     padding-bottom: 20px;
@@ -28,7 +28,7 @@
     justify-content: center;
     margin-top: 10px;
     padding: 5px 0 25px 0;
-    background-color: rgb(181, 180, 180);
+    background-color: rgb(65, 65, 65);
     border-radius: 5px;
     min-height: auto;
     max-width: 80vw;

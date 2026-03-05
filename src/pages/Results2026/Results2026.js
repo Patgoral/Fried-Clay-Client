@@ -39,7 +39,7 @@ export default function EventPage() {
 			}
 
 			const gearedCount = {
-			"Single-Speed": 0,
+			"SS": 0,
 			"Fixed": 0
 			};
 
@@ -80,9 +80,9 @@ export default function EventPage() {
 				}
 
 				switch (attendee.geared) {
-				case "Single-Speed":
-					gearedCount["Single-Speed"]++;
-					attendee.gearedPosition = `Single-Speed ${gearedCount["Single-Speed"]}`;
+				case "SS":
+					gearedCount["SS"]++;
+					attendee.gearedPosition = `SS ${gearedCount["SS"]}`;
 					break;
 				case "Fixed":
 					gearedCount["Fixed"]++;

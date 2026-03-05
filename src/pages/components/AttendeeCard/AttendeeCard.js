@@ -14,7 +14,7 @@ export default function AttendeeCard({ attendee, position }) {
     };
 
     const gearedMap = {
-      "Single-Speed": "SS",
+      "SS": "SS",
       "Fixed": "Fixed"
     };
 
