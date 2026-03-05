@@ -1,7 +1,7 @@
 import './AccessPage.css'
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import  logo  from '../../images/FriedClay5_v1-01.png'
+import  logo  from '../../images/FriedClay200k26'
 
 
 export default function AccessPage() {

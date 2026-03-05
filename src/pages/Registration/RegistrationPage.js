@@ -7,12 +7,12 @@ import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../images/FriedClay5_v1-01.png'
+import logo from '../../images/FriedClay200k26.png'
 
 export default function RegistrationPage() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
-	const [gender, setGender] = useState('')
+	const [gender, setGender] = useState('Geared')
 	const [geared, setGeared] = useState('')
 	const [date, setDate] = useState('') 
 	const [image, setImage] = useState(undefined)
@@ -157,7 +157,7 @@ export default function RegistrationPage() {
 
 							>
 							<option value="Geared">Geared</option>
-							<option value="SS">Single Speed</option>
+							<option value="SS">Single-Speed</option>
 							<option value="Fixed">Fixed</option>
 						</select>
 
