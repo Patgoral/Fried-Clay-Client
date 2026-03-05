@@ -12,8 +12,8 @@ import logo from '../../images/FriedClay200k26.png'
 export default function RegistrationPage() {
 	const navigate = useNavigate()
 	const [name, setName] = useState('')
-	const [gender, setGender] = useState('Geared')
-	const [geared, setGeared] = useState('')
+	const [gender, setGender] = useState('')
+	const [geared, setGeared] = useState('Geared')
 	const [date, setDate] = useState('') 
 	const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
