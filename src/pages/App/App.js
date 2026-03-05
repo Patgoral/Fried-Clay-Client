@@ -16,7 +16,7 @@ function App() {
 
 	const currentDate = new Date();
 	const startDate = new Date('2026-10-1');
-	const endDate = new Date('2026-03-30');
+	const endDate = new Date('2026-03-01');
 	
 	const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;
 

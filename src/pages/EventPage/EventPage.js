@@ -12,9 +12,8 @@ export default function EventPage() {
 
 const currentDate = new Date();
 const blockedStart = new Date('2026-03-21');
-const blockedEnd = new Date('2026-03-30');
 
-const isWithinDateRange = currentDate < blockedStart || currentDate > blockedEnd;
+const isWithinDateRange = currentDate < blockedStart;
 
 	return (
 		<div className="event-page">
@@ -35,9 +34,7 @@ const isWithinDateRange = currentDate < blockedStart || currentDate > blockedEnd
 					>
 						Register
 					</a>
-				) : <Link className="link" to="/access">
-				  Submit Results
-				</Link>}
+				) : null}
 							
 
 				<Link className="link" to="/PastResults">
