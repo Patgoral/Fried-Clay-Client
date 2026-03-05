@@ -86,7 +86,7 @@ export default function AttendeeDetailPage() {
 						<h2>Finishing Time: {elapsedTime(attendee.date)} </h2>
 						<h2>Overall Position: {position ?? 'Check Back Later'}</h2>
 						{genderPosition && (<h2>Category Position: {genderPosition}</h2>)}
-						{gearedPosition && (<h2>Category Position: {gearedPosition}</h2>)}
+						{gearedPosition && (<h2>{gearedPosition}</h2>)}
 
 						
 
