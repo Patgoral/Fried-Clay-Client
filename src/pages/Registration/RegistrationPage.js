@@ -14,8 +14,8 @@ export default function RegistrationPage() {
 	const [name, setName] = useState('')
 	const [gender, setGender] = useState('')
 	const [geared, setGeared] = useState('Geared')
-	const [date, setDate] = useState('') 
-	const [image, setImage] = useState(undefined)
+	// const [date, setDate] = useState('') 
+	// const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
 	const [isLoading, setIsLoading] = useState(false) 
   
@@ -72,7 +72,7 @@ export default function RegistrationPage() {
 		formData.append('attendee[geared]', geared)
 
 		// append the image file to the formData object
-		formData.append('image', image)
+		// formData.append('image', image)
 
 		const gpxFile = gpx && gpx.name.endsWith('.gpx') ? gpx : undefined
 		if (!gpxFile) {
