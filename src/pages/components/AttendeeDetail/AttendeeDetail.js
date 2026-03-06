@@ -41,7 +41,7 @@ export default function AttendeeDetailPage() {
 		}
 	}, [id])
 
-	const eventDate = attendee.finishDate ?? attendee.date;
+	const eventDate = attendee.finishTime ?? attendee.date;
 	const year = eventDate ? new Date(eventDate).getFullYear() : null;
 
 	const logoToShow =
