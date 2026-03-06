@@ -19,7 +19,9 @@ export const elapsedTime = (formattedDate) => {
 	const year = date.getFullYear();
 	
 	const targetDate = new Date(
-	  year === 2025 ? "3/22/2025 8:00 AM" :
+	  year === 2026 ? "3/21/2026 8:00 AM" :
+	  year === 2026 ? "3/22/2025 8:00 AM" :
+	  year === 2024 ? "3/23/2024 8:00 AM" :
 	  year === 2023 ? "3/25/2023 8:00 AM" :
 	  "3/23/2024 8:00 AM"
 	);
