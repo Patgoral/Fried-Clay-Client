@@ -261,9 +261,9 @@ p {
 }
 
 .close {
-	color: rgb(217, 255, 0);
-	text-shadow: 2px 1px 2px maroon;
-	font-weight: bold;
+	color: rgb(217, 255, 0) !important;
+	text-shadow: 2px 1px 2px rgb(136, 156, 7) !important;
+	font-weight: bold !important;
 }
 
 .text {
