@@ -39,17 +39,17 @@ export default function RegistrationPage() {
 				'Geared Field Is Required'
 			return
 		}
-    if (!date) {
-			document.getElementById('message-container').innerHTML =
-				'Date Field Is Required'
-			return
-		}
+    // if (!date) {
+	// 		document.getElementById('message-container').innerHTML =
+	// 			'Date Field Is Required'
+	// 		return
+	// 	}
 
-		if (!image) {
-			document.getElementById('message-container').innerHTML =
-				'Image Upload Is Required'
-			return
-		}
+	// 	if (!image) {
+	// 		document.getElementById('message-container').innerHTML =
+	// 			'Image Upload Is Required'
+	// 		return
+	// 	}
 
     if (!gpx) {
 			document.getElementById('message-container').innerHTML =
@@ -58,19 +58,18 @@ export default function RegistrationPage() {
 		}
 
 
-		const validImageFileTypes = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.heic']
-		const imageFileType = image.name.substr(image.name.lastIndexOf('.'))
-		if (!validImageFileTypes.includes(imageFileType.toLowerCase())) {
-			document.getElementById('message-container').innerHTML =
-				'Invalid Image File'
-			return
-		}
+		// const validImageFileTypes = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.heic']
+		// const imageFileType = image.name.substr(image.name.lastIndexOf('.'))
+		// if (!validImageFileTypes.includes(imageFileType.toLowerCase())) {
+		// 	document.getElementById('message-container').innerHTML =
+		// 		'Invalid Image File'
+		// 	return
+		// }
 
 		// append the attendee name and date to the formData object
 		formData.append('attendee[name]', name)
 		formData.append('attendee[gender]', gender)
 		formData.append('attendee[geared]', geared)
-		formData.append('attendee[date]', date)
 
 		// append the image file to the formData object
 		formData.append('image', image)
@@ -162,28 +161,7 @@ export default function RegistrationPage() {
 							<option value="Fixed">Fixed</option>
 						</select>
 
-						<p className="register-header2">Finishing Date & Time</p>
-							<DateTimePicker
-								disableClock={true}
-								className="date-time"
-								minDate={new Date('03/21/2026 3:00 PM EST')}
-								maxDate={new Date('03/24/2026 9:00 PM EST')}
-								onChange={setDate}
-								value={date}
-								dayPlaceholder=""
-								monthPlaceholder=""
-								yearPlaceholder=""
-								showLeadingZeros={true}
-								calendarIcon={null}
-                           
-							/>
-
-							<p className="register-header2">Upload Finishing Image</p>
-							<input
-								type="file"
-								name="image"
-								onChange={(e) => setImage(e.target.files[0])}
-							/>
+										
 							<p className="register-header2">Upload GPX File</p>
 
 							<input

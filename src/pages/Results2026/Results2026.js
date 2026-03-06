@@ -5,96 +5,117 @@ import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
 
-const endDate = new Date('03/30/2026')
-const startDate = new Date('03/01/2026')
-startDate.setHours(8, 0, 0, 0)
+const endDate = new Date('2026-03-30T00:00:00')
+const startDate = new Date('2026-03-01T08:00:00-04:00')
 
 export default function EventPage() {
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
-	const [logoLinkPath, setLogoLinkPath] = useState('/EventPage')  // Dynamic link path
+	const [logoLinkPath, setLogoLinkPath] = useState('/EventPage')
 
-	let attendeeList
-	let messagecontainer
-
-	// READ ATTENDEES
 	useEffect(() => {
 		async function getAllAttendees() {
-			const year = 2026  
-			const attendees = await attendeesAPI.showAttendees(year)
+			try {
+				const year = 2026
+				const response = await attendeesAPI.showAttendees(year)
+				const attendeeList = response.attendees || []
 
-			// Sort attendees by date first
-			attendees.attendees.sort((a, b) => new Date(a.date) - new Date(b.date))
+				const getEventTime = (attendee) =>
+					attendee.finishTime ?? attendee.date ?? null
 
-			// Assign overall positions
-			let currentPos = 1
+				const sortedAttendees = [...attendeeList].sort((a, b) => {
+					const aTime = getEventTime(a)
+					const bTime = getEventTime(b)
 
-			// Initialize gender counters
-			const genderCount = {
-				Male: 0,
-				Female: 0,
-				"Non-Binary": 0
+					if (!aTime && !bTime) return 0
+					if (!aTime) return 1
+					if (!bTime) return -1
+
+					return new Date(aTime) - new Date(bTime)
+				})
+
+				let currentPos = 1
+
+				const genderCount = {
+					Male: 0,
+					Female: 0,
+					'Non-Binary': 0,
+				}
+
+				const gearedCount = {
+					SS: 0,
+					Fixed: 0,
+				}
+
+				sortedAttendees.forEach((attendee, index) => {
+					const currentTime = getEventTime(attendee)
+					const previousTime =
+						index > 0 ? getEventTime(sortedAttendees[index - 1]) : null
+					const nextTime =
+						index < sortedAttendees.length - 1
+							? getEventTime(sortedAttendees[index + 1])
+							: null
+
+					// Overall position logic with ties
+					if (index > 0 && currentTime && previousTime && currentTime === previousTime) {
+						attendee.position = sortedAttendees[index - 1].position
+					} else {
+						attendee.position = currentPos
+					}
+
+					if (
+						index === sortedAttendees.length - 1 ||
+						!currentTime ||
+						!nextTime ||
+						currentTime !== nextTime
+					) {
+						currentPos++
+					}
+
+					// Gender position logic
+					switch (attendee.gender) {
+						case 'Male':
+							genderCount.Male++
+							attendee.genderPosition = `Male ${genderCount.Male}`
+							break
+						case 'Female':
+							genderCount.Female++
+							attendee.genderPosition = `Female ${genderCount.Female}`
+							break
+						case 'Non-Binary':
+							genderCount['Non-Binary']++
+							attendee.genderPosition = `Non-Binary ${genderCount['Non-Binary']}`
+							break
+						default:
+							attendee.genderPosition = null
+							break
+					}
+
+					// Geared position logic
+					switch (attendee.geared) {
+						case 'SS':
+							gearedCount.SS++
+							attendee.gearedPosition = `SS ${gearedCount.SS}`
+							break
+						case 'Fixed':
+							gearedCount.Fixed++
+							attendee.gearedPosition = `Fixed ${gearedCount.Fixed}`
+							break
+						default:
+							attendee.gearedPosition = null
+							break
+					}
+				})
+
+				setAttendees(sortedAttendees)
+			} catch (error) {
+				console.error('Error loading attendees:', error)
+				setAttendees([])
+			} finally {
+				setIsPageLoaded(true)
 			}
-
-			const gearedCount = {
-			"SS": 0,
-			"Fixed": 0
-			};
-
-			attendees.attendees.forEach((attendee, index) => {
-				// Overall position logic
-				if (index > 0 && attendee.date === attendees.attendees[index - 1].date) {
-					// If tied, use the same position as the previous attendee
-					attendee.position = attendees.attendees[index - 1].position
-				} else {
-					attendee.position = currentPos
-				}
-			
-				// Increment position only after all ties
-				if (
-					index === attendees.attendees.length - 1 || 
-					attendee.date !== attendees.attendees[index + 1].date
-				) {
-					currentPos++
-				}
-			
-				// Gender position logic
-				switch (attendee.gender) {
-					case "Male":
-						genderCount.Male++
-						attendee.genderPosition = `Male ${genderCount.Male}`
-						break
-					case "Female":
-						genderCount.Female++
-						attendee.genderPosition = `Female ${genderCount.Female}`
-						break
-					case "Non-Binary":
-						genderCount["Non-Binary"]++
-						attendee.genderPosition = `Non-Binary ${genderCount["Non-Binary"]}`
-						break
-					default:
-						attendee.genderPosition = "N/A"
-						break
-				}
-
-				switch (attendee.geared) {
-				case "SS":
-					gearedCount["SS"]++;
-					attendee.gearedPosition = `SS ${gearedCount["SS"]}`;
-					break;
-				case "Fixed":
-					gearedCount["Fixed"]++;
-					attendee.gearedPosition = `Fixed ${gearedCount["Fixed"]}`;
-					break;				
-				}
-			})
-			
-
-			// Set attendees with both position and genderPosition
-			setAttendees({ attendees: attendees.attendees })
-			setIsPageLoaded(true)
 		}
 
 		getAllAttendees()
@@ -115,35 +136,33 @@ export default function EventPage() {
 		}
 	}, [])
 
-	// SHOW A LIST OF ATTENDEES
-	if (attendees.length !== 0) {
-		attendeeList = attendees.attendees.map((attendee) => (
+	let attendeeList = null
+	let messagecontainer = ''
+
+	if (attendees.length > 0) {
+		attendeeList = attendees.map((attendee) => (
 			<Link
 				key={attendee._id}
 				className="link"
-				state={{ 
-					position: attendee.position, 
+				state={{
+					position: attendee.position,
 					genderPosition: attendee.genderPosition,
-					gearedPosition: attendee.gearedPosition 
-
+					gearedPosition: attendee.gearedPosition,
 				}}
 				to={`/attendees/${attendee._id}`}
 			>
 				<div className="list-of-attendees">
-					<AttendeeCard 
+					<AttendeeCard
 						attendee={attendee}
 						position={attendee.position}
 						genderPosition={attendee.genderPosition}
 						gearedPosition={attendee.gearedPosition}
-
 					/>
 				</div>
 			</Link>
 		))
-
-		if (!attendees.attendees[0]) {
-			messagecontainer = 'No Results Yet'
-		}
+	} else if (isPageLoaded) {
+		messagecontainer = 'No Results Yet'
 	} else {
 		messagecontainer = 'Loading Results'
 	}
@@ -160,7 +179,9 @@ export default function EventPage() {
 				<div className="heading-div">
 					{!applyButtonClass ? (
 						<>
-							<p id='dead' className="dead">Submissions Open 3/21</p>
+							<p id="dead" className="dead">
+								Submissions Open 3/21
+							</p>
 						</>
 					) : applyLinkClass ? (
 						<>

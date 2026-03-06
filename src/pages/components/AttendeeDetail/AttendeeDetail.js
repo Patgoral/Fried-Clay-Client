@@ -42,14 +42,17 @@ export default function AttendeeDetailPage() {
 		}
 	}, [id])
 
-	const year = attendee.date ? new Date(attendee.date).getFullYear() : null;
-	const logoToShow = year === 2023 
-    ? logo2023 
-    : year === 2024 
-    ? logo2024 
-    : year === 2025 
-    ? logo2025 
-    : logo2026;
+	const eventDate = attendee.finishDate ?? attendee.date;
+	const year = eventDate ? new Date(eventDate).getFullYear() : null;
+
+	const logoToShow =
+	year === 2023
+		? logo2023
+		: year === 2024
+		? logo2024
+		: year === 2025
+		? logo2025
+		: logo2026;
 
 	const linkTo = year === 2023 
 		? '/2023' 
@@ -83,7 +86,12 @@ export default function AttendeeDetailPage() {
             <div className='attendee-info'>
 						<h2>Name: {attendee.name} </h2>
 						{attendee.gender && <h2>Gender: {attendee.gender}</h2>}
-						<h2>Finishing Time: {elapsedTime(attendee.date)} </h2>
+						<h2>
+						Finishing Time:{" "}
+						{attendee.finishTime || attendee.date
+							? elapsedTime(attendee.finishTime || attendee.date)
+							: "Time Error, contact us to fix"}
+						</h2>
 						<h2>Overall Position: {position ?? 'Check Back Later'}</h2>
 						{genderPosition && (<h2>Category Position: {genderPosition}</h2>)}
 						{gearedPosition && (<h2>{gearedPosition}</h2>)}
