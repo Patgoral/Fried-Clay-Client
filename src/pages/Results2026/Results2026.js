@@ -5,7 +5,7 @@ import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
 
-const endDate = new Date('2026-03-30T00:00:00')
+const endDate = new Date('2026-03-29T00:00:00')
 const startDate = new Date('2026-03-01T08:00:00-04:00')
 
 export default function EventPage() {
@@ -206,7 +206,7 @@ export default function EventPage() {
 							<div className="closed">
 								<br />
 								<p className="close">Final Results Pending Verification</p>
-								<p className="close">Submissions Close 3/30/2026</p>
+								<p className="close">Submissions Close 3/29/2026</p>
 							</div>
 						</>
 					) : (
