@@ -4,7 +4,6 @@ import { indexEachAttendee } from '../../../utilities/attendees-api'
 import { useState, useEffect } from 'react'
 import { elapsedTime } from '../../utils/dateFormatter'
 import MapComponent from '../MapComponent/MapComponent'
-import noPhoto from '../../../images/noPhoto.png'
 import logo2023 from '../../../images/fc23logo.png'
 import logo2024 from '../../../images/fried-clay.png'
 import logo2025 from '../../../images/FriedClay5_v1-01.png'
@@ -99,14 +98,17 @@ export default function AttendeeDetailPage() {
 						
 
             </div>
-						<div className="img">
-						<img
-							alt="attendeeimage"
-							width="250px"
-							src={attendee.image || noPhoto}
-							onError={(e) => e.target.src = noPhoto}
-							/>
-						</div><div className='key'>
+						{attendee.image && (
+							<div className="img">
+								<img
+								alt="attendeeimage"
+								width="250px"
+								src={attendee.image}
+								/>
+							</div>
+						)}
+
+			<div className='key'>
             
             <div className="box red"></div>
             <p className='key-text' style={{marginRight: "10px"}}>Official Route</p>
