@@ -6,156 +6,180 @@ import logo from '../../images/fried-clay.png'
 import { Link } from 'react-router-dom'
 
 export default function ManagePage() {
-	const [attendees, setAttendees] = useState([])
-	const [copy, setCopy] = useState([])
-	let valueHolder = []
-	let attendeeList
-	let userListOfAttendees = []
-	const messageContainer = document.querySelector('#message-container')
-			const year = new Date().getFullYear(); 
+	const [attendees, setAttendees] = useState({ attendees: [] })
+	const [copy, setCopy] = useState({ attendees: [] })
+	const [message, setMessage] = useState('')
+	const [isLoading, setIsLoading] = useState(true)
 
-	//READ THE ATTENDEES
-	useEffect(function () {
+	const year = new Date().getFullYear()
+
+	useEffect(() => {
 		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees(year)
-			setAttendees(attendees)
-			setCopy(attendees)
+			try {
+				const attendees = await attendeesAPI.showAttendees(year)
+				setAttendees(attendees)
+				setCopy(attendees)
+			} finally {
+				setIsLoading(false)
+			}
 		}
-		getAllAttendees().finally(() => {
-			const loader = document.querySelector('.lds-roller')
-			loader.style.display = 'none'
-		})
-	}, [])
-	//HANDLES THE DELETION
+
+		getAllAttendees()
+	}, [year])
+
+	async function refreshAttendees(successMessage = '') {
+		const attendees = await attendeesAPI.showAttendees(year)
+		setAttendees(attendees)
+		setCopy(attendees)
+		setMessage(successMessage)
+	}
+
 	async function handleDeleteAttendee(id) {
 		await attendeesAPI.removeAttendee(id)
-		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees(year)
-			setAttendees(attendees)
-			messageContainer.innerHTML = 'Entry Deleted'
-		}
-		getAllAttendees()
+		await refreshAttendees('Entry Deleted')
 	}
-	//HANDLES EDIT/UPDATE
-	async function handleEditAttendee(id, name, date) {
-		const updatedAttendee = { name, date }
 
-		await attendeesAPI.updateAttendee(id, updatedAttendee)
-		async function getAllAttendees() {
-			const attendees = await attendeesAPI.showAttendees(year)
-			setAttendees(attendees)
-			setCopy(attendees)
-			messageContainer.innerHTML = 'Entry Updated'
+	async function handleEditAttendee(attendee) {
+		const updatedAttendee = {
+			name: attendee.name,
 		}
-		getAllAttendees()
+
+		if (attendee.finishTime !== undefined && attendee.finishTime !== null && attendee.finishTime !== '') {
+			updatedAttendee.finishTime = attendee.finishTime
+		} else {
+			updatedAttendee.date = attendee.date
+		}
+
+		await attendeesAPI.updateAttendee(attendee._id, updatedAttendee)
+		await refreshAttendees('Entry Updated')
 	}
-	//HANDLES ANY CHANGES MADE TO INPUT FIELD
+
 	function handleInputChange(event, id) {
+		const { name, value } = event.target
+
 		const updatedAttendees = attendees.attendees.map((p) => {
 			if (p._id === id) {
-				return { ...p, [event.target.name]: event.target.value }
+				return { ...p, [name]: value }
 			}
 			return p
 		})
+
 		setAttendees({ attendees: updatedAttendees })
 	}
-	//CREATES AN ARRAY TO MAP THE ATTENDEES
-	if (attendees.length !== 0 && attendees.attendees !== undefined) {
-		attendees.attendees.forEach(function (attendee) {
-				userListOfAttendees.push(attendee)
-			
-		})
-	}
-	//STORES A COPY OF THE PREVIOUS STATE BEFORE EDIT/UPDATE
+
 	function getStoredValue(attendeeId, value) {
-		copy.attendees.forEach(function (person) {
-			if (person._id === attendeeId) {
-				valueHolder = []
-				valueHolder.push(person)
-			}
-		})
+		const person = copy.attendees.find((p) => p._id === attendeeId)
+		if (!person) return null
+
 		if (value === 'name') {
-			return valueHolder.map((tmp, index) => (
-				<span key={index} className="current-field-value">
-					{tmp.name}
-				</span>
-			))
-		} else if (value === 'date') {
-			return valueHolder.map((tmp, index) => (
-				<span key={index} className="current-field-value">
-					{dateFormatter(tmp.date)}
-				</span>
-			))
+			return <span className="current-field-value">{person.name}</span>
 		}
+
+		if (value === 'time') {
+			const storedTime = person.finishTime ?? person.date
+			return (
+				<span className="current-field-value">
+					{storedTime ? dateFormatter(storedTime) : 'No Time'}
+				</span>
+			)
+		}
+
+		return null
 	}
-	//MAPS EVERYTHING TO INTERFACE
-	attendeeList = userListOfAttendees.map((attendee, index) => (
-		<div className="user-attendees" key={index}>
-			<div className="name-container">
-				<label className="manage-labels">
-					<span className="current-field-desc">Name: </span>
-					{getStoredValue(attendee._id, 'name')}
-				</label>
+
+	const attendeeList = attendees.attendees.map((attendee) => {
+		const editableTimeField =
+			attendee.finishTime !== undefined && attendee.finishTime !== null
+				? 'finishTime'
+				: 'date'
+
+		const editableTimeValue =
+			attendee.finishTime !== undefined && attendee.finishTime !== null
+				? attendee.finishTime
+				: attendee.date || ''
+
+		const timeLabel =
+			attendee.finishTime !== undefined && attendee.finishTime !== null
+				? 'Finish Time'
+				: 'Date'
+
+		return (
+			<div className="user-attendees" key={attendee._id}>
+				<div className="name-container">
+					<label className="manage-labels">
+						<span className="current-field-desc">Name: </span>
+						{getStoredValue(attendee._id, 'name')}
+					</label>
+				</div>
+
+				<div className="date-container">
+					<label className="manage-labels">
+						<span className="current-field-desc">{timeLabel}: </span>
+						{getStoredValue(attendee._id, 'time')}
+					</label>
+				</div>
+
+				<div className="input-container">
+					<input
+						className="name-input"
+						placeholder="Name"
+						name="name"
+						value={attendee.name || ''}
+						onChange={(event) => handleInputChange(event, attendee._id)}
+					/>
+				</div>
+
+				<div className="input-container">
+					<input
+						className="date-input"
+						placeholder={timeLabel}
+						name={editableTimeField}
+						value={editableTimeValue || ''}
+						onChange={(event) => handleInputChange(event, attendee._id)}
+					/>
+				</div>
+
+				<div className="button-container">
+					<button
+						className="edit-button"
+						onClick={() => handleEditAttendee(attendee)}
+					>
+						Edit
+					</button>
+
+					<button
+						className="delete-button"
+						onClick={() => handleDeleteAttendee(attendee._id)}
+					>
+						Delete
+					</button>
+				</div>
 			</div>
-			<div className="date-container">
-				<label className="manage-labels">
-					<span className="current-field-desc">Date: </span>
-					{getStoredValue(attendee._id, 'date')}
-				</label>
-			</div>
-			<div className="input-container">
-				<input
-					className="name-input"
-					placeholder="Name"
-					name="name"
-					value={attendee.name || ''}
-					onChange={(event) => handleInputChange(event, attendee._id)}
-				></input>
-			</div>
-			<div className="input-container">
-				<input
-					className="date-input"
-					placeholder="Date"
-					name="date"
-					value={attendee.date || ''}
-					onChange={(event) => handleInputChange(event, attendee._id)}
-				></input>
-			</div>
-			<div className="button-container">
-				<button
-					className="edit-button"
-					onClick={() =>
-						handleEditAttendee(attendee._id, attendee.name, attendee.date)
-					}
-				>
-					Edit
-				</button>
-				<button
-					className="delete-button"
-					onClick={() => handleDeleteAttendee(attendee._id)}
-				>
-					Delete
-				</button>
-			</div>
-		</div>
-	))
+		)
+	})
 
 	return (
 		<div className="manage-page">
-			<Link className='link' to="/"><img className="logo" alt="logo" src={logo} /></Link>
-            <div className="lds-roller">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-			<h3 id="message-container">&nbsp;</h3>
+			<Link className="link" to="/">
+				<img className="logo" alt="logo" src={logo} />
+			</Link>
+
+			{isLoading && (
+				<div className="lds-roller">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			)}
+
+			<h3 id="message-container">{message || '\u00A0'}</h3>
+
 			<div className="user-attendee-list">{attendeeList}</div>
-			
 		</div>
 	)
 }

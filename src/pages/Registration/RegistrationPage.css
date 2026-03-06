@@ -69,6 +69,7 @@ body{
 .register-button {
     display: grid;
     margin: auto;
+    margin-top: 20px;
     width: 30%;
     font-size: 24px;
     padding: 10px;
@@ -85,9 +86,11 @@ body{
 .name{
    
     align-self: center;
+    height: 40px; 
+
 }
 
-.gender {
+.selectClass {
     height: 40px; 
     margin-top: 10px;
     margin-bottom: 10px;

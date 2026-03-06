@@ -135,7 +135,7 @@ export default function RegistrationPage() {
 							/>
 						<p className="register-header2">Gender</p>
 						<select 
-							className='gender'
+							className='selectClass'
 							name="gender"
 							value={gender}
 							onChange={handleGenderChange}
@@ -150,7 +150,7 @@ export default function RegistrationPage() {
 
 						<p className="register-header2">Geared, SS, Fixed?</p>
 						<select 
-							className='geared'
+							className='selectClass'
 							name="geared"
 							value={geared}
 							onChange={handleGearedChange}

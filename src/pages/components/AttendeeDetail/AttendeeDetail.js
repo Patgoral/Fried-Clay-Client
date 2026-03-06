@@ -89,7 +89,7 @@ export default function AttendeeDetailPage() {
 						Finishing Time:{" "}
 						{attendee.finishTime || attendee.date
 							? elapsedTime(attendee.finishTime || attendee.date)
-							: "Time Error, contact us to fix"}
+							: "Error, contact us to fix"}
 						</h2>
 						<h2>Overall Position: {position ?? 'Check Back Later'}</h2>
 						{genderPosition && (<h2>Category Position: {genderPosition}</h2>)}
