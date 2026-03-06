@@ -14,9 +14,10 @@ import AccessPage from '../AccessPage/AccessPage'
 
 function App() {
 
-const currentDate = new Date();
-const startDate = new Date('2026-03-21T08:00:00-05:00'); 
-const endDate = new Date('2026-03-29T08:00:00-05:00');   
+const currentDate = new Date()
+
+const startDate = new Date('2026-03-21T12:00:00Z')
+const endDate   = new Date('2026-03-29T12:00:00Z') 
 
 const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;
 
