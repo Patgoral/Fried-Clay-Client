@@ -5,7 +5,7 @@ import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
 
-const endDate = new Date('2026-03-29T00:00:00')
+const endDate = new Date('2026-03-30T00:00:00')
 const startDate = new Date('2026-03-01T08:00:00-04:00')
 
 export default function EventPage() {
@@ -17,120 +17,104 @@ export default function EventPage() {
 
 	useEffect(() => {
 	async function getAllAttendees() {
-		try {
-			const year = 2026
-			const response = await attendeesAPI.showAttendees(year)
-			const attendeeList = response.attendees || []
+	try {
+		const year = 2026
+		const response = await attendeesAPI.showAttendees(year)
+		const attendeeList = response.attendees || []
 
-			const getEventTime = (attendee) =>
-				attendee.finishTime ?? attendee.date ?? null
+		const getEventTime = (attendee) =>
+			attendee.finishTime ?? attendee.date ?? null
 
-			const sortedAttendees = [...attendeeList].sort((a, b) => {
-				const aTime = getEventTime(a)
-				const bTime = getEventTime(b)
+		const getEventTimeMs = (attendee) => {
+			const time = getEventTime(attendee)
+			if (!time) return null
 
-				if (!aTime && !bTime) return 0
-				if (!aTime) return 1
-				if (!bTime) return -1
-
-				return new Date(aTime) - new Date(bTime)
-			})
-
-			let currentPos = 1
-
-			const genderCount = {
-				Male: 0,
-				Female: 0,
-				'Non-Binary': 0,
-			}
-
-			const gearedCount = {
-				SS: 0,
-				Fixed: 0,
-			}
-
-			sortedAttendees.forEach((attendee, index) => {
-				const currentTime = getEventTime(attendee)
-
-				// No valid time/date = no placing, keep at end
-				if (!currentTime) {
-					attendee.position = null
-					attendee.genderPosition = null
-					attendee.gearedPosition = null
-					return
-				}
-
-				const previousTimedAttendee = [...sortedAttendees]
-					.slice(0, index)
-					.reverse()
-					.find((a) => getEventTime(a))
-
-				const previousTime = previousTimedAttendee
-					? getEventTime(previousTimedAttendee)
-					: null
-
-				const nextTimedAttendee = sortedAttendees
-					.slice(index + 1)
-					.find((a) => getEventTime(a))
-
-				const nextTime = nextTimedAttendee
-					? getEventTime(nextTimedAttendee)
-					: null
-
-				// Overall position logic with ties
-				if (previousTime && currentTime === previousTime) {
-					attendee.position = previousTimedAttendee.position
-				} else {
-					attendee.position = currentPos
-				}
-
-				if (!nextTime || currentTime !== nextTime) {
-					currentPos++
-				}
-
-				// Gender position logic
-				switch (attendee.gender) {
-					case 'Male':
-						genderCount.Male++
-						attendee.genderPosition = `Male ${genderCount.Male}`
-						break
-					case 'Female':
-						genderCount.Female++
-						attendee.genderPosition = `Female ${genderCount.Female}`
-						break
-					case 'Non-Binary':
-						genderCount['Non-Binary']++
-						attendee.genderPosition = `Non-Binary ${genderCount['Non-Binary']}`
-						break
-					default:
-						attendee.genderPosition = null
-						break
-				}
-
-				// Geared position logic
-				switch (attendee.geared) {
-					case 'SS':
-						gearedCount.SS++
-						attendee.gearedPosition = `SS ${gearedCount.SS}`
-						break
-					case 'Fixed':
-						gearedCount.Fixed++
-						attendee.gearedPosition = `Fixed ${gearedCount.Fixed}`
-						break
-					default:
-						attendee.gearedPosition = null
-						break
-				}
-			})
-
-			setAttendees(sortedAttendees)
-		} catch (error) {
-			console.error('Error loading attendees:', error)
-			setAttendees([])
-		} finally {
-			setIsPageLoaded(true)
+			const ms = new Date(time).getTime()
+			return Number.isNaN(ms) ? null : ms
 		}
+
+		// Sort by actual timestamp ascending, nulls at end
+		const sortedAttendees = [...attendeeList].sort((a, b) => {
+			const aMs = getEventTimeMs(a)
+			const bMs = getEventTimeMs(b)
+
+			if (aMs === null && bMs === null) return 0
+			if (aMs === null) return 1
+			if (bMs === null) return -1
+
+			return aMs - bMs
+		})
+
+		// Track counts by category so ties share place and next place skips correctly
+		const overallState = {
+			count: 0,
+			lastTimeMs: null,
+			lastPosition: null,
+		}
+
+		const genderState = {
+			Male: { count: 0, lastTimeMs: null, lastPosition: null },
+			Female: { count: 0, lastTimeMs: null, lastPosition: null },
+			'Non-Binary': { count: 0, lastTimeMs: null, lastPosition: null },
+		}
+
+		const gearedState = {
+			SS: { count: 0, lastTimeMs: null, lastPosition: null },
+			Fixed: { count: 0, lastTimeMs: null, lastPosition: null },
+			Geared: { count: 0, lastTimeMs: null, lastPosition: null },
+		}
+
+		const assignPlace = (state, timeMs) => {
+			state.count += 1
+
+			if (state.lastTimeMs !== null && state.lastTimeMs === timeMs) {
+				return state.lastPosition
+			}
+
+			state.lastTimeMs = timeMs
+			state.lastPosition = state.count
+			return state.lastPosition
+		}
+
+		sortedAttendees.forEach((attendee) => {
+			const timeMs = getEventTimeMs(attendee)
+
+			// No valid finish/date = no placing, stays at end
+			if (timeMs === null) {
+				attendee.position = null
+				attendee.genderPosition = null
+				attendee.gearedPosition = null
+				return
+			}
+
+			// Overall place
+			attendee.position = assignPlace(overallState, timeMs)
+
+			// Gender place
+			if (genderState[attendee.gender]) {
+				const genderPlace = assignPlace(genderState[attendee.gender], timeMs)
+				attendee.genderPosition = `${attendee.gender} ${genderPlace}`
+			} else {
+				attendee.genderPosition = null
+			}
+
+			// Geared place
+			if (gearedState[attendee.geared]) {
+				const gearedPlace = assignPlace(gearedState[attendee.geared], timeMs)
+				attendee.gearedPosition = `${attendee.geared} ${gearedPlace}`
+			} else {
+				attendee.gearedPosition = null
+			}
+		})
+
+		setAttendees(sortedAttendees)
+	} catch (error) {
+		console.error('Error loading attendees:', error)
+		setAttendees([])
+	} finally {
+		setIsPageLoaded(true)
 	}
+}
 
 	getAllAttendees()
 }, [])

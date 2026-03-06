@@ -20,7 +20,7 @@ export const elapsedTime = (dateInput) => {
 	let targetDate
 
 	if (year === 2026) {
-		targetDate = new Date(2026, 2, 21, 8, 0, 0) // March 21, 2026 8:00 AM local
+		targetDate = new Date(2026, 2, 21, 8, 0, 0) 
 	} else if (year === 2025) {
 		targetDate = new Date(2025, 2, 22, 8, 0, 0)
 	} else if (year === 2024) {
