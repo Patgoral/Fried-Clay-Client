@@ -1,36 +1,40 @@
 export const dateFormatter = (date) => {
-	const utcDate = new Date(date)
-	const month = utcDate.getMonth() + 1 // Add 1 because getMonth() returns 0-based month
-	const day = utcDate.getDate()
-	const year = utcDate.getFullYear()
-	const hours = utcDate.getHours()
-	const minutes = utcDate.getMinutes()
-	const meridian = hours < 12 ? 'AM' : 'PM' // Determine if it's AM or PM
-	const hoursFormatted = hours % 12 === 0 ? 12 : hours % 12;
-	const formattedDate = `${month}/${day}/${year} ${hoursFormatted}:${minutes
-	  .toString()
-	  .padStart(2, "0")}${meridian}`;
+	const d = new Date(date)
+	const month = d.getMonth() + 1
+	const day = d.getDate()
+	const year = d.getFullYear()
+	const hours = d.getHours()
+	const minutes = d.getMinutes()
+	const meridian = hours < 12 ? 'AM' : 'PM'
+	const hoursFormatted = hours % 12 === 0 ? 12 : hours % 12
 
-	return formattedDate
+	return `${month}/${day}/${year} ${hoursFormatted}:${minutes
+		.toString()
+		.padStart(2, '0')} ${meridian}`
 }
 
-export const elapsedTime = (formattedDate) => {
-	const date = new Date(formattedDate);
-	const year = date.getFullYear();
-	
-	const targetDate = new Date(
-	  year === 2026 ? "3/21/2026 8:00 AM" :
-	  year === 2025 ? "3/22/2025 8:00 AM" :
-	  year === 2024 ? "3/23/2024 8:00 AM" :
-	  year === 2023 ? "3/25/2023 8:00 AM" :
-	);
+export const elapsedTime = (dateInput) => {
+	const date = new Date(dateInput)
+	const year = date.getFullYear()
 
-    const elapsedMilliseconds = Math.abs(targetDate - new Date(formattedDate));
-    const elapsedSeconds = Math.floor(elapsedMilliseconds / 1000);
-    const elapsedMinutes = Math.floor(elapsedSeconds / 60);
-    const elapsedHours = Math.floor(elapsedMinutes / 60);
-    const remainingMinutes = elapsedMinutes % 60;
-    return `${elapsedHours} hours, ${remainingMinutes} minutes`;
-  };
+	let targetDate
 
-  
+	if (year === 2026) {
+		targetDate = new Date(2026, 2, 21, 8, 0, 0) // March 21, 2026 8:00 AM local
+	} else if (year === 2025) {
+		targetDate = new Date(2025, 2, 22, 8, 0, 0)
+	} else if (year === 2024) {
+		targetDate = new Date(2024, 2, 23, 8, 0, 0)
+	} else if (year === 2023) {
+		targetDate = new Date(2023, 2, 25, 8, 0, 0)
+	} else {
+		return 'TIME ERROR'
+	}
+
+	const elapsedMilliseconds = Math.abs(date - targetDate)
+	const elapsedMinutes = Math.floor(elapsedMilliseconds / 1000 / 60)
+	const elapsedHours = Math.floor(elapsedMinutes / 60)
+	const remainingMinutes = elapsedMinutes % 60
+
+	return `${elapsedHours} hours, ${remainingMinutes} minutes`
+}
