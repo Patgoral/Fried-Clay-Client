@@ -1,86 +1,60 @@
 import 'leaflet/dist/leaflet.css'
 import './MapComponent.css'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react'
 import { MapContainer, Polyline, TileLayer } from 'react-leaflet'
-import { routePolyline } from '../../utils/routePolyline';
+import { routePolyline } from '../../utils/routePolyline'
+import { routePolylineOld } from '../../utils/routePolylineOld'
+
 const decodePolyline = require('decode-google-map-polyline')
 
-
-
-export default function MapComponent({ gpx }) {
+export default function MapComponent({ gpx, year }) {
   const [polyline, setPolyline] = useState(null)
   const [basePolyline, setBasePolyline] = useState(null)
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false)
+
+  const baseRoute = useMemo(() => {
+    return year < 2026 ? routePolylineOld : routePolyline
+  }, [year])
 
   useEffect(() => {
-    async function getPolyline() {
-      const decoded = decodePolyline(gpx)
-      const positions = decoded.map(p => {
-        return { lat: p.lat, lng: p.lng }
-      })
-      setPolyline(positions)
-    }
-
-    getPolyline()
-
+    const decoded = decodePolyline(gpx)
+    const positions = decoded.map((p) => ({
+      lat: p.lat,
+      lng: p.lng,
+    }))
+    setPolyline(positions)
   }, [gpx])
 
   useEffect(() => {
-    async function getBasePolyline() {
-      const decoded = decodePolyline(routePolyline)
-      const positions = decoded.map(p => {
-        return { lat: p.lat, lng: p.lng }
-      })
-      setBasePolyline(positions)
-    }
-
-    getBasePolyline()
-
-  }, [gpx])
-
-
+    const decoded = decodePolyline(baseRoute)
+    const positions = decoded.map((p) => ({
+      lat: p.lat,
+      lng: p.lng,
+    }))
+    setBasePolyline(positions)
+  }, [baseRoute])
 
   useEffect(() => {
     if (window.innerWidth < 600) {
-      setIsMobile(true);
+      setIsMobile(true)
     }
-  }, []);
+  }, [])
 
-
-
-    if (!polyline) {
+  if (!polyline || !basePolyline) {
     return null
   }
 
-  if (!basePolyline) {
-    return null
-  }
-
-  const middleIndex = Math.floor(polyline.length / 25);
-
+  const middleIndex = Math.floor(polyline.length / 25)
 
   return (
     <MapContainer
-    zoom={isMobile ? 9 : 10.49}
-    center={polyline[middleIndex]}
+      zoom={isMobile ? 9 : 10.49}
+      center={polyline[middleIndex]}
       scrollWheelZoom={true}
-      
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Polyline
-        pathOptions={{ color: 'red' }}
-        positions={basePolyline}
-      />
-      <Polyline
-        pathOptions={{ color: 'blue' }}
-        positions={polyline}
-      />
-    
-
-
-  
+      <Polyline pathOptions={{ color: 'red' }} positions={basePolyline} />
+      <Polyline pathOptions={{ color: 'blue' }} positions={polyline} />
     </MapContainer>
   )
 }
-
-// style={{height: '300px', width: '500px'}}

@@ -118,7 +118,7 @@ export default function AttendeeDetailPage() {
 
               </div>
 						<div className="map">
-							<MapComponent gpx={attendee.gpx} />
+							<MapComponent year = {year} gpx={attendee.gpx} />
 						</div>
 					</div>
 				)}
