@@ -18,7 +18,7 @@ export default function EventPage() {
 	useEffect(() => {
 		async function getAllAttendees() {
 			try {
-				const year = 2026
+				const year = 2025
 				const response = await attendeesAPI.showAttendees(year)
 				const attendeeList = response.attendees || []
 
