@@ -16,110 +16,124 @@ export default function EventPage() {
 	const [logoLinkPath, setLogoLinkPath] = useState('/EventPage')
 
 	useEffect(() => {
-		async function getAllAttendees() {
-			try {
-				const year = 2026
-				const response = await attendeesAPI.showAttendees(year)
-				const attendeeList = response.attendees || []
+	async function getAllAttendees() {
+		try {
+			const year = 2026
+			const response = await attendeesAPI.showAttendees(year)
+			const attendeeList = response.attendees || []
 
-				const getEventTime = (attendee) =>
-					attendee.finishTime ?? attendee.date ?? null
+			const getEventTime = (attendee) =>
+				attendee.finishTime ?? attendee.date ?? null
 
-				const sortedAttendees = [...attendeeList].sort((a, b) => {
-					const aTime = getEventTime(a)
-					const bTime = getEventTime(b)
+			const sortedAttendees = [...attendeeList].sort((a, b) => {
+				const aTime = getEventTime(a)
+				const bTime = getEventTime(b)
 
-					if (!aTime && !bTime) return 0
-					if (!aTime) return 1
-					if (!bTime) return -1
+				if (!aTime && !bTime) return 0
+				if (!aTime) return 1
+				if (!bTime) return -1
 
-					return new Date(aTime) - new Date(bTime)
-				})
+				return new Date(aTime) - new Date(bTime)
+			})
 
-				let currentPos = 1
+			let currentPos = 1
 
-				const genderCount = {
-					Male: 0,
-					Female: 0,
-					'Non-Binary': 0,
-				}
-
-				const gearedCount = {
-					SS: 0,
-					Fixed: 0,
-				}
-
-				sortedAttendees.forEach((attendee, index) => {
-					const currentTime = getEventTime(attendee)
-					const previousTime =
-						index > 0 ? getEventTime(sortedAttendees[index - 1]) : null
-					const nextTime =
-						index < sortedAttendees.length - 1
-							? getEventTime(sortedAttendees[index + 1])
-							: null
-
-					// Overall position logic with ties
-					if (index > 0 && currentTime && previousTime && currentTime === previousTime) {
-						attendee.position = sortedAttendees[index - 1].position
-					} else {
-						attendee.position = currentPos
-					}
-
-					if (
-						index === sortedAttendees.length - 1 ||
-						!currentTime ||
-						!nextTime ||
-						currentTime !== nextTime
-					) {
-						currentPos++
-					}
-
-					// Gender position logic
-					switch (attendee.gender) {
-						case 'Male':
-							genderCount.Male++
-							attendee.genderPosition = `Male ${genderCount.Male}`
-							break
-						case 'Female':
-							genderCount.Female++
-							attendee.genderPosition = `Female ${genderCount.Female}`
-							break
-						case 'Non-Binary':
-							genderCount['Non-Binary']++
-							attendee.genderPosition = `Non-Binary ${genderCount['Non-Binary']}`
-							break
-						default:
-							attendee.genderPosition = null
-							break
-					}
-
-					// Geared position logic
-					switch (attendee.geared) {
-						case 'SS':
-							gearedCount.SS++
-							attendee.gearedPosition = `SS ${gearedCount.SS}`
-							break
-						case 'Fixed':
-							gearedCount.Fixed++
-							attendee.gearedPosition = `Fixed ${gearedCount.Fixed}`
-							break
-						default:
-							attendee.gearedPosition = null
-							break
-					}
-				})
-
-				setAttendees(sortedAttendees)
-			} catch (error) {
-				console.error('Error loading attendees:', error)
-				setAttendees([])
-			} finally {
-				setIsPageLoaded(true)
+			const genderCount = {
+				Male: 0,
+				Female: 0,
+				'Non-Binary': 0,
 			}
-		}
 
-		getAllAttendees()
-	}, [])
+			const gearedCount = {
+				SS: 0,
+				Fixed: 0,
+			}
+
+			sortedAttendees.forEach((attendee, index) => {
+				const currentTime = getEventTime(attendee)
+
+				// No valid time/date = no placing, keep at end
+				if (!currentTime) {
+					attendee.position = null
+					attendee.genderPosition = null
+					attendee.gearedPosition = null
+					return
+				}
+
+				const previousTimedAttendee = [...sortedAttendees]
+					.slice(0, index)
+					.reverse()
+					.find((a) => getEventTime(a))
+
+				const previousTime = previousTimedAttendee
+					? getEventTime(previousTimedAttendee)
+					: null
+
+				const nextTimedAttendee = sortedAttendees
+					.slice(index + 1)
+					.find((a) => getEventTime(a))
+
+				const nextTime = nextTimedAttendee
+					? getEventTime(nextTimedAttendee)
+					: null
+
+				// Overall position logic with ties
+				if (previousTime && currentTime === previousTime) {
+					attendee.position = previousTimedAttendee.position
+				} else {
+					attendee.position = currentPos
+				}
+
+				if (!nextTime || currentTime !== nextTime) {
+					currentPos++
+				}
+
+				// Gender position logic
+				switch (attendee.gender) {
+					case 'Male':
+						genderCount.Male++
+						attendee.genderPosition = `Male ${genderCount.Male}`
+						break
+					case 'Female':
+						genderCount.Female++
+						attendee.genderPosition = `Female ${genderCount.Female}`
+						break
+					case 'Non-Binary':
+						genderCount['Non-Binary']++
+						attendee.genderPosition = `Non-Binary ${genderCount['Non-Binary']}`
+						break
+					default:
+						attendee.genderPosition = null
+						break
+				}
+
+				// Geared position logic
+				switch (attendee.geared) {
+					case 'SS':
+						gearedCount.SS++
+						attendee.gearedPosition = `SS ${gearedCount.SS}`
+						break
+					case 'Fixed':
+						gearedCount.Fixed++
+						attendee.gearedPosition = `Fixed ${gearedCount.Fixed}`
+						break
+					default:
+						attendee.gearedPosition = null
+						break
+				}
+			})
+
+			setAttendees(sortedAttendees)
+		} catch (error) {
+			console.error('Error loading attendees:', error)
+			setAttendees([])
+		} finally {
+			setIsPageLoaded(true)
+		}
+	}
+
+	getAllAttendees()
+}, [])
 
 	useEffect(() => {
 		const currentDate = new Date()

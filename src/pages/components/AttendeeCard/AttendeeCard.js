@@ -37,7 +37,9 @@ export default function AttendeeCard({ attendee, position }) {
     <div className='attendee-card'>
       {position}&nbsp;&nbsp;&nbsp;
       <span style={{ color: "#d3a9a9" }}>
-        {attendee.name}, {dateFormatter(attendee.finishTime ?? attendee.date)}
+        {attendee.name}, {attendee.finishTime ?? attendee.date
+        ? dateFormatter(attendee.finishTime ?? attendee.date)
+        : "TIME ERROR"}
         {suffix && <span style={{ color: "yellow" }}> - {suffix}</span>}
       </span>
     </div>
