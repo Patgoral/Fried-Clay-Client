@@ -2,7 +2,8 @@ import './UpdatePage.css'
 import { useState, useEffect } from 'react'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import { dateFormatter } from '../utils/dateFormatter'
-import logo from '../../images/friedclay200k26.png'
+import logo from '../../../images/FriedClay200k26.png'
+
 import { Link } from 'react-router-dom'
 
 export default function ManagePage() {

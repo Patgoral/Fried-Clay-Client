@@ -86,7 +86,7 @@ export default function AttendeeDetailPage() {
 						<h2>Name: {attendee.name} </h2>
 						{attendee.gender && <h2>Gender: {attendee.gender}</h2>}
 						<h2>
-						Finishing Time:{" "}
+						Finishing Time: <br />{" "}
 						{attendee.finishTime || attendee.date
 							? elapsedTime(attendee.finishTime || attendee.date)
 							: "Error, contact us to fix"}
