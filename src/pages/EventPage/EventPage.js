@@ -4,8 +4,7 @@ import './EventPage.css'
 
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
-import ig from '../../images/ig_icon.png'
-import fb from '../../images/fb_icon.png'
+import SocialLinks from '../components/SocialLinks/SocialLinks'
 
 
 export default function EventPage() {
@@ -103,17 +102,11 @@ const isWithinDateRange = currentDate < blockedStart;
 					<br></br>
 				</div>
 
-				<div id="link-container">
-					<a href="https://www.instagram.com/friedclay200k/" target="_blank" rel="noopener noreferrer">
-						<img alt="Instagram" src={ig} />
-					</a>
-					<a href="https://www.facebook.com/Friedclay" target="_blank" rel="noopener noreferrer">
-						<img alt="Facebook" src={fb} />
-					</a>
-				</div>
 
 
 			</div>
+			
+				<SocialLinks />
 		</div>
 	)
 }

@@ -3,6 +3,7 @@
 import './PastResults.css'
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
+import SocialLinks from '../components/SocialLinks/SocialLinks'
 
 export default function PastResults() {
 
@@ -64,9 +65,8 @@ const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;
 						
 					</div>
 			</div>
-			<div className="past-event-list-container">
-		
-			</div>
+			<SocialLinks />
 		</div>
+		
 	)
 }

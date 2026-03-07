@@ -6,6 +6,7 @@ import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/fc23logo.png'
+import SocialLinks from '../components/SocialLinks/SocialLinks'
 
 const startDate = new Date('3/25/2023')
 startDate.setHours(8, 0, 0, 0)
@@ -121,6 +122,7 @@ export default function EventPage() {
 					<div className="list-container-overflow">{attendeeList}</div>
 				</div>
 			</div>
+			<SocialLinks />
 		</div>
 	)
 }
