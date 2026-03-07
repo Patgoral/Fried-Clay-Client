@@ -1,60 +1,69 @@
 .event-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    max-width: 1200px; /* Add this line if you want a max width constraint */
-    margin: 0 auto; /* Center on page if there's max-width */
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	max-width: 1200px;
+	margin: 0 auto;
+	box-sizing: border-box;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .event-page-container-top {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: rgb(125, 29, 29);
-    margin: 10px;
-    padding: 20px;
-    border-radius: 15px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	background-color: rgb(125, 29, 29);
+	margin: 10px 0;
+	padding: 20px;
+	border-radius: 15px;
+	position: relative;
+	box-sizing: border-box;
 }
-#logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-}
-#link-container a {
-	margin-right: 10px;
-  }
-  
-  #link-container a:last-child {
-	margin-right: 0; /* removes the extra margin on the last one */
-  }
-  
-  #link-container img {
-	transform: scale(0.6); /* 60% of original size → 40% smaller */
-	transform-origin: center;
-  }
 
+#logo-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin: 0 auto;
+}
 
 .event-logo {
-    height: min(30vw, 400px);
-    width: auto;
-    display: block;
+	display: block;
+	width: min(500px, 80vw);
+	height: auto;
+	margin: 0 auto;
 }
 
+#link-container a {
+	margin-right: 10px;
+}
 
+#link-container a:last-child {
+	margin-right: 0;
+}
+
+#link-container img {
+	transform: scale(0.6);
+	transform-origin: center;
+}
 
 @media (max-width: 600px) {
-  .event-logo > img {
-    height: min(15vw, 300px); /* smaller on phones */
-  }
+	.event-page-container-top {
+		padding: 14px;
+		border-radius: 12px;
+	}
+
+	.event-logo {
+		width: min(320px, 85vw);
+		height: auto;
+	}
 }
 
 .description-container {

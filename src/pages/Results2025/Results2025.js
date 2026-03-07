@@ -169,6 +169,8 @@ export default function EventPage() {
 			<div className="event-page-list-container">
 				<div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
+					<p class="detailDescDiv">We did not gather gearing info this year.</p>
+
 					<p className="detailDescDiv">Click a name to view details</p>
 
 					<div className="message-container">{messagecontainer}</div>

@@ -129,6 +129,7 @@ export default function EventPage() {
 			<div className="past-results-page-list-container">
 				<div className="attendees-container">
 					<div className="attendees-header">Leaderboard</div>
+					<p class="detailDescDiv">We did not gather gearing info this year.</p>
 					<p class="detailDescDiv">Click a name to view details</p>
 
 

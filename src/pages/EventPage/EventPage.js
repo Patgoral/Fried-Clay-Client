@@ -18,9 +18,9 @@ const isWithinDateRange = currentDate < blockedStart;
 	return (
 		<div className="event-page">
 			<div className="event-page-container-top">
-			<div id="logo-container" className="link" to="/">
+			<Link id="logo-container" className="link" to="/">
 				<img className="event-logo" alt="logo" src={logo} />
-			</div>
+			</Link>
 
 				{/* Hidden admin link */}
 				<Link
@@ -67,7 +67,7 @@ const isWithinDateRange = currentDate < blockedStart;
 				</div>
 			</div>
 			<div className="event-page-list-container">
-			<h1 class="event-title">
+			<h1 className="event-title">
 				Fried Clay 200k Is Back!
 			</h1>
 
