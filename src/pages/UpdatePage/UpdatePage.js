@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import { dateFormatter } from '../utils/dateFormatter'
 import logo from '../../images/FriedClay200k26.png'
-
 import { Link } from 'react-router-dom'
 
 export default function ManagePage() {
@@ -29,6 +28,8 @@ export default function ManagePage() {
 						dateInput: attendee.date
 							? formatForDateTimeLocal(attendee.date)
 							: '',
+						gender: attendee.gender || '',
+						geared: attendee.geared || '',
 					})),
 				}
 
@@ -80,6 +81,8 @@ export default function ManagePage() {
 				dateInput: attendee.date
 					? formatForDateTimeLocal(attendee.date)
 					: '',
+				gender: attendee.gender || '',
+				geared: attendee.geared || '',
 			})),
 		}
 
@@ -96,6 +99,8 @@ export default function ManagePage() {
 	async function handleEditAttendee(attendee) {
 		const updatedAttendee = {
 			name: attendee.name,
+			gender: attendee.gender,
+			geared: attendee.geared,
 		}
 
 		if (
@@ -144,6 +149,22 @@ export default function ManagePage() {
 			)
 		}
 
+		if (value === 'gender') {
+			return (
+				<span className="current-field-value">
+					{person.gender || 'No Gender'}
+				</span>
+			)
+		}
+
+		if (value === 'geared') {
+			return (
+				<span className="current-field-value">
+					{person.geared || 'No Category'}
+				</span>
+			)
+		}
+
 		return null
 	}
 
@@ -174,6 +195,20 @@ export default function ManagePage() {
 					</label>
 				</div>
 
+				<div className="date-container">
+					<label className="manage-labels">
+						<span className="current-field-desc">Gender: </span>
+						{getStoredValue(attendee._id, 'gender')}
+					</label>
+				</div>
+
+				<div className="date-container">
+					<label className="manage-labels">
+						<span className="current-field-desc">Geared: </span>
+						{getStoredValue(attendee._id, 'geared')}
+					</label>
+				</div>
+
 				<div className="input-container">
 					<input
 						className="name-input"
@@ -193,6 +228,35 @@ export default function ManagePage() {
 						value={editableTimeValue}
 						onChange={(event) => handleInputChange(event, attendee._id)}
 					/>
+				</div>
+
+				<div className="input-container">
+					<select
+						className="date-input"
+						name="gender"
+						value={attendee.gender || ''}
+						onChange={(event) => handleInputChange(event, attendee._id)}
+					>
+						<option value="">Select Gender</option>
+						<option value="Male">Male</option>
+						<option value="Female">Female</option>
+						<option value="Non-Binary">Non-Binary</option>
+						<option value="Not Disclosed">Not Disclosed</option>
+					</select>
+				</div>
+
+				<div className="input-container">
+					<select
+						className="date-input"
+						name="geared"
+						value={attendee.geared || ''}
+						onChange={(event) => handleInputChange(event, attendee._id)}
+					>
+						<option value="">Select Category</option>
+						<option value="Geared">Geared</option>
+						<option value="SS">Single-Speed</option>
+						<option value="Fixed">Fixed</option>
+					</select>
 				</div>
 
 				<div className="button-container">
