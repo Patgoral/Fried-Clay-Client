@@ -1,116 +1,218 @@
 body {
-    background-color: rgb(0, 0, 0);
-    font-size: 16px; /* Set a default font size for the body */
-  }
-  
-  @media (max-width: 600px) { /* Adjust layout for small screens */
-    .manage-page {
-      min-width: auto; /* Remove minimum width constraint */
-      border-radius: 0; /* Remove border radius */
-    }
-    .user-attendees {
-      display: block; /* Display elements as blocks */
-      margin: 10px; /* Reduce margin */
-      padding: 10px; /* Reduce padding */
-    }
-    .location-container, .name-container {
-      text-align: center; /* Center text */
-    }
-    .input-container > input {
-      width: 100%; /* Make input fields full-width */
-    }
-    .edit-button, .delete-button {
-      font-size: 16px; /* Reduce font size */
-      width: 100%; /* Make buttons full-width */
-    }
-  }
-  .logo {
-    max-width: 300px;
-  }
-  
-  @media (min-width: 600px) {
-    .logo {
-      width: auto;
-    }
-  }
-.manage-page{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    margin: auto;
-    min-width: 480px;
-    max-width: 960px;
-    background-color: rgb(35, 35, 35);
-    border-radius: 10px;
-    border: 0px solid rgb(60, 0, 255);
+	background-color: rgb(0, 0, 0);
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
 }
-.user-attendees{
-    display: grid;
-    grid-template-columns:2fr 2fr;
-    margin: 20px;
-    background-color: rgb(65, 65, 65);
-    padding: 20px 30px;
-    border-radius: 5px;
-    border: 0px solid red;
+
+.manage-page {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	margin: 0 auto;
+	width: min(960px, 100%);
+	background-color: rgb(35, 35, 35);
+	border-radius: 10px;
+	border: 0;
+	box-sizing: border-box;
+	padding: 16px;
 }
-#message-container{
-    margin-bottom: 0px;
-    font-weight: 100;
-    text-shadow: 10;
-    font-weight: bold;
-    color: olive
+
+.logo {
+	width: min(300px, 90vw);
+	height: auto;
+	display: block;
+	margin: 0 auto 10px;
 }
-.location-container, .name-container{
-    text-align: left;
+
+#message-container {
+	margin: 10px 0 0;
+	font-weight: bold;
+	color: olive;
+	text-align: center;
+	min-height: 1.5em;
+	padding: 0 10px;
 }
-.manage-labels{
-    padding: 5px 18px;
-    font-size: 19px;
-    color: white;
+
+.user-attendee-list {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+	padding: 10px 0 20px;
+	box-sizing: border-box;
 }
-.current-field-desc{
-    color: yellowgreen;
+
+.user-attendees {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+	width: 100%;
+	margin: 0;
+	background-color: rgb(65, 65, 65);
+	padding: 20px;
+	border-radius: 8px;
+	box-sizing: border-box;
 }
-.current-field-value{
-    color: white;
+
+.name-container,
+.date-container {
+	text-align: left;
+	min-width: 0;
 }
+
+.manage-labels {
+	display: block;
+	padding: 5px 8px;
+	font-size: 19px;
+	color: white;
+	line-height: 1.4;
+	word-break: break-word;
+}
+
+.current-field-desc {
+	color: yellowgreen;
+	font-weight: bold;
+}
+
+.current-field-value {
+	color: white;
+}
+
 .input-container {
-    padding: 5px 10px;
-}
-.input-container > input{
-    text-indent: 5px;
-    width: 240px
-}
-.button-container{
-    display: grid;
-    grid-column: span 2;
-}
-.edit-button, .delete-button{
-    background-color: rgb(17, 67, 17);
-    color: antiquewhite;
-    margin: auto;
-    margin-top: 10px;
-    padding: 8px;
-    text-align: center;
-    font-size: 20px;
-    width: 95%;
-    transition-duration: 0.4s;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.edit-button:hover{
-    background-color: green;
-    color: darkslategray;
-}
-.delete-button{
-    background-color: darkred;
-    color: rgb(255, 180, 130);
-}
-.delete-button:hover{
-    background-color: rgb(255, 180, 130);
-    color: darkred;
+	padding: 5px 8px;
+	min-width: 0;
 }
 
+.input-container > input,
+.input-container > select {
+	width: 100%;
+	min-height: 42px;
+	box-sizing: border-box;
+	padding: 10px 12px;
+	font-size: 16px;
+	border-radius: 6px;
+	border: 1px solid #444;
+	background-color: white;
+	color: black;
+}
 
+.button-container {
+	display: grid;
+	grid-column: span 2;
+	grid-template-columns: 1fr;
+	gap: 10px;
+	padding: 5px 8px 0;
+}
+
+.edit-button,
+.delete-button {
+	background-color: rgb(17, 67, 17);
+	color: antiquewhite;
+	margin: 0;
+	padding: 10px 12px;
+	text-align: center;
+	font-size: 18px;
+	width: 100%;
+	transition-duration: 0.4s;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	box-shadow:
+		0 8px 16px 0 rgba(0, 0, 0, 0.2),
+		0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	box-sizing: border-box;
+}
+
+.edit-button:hover {
+	background-color: green;
+	color: darkslategray;
+}
+
+.delete-button {
+	background-color: darkred;
+	color: rgb(255, 180, 130);
+}
+
+.delete-button:hover {
+	background-color: rgb(255, 180, 130);
+	color: darkred;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+	.manage-page {
+		padding: 12px;
+		border-radius: 0;
+	}
+
+	.user-attendees {
+		grid-template-columns: 1fr;
+		padding: 16px;
+	}
+
+	.button-container {
+		grid-column: span 1;
+	}
+
+	.manage-labels {
+		font-size: 17px;
+	}
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+	body {
+		font-size: 15px;
+	}
+
+	.manage-page {
+		width: 100%;
+		min-width: 0;
+		padding: 10px;
+		border-radius: 0;
+	}
+
+	.user-attendee-list {
+		gap: 12px;
+	}
+
+	.user-attendees {
+		display: grid;
+		grid-template-columns: 1fr;
+		padding: 14px;
+		border-radius: 6px;
+	}
+
+	.name-container,
+	.date-container {
+		text-align: left;
+	}
+
+	.manage-labels {
+		padding: 4px 2px;
+		font-size: 16px;
+	}
+
+	.input-container {
+		padding: 4px 2px;
+	}
+
+	.input-container > input,
+	.input-container > select {
+		font-size: 16px;
+		min-height: 44px;
+	}
+
+	.button-container {
+		grid-column: span 1;
+		padding: 6px 2px 0;
+	}
+
+	.edit-button,
+	.delete-button {
+		font-size: 16px;
+		padding: 12px;
+		width: 100%;
+	}
+}
