@@ -18,10 +18,20 @@
 	border-radius: 15px;
 }
 .event-logo {
-	display: grid;
+    height: min(30vw, 200px);
+    width: auto;
+    display: block;
 }
+
 .event-logo > img {
-	height: min(32vw, 500px);
+    height: min(30vw, 200px); /* desktop & tablet */
+    width: auto;
+}
+
+@media (max-width: 600px) {
+  .event-logo > img {
+    height: min(15vw, 200px); /* smaller on phones */
+  }
 }
 
 .description-container {
