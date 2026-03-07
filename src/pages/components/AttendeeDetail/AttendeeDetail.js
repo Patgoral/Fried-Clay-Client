@@ -42,7 +42,6 @@ export default function AttendeeDetailPage() {
 	}, [id])
 
 	const year = attendee.createdAt ? new Date(attendee.createdAt).getFullYear() : null;
-console.log(year);
 	const logoToShow =
 	year === 2023
 		? logo2023
