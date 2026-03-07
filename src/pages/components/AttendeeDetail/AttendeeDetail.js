@@ -91,9 +91,16 @@ export default function AttendeeDetailPage() {
 							? elapsedTime(attendee.finishTime || attendee.date)
 							: "Error, contact us to fix"}
 						</h2>
-						<h2>Overall Position: <br /> {position ?? 'Check Back Later'}</h2>
-						{genderPosition && (<h2>Category Position: {genderPosition}</h2>)}
-						{gearedPosition && (<h2>{gearedPosition}</h2>)}
+						<h2>Overall Position: {position ?? 'Check Back Later'}</h2>
+						{(genderPosition || gearedPosition) && (
+						<h2>
+							Category Position:
+							<br />
+							{genderPosition && <span>{genderPosition}</span>}
+							{genderPosition && gearedPosition && <br />}
+							{gearedPosition && <span>{gearedPosition}</span>}
+						</h2>
+						)}
 
 						
 
