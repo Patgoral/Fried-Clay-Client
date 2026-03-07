@@ -5,14 +5,15 @@ export const dateFormatter = (date) => {
 	const year = d.getFullYear()
 	const hours = d.getHours()
 	const minutes = d.getMinutes()
+	const seconds = d.getSeconds()
+
 	const meridian = hours < 12 ? 'AM' : 'PM'
 	const hoursFormatted = hours % 12 === 0 ? 12 : hours % 12
 
 	return `${month}/${day}/${year} ${hoursFormatted}:${minutes
 		.toString()
-		.padStart(2, '0')} ${meridian}`
+		.padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${meridian}`
 }
-
 export const elapsedTime = (dateInput) => {
 	const date = new Date(dateInput)
 	const year = date.getFullYear()
@@ -32,9 +33,10 @@ export const elapsedTime = (dateInput) => {
 	}
 
 	const elapsedMilliseconds = Math.abs(date - targetDate)
-	const elapsedMinutes = Math.floor(elapsedMilliseconds / 1000 / 60)
-	const elapsedHours = Math.floor(elapsedMinutes / 60)
-	const remainingMinutes = elapsedMinutes % 60
+	const totalSeconds = Math.floor(elapsedMilliseconds / 1000)
+	const elapsedHours = Math.floor(totalSeconds / 3600)
+	const elapsedMinutes = Math.floor((totalSeconds % 3600) / 60)
+	const elapsedSeconds = totalSeconds % 60
 
-	return `${elapsedHours} hours, ${remainingMinutes} minutes`
+	return `${elapsedHours} hours, ${elapsedMinutes} minutes, ${elapsedSeconds} seconds`
 }
