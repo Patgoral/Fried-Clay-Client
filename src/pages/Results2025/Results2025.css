@@ -21,7 +21,7 @@
 	display: grid;
 }
 .event-logo > img {
-	height: min(32vw, 500px);
+	height: min(32vw, 300px);
 }
 
 .description-container {
