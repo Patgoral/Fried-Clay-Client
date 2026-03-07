@@ -22,6 +22,22 @@ const isWithinDateRange = currentDate < blockedStart;
 				<img width="300px" className="event-logo" alt="logo" src={logo} />
 			</div>
 
+				{/* Hidden admin link */}
+				<Link
+					to="/2026"
+					style={{
+						position: "absolute",
+						top: "5px",
+						right: "5px",
+						width: "20px",
+						height: "20px",
+						opacity: 0,
+						zIndex: 10
+					}}
+				/>
+
+				<br></br>
+
 				
 				<br></br>
 				<div className="button-div">
