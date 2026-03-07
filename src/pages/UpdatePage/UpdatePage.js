@@ -2,7 +2,7 @@ import './UpdatePage.css'
 import { useState, useEffect } from 'react'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import { dateFormatter } from '../utils/dateFormatter'
-import logo from '../../images/fried-clay.png'
+import logo from '../../images/friedclay200k26.png'
 import { Link } from 'react-router-dom'
 
 export default function ManagePage() {
@@ -17,8 +17,22 @@ export default function ManagePage() {
 		async function getAllAttendees() {
 			try {
 				const attendees = await attendeesAPI.showAttendees(year)
-				setAttendees(attendees)
-				setCopy(attendees)
+
+				const normalizedAttendees = {
+					...attendees,
+					attendees: (attendees.attendees || []).map((attendee) => ({
+						...attendee,
+						finishTimeInput: attendee.finishTime
+							? formatForDateTimeLocal(attendee.finishTime)
+							: '',
+						dateInput: attendee.date
+							? formatForDateTimeLocal(attendee.date)
+							: '',
+					})),
+				}
+
+				setAttendees(normalizedAttendees)
+				setCopy(normalizedAttendees)
 			} finally {
 				setIsLoading(false)
 			}
@@ -27,10 +41,49 @@ export default function ManagePage() {
 		getAllAttendees()
 	}, [year])
 
+	function formatForDateTimeLocal(value) {
+		if (!value) return ''
+
+		const d = new Date(value)
+		if (Number.isNaN(d.getTime())) return ''
+
+		const year = d.getFullYear()
+		const month = String(d.getMonth() + 1).padStart(2, '0')
+		const day = String(d.getDate()).padStart(2, '0')
+		const hours = String(d.getHours()).padStart(2, '0')
+		const minutes = String(d.getMinutes()).padStart(2, '0')
+		const seconds = String(d.getSeconds()).padStart(2, '0')
+
+		return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`
+	}
+
+	function convertDateTimeLocalToIso(value) {
+		if (!value) return ''
+
+		const d = new Date(value)
+		if (Number.isNaN(d.getTime())) return ''
+
+		return d.toISOString()
+	}
+
 	async function refreshAttendees(successMessage = '') {
 		const attendees = await attendeesAPI.showAttendees(year)
-		setAttendees(attendees)
-		setCopy(attendees)
+
+		const normalizedAttendees = {
+			...attendees,
+			attendees: (attendees.attendees || []).map((attendee) => ({
+				...attendee,
+				finishTimeInput: attendee.finishTime
+					? formatForDateTimeLocal(attendee.finishTime)
+					: '',
+				dateInput: attendee.date
+					? formatForDateTimeLocal(attendee.date)
+					: '',
+			})),
+		}
+
+		setAttendees(normalizedAttendees)
+		setCopy(normalizedAttendees)
 		setMessage(successMessage)
 	}
 
@@ -44,10 +97,16 @@ export default function ManagePage() {
 			name: attendee.name,
 		}
 
-		if (attendee.finishTime !== undefined && attendee.finishTime !== null && attendee.finishTime !== '') {
-			updatedAttendee.finishTime = attendee.finishTime
+		if (
+			attendee.finishTime !== undefined &&
+			attendee.finishTime !== null &&
+			attendee.finishTime !== ''
+		) {
+			const isoFinishTime = convertDateTimeLocalToIso(attendee.finishTimeInput)
+			updatedAttendee.finishTime = isoFinishTime || attendee.finishTime
 		} else {
-			updatedAttendee.date = attendee.date
+			const isoDate = convertDateTimeLocalToIso(attendee.dateInput)
+			updatedAttendee.date = isoDate || attendee.date
 		}
 
 		await attendeesAPI.updateAttendee(attendee._id, updatedAttendee)
@@ -88,20 +147,15 @@ export default function ManagePage() {
 	}
 
 	const attendeeList = attendees.attendees.map((attendee) => {
-		const editableTimeField =
+		const usesFinishTime =
 			attendee.finishTime !== undefined && attendee.finishTime !== null
-				? 'finishTime'
-				: 'date'
 
-		const editableTimeValue =
-			attendee.finishTime !== undefined && attendee.finishTime !== null
-				? attendee.finishTime
-				: attendee.date || ''
+		const editableTimeField = usesFinishTime ? 'finishTimeInput' : 'dateInput'
+		const editableTimeValue = usesFinishTime
+			? attendee.finishTimeInput || ''
+			: attendee.dateInput || ''
 
-		const timeLabel =
-			attendee.finishTime !== undefined && attendee.finishTime !== null
-				? 'Finish Time'
-				: 'Date'
+		const timeLabel = usesFinishTime ? 'Finish Time' : 'Date'
 
 		return (
 			<div className="user-attendees" key={attendee._id}>
@@ -131,10 +185,11 @@ export default function ManagePage() {
 
 				<div className="input-container">
 					<input
+						type="datetime-local"
+						step="1"
 						className="date-input"
-						placeholder={timeLabel}
 						name={editableTimeField}
-						value={editableTimeValue || ''}
+						value={editableTimeValue}
 						onChange={(event) => handleInputChange(event, attendee._id)}
 					/>
 				</div>

@@ -98,8 +98,10 @@ export default function EventPage() {
 				attendee.genderPosition = null
 			}
 
-			// Geared place
-			if (gearedState[attendee.geared]) {
+		// Geared place
+			if (attendee.geared === 'Geared') {
+				attendee.gearedPosition = null
+			} else if (gearedState[attendee.geared]) {
 				const gearedPlace = assignPlace(gearedState[attendee.geared], timeMs)
 				attendee.gearedPosition = `${attendee.geared} ${gearedPlace}`
 			} else {
