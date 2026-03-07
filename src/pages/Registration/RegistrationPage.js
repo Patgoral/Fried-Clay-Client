@@ -112,7 +112,7 @@ export default function RegistrationPage() {
 			<div className="register-page">
 				<div className="register-form-container">
 					<Link className="link" to="/">
-					<img width="300px" alt="logo" src={logo} />
+						<img className="logo" alt="logo" src={logo} />
 					</Link>
 
 					<div className="register-header">
