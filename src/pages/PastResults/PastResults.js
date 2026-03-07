@@ -8,6 +8,7 @@ export default function PastResults() {
 
 // const targetDate = new Date("2026-03-29T08:00:00-04:00");
 // const now = new Date();
+const currentDate = new Date()
 
 const startDate = new Date('2026-03-21T12:00:00Z')
 const endDate   = new Date('2026-03-29T12:00:00Z')
