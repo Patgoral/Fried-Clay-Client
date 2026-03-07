@@ -53,7 +53,7 @@
 
 @media (max-width: 600px) {
   .event-logo > img {
-    height: min(15vw, 200px); /* smaller on phones */
+    height: min(15vw, 300px); /* smaller on phones */
   }
 }
 
