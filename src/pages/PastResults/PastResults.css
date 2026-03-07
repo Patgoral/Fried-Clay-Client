@@ -29,13 +29,13 @@
 }
 
 .event-logo {
-    height: min(30vw, 400px);
+    height: min(30vw, 300px);
     width: auto;
     display: block;
 }
 
 .event-logo > img {
-    height: min(30vw, 400px); /* desktop & tablet */
+    height: min(30vw, 300px); /* desktop & tablet */
     width: auto;
 }
 
