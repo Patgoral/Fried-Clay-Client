@@ -25,11 +25,20 @@ export default function AttendeeDetailPage() {
 	const location = useLocation()
 	const { position, genderPosition, gearedPosition } = location.state || {};
 	const hasTimingError = !(attendee.finishTime || attendee.date)
+
 	const contactSubject = encodeURIComponent(
 		`Fried Clay Timing Error for ${attendee.name}`
 	)
+
+	const attendeeForEmail = { ...attendee }
+	delete attendeeForEmail.gpx
+
 	const contactBody = encodeURIComponent(
-  	`Please Attach Your GPX file to this email so that we can diagnose the issue.\n\nRider Name: ${attendee.name}`
+	`Please Attach Your GPX file to this email so that we can diagnose the issue.
+
+	*DO NOT DELETE*
+	SUBMISSION DATA:
+	${JSON.stringify(attendeeForEmail, null, 2)}`
 	)
 
 	const contactHref = `mailto:patpattersonridesbikes@gmail.com?subject=${contactSubject}&body=${contactBody}`
