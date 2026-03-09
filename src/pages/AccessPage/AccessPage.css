@@ -61,8 +61,8 @@
     max-width: 200px;
   }
   
-  @media (min-width: 600px) {
+  /* @media (min-width: 600px) {
     .logo {
       width: auto;
     }
-  }
+  } */
