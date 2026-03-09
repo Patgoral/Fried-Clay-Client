@@ -23,7 +23,11 @@ export default function AttendeeDetailPage() {
 	const { id } = useParams()
 	const location = useLocation()
 	const { position, genderPosition, gearedPosition } = location.state || {};
-
+	const hasTimingError = !(attendee.finishTime || attendee.date)
+	const contactSubject = encodeURIComponent(
+		`Fried Clay Timing Error for ${attendee.name}`
+	)
+	const contactHref = `mailto:patpattersonridesbikes@gmail.com?subject=${contactSubject}`
 
 
 	useEffect(() => {
@@ -80,29 +84,37 @@ export default function AttendeeDetailPage() {
 							<img className="logo" alt="logo" src={logoToShow} />
 						</Link>
 			
-            <div className='attendee-info'>
-						<h2>Name: {attendee.name} </h2>
+					<div className="attendee-info">
+						<h2>Name: {attendee.name}</h2>
 						{attendee.gender && <h2>Gender: {attendee.gender}</h2>}
+
 						<h2>
-						Finishing Time: <br />{" "}
-						{attendee.finishTime || attendee.date
-							? elapsedTime(attendee.finishTime || attendee.date)
-							: "Error, contact us to fix"}
+							Finishing Time: <br />{" "}
+							{hasTimingError
+								? "Error, contact us to fix"
+								: elapsedTime(attendee.finishTime || attendee.date)}
 						</h2>
-						<h2>Overall Position: {position ?? 'Check Back Later'}</h2>
-						{(genderPosition || gearedPosition) && (
-						<h2>
-							Category Position:
-							<br />
-							{genderPosition && <span>{genderPosition}</span>}
-							{genderPosition && gearedPosition && <br />}
-							{gearedPosition && <span>{gearedPosition}</span>}
-						</h2>
+
+						{hasTimingError ? (
+							<a className="link" href={contactHref}>
+								Contact Us
+							</a>
+						) : (
+							<>
+								<h2>Overall Position: {position}</h2>
+
+								{(genderPosition || gearedPosition) && (
+									<h2>
+										Category Position:
+										<br />
+										{genderPosition && <span>{genderPosition}</span>}
+										{genderPosition && gearedPosition && <br />}
+										{gearedPosition && <span>{gearedPosition}</span>}
+									</h2>
+								)}
+							</>
 						)}
-
-						
-
-            </div>
+					</div>
 						{attendee.image && (
 							<div className="img">
 								<img
