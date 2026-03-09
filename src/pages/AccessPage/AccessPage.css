@@ -59,6 +59,7 @@
 
 .logo {
     width: 100%;
+    max-width: 200px;
   }
   
   @media (min-width: 600px) {

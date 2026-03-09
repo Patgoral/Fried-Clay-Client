@@ -19,7 +19,7 @@ body {
 }
 
 .logo {
-	width: min(300px, 90vw);
+	width: min(200px, 90vw);
 	height: auto;
 	display: block;
 	margin: 0 auto 10px;
