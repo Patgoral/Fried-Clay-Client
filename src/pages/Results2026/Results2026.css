@@ -18,13 +18,13 @@
 	border-radius: 15px;
 }
 .event-logo {
-    height: min(30vw, 200px);
+    height: min(30vw, 300px);
     width: auto;
     display: block;
 }
 
 .event-logo > img {
-    height: min(30vw, 200px); /* desktop & tablet */
+    height: min(30vw, 300px); /* desktop & tablet */
     width: auto;
 }
 
