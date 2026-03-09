@@ -114,9 +114,4 @@ body{
     max-width: 200px;
   }
   
- 
-  @media (max-width: 600px) {
-  .logo  {
-    height: min(15vw, 200px); /* smaller on phones */
-  }
-}
+
