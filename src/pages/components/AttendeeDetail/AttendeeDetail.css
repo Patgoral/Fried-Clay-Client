@@ -40,6 +40,12 @@ h2 {
 	text-align: center;
 }
 
+  @media (max-width: 600px) {
+  .logo  {
+    height: min(15vw, 200px); /* smaller on phones */
+  }
+}
+
 .map{
 margin: 20px;
 margin-top: 3px;
