@@ -150,10 +150,9 @@ export default function AttendeeDetailPage() {
 						<div className="map">
 							<MapComponent year = {year} gpx={attendee.gpx} />
 						</div>
+						<SocialLinks />
 					</div>
-				)}
-				 <SocialLinks />
-				
+				)}				
 			</div>
 		</>
 	)
