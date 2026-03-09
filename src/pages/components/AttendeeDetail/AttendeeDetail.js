@@ -95,7 +95,7 @@ export default function AttendeeDetailPage() {
 						<h2>
 							Finishing Time: <br />{" "}
 							{hasTimingError
-								? "Error, contact us to fix"
+								? "Error!, contact us to fix"
 								: elapsedTime(attendee.finishTime || attendee.date)}
 						</h2>
 
