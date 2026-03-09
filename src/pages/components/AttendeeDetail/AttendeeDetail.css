@@ -94,6 +94,15 @@ margin-top: 3px;
 	text-shadow: 2px 1px 2px black;
 	font-weight: bold;
 }
+
+/* Hover effect */
+.contact-button:hover {
+	background-color: rgb(128, 0, 32); /* burgundy */
+	box-shadow: 0 14px 28px rgba(0,0,0,0.35), 0 10px 24px rgba(0,0,0,0.30);
+	transform: translateY(-2px); /* subtle lift */
+}
+
+
 /* add this media query for smaller screens */
 @media (max-width: 767px) {
 	.attendee-detail {
