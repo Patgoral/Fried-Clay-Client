@@ -76,8 +76,8 @@ export default function AttendeeDetailPage() {
 				)}
 				{isDataReady && (
 					<div className="attendee-detail">
-						<Link className="link" to="/">
-							<img className="logo" alt="logo" src={logo} />
+						<Link className="link" to={linkTo}>
+							<img className="logo" alt="logo" src={logoToShow} />
 						</Link>
 			
             <div className='attendee-info'>
