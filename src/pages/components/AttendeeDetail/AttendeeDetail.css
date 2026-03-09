@@ -6,17 +6,16 @@
 
 .attendee-detail{
     display: flex;
-	flex-direction: column;
-	align-items: center;
-	background-color: rgb(110, 41, 41);
-	min-height: auto;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(110, 41, 41);
+    min-height: auto;
     max-width: 80vw;
     min-width: 40vw;
-	margin: 0 10px 60px 10px;
-	border-radius: 15px;
-	
-    
+    margin: 0 auto 60px auto;  
+    border-radius: 15px;
 }
+
 .attendee-info {
 	border: 2px solid antiquewhite;
 	margin: 4px;
@@ -37,6 +36,8 @@ h2 {
 
 .logo {
 	margin-top: 10px;
+	display: block;
+	text-align: center;
 }
 
 .map{
