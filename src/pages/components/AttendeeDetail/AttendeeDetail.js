@@ -100,7 +100,7 @@ export default function AttendeeDetailPage() {
 						</h2>
 
 						{hasTimingError ? (
-							<a className="link" href={contactHref}>
+							<a className="contact-button" href={contactHref} target="_blank" rel="noopener noreferrer">
 								Contact Us
 							</a>
 						) : (
