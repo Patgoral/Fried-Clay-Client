@@ -95,13 +95,13 @@ export default function AttendeeDetailPage() {
 						<h2>
 							Finishing Time: <br />{" "}
 							{hasTimingError
-								? "Error!, contact us to fix"
+								? "Error!"
 								: elapsedTime(attendee.finishTime || attendee.date)}
 						</h2>
 
 						{hasTimingError ? (
 							<a className="contact-button" href={contactHref} target="_blank" rel="noopener noreferrer">
-								Contact Us
+								Contact To Fix
 							</a>
 						) : (
 							<>
