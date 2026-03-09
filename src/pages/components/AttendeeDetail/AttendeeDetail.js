@@ -8,6 +8,7 @@ import logo2023 from '../../../images/fc23logo.png'
 import logo2024 from '../../../images/fried-clay.png'
 import logo2025 from '../../../images/FriedClay5_v1-01.png'
 import logo2026 from '../../../images/FriedClay200k26.png'
+import SocialLinks from '../components/SocialLinks/SocialLinks'
 
 import { Link } from 'react-router-dom'
 
@@ -27,8 +28,11 @@ export default function AttendeeDetailPage() {
 	const contactSubject = encodeURIComponent(
 		`Fried Clay Timing Error for ${attendee.name}`
 	)
-	const contactHref = `mailto:patpattersonridesbikes@gmail.com?subject=${contactSubject}`
+	const contactBody = encodeURIComponent(
+  	`Please Attach Your GPX file to this email so that we can diagnose the issue.\n\nRider Name: ${attendee.name}`
+	)
 
+	const contactHref = `mailto:patpattersonridesbikes@gmail.com?subject=${contactSubject}&body=${contactBody}`
 
 	useEffect(() => {
 		// let active = true
@@ -139,6 +143,8 @@ export default function AttendeeDetailPage() {
 						</div>
 					</div>
 				)}
+				 <SocialLinks />
+				
 			</div>
 		</>
 	)
