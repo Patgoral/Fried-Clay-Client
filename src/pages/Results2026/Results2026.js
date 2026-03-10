@@ -28,12 +28,25 @@ export default function EventPage() {
 			attendee.finishTime ?? attendee.date ?? null
 
 		const getEventTimeMs = (attendee) => {
-			const time = getEventTime(attendee)
-			if (!time) return null
+		const time = getEventTime(attendee)
+		if (!time || !attendee.createdAt) return null
 
-			const ms = new Date(time).getTime()
-			return Number.isNaN(ms) ? null : ms
+		const eventDate = new Date(time)
+		const createdDate = new Date(attendee.createdAt)
+
+		if (
+			Number.isNaN(eventDate.getTime()) ||
+			Number.isNaN(createdDate.getTime())
+		) {
+			return null
 		}
+
+		if (eventDate.getFullYear() !== createdDate.getFullYear()) {
+			return null
+		}
+
+		return eventDate.getTime()
+	}
 
 		// Sort by actual timestamp ascending, nulls at end
 		const sortedAttendees = [...attendeeList].sort((a, b) => {
