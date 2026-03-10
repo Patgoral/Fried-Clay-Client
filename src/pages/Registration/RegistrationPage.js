@@ -116,7 +116,8 @@ export default function RegistrationPage() {
 					</Link>
 
 					<div className="register-header">
-						Submit Your Time
+						Submit Your Time			
+          			</div>
 					<a
 						className="link"
 						href="https://gotoes.org/tools/merge-gps-files"
@@ -125,7 +126,6 @@ export default function RegistrationPage() {
 					>
 						Need to Merge Multiple GPX files?
 					</a>
-          			</div>
 
 			<form
 				className="register-form"
