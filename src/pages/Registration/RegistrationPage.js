@@ -22,6 +22,9 @@ export default function RegistrationPage() {
 
 	async function handleAddAttendee(event) {
 		event.preventDefault()
+
+		if (isLoading) return
+
 		const formData = new FormData()
 
 		if (!name) {
@@ -124,60 +127,59 @@ export default function RegistrationPage() {
 						onSubmit={handleAddAttendee}
 						encType="multipart/form"
 					>
-            
-						<div className='input'>
-						<p className="register-header2">Full Name</p>
-							<input className='name'
-								placeholder="Full Name"
-								name="name"
-								value={name}
-								onChange={handleInputChange}
-							/>
-						<p className="register-header2">Gender</p>
-						<select 
-							className='selectClass'
-							name="gender"
-							value={gender}
-							onChange={handleGenderChange}
+						<fieldset disabled={isLoading} className="register-fieldset">
+							<div className="input">
+								<p className="register-header2">Full Name</p>
+								<input
+									className="name"
+									placeholder="Full Name"
+									name="name"
+									value={name}
+									onChange={handleInputChange}
+								/>
 
+								<p className="register-header2">Gender</p>
+								<select
+									className="selectClass"
+									name="gender"
+									value={gender}
+									onChange={handleGenderChange}
+								>
+									<option value="" disabled>Select Gender</option>
+									<option value="Male">Male</option>
+									<option value="Female">Female</option>
+									<option value="Non-Binary">Non-Binary</option>
+									<option value="Not Disclosed">I Prefer Not to Say</option>
+								</select>
+
+								<p className="register-header2">Geared, SS, Fixed?</p>
+								<select
+									className="selectClass"
+									name="geared"
+									value={geared}
+									onChange={handleGearedChange}
+								>
+									<option value="Geared">Geared</option>
+									<option value="SS">Single-Speed</option>
+									<option value="Fixed">Fixed</option>
+								</select>
+
+								<p className="register-header2">Upload GPX File</p>
+								<input
+									type="file"
+									name="gpx"
+									onChange={(e) => setGpx(e.target.files[0])}
+								/>
+							</div>
+
+							<button
+								className="register-button"
+								type="submit"
+								disabled={isLoading}
 							>
-							<option value="" disabled>Select Gender</option>
-							<option value="Male">Male</option>
-							<option value="Female">Female</option>
-							<option value="Non-Binary">Non-Binary</option>
-							<option value="Not Disclosed">I Prefer Not to Say</option>
-						</select>
-
-						<p className="register-header2">Geared, SS, Fixed?</p>
-						<select 
-							className='selectClass'
-							name="geared"
-							value={geared}
-							onChange={handleGearedChange}
-
-							>
-							<option value="Geared">Geared</option>
-							<option value="SS">Single-Speed</option>
-							<option value="Fixed">Fixed</option>
-						</select>
-
-										
-							<p className="register-header2">Upload GPX File</p>
-
-							<input
-								type="file"
-								name="gpx"
-								onChange={(e) => setGpx(e.target.files[0])}
-							/>
-						</div>
-
-						<button
-							className="register-button"
-							type="submit"
-							disabled={isLoading}
-						>
-							Submit
-						</button>
+								Submit
+							</button>
+						</fieldset>
 					</form>
           <h3 id="message-container">&nbsp;</h3>
 					
