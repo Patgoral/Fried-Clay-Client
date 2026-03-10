@@ -33,13 +33,21 @@ export default function AttendeeCard({ attendee, position }) {
 
   const suffix = getSuffix(attendee);
 
+  const eventTime = attendee.finishTime ?? attendee.date;
+
+  const isValidYear =
+    eventTime &&
+    attendee.createdAt &&
+    new Date(eventTime).getFullYear() === new Date(attendee.createdAt).getFullYear();
+
   return (
     <div className='attendee-card'>
       {position}&nbsp;&nbsp;&nbsp;
       <span style={{ color: "#f9f9f9" }}>
-        {attendee.name}, {attendee.finishTime ?? attendee.date
-        ? dateFormatter(attendee.finishTime ?? attendee.date)
-        : "TIME ERROR"}
+        {attendee.name},{" "}
+        {isValidYear
+          ? dateFormatter(eventTime)
+          : "TIME ERROR"}
         {suffix && <span style={{ color: "yellow" }}> - {suffix}</span>}
       </span>
     </div>
