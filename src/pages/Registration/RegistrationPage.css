@@ -57,6 +57,65 @@ body{
     width: 100%;
     margin: auto;
 }
+/* *{
+    border: 0px solid red;
+} */
+body{
+    background-color: black;
+}
+.wrap-div{
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 10px;
+}
+.register-page{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(35, 35, 35);
+    margin: 0px auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+}
+.flex-item{
+    width: 480px;
+    margin: 20px 10px 0px 10px;
+}
+.register-form-container{
+    justify-content: center;
+    margin-top: 0px;
+    padding: 5px 0 25px 0;
+    background-color: rgb(65, 65, 65);
+    border-radius: 5px;
+    min-height: auto;
+    max-width: 80vw;
+    min-width: 40vw;
+}
+.register-header{
+    font-size: 24px;
+    color: white;
+    margin: 20px auto;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px antiquewhite;
+
+}
+
+.register-header2{
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.register-form{
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    width: 100%;
+    margin: auto;
+}
 .register-form > div {
     display: grid;
     justify-self: center;
@@ -83,7 +142,11 @@ body{
     }
 }
 
-/* .link-button {
+.register-form .input input[type="file"] {
+	margin-bottom: 2px;
+}
+
+.link-button {
     display: grid;
     margin: auto;
     margin-top: 5px;
@@ -97,7 +160,7 @@ body{
     .link-button {
         width: 40%; /* Adjust width on smaller screens */
     }
-} */
+}
 
 .name{
    
@@ -135,6 +198,92 @@ body{
 	padding: 0;
 	margin: 0;
 	min-width: 0;
+}
+
+.register-fieldset:disabled {
+	opacity: 0.7;
+}
+
+
+.register-button {
+    display: grid;
+    margin: auto;
+    margin-top: 20px;
+    width: 70%;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    .register-button {
+        width: 80%; /* Adjust width on smaller screens */
+        font-size: 18px; /* Optionally adjust font size on smaller screens */
+    }
+}
+
+.register-form .input input[type="file"] {
+    width: 240px;
+    margin: 10px 0 2px 0;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.link-button {
+    display: block;
+    margin: 2px auto 0 auto;
+    width: 60%;
+    font-size: 12px;
+    padding: 4px;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .link-button {
+        width: 40%; /* Adjust width on smaller screens */
+    }
+}
+
+.name{
+   
+    align-self: center;
+    height: 40px; 
+
+}
+
+.selectClass {
+    height: 40px; 
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+.date-time{
+    background-color: white;
+    color: black;
+    height: 40px;
+    max-width: 290px;
+   font-size: 19px;
+   margin-top: 10px;
+   margin-left: 10px;
+
+}
+
+
+
+.logo {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+.register-fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+    width: 100%;
 }
 
 .register-fieldset:disabled {
