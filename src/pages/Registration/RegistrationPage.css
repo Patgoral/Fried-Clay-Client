@@ -216,6 +216,7 @@ body{
 
 .link-button {
     display: block;
+    background-color: rgb(158, 196, 236);
     margin: 2px auto 0 auto;
     width: 60%;
     font-size: 12px;
