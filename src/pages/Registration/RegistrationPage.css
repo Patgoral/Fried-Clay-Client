@@ -1,34 +1,31 @@
 /* *{
     border: 0px solid red;
 } */
-
-body {
+body{
     background-color: black;
 }
-
-.wrap-div {
+.wrap-div{
     display: grid;
     grid-template-columns: 1fr;
     border-radius: 10px;
 }
-
-.register-page {
+.register-page{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background-color: rgb(35, 35, 35);
-    margin: 0px auto 10px auto;
-    padding: 10px 10px 20px 10px;
+    margin: 0px auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    padding-bottom: 20px;
     border-radius: 5px;
 }
-
-.flex-item {
+.flex-item{
     width: 480px;
     margin: 20px 10px 0px 10px;
 }
-
-.register-form-container {
+.register-form-container{
     justify-content: center;
     margin-top: 0px;
     padding: 5px 0 25px 0;
@@ -37,151 +34,110 @@ body {
     min-height: auto;
     max-width: 80vw;
     min-width: 40vw;
-    text-align: center;
 }
-
-.register-header {
+.register-header{
     font-size: 24px;
     color: white;
     margin: 20px auto;
     font-weight: bold;
     text-shadow: 1px 1px 2px antiquewhite;
+
 }
 
-.register-header2 {
+.register-header2{
     font-size: 20px;
     color: white;
     font-weight: bold;
-    margin: 10px 0 4px 0;
 }
 
-.register-form {
+.register-form{
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
     width: 100%;
     margin: auto;
 }
-
-.register-fieldset {
-    border: none;
-    padding: 0;
-    margin: 0;
-    min-width: 0;
-    width: 100%;
-}
-
-.register-fieldset:disabled {
-    opacity: 0.7;
-}
-
-.register-form .input {
+.register-form > div {
     display: grid;
-    justify-items: center;
-    width: 100%;
+    justify-self: center;
 }
-
-.register-form .input input,
-.register-form .input select {
+.register-form > div > input{
     width: 240px;
-    margin: 10px 0;
+    margin: 10px 0 10px 16px;
     text-align: center;
-    box-sizing: border-box;
 }
-
-.register-form .input input[type="file"] {
-    width: 240px;
-    margin: 10px 0;
-    text-align: center;
-    box-sizing: border-box;
-}
-
 .register-button {
     display: grid;
-    margin: 20px auto 0 auto;
+    margin: auto;
+    margin-top: 20px;
     width: 70%;
     font-size: 24px;
     padding: 10px;
     border-radius: 10px;
-    transition: all 0.25s ease;
-    cursor: pointer;
 }
 
-.register-button:hover {
-    background-color: rgb(82, 82, 82);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+@media (max-width: 600px) {
+    .register-button {
+        width: 80%; /* Adjust width on smaller screens */
+        font-size: 18px; /* Optionally adjust font size on smaller screens */
+    }
 }
 
-.register-button:active {
-    transform: translateY(1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
-}
-
-.link-button {
-    display: block;
-    margin: 8px auto 0 auto;
+/* .link-button {
+    display: grid;
+    margin: auto;
+    margin-top: 5px;
     width: 60%;
     font-size: 12px;
-    padding: 6px 8px;
+    padding: 4px;
     border-radius: 10px;
-    text-decoration: none;
-    text-align: center;
-    background-color: rgb(220, 220, 220);
-    color: black;
-    box-sizing: border-box;
 }
 
-.link-button:hover {
-    background-color: rgb(180, 180, 180);
-}
+@media (max-width: 600px) {
+    .link-button {
+        width: 40%; /* Adjust width on smaller screens */
+    }
+} */
 
-.name {
+.name{
+   
     align-self: center;
-    height: 40px;
+    height: 40px; 
+
 }
 
 .selectClass {
-    height: 40px;
+    height: 40px; 
     margin-top: 10px;
     margin-bottom: 10px;
-}
+  }
 
-.date-time {
+.date-time{
     background-color: white;
     color: black;
     height: 40px;
     max-width: 290px;
-    font-size: 19px;
-    margin-top: 10px;
-    margin-left: 10px;
+   font-size: 19px;
+   margin-top: 10px;
+   margin-left: 10px;
+
 }
+
+
 
 .logo {
     width: 100%;
     max-width: 200px;
+  }
+  
+.register-fieldset {
+	border: none;
+	padding: 0;
+	margin: 0;
+	min-width: 0;
 }
 
-@media (max-width: 600px) {
-    .register-form-container {
-        max-width: 95vw;
-        min-width: 95vw;
-    }
-
-    .register-button {
-        width: 80%;
-        font-size: 18px;
-    }
-
-    .link-button {
-        width: 80%;
-    }
-
-    .register-form .input input,
-    .register-form .input select,
-    .register-form .input input[type="file"] {
-        width: 80%;
-        max-width: 240px;
-    }
+.register-fieldset:disabled {
+	opacity: 0.7;
 }
+
