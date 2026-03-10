@@ -131,6 +131,7 @@ export default function RegistrationPage() {
 								placeholder="Full Name"
 								name="name"
 								value={name}
+								disabled={isLoading}
 								onChange={handleInputChange}
 							/>
 						<p className="register-header2">Gender</p>
@@ -138,6 +139,7 @@ export default function RegistrationPage() {
 							className='selectClass'
 							name="gender"
 							value={gender}
+							disabled={isLoading}
 							onChange={handleGenderChange}
 
 							>
@@ -153,6 +155,7 @@ export default function RegistrationPage() {
 							className='selectClass'
 							name="geared"
 							value={geared}
+							disabled={isLoading}
 							onChange={handleGearedChange}
 
 							>
@@ -167,6 +170,7 @@ export default function RegistrationPage() {
 							<input
 								type="file"
 								name="gpx"
+								disabled={isLoading}
 								onChange={(e) => setGpx(e.target.files[0])}
 							/>
 						</div>
