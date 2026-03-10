@@ -1,6 +1,4 @@
-/* *{
-    border: 0px solid red;
-} */
+
 body{
     background-color: black;
 }
@@ -14,11 +12,10 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: rgb(35, 35, 35);
+    background-color: rgb(112, 111, 111);
     margin: 0px auto;
     margin-bottom: 10px;
     padding: 10px;
-    padding-bottom: 20px;
     border-radius: 5px;
 }
 .flex-item{
@@ -32,67 +29,16 @@ body{
     background-color: rgb(65, 65, 65);
     border-radius: 5px;
     min-height: auto;
-    max-width: 80vw;
-    min-width: 40vw;
-}
-.register-header{
-    font-size: 24px;
-    color: white;
-    margin: 20px auto;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px antiquewhite;
-
+    max-width: 95vw;
+    min-width: 700px;
 }
 
-.register-header2{
-    font-size: 20px;
-    color: white;
-    font-weight: bold;
-}
-
-.register-form{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    width: 100%;
-    margin: auto;
-}
-/* *{
-    border: 0px solid red;
-} */
-body{
-    background-color: black;
-}
-.wrap-div{
-    display: grid;
-    grid-template-columns: 1fr;
-    border-radius: 10px;
-}
-.register-page{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(35, 35, 35);
-    margin: 0px auto;
-    margin-bottom: 10px;
-    padding: 10px;
-    padding-bottom: 20px;
-    border-radius: 5px;
-}
-.flex-item{
-    width: 480px;
-    margin: 20px 10px 0px 10px;
-}
-.register-form-container{
-    justify-content: center;
-    margin-top: 0px;
-    padding: 5px 0 25px 0;
-    background-color: rgb(65, 65, 65);
-    border-radius: 5px;
-    min-height: auto;
-    max-width: 80vw;
-    min-width: 40vw;
+@media (max-width: 600px) {
+    .register-form-container {
+        width: 70vw;
+        max-width: none;
+        min-width: 0;
+    }
 }
 .register-header{
     font-size: 24px;
