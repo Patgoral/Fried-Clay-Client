@@ -119,30 +119,29 @@ export default function RegistrationPage() {
 						Submit Your Time
           			</div>
 
-					<form
-						className="register-form"
-						onSubmit={handleAddAttendee}
-						encType="multipart/form"
-					>
-            
-						<div className='input'>
+			<form
+				className="register-form"
+				onSubmit={handleAddAttendee}
+				encType="multipart/form"
+			>
+				<fieldset disabled={isLoading} className="register-fieldset">
+					<div className="input">
 						<p className="register-header2">Full Name</p>
-							<input className='name'
-								placeholder="Full Name"
-								name="name"
-								value={name}
-								disabled={isLoading}
-								onChange={handleInputChange}
-							/>
+						<input
+							className="name"
+							placeholder="Full Name"
+							name="name"
+							value={name}
+							onChange={handleInputChange}
+						/>
+
 						<p className="register-header2">Gender</p>
-						<select 
-							className='selectClass'
+						<select
+							className="selectClass"
 							name="gender"
 							value={gender}
-							disabled={isLoading}
 							onChange={handleGenderChange}
-
-							>
+						>
 							<option value="" disabled>Select Gender</option>
 							<option value="Male">Male</option>
 							<option value="Female">Female</option>
@@ -151,38 +150,34 @@ export default function RegistrationPage() {
 						</select>
 
 						<p className="register-header2">Geared, SS, Fixed?</p>
-						<select 
-							className='selectClass'
+						<select
+							className="selectClass"
 							name="geared"
 							value={geared}
-							disabled={isLoading}
 							onChange={handleGearedChange}
-
-							>
+						>
 							<option value="Geared">Geared</option>
 							<option value="SS">Single-Speed</option>
 							<option value="Fixed">Fixed</option>
 						</select>
 
-										
-							<p className="register-header2">Upload GPX File</p>
+						<p className="register-header2">Upload GPX File</p>
+						<input
+							type="file"
+							name="gpx"
+							onChange={(e) => setGpx(e.target.files[0])}
+						/>
+					</div>
 
-							<input
-								type="file"
-								name="gpx"
-								disabled={isLoading}
-								onChange={(e) => setGpx(e.target.files[0])}
-							/>
-						</div>
-
-						<button
-							className="register-button"
-							type="submit"
-							disabled={isLoading}
-						>
-							Submit
-						</button>
-					</form>
+					<button
+						className="register-button"
+						type="submit"
+						disabled={isLoading}
+					>
+						Submit
+					</button>
+				</fieldset>
+			</form>
           <h3 id="message-container">&nbsp;</h3>
 					
 					{isLoading && ( // show loading indicator if API call is being made
