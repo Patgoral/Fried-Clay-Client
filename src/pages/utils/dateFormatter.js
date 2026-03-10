@@ -21,7 +21,7 @@ export const elapsedTime = (dateInput) => {
 	let targetDate
 
 	if (year === 2026) {
-		targetDate = new Date(2026, 2, 21, 8, 0, 0) 
+		targetDate = new Date(2026, 2, 21, 8, 0, 0)
 	} else if (year === 2025) {
 		targetDate = new Date(2025, 2, 22, 8, 0, 0)
 	} else if (year === 2024) {
@@ -32,8 +32,14 @@ export const elapsedTime = (dateInput) => {
 		return 'TIME ERROR'
 	}
 
-	const elapsedMilliseconds = Math.abs(date - targetDate)
+	// If finish time is before the race start
+	if (date < targetDate) {
+		return 'TIME ERROR'
+	}
+
+	const elapsedMilliseconds = date - targetDate
 	const totalSeconds = Math.floor(elapsedMilliseconds / 1000)
+
 	const elapsedHours = Math.floor(totalSeconds / 3600)
 	const elapsedMinutes = Math.floor((totalSeconds % 3600) / 60)
 	const elapsedSeconds = totalSeconds % 60
