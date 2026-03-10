@@ -90,10 +90,6 @@ export default function RegistrationPage() {
 		navigate('/')
 	}
 
-  if (isLoading) {
-    document.getElementById('message-container').innerHTML =
-    ''
-  }
 
 	function handleInputChange(event) {
 		setName(event.target.value)
@@ -168,14 +164,14 @@ export default function RegistrationPage() {
 							onChange={(e) => setGpx(e.target.files[0])}
 						/>
 						<br></br>
-						<button
-							className="button-link"
+						<a
+							className="link-button"
 							href="https://gotoes.org/tools/merge-gps-files"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							Need to Merge Multiple GPX files?
-						</button>
+						</a>
 
 					</div>
 
