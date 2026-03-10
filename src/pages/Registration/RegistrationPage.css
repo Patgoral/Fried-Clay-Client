@@ -227,7 +227,9 @@ body{
 @media (max-width: 600px) {
     .link-button {
         width: 90%;
-        font-size: 14px;
+        font-size: 10px;
+        margin: 4px auto 0 auto;
+
     }
 }
 
