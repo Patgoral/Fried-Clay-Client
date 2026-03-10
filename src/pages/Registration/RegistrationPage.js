@@ -170,7 +170,7 @@ export default function RegistrationPage() {
 							target="_blank"
 							rel="noopener noreferrer"
 						>
-							Need to Merge Multiple GPX files?
+							Need to Merge Multiple GPX Files?
 						</a>
 
 					</div>
