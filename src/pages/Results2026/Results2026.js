@@ -7,7 +7,7 @@ import logo from '../../images/FriedClay200k26.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 
 const endDate = new Date('2026-03-30T00:00:00')
-const startDate = new Date('2026-03-01T08:00:00-04:00')
+const startDate = new Date('2026-03-21T08:00:00-04:00')
 
 export default function EventPage() {
 	const [attendees, setAttendees] = useState([])
@@ -15,6 +15,7 @@ export default function EventPage() {
 	const [applyLinkClass, setApplyLinkClass] = useState(true)
 	const [applyButtonClass, setApplyButtonClass] = useState(false)
 	const [logoLinkPath, setLogoLinkPath] = useState('/EventPage')
+	const adminOverride = localStorage.getItem("adminOverride") === "true"
 
 	useEffect(() => {
 	async function getAllAttendees() {
@@ -123,6 +124,8 @@ export default function EventPage() {
 }, [])
 
 	useEffect(() => {
+		if (adminOverride) return
+
 		const currentDate = new Date()
 		if (currentDate.getTime() >= endDate.getTime()) {
 			setApplyLinkClass(false)
@@ -130,6 +133,12 @@ export default function EventPage() {
 	}, [])
 
 	useEffect(() => {
+		if (adminOverride) {
+			setApplyButtonClass(true)
+			setLogoLinkPath('/')
+			return
+		}
+
 		const currentDate = new Date()
 		if (currentDate.getTime() >= startDate.getTime()) {
 			setApplyButtonClass(true)

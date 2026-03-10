@@ -21,19 +21,19 @@ const isWithinDateRange = currentDate < blockedStart;
 				<img className="event-logo" alt="logo" src={logo} />
 			</Link>
 
-				{/* Hidden admin link */}
-				<Link
-					to="/2026"
-					style={{
-						position: "absolute",
-						top: "5px",
-						right: "5px",
-						width: "20px",
-						height: "20px",
-						opacity: 0,
-						zIndex: 10
-					}}
-				/>
+			<Link
+			to="/2026"
+			onClick={() => localStorage.setItem("adminOverride", "true")}
+			style={{
+				position: "absolute",
+				top: "5px",
+				right: "5px",
+				width: "20px",
+				height: "20px",
+				opacity: 0,
+				zIndex: 10
+			}}
+		/>
 
 				<br></br>
 
