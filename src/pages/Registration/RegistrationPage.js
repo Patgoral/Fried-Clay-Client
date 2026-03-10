@@ -168,14 +168,14 @@ export default function RegistrationPage() {
 							onChange={(e) => setGpx(e.target.files[0])}
 						/>
 						<br></br>
-						<a
+						<button
 							className="button-link"
 							href="https://gotoes.org/tools/merge-gps-files"
 							target="_blank"
 							rel="noopener noreferrer"
 						>
 							Need to Merge Multiple GPX files?
-						</a>
+						</button>
 
 					</div>
 
