@@ -23,11 +23,15 @@ export default function AttendeeDetailPage() {
 	const { id } = useParams()
 	const location = useLocation()
 	const { position, genderPosition, gearedPosition } = location.state || {};
-	const hasTimingError = !(attendee.finishTime || attendee.date)
+	const resultDate = attendee.finishTime || attendee.date
 
-	const contactSubject = encodeURIComponent(
-		`Fried Clay Timing Error for ${attendee.name}`
-	)
+	const hasTimingError =
+		!resultDate ||
+		new Date(resultDate).getFullYear() !==
+		new Date(attendee.createdAt).getFullYear()
+		const contactSubject = encodeURIComponent(
+			`Fried Clay Timing Error for ${attendee.name}`
+		)
 
 	const attendeeForEmail = { ...attendee }
 	delete attendeeForEmail.gpx
