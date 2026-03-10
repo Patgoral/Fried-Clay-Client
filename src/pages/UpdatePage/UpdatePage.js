@@ -13,6 +13,11 @@ export default function ManagePage() {
 
 	const year = new Date().getFullYear()
 
+	const isMobile =
+		/Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(
+			navigator.userAgent
+		)
+
 	useEffect(() => {
 		async function getAllAttendees() {
 			try {
@@ -23,10 +28,14 @@ export default function ManagePage() {
 					attendees: (attendees.attendees || []).map((attendee) => ({
 						...attendee,
 						finishTimeInput: attendee.finishTime
-							? formatForDateTimeLocal(attendee.finishTime)
+							? isMobile
+								? formatForManualDateTime(attendee.finishTime)
+								: formatForDateTimeLocal(attendee.finishTime)
 							: '',
 						dateInput: attendee.date
-							? formatForDateTimeLocal(attendee.date)
+							? isMobile
+								? formatForManualDateTime(attendee.date)
+								: formatForDateTimeLocal(attendee.date)
 							: '',
 						gender: attendee.gender || '',
 						geared: attendee.geared || '',
@@ -41,7 +50,7 @@ export default function ManagePage() {
 		}
 
 		getAllAttendees()
-	}, [year])
+	}, [year, isMobile])
 
 	function formatForDateTimeLocal(value) {
 		if (!value) return ''
@@ -59,10 +68,51 @@ export default function ManagePage() {
 		return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}`
 	}
 
+	function formatForManualDateTime(value) {
+		if (!value) return ''
+
+		const d = new Date(value)
+		if (Number.isNaN(d.getTime())) return ''
+
+		const year = d.getFullYear()
+		const month = String(d.getMonth() + 1).padStart(2, '0')
+		const day = String(d.getDate()).padStart(2, '0')
+		const hours = String(d.getHours()).padStart(2, '0')
+		const minutes = String(d.getMinutes()).padStart(2, '0')
+		const seconds = String(d.getSeconds()).padStart(2, '0')
+
+		return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`
+	}
+
 	function convertDateTimeLocalToIso(value) {
 		if (!value) return ''
 
 		const d = new Date(value)
+		if (Number.isNaN(d.getTime())) return ''
+
+		return d.toISOString()
+	}
+
+	function convertManualDateTimeToIso(value) {
+		if (!value) return ''
+
+		const match = value.match(
+			/^(\d{4})-(\d{2})-(\d{2})[ T](\d{2}):(\d{2}):(\d{2})$/
+		)
+
+		if (!match) return ''
+
+		const [, year, month, day, hour, minute, second] = match
+
+		const d = new Date(
+			Number(year),
+			Number(month) - 1,
+			Number(day),
+			Number(hour),
+			Number(minute),
+			Number(second)
+		)
+
 		if (Number.isNaN(d.getTime())) return ''
 
 		return d.toISOString()
@@ -76,10 +126,14 @@ export default function ManagePage() {
 			attendees: (attendees.attendees || []).map((attendee) => ({
 				...attendee,
 				finishTimeInput: attendee.finishTime
-					? formatForDateTimeLocal(attendee.finishTime)
+					? isMobile
+						? formatForManualDateTime(attendee.finishTime)
+						: formatForDateTimeLocal(attendee.finishTime)
 					: '',
 				dateInput: attendee.date
-					? formatForDateTimeLocal(attendee.date)
+					? isMobile
+						? formatForManualDateTime(attendee.date)
+						: formatForDateTimeLocal(attendee.date)
 					: '',
 				gender: attendee.gender || '',
 				geared: attendee.geared || '',
@@ -108,10 +162,26 @@ export default function ManagePage() {
 			attendee.finishTime !== null &&
 			attendee.finishTime !== ''
 		) {
-			const isoFinishTime = convertDateTimeLocalToIso(attendee.finishTimeInput)
+			const isoFinishTime = isMobile
+				? convertManualDateTimeToIso(attendee.finishTimeInput)
+				: convertDateTimeLocalToIso(attendee.finishTimeInput)
+
+			if (!isoFinishTime) {
+				setMessage('Use YYYY-MM-DD HH:MM:SS for mobile time entry')
+				return
+			}
+
 			updatedAttendee.finishTime = isoFinishTime || attendee.finishTime
 		} else {
-			const isoDate = convertDateTimeLocalToIso(attendee.dateInput)
+			const isoDate = isMobile
+				? convertManualDateTimeToIso(attendee.dateInput)
+				: convertDateTimeLocalToIso(attendee.dateInput)
+
+			if (!isoDate) {
+				setMessage('Use YYYY-MM-DD HH:MM:SS for mobile time entry')
+				return
+			}
+
 			updatedAttendee.date = isoDate || attendee.date
 		}
 
@@ -221,11 +291,12 @@ export default function ManagePage() {
 
 				<div className="input-container">
 					<input
-						type="datetime-local"
-						step="1"
+						type={isMobile ? 'text' : 'datetime-local'}
+						step={isMobile ? undefined : '1'}
 						className="date-input"
 						name={editableTimeField}
 						value={editableTimeValue}
+						placeholder={isMobile ? 'YYYY-MM-DD HH:MM:SS' : ''}
 						onChange={(event) => handleInputChange(event, attendee._id)}
 					/>
 				</div>
