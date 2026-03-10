@@ -10,9 +10,8 @@ export default function AccessPage() {
 
     function handleAccessToken(event) {
         event.preventDefault()
-        // const secretCode = process.env.REACT_APP_SECRETCODE
+        const secretCode = process.env.REACT_APP_SECRETCODE
         const adminCode = process.env.REACT_APP_ADMINCODE
-          const secretCode = "yeet"
 
 
         if(input.toLowerCase() === secretCode.toLowerCase()){
