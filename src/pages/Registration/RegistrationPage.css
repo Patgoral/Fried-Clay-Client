@@ -146,21 +146,6 @@ body{
 	margin-bottom: 2px;
 }
 
-.link-button {
-    display: grid;
-    margin: auto;
-    margin-top: 5px;
-    width: 60%;
-    font-size: 12px;
-    padding: 4px;
-    border-radius: 10px;
-}
-
-@media (max-width: 600px) {
-    .link-button {
-        width: 40%; /* Adjust width on smaller screens */
-    }
-}
 
 .name{
    
