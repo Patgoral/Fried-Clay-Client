@@ -145,7 +145,13 @@ export default function ManagePage() {
 		setMessage(successMessage)
 	}
 
-	async function handleDeleteAttendee(id) {
+	async function handleDeleteAttendee(id, name) {
+		const confirmed = window.confirm(
+			`Are You Sure You Want To Delete${name ? ` ${name}` : ''}?`
+		)
+
+		if (!confirmed) return
+
 		await attendeesAPI.removeAttendee(id)
 		await refreshAttendees('Entry Deleted')
 	}
@@ -340,7 +346,9 @@ export default function ManagePage() {
 
 					<button
 						className="delete-button"
-						onClick={() => handleDeleteAttendee(attendee._id)}
+						onClick={() =>
+							handleDeleteAttendee(attendee._id, attendee.name)
+						}
 					>
 						Delete
 					</button>
