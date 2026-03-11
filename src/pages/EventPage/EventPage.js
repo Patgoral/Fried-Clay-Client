@@ -5,6 +5,7 @@ import './EventPage.css'
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
+import Sponsors from '../components/Sponsors/Sponsors'
 
 
 export default function EventPage() {
@@ -105,8 +106,10 @@ const isWithinDateRange = currentDate < blockedStart;
 
 
 			</div>
-			
+											<Sponsors />
+
 				<SocialLinks />
+
 		</div>
 	)
 }

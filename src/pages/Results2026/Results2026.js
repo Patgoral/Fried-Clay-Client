@@ -5,6 +5,7 @@ import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
+import Sponsors from '../components/Sponsors/Sponsors'
 
 const endDate = new Date('2026-03-30T00:00:00')
 const startDate = new Date('2026-03-21T08:00:00-04:00')
@@ -256,6 +257,8 @@ export default function EventPage() {
 					<div className="list-container-overflow">{attendeeList}</div>
 				</div>
 			</div>
+				<Sponsors />
+
 			 <SocialLinks />			
 		</div>
 	)

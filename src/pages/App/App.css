@@ -20,6 +20,96 @@ body {
   }
 }
 
+.sponsors-section {
+	text-align: center;
+	margin: 40px 0;
+}
+
+.sponsors-title {
+	font-size: 1.6rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	margin-bottom: 25px;
+	color: rgb(197, 197, 197);
+	position: relative;
+	display: inline-block;
+}
+
+.sponsors-title::after {
+	content: "";
+	display: block;
+	width: 60px;
+	height: 3px;
+	background: #ff5a2f;
+	margin: 10px auto 0 auto;
+	border-radius: 2px;
+}
+
+.sponsors-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+	gap: 20px;
+}
+
+.sponsor-card {
+	width: 220px;
+	height: 140px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 15px;
+	box-sizing: border-box;
+	text-decoration: none;
+}
+
+.sponsor-card img {
+	max-width: 100%;
+	max-height: 100%;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	display: block;
+}
+
+.sponsors-container img {
+	width: 200px;
+	height: auto;
+	object-fit: contain;
+	filter: grayscale(0%);
+	opacity: 0.85;
+	transition: all 0.2s ease;
+}
+
+.sponsors-container img:hover {
+	filter: grayscale(100%);
+	opacity: 1;
+	transform: scale(1.05);
+}
+
+.sponsors-container img:hover {
+	transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+
+  .sponsors-container {
+    gap: 8px;
+  }
+
+  .sponsor-card {
+    width: 160px;
+    height: 90px;
+    padding: 8px;
+  }
+
+  .sponsor-card img {
+    max-height: 70px;
+  }
+
+}
+
 .App-header {
   min-height: 100vh;
   display: flex;
