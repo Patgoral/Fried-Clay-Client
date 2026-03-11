@@ -23,6 +23,10 @@
   
 }
 
+.message-text {
+    color: red;
+  
+}
 
 .form-container{
     justify-content: center;

@@ -38,6 +38,8 @@ export default function AccessPage() {
             </div>
 			<div className="form-container">
             <h2 className='access-text'>Enter access code to post result!</h2>
+            <h2 className='message-text'>Only submit a result if you completed the entire route!</h2>
+
 				<form className="access-form" onSubmit={handleAccessToken}>
                     <div>
 					<input
