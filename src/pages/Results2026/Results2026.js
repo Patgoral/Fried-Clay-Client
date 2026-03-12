@@ -8,7 +8,7 @@ import SocialLinks from '../components/SocialLinks/SocialLinks'
 import Sponsors from '../components/Sponsors/Sponsors'
 
 const endDate = new Date('2026-03-30T00:00:00')
-const startDate = new Date('2026-03-12T08:00:00-04:00')
+const startDate = new Date('2026-03-21T08:00:00-04:00')
 
 export default function EventPage() {
 	const [attendees, setAttendees] = useState([])
