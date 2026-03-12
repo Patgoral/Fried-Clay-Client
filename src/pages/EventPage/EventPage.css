@@ -133,22 +133,16 @@
 }
   
 .button-div > .link {
-	background-color: rgb(222, 112, 106);
-    color: antiquewhite;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;             /* Adjust padding for consistent size */
-    text-align: center;
-    font-size: 16px;                /* Fixed font size for consistency */
-    text-decoration: none;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-shadow: 2px 1px 2px black;
-    font-weight: bold;
-    width: 30%;                     /* Make each button 30% of the container width */
-    min-width: 150px;               /* Ensure buttons don't get too small on mobile */
-    text-align: center;
+	background: linear-gradient(135deg, #f4b08c, #dc6d5d);
+	color: #fffaf5;
+}
+
+.button-div > .link:hover {
+	transform: translateY(-2px);
+	background: linear-gradient(135deg, #f7bb99, #e27867);
+	color: white;
+	text-decoration: none;
+	box-shadow: 0 14px 28px rgba(0, 0, 0, 0.24);
 }
 
 @media (max-width: 600px) {

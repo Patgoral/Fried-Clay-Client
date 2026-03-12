@@ -39,7 +39,7 @@ export default function AttendeeDetailPage() {
 	const contactBody = encodeURIComponent(
 	`Please Attach Your GPX file to this email so that we can diagnose the issue.
 
-	*DO NOT DELETE*
+	⚠️  DO NOT DELETE THIS SECTION ⚠️
 	SUBMISSION DATA:
 	${JSON.stringify(attendeeForEmail, null, 2)}`
 	)

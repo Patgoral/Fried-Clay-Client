@@ -57,8 +57,13 @@ const isWithinDateRange = currentDate < blockedStart;
 				  Past Results
 				</Link>
 
-				<a className="link" href="mailto:patpattersonridesbikes@gmail.com" rel="noopener noreferrer">
-				Contact
+				<a
+					className="link"
+					href="mailto:patpattersonridesbikes@gmail.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					>
+					Contact
 				</a>
 
 				
@@ -71,7 +76,7 @@ const isWithinDateRange = currentDate < blockedStart;
 				Fried Clay 200k Is Back!
 			</h1>
 
-			<div class="event-details">
+			<div className="event-details">
 				<h2>Cedar Creek Checking Station</h2>
 				<p>Eatonton, GA</p>
 				<p>03/21/2026 – 8:00 AM</p>
