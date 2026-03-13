@@ -88,10 +88,6 @@ body {
 	transform: scale(1.05);
 }
 
-.sponsors-container img:hover {
-	transform: scale(1.05);
-}
-
 @media (max-width: 768px) {
 
   .sponsors-container {

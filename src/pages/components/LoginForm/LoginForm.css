@@ -31,3 +31,10 @@ form > button:hover {
     font-size: 20px;
     background-color: transparent;
 }
+
+.error-message {
+    color: #ff5f5f;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}

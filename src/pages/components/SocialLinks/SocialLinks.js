@@ -1,5 +1,6 @@
 import ig from '../../../images/ig_icon.png'
 import fb from '../../../images/fb_icon.png'
+import './SocialLinks.css'
 
 export default function SocialLinks() {
 	return (

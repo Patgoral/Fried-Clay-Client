@@ -11,7 +11,6 @@
 .event-page-container-top {
 	display: flex;
 	flex-direction: column;
-	grid-template-columns: auto 1fr;
     background-color: rgb(125, 29, 29);
 	margin: 10px;
 	padding: 20px;
@@ -23,28 +22,6 @@
     display: block;
 }
 
-.event-logo > img {
-    height: min(30vw, 200px); /* desktop & tablet */
-    width: auto;
-}
-
-@media (max-width: 600px) {
-  .event-logo > img {
-    height: min(15vw, 200px); /* smaller on phones */
-  }
-}
-
-.description-container {
-	display: flex;
-	flex-direction: column;
-	height: min(32vw, 150px);
-	border-radius: 4px;
-	background-color: rgb(119, 153, 125);
-}
-
-.event-caption {
-	padding-bottom: 10px;
-}
 .heading-div {
     width: 100%;  /* Ensures it spans the full container */
     display: flex;
@@ -98,29 +75,16 @@
 	text-decoration: none;
 }
 
-.registration-container > div > button:hover {
-	background-color: rgb(39, 53, 12);
-	color: darkslategray;
-}
 .event-page-list-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 	background-color: rgb(167, 11, 11);
-    width: 100%;
+    width: calc(100% - 20px);
     margin: 0 10px 10px 10px;
+    box-sizing: border-box;
     border-radius: 15px;
 }
-.event-desc-container {
-	display: flex;
-	flex-direction: column;
-	align-content: center;
-	padding: 15px;
-	max-width: 600px;
-	line-height: 1.2;
-	border-radius: 16px;
-}
-.event-desc-header,
 .attendees-header {
 	display: flex;
 	margin-top: 8px;
@@ -159,39 +123,6 @@
 	text-decoration: none;
 }
 
-.button-div > .dead {
-	width: 80%;
-	background-color: darkslategray;
-	color: antiquewhite;
-	border: none;
-	border-radius: 10px;
-	padding: 8px 16px;
-	text-align: center;
-	font-size: min(5vw, 24px);
-	text-decoration: none;
-	transition-duration: 0.4s;
-	cursor: pointer;
-	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	text-shadow: 2px 1px 2px black;
-	font-weight: bold;
-}
-
-.button-div > .dead:hover {
-	color: red;
-	text-decoration: none;
-}
-
-
-.event-desc-body {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	font-size: 16px;
-	padding: 0 10px;
-	text-shadow: none;
-	/* max-height: 550px;
-    overflow: auto; */
-}
 p {
 	margin: 8px 0;
 }
@@ -210,7 +141,9 @@ p {
 	flex-direction: column;
 	align-content: center;
 	border-radius: 0;
-	min-width: min-content;
+	width: min(100%, 980px);
+	padding: 0 12px;
+	box-sizing: border-box;
 	align-items: center;
 }
 
@@ -223,6 +156,7 @@ p {
 .list-container-overflow {
 	background-color: rgb(65, 65, 65);
 	border-radius: 5px;
+	width: 100%;
 	min-height: 400px;
 	max-height: 600px;
 	overflow: auto;
@@ -232,9 +166,10 @@ p {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 100%;
 	padding: 0;
 	margin: 0 auto;
-	min-width: 300px;
+	min-width: 0;
 	text-decoration: none;
 
 }
@@ -243,7 +178,7 @@ p {
 	flex-direction: row;
 	align-self: center;
 	margin: 7px;
-	width: 90%;
+	width: 96%;
 	background-color: rgb(71, 71, 71);
 	color: antiquewhite;
 	text-decoration: none;
@@ -256,6 +191,16 @@ p {
 	transition-duration: 0.4s;
 	cursor: pointer;
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 600px) {
+	.attendees-container {
+		padding: 0 6px;
+	}
+
+	.list-of-attendees > div {
+		width: 94%;
+	}
 }
 
 .list-of-attendees > div:hover {
