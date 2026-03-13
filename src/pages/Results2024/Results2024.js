@@ -133,7 +133,9 @@ export default function EventPage() {
 					<p class="detailDescDiv">We did not gather gearing info this year.</p>
 					<p class="detailDescDiv">Click a name to view details</p>
 
-
+					{isPageLoaded && (
+						<div className="list-container-overflow">{attendeeList}</div>
+					)}
 					{!isPageLoaded && (
 						<div className="lds-roller">
 							<div></div>
@@ -147,7 +149,6 @@ export default function EventPage() {
 						</div>
 					)}
 
-					<div className="list-container-overflow">{attendeeList}</div>
 				</div>
 			</div>
 			<SocialLinks />

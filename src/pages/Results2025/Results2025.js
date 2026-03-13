@@ -176,6 +176,9 @@ export default function EventPage() {
 
 					<div className="message-container">{messagecontainer}</div>
 
+					{isPageLoaded && (
+						<div className="list-container-overflow">{attendeeList}</div>
+					)}
 					{!isPageLoaded && (
 						<div className="lds-roller">
 							<div></div>
@@ -189,7 +192,6 @@ export default function EventPage() {
 						</div>
 					)}
 
-					<div className="list-container-overflow">{attendeeList}</div>
 				</div>
 			</div>
 			

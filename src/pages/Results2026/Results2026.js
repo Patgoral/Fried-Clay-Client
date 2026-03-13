@@ -240,7 +240,11 @@ export default function EventPage() {
 					<p className="detailDescDiv">Click a name to view details</p>
 
 					<div className="message-container">{messagecontainer}</div>
+					
 
+					{isPageLoaded && attendees.length > 0 && (
+						<div className="list-container-overflow">{attendeeList}</div>
+					)}
 					{!isPageLoaded && (
 						<div className="lds-roller">
 							<div></div>
@@ -254,7 +258,6 @@ export default function EventPage() {
 						</div>
 					)}
 
-					<div className="list-container-overflow">{attendeeList}</div>
 				</div>
 			</div>
 				<Sponsors />
