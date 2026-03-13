@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import './RegistrationPage.css'
-import DateTimePicker from 'react-datetime-picker'
+// import DateTimePicker from 'react-datetime-picker'
 import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
@@ -59,9 +59,12 @@ export default function RegistrationPage() {
 		formData.append('gpx', gpxFile)
 
 		setIsLoading(true)
-		await attendeesAPI.addAttendee(formData)
-		setIsLoading(false)
-		navigate('/')
+		try {
+			await attendeesAPI.addAttendee(formData)
+			navigate('/')
+		} finally {
+			setIsLoading(false)
+		}
 	}
 
 	function handleInputChange(event) {
@@ -151,25 +154,12 @@ export default function RegistrationPage() {
 								type="submit"
 								disabled={isLoading}
 							>
-								Submit
+								{isLoading ? <span className="button-spinner" aria-hidden="true"></span> : 'Submit'}
 							</button>
 						</fieldset>
 					</form>
 
 					<h3 id="message-container">&nbsp;</h3>
-
-					{isLoading && (
-						<div className="lds-roller">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					)}
 
 					{showGpxHelpModal && (
 						<div
