@@ -74,6 +74,11 @@ margin-top: 3px;
 	background-color: red;
   }
 
+    .blue {
+	background-color: blue;
+  }
+
+
 
 .contact-button {
 	display: inline-block;
