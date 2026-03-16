@@ -5,7 +5,7 @@ import './RegistrationPage.css'
 import 'react-datetime-picker/dist/DateTimePicker.css';
 import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
 
@@ -19,6 +19,16 @@ export default function RegistrationPage() {
 	const [gpx, setGpx] = useState(undefined)
 	const [isLoading, setIsLoading] = useState(false)
 	const [showGpxHelpModal, setShowGpxHelpModal] = useState(false)
+	const [showUploadDelayModal, setShowUploadDelayModal] = useState(false)
+	const uploadModalTimeoutRef = useRef(null)
+
+	useEffect(() => {
+		return () => {
+			if (uploadModalTimeoutRef.current) {
+				clearTimeout(uploadModalTimeoutRef.current)
+			}
+		}
+	}, [])
 
 	async function handleAddAttendee(event) {
 		event.preventDefault()
@@ -59,10 +69,19 @@ export default function RegistrationPage() {
 		formData.append('gpx', gpxFile)
 
 		setIsLoading(true)
+		setShowUploadDelayModal(false)
+		uploadModalTimeoutRef.current = setTimeout(() => {
+			setShowUploadDelayModal(true)
+		}, 5000)
 		try {
 			await attendeesAPI.addAttendee(formData)
 			navigate('/')
 		} finally {
+			if (uploadModalTimeoutRef.current) {
+				clearTimeout(uploadModalTimeoutRef.current)
+				uploadModalTimeoutRef.current = null
+			}
+			setShowUploadDelayModal(false)
 			setIsLoading(false)
 		}
 	}
@@ -217,6 +236,15 @@ export default function RegistrationPage() {
 								>
 									Close
 								</button>
+							</div>
+						</div>
+					)}
+
+					{showUploadDelayModal && (
+						<div className="gpx-help-modal-overlay">
+							<div className="gpx-help-modal upload-delay-modal">
+								<h2>File still uploading, please wait</h2>
+								<span className="button-spinner upload-delay-spinner" aria-hidden="true"></span>
 							</div>
 						</div>
 					)}

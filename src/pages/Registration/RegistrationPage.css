@@ -224,6 +224,22 @@ body{
 	margin: 0;
 }
 
+.upload-delay-modal {
+    max-width: 420px;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 24px;
+}
+
+.upload-delay-spinner {
+    width: 28px;
+    height: 28px;
+    border-width: 4px;
+    border-top-color: rgb(202, 201, 201);
+    border-color: rgba(202, 201, 201, 0.25);
+    border-top-color: rgb(202, 201, 201);
+}
+
 .gpx-help-modal-buttons {
 	display: flex;
 	flex-direction: column;
@@ -232,14 +248,14 @@ body{
 
 @media (min-width: 900px) {
     .register-form-container {
-        width: min(100%, 760px);
-        padding: 15px 36px 30px 36px;
+        width: min(100%, 1100px);
+        padding: 15px 60px 30px 60px;
         box-sizing: border-box;
     }
 
     .register-form .input {
         width: 100%;
-        max-width: 460px;
+        max-width: 620px;
         margin: 0 auto;
     }
 
@@ -247,18 +263,18 @@ body{
     .selectClass,
     .register-form .input input[type="file"] {
         width: 100%;
-        max-width: 460px;
+        max-width: 620px;
         box-sizing: border-box;
         margin-left: 0;
         margin-right: 0;
     }
 
     .register-button {
-        width: min(60%, 340px);
+        width: min(60%, 420px);
     }
 
     .link-button {
-        width: min(60%, 340px);
+        width: min(60%, 420px);
         font-size: 14px;
         padding: 8px;
     }
