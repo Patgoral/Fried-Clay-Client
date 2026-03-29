@@ -204,7 +204,7 @@ export default function EventPage() {
 					{!applyButtonClass ? (
 						<>
 							<p id="dead" className="dead">
-								Submissions Open 3/21
+								Results Final as of 3/29/2026
 							</p>
 						</>
 					) : applyLinkClass ? (
