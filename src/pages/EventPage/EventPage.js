@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 import Sponsors from '../components/Sponsors/Sponsors'
+import { useEffect } from 'react'
 
 
 export default function EventPage() {
@@ -14,6 +15,8 @@ const currentDate = new Date();
 const blockedStart = new Date('2026-03-21');
 
 const isWithinDateRange = currentDate < blockedStart;
+localStorage.setItem("adminOverride", "false")
+
 
 	return (
 		<div className="event-page">
