@@ -11,7 +11,7 @@ export default function PastResults() {
 // const now = new Date();
 const currentDate = new Date()
 
-const startDate = new Date('2026-03-21T12:00:00Z')
+const startDate = new Date('2027-03-20T12:00:00Z')
 
 const isWithinDateRange = currentDate >= startDate;
 
@@ -31,10 +31,14 @@ const isWithinDateRange = currentDate >= startDate;
 	
 						
 						{isWithinDateRange && (
-							<Link className="link" to="/2026">
-								2026 Results
+							<Link className="link" to="/2027">
+								2027 Results
 							</Link>
 						)}
+
+						<Link className="link" to="/2026">
+							2026 Results
+						</Link>
 						
 
 						<Link className="link" to="/2025">

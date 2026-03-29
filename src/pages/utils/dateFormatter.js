@@ -19,8 +19,9 @@ export const elapsedTime = (dateInput) => {
 	const year = date.getFullYear()
 
 	let targetDate
-
-	if (year === 2026) {
+	if (year === 2027) {
+		targetDate = new Date(2027, 2, 20, 8, 0, 0)
+	} else if (year === 2026) {
 		targetDate = new Date(2026, 2, 21, 8, 0, 0)
 	} else if (year === 2025) {
 		targetDate = new Date(2025, 2, 22, 8, 0, 0)
