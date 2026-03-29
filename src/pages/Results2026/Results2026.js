@@ -8,15 +8,14 @@ import SocialLinks from '../components/SocialLinks/SocialLinks'
 import Sponsors from '../components/Sponsors/Sponsors'
 
 const endDate = new Date('2026-03-29T08:00:00-04:00')
-const startDate = new Date('2026-03-21T08:00:00-04:00')
 
 export default function EventPage() {
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
-	const [applyLinkClass, setApplyLinkClass] = useState(true)
-	const [applyButtonClass, setApplyButtonClass] = useState(false)
 	const [logoLinkPath, setLogoLinkPath] = useState('/EventPage')
-	const adminOverride = localStorage.getItem("adminOverride") === "true"
+	const adminOverride =
+		sessionStorage.getItem('adminOverride') === 'true' ||
+		localStorage.getItem('adminOverride') === 'true'
 
 	useEffect(() => {
 	async function getAllAttendees() {
@@ -138,27 +137,10 @@ export default function EventPage() {
 }, [])
 
 	useEffect(() => {
-		if (adminOverride) return
-
-		const currentDate = new Date()
-		if (currentDate.getTime() >= endDate.getTime()) {
-			setApplyLinkClass(false)
-		}
-	}, [])
-
-	useEffect(() => {
 		if (adminOverride) {
-			setApplyButtonClass(true)
-			setLogoLinkPath('/')
-			return
-		}
-
-		const currentDate = new Date()
-		if (currentDate.getTime() >= startDate.getTime()) {
-			setApplyButtonClass(true)
 			setLogoLinkPath('/')
 		}
-	}, [])
+	}, [adminOverride])
 
 	let attendeeList = null
 	let messagecontainer = ''
@@ -191,6 +173,9 @@ export default function EventPage() {
 		messagecontainer = 'Loading Results'
 	}
 
+	const isAfterSubmissionCutoff = Date.now() > endDate.getTime()
+	const showSubmitSection = adminOverride || !isAfterSubmissionCutoff
+
 	return (
 		<div className="event-page">
 			<div className="event-page-container-top">
@@ -201,13 +186,7 @@ export default function EventPage() {
 				<p className="text submitTitle">2026 Results</p>
 
 				<div className="heading-div">
-					{!applyButtonClass ? (
-						<>
-							<p id="dead" className="dead">
-								Results Final as of 3/29/2026
-							</p>
-						</>
-					) : applyLinkClass ? (
+					{showSubmitSection ? (
 						<>
 							<Link className="link submitTitle" to="/access">
 								Submit Your Time
