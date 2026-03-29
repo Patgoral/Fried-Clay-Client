@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay5_v1-01.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 
-const endDate = new Date('04/02/2025')
+const endDate = new Date('03/29/2025')
 const startDate = new Date('03/22/2025')
 startDate.setHours(8, 0, 0, 0)
 

@@ -73,13 +73,13 @@ const isWithinDateRange = currentDate < blockedStart;
 			</div>
 			<div className="event-page-list-container">
 			<h1 className="event-title">
-				Fried Clay 200k Is Back!
+				Fried Clay 2027 Is Coming!
 			</h1>
 
 			<div className="event-details">
 				<h2>Cedar Creek Checking Station</h2>
 				<p>Eatonton, GA</p>
-				<p>03/21/2026 – 8:00 AM</p>
+				<p>03/20/2027 – 8:00 AM</p>
 			</div>
 			{isWithinDateRange ? (
 					<iframe className="video-frame" 
