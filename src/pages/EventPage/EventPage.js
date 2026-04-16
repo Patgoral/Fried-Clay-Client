@@ -54,11 +54,22 @@ localStorage.setItem("adminOverride", "false")
 						Register
 					</a>
 				) : null}
+				
 							
 
 				<Link className="link" to="/PastResults">
 				  Past Results
 				</Link>
+
+				<a
+						className="link"
+						href="https://friedclay200k.bigcartel.com/"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Merch
+					</a>
+
 
 				<a
 					className="link"
@@ -101,7 +112,7 @@ localStorage.setItem("adminOverride", "false")
 					Your registration gets you the GPX route, an in-depth route guide, and a limited edition patch.
 					<br></br>
 					<br></br>
-					We will have a camp setup the night before if you choose to come down the night before!
+					We will have a camp setup the night before if you choose to come down on Friday!
 					<br></br>
 					<br></br>
 					You will receive more details via email once registered.

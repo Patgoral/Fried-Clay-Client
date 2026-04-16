@@ -8,6 +8,7 @@ import Results2025 from '../Results2025/Results2025'
 import Results2026 from '../Results2026/Results2026'
 import Results2027 from '../Results2027/Results2027'
 import PastResults from '../PastResults/PastResults'
+import Gallery from '../Gallery/Gallery'
 import RegistrationPage from '../Registration/RegistrationPage'
 // import NavBar from '../components/NavBar/NavBar'
 import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
@@ -34,6 +35,7 @@ const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;
 					<Route path="/2026" element={<Results2026/>} />
 					<Route path="/2027" element={<Results2027/>} />
 					<Route path="/PastResults" element={<PastResults/>} />
+					<Route path="/gallery" element={<Gallery/>} />
 					<Route path="/register" element={<RegistrationPage />} />
 					<Route path="/update" element={<UpdatePage />} />
 					<Route path="/access" element={<AccessPage />} />

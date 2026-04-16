@@ -1,0 +1,194 @@
+.event-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Add this line if you want a max width constraint */
+    margin: 0 auto; /* Center on page if there's max-width */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.event-page-container-top {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(125, 29, 29);
+    margin: 10px;
+    padding: 20px;
+    border-radius: 15px;
+}
+#logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.event-logo {
+    height: min(30vw, 200px);
+    width: auto;
+    display: block;
+}
+
+.description-container {
+	display: flex;
+	flex-direction: column;
+	height: min(32vw, 150px);
+	border-radius: 4px;
+	background-color: rgb(119, 153, 125);
+}
+
+.event-caption {
+	padding-bottom: 10px;
+}
+.button-div {
+    display: flex;  /* Ensure buttons are laid out properly */
+    justify-content: center; /* Center them */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 10px; /* Adds space between buttons */
+    width: 100%; /* Make sure it takes full width */
+	max-width: 100%; /* Make sure it takes full width */
+    padding: 5px 0 10px 0;
+}
+
+
+.button-div > .link {
+	width: auto; /* Instead of 80%, let the content dictate size */
+    min-width: 120px; /* Ensure a reasonable size */
+	background-color: rgb(222, 112, 106);
+	color: antiquewhite;
+	border: none;
+	border-radius: 10px;
+	padding: 8px 16px;
+	text-align: center;
+	font-size: min(5vw, 24px);
+	text-decoration: none;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-shadow: 2px 1px 2px black;
+	font-weight: bold;
+}
+
+.button-div > .link:hover {
+	color: rgb(65, 65, 65);
+	text-decoration: none;
+}
+
+.button-div > .dead {
+	width: 100%;
+	background-color: darkslategray;
+	color: antiquewhite;
+	border: none;
+	border-radius: 10px;
+	padding: 8px 16px;
+	text-align: center;
+	font-size: min(5vw, 24px);
+	text-decoration: none;
+	transition-duration: 0.4s;
+	cursor: pointer;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	text-shadow: 2px 1px 2px black;
+	font-weight: bold;
+}
+
+.button-div > .dead:hover {
+	color: red;
+	text-decoration: none;
+}
+
+
+.button-div-results {
+    display: flex;  
+    flex-direction: column;  /* Make it a vertical column */
+    align-items: center;     /* Center buttons horizontally */
+    gap: 10px;               /* Adds space between buttons */
+    width: 100%;             /* Take full width */
+    padding: 5px 0 10px 0;
+}
+
+.button-div-results > .link {
+    width: auto;             /* Let content dictate size */
+    min-width: 120px;        /* Ensure a reasonable size */
+	background: linear-gradient(135deg, #f4b08c, #dc6d5d);
+	color: #fffaf5;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 16px;
+    text-align: center;
+    font-size: min(5vw, 24px);
+    text-decoration: none;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-shadow: 2px 1px 2px black;
+    font-weight: bold;
+}
+
+
+.button-div-results > .link:hover {
+	transform: translateY(-2px);
+	color: rgb(65, 65, 65);
+	color: darkslategray;
+}
+.event-page-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	background-color: rgb(110, 41, 41);
+    width: 100%;
+    margin: 0 10px 10px 10px;
+    border-radius: 15px;
+}
+.event-desc-container {
+	display: flex;
+	flex-direction: column;
+	align-content: center;
+	padding: 15px;
+	max-width: 600px;
+	line-height: 1.2;
+	border-radius: 16px;
+}
+.event-desc-header,
+.attendees-header {
+	display: flex;
+	margin-top: 8px;
+	font-size: 24px;
+	text-align: left;
+	font-weight: bold;
+}
+.event-desc-body {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	font-size: 16px;
+	padding: 0 10px;
+	text-shadow: none;
+	/* max-height: 550px;
+    overflow: auto; */
+}
+p {
+	margin: 8px 0;
+}
+
+.link {
+	text-decoration:none;
+}
+
+.attendee-card {
+	text-decoration: none;
+}
+
+.close {
+	color: red;
+	text-shadow: 2px 1px 2px maroon;
+	font-weight: bold;
+}
+
+.text {
+	font-weight: bold;
+}
