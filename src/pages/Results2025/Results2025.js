@@ -130,7 +130,7 @@ export default function EventPage() {
 		<div className="container event-page results-page">
 			<div className="event-page-container-top">
 				<Link className="link" to={logoLinkPath}>
-					<img width="300px" alt="logo" src={logo} />
+					<img className="event-logo" alt="logo" src={logo} />
 				</Link>
 
 				<p className="text submitTitle">2025 Results</p>

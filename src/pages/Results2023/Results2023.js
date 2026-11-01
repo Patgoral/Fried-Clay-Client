@@ -86,7 +86,7 @@ export default function EventPage() {
 		<div className="container past-results-page">
 			<div className="past-results-page-container-top">
 				<Link className="link" to="/">
-					<img width="200px" alt="logo" src={logo} />
+					<img className="event-logo" alt="logo" src={logo} />
 				</Link>
 
 				<p className="text submitTitle">
