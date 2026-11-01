@@ -45,6 +45,9 @@
 	padding: 15px;
 	box-sizing: border-box;
 	text-decoration: none;
+	background: var(--app-logo-surface);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 6px;
 }
 
 .sponsor-card img {
@@ -60,14 +63,11 @@
 	width: 200px;
 	height: auto;
 	object-fit: contain;
-	filter: grayscale(0%);
-	opacity: 0.85;
-	transition: all 0.2s ease;
+	opacity: 1;
+	transition: transform 0.2s ease;
 }
 
 .sponsors-container img:hover {
-	filter: grayscale(100%);
-	opacity: 1;
 	transform: scale(1.05);
 }
 

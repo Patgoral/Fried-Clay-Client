@@ -2,39 +2,44 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 10px;
-	margin-top: 10px;
-	padding-bottom: 10px;
+	gap: 8px;
+	width: fit-content;
+	max-width: 100%;
+	margin: 10px auto 0;
+	padding: 8px;
+	background: var(--app-logo-surface);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+	border-radius: 6px;
 }
 
 .sponsors-section + #link-container {
-	margin-top: -12px;
+	margin-top: 0;
 }
 
 #link-container a {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
+	width: 44px;
+	height: 44px;
+	border-radius: 4px;
 }
 
 #link-container img {
 	display: block;
 	width: clamp(30px, 4vw, 42px);
 	height: auto;
-	filter: grayscale(0%);
-	opacity: 0.85;
-	transition: all 0.2s ease;
+	opacity: 1;
+	transition: transform 0.2s ease;
 }
 
 #link-container img:hover {
-	filter: grayscale(100%);
-	opacity: 1;
 	transform: scale(1.05);
 }
 
 @media (max-width: 600px) {
 	.sponsors-section + #link-container {
-		margin-top: -8px;
+		margin-top: 0;
 	}
 
 	#link-container img {

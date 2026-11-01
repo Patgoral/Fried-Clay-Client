@@ -42,6 +42,13 @@
 	width: 100%;
 }
 
+.archive-page .past-results-links {
+	flex-direction: column;
+	align-items: stretch;
+	max-width: 32rem;
+	margin-inline: auto;
+}
+
 .archive-page .button-div-results > .link {
 	display: inline-flex;
 	align-items: center;
@@ -52,8 +59,13 @@
 	border-radius: 0.375rem;
 	background: var(--app-surface-raised);
 	color: var(--app-text);
+	font-size: clamp(1.125rem, 5vw, 1.5rem);
 	text-decoration: none;
 	transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.archive-page .past-results-links > .link {
+	width: 100%;
 }
 
 .archive-page .button-div-results > .link:hover {
