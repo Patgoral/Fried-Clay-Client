@@ -40,16 +40,21 @@ export default function AttendeeCard({ attendee, position }) {
     attendee.createdAt &&
     new Date(eventTime).getFullYear() === new Date(attendee.createdAt).getFullYear();
 
+  const formattedTime = isValidYear ? dateFormatter(eventTime) : 'Time error';
+
   return (
-    <div className='attendee-card'>
-      {position}&nbsp;&nbsp;&nbsp;
-      <span style={{ color: "#f9f9f9" }}>
-        {attendee.name},{" "}
-        {isValidYear
-          ? dateFormatter(eventTime)
-          : "TIME ERROR"}
-        {suffix && <span style={{ color: "yellow" }}> - {suffix}</span>}
+    <div className="attendee-card">
+      <span className={`attendee-card-position${position === 1 ? ' is-first' : ''}`}>
+        {position ?? '—'}
       </span>
+      <span className="attendee-card-name">{attendee.name}</span>
+      <time
+        className={`attendee-card-time${isValidYear ? '' : ' is-error'}`}
+        dateTime={isValidYear ? new Date(eventTime).toISOString() : undefined}
+      >
+        {formattedTime}
+      </time>
+      {suffix && <span className="attendee-card-badge">{suffix}</span>}
     </div>
   );
 }

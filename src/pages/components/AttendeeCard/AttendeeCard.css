@@ -1,5 +1,84 @@
 .attendee-card {
-	align-self: self-start;
-	padding: 5px 0 10px 0;
+	display: grid;
+	grid-template-columns: 2.5rem minmax(0, 1fr) minmax(12rem, auto) auto;
+	align-items: center;
+	gap: 0.75rem;
+	min-width: 0;
+}
 
+.attendee-card-position {
+	display: grid;
+	place-items: center;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 0.375rem;
+	background: var(--app-bg);
+	color: var(--app-muted);
+	font-size: 0.875rem;
+	font-variant-numeric: tabular-nums;
+}
+
+.attendee-card-position.is-first {
+	background: var(--app-accent);
+	color: #fff;
+}
+
+.attendee-card-name {
+	min-width: 0;
+	color: var(--app-text);
+	font-weight: 600;
+	line-height: 1.35;
+	overflow-wrap: anywhere;
+}
+
+.attendee-card-time {
+	color: var(--app-muted);
+	font-size: 0.875rem;
+	font-variant-numeric: tabular-nums;
+	line-height: 1.35;
+}
+
+.attendee-card-time.is-error {
+	color: var(--app-danger);
+}
+
+.attendee-card-badge {
+	padding: 0.25rem 0.5rem;
+	border: 1px solid rgba(219, 194, 109, 0.35);
+	border-radius: 0.25rem;
+	background: rgba(219, 194, 109, 0.12);
+	color: #e5cb75;
+	font-size: 0.75rem;
+	font-weight: 600;
+	line-height: 1.2;
+}
+
+@media (max-width: 575.98px) {
+	.attendee-card {
+		grid-template-columns: 2rem minmax(0, 1fr) auto;
+		column-gap: 0.625rem;
+		row-gap: 0.25rem;
+	}
+
+	.attendee-card-position {
+		grid-row: 1 / span 2;
+		width: 1.75rem;
+		height: 1.75rem;
+	}
+
+	.attendee-card-name {
+		grid-column: 2;
+		grid-row: 1;
+	}
+
+	.attendee-card-time {
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	.attendee-card-badge {
+		grid-column: 3;
+		grid-row: 1 / span 2;
+		justify-self: end;
+	}
 }
