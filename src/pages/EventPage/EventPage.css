@@ -165,7 +165,7 @@
         padding: 1rem;
     }
 
-	.event-landing .event-site-header .event-logo {
+	.event-landing .event-site-header #logo-container .event-logo {
 		width: auto;
 		height: min(30vw, 200px);
 	}

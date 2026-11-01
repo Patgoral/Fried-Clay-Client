@@ -3,14 +3,20 @@ import logo from '../../../images/fc27logo2.png'
 import './EventNavBar.css'
 
 export const REGISTRATION_URL = 'https://www.eventbrite.com/e/fried-clay-200k-2027-tickets-2004102106349?aff=oddtdtcreator&keep_tld=true'
+export const isRegistrationOpen = () => new Date() < new Date('2027-03-20')
 
-export default function EventNavBar({ isWithinDateRange, activeItem, showAdminShortcut = false }) {
+export default function EventNavBar({
+	isWithinDateRange = isRegistrationOpen(),
+	activeItem,
+	showAdminShortcut = false,
+	logoTo = '/',
+}) {
 	const pastResultsIsActive = activeItem === 'past-results'
 	const pastResultsClassName = `link secondary-action${pastResultsIsActive ? ' is-active' : ''}`
 
 	return (
 		<header className="event-site-header">
-			<Link id="logo-container" className="link" to="/">
+			<Link id="logo-container" className="link" to={logoTo}>
 				<img className="event-logo" alt="Fried Clay 200k" src={logo} />
 			</Link>
 

@@ -19,11 +19,13 @@
 	min-width: 0;
 }
 
-.event-site-header .event-logo {
+.event-site-header #logo-container .event-logo {
 	display: block;
 	width: min(320px, 100%);
 	height: auto;
+	max-width: 100%;
 	margin: 0;
+	object-fit: fill;
 }
 
 .event-site-header .event-nav-actions {
@@ -98,8 +100,9 @@
 		justify-content: center;
 	}
 
-	.event-site-header .event-logo {
+	.event-site-header #logo-container .event-logo {
 		width: min(320px, 85vw);
+		height: auto;
 	}
 
 	.event-site-header .event-nav-actions {

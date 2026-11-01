@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import '../ResultsShared.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
+import EventNavBar from '../components/EventNavBar/EventNavBar'
 import { Link } from 'react-router-dom'
-import logo from '../../images/FriedClay200k26.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 import Sponsors from '../components/Sponsors/Sponsors'
 
@@ -178,13 +178,9 @@ export default function EventPage() {
 
 	return (
 		<div className="container event-page results-page">
-			<div className="event-page-container-top">
-				<Link className="link" to={logoLinkPath}>
-					<img className="event-logo" alt="logo" src={logo} />
-				</Link>
-
-				<p className="text submitTitle">2026 Results</p>
-
+			<EventNavBar logoTo={logoLinkPath} activeItem="past-results" />
+			<div className="results-year-toolbar">
+				<h1 className="text submitTitle">2026 Results</h1>
 				<div className="heading-div">
 					{showSubmitSection ? (
 						<>
