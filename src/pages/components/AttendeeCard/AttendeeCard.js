@@ -44,7 +44,7 @@ export default function AttendeeCard({ attendee, position }) {
 
   return (
     <div className="attendee-card">
-      <span className={`attendee-card-position${position === 1 ? ' is-first' : ''}`}>
+      <span className="attendee-card-position">
         {position ?? '—'}
       </span>
       <span className="attendee-card-name-group">

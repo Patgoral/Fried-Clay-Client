@@ -18,11 +18,6 @@
 	font-variant-numeric: tabular-nums;
 }
 
-.attendee-card-position.is-first {
-	background: var(--app-accent);
-	color: #fff;
-}
-
 .attendee-card-name {
 	color: var(--app-text);
 	font-weight: 600;

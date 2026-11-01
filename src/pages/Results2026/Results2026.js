@@ -10,10 +10,6 @@ import Sponsors from '../components/Sponsors/Sponsors'
 export default function EventPage() {
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
-	const [logoLinkPath, setLogoLinkPath] = useState('/EventPage')
-	const adminOverride =
-		sessionStorage.getItem('adminOverride') === 'true' ||
-		localStorage.getItem('adminOverride') === 'true'
 
 	useEffect(() => {
 	async function getAllAttendees() {
@@ -134,12 +130,6 @@ export default function EventPage() {
 	getAllAttendees()
 }, [])
 
-	useEffect(() => {
-		if (adminOverride) {
-			setLogoLinkPath('/')
-		}
-	}, [adminOverride])
-
 	let attendeeList = null
 	let messagecontainer = ''
 
@@ -174,7 +164,7 @@ export default function EventPage() {
 	return (
 		<div className="container event-page results-page">
 			<div className="event-page-container-top">
-				<Link className="link" to={logoLinkPath}>
+				<Link className="link" to="/">
 					<img className="event-logo" alt="logo" src={logo} />
 				</Link>
 

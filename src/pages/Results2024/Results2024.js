@@ -8,16 +8,12 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/fried-clay.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 
-	const startDate = new Date('3/23/2024')
-	startDate.setHours(8, 0, 0, 0)
-
 export default function EventPage() {
 	// const navigate = useNavigate()
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
 
 	let attendeeList
-	let messagecontainer
 
 	// READ ATTENDEES
 	useEffect(() => {
@@ -104,11 +100,6 @@ export default function EventPage() {
 				</div>
 			</Link>
 		))
-		if (!attendees.attendees[0]) {
-			messagecontainer = 'No Results Yet'
-		}
-	} else {
-		messagecontainer = 'Loading Results'
 	}
 	return (
 		<div className="container past-results-page">

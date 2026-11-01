@@ -6,16 +6,9 @@ import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay5_v1-01.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 
-const endDate = new Date('03/29/2025')
-const startDate = new Date('03/22/2025')
-startDate.setHours(8, 0, 0, 0)
-
 export default function EventPage() {
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
-	const [applyLinkClass, setApplyLinkClass] = useState(true)
-	const [applyButtonClass, setApplyButtonClass] = useState(false)
-	const [logoLinkPath, setLogoLinkPath] = useState('/EventPage')  // Dynamic link path
 
 	let attendeeList
 	let messagecontainer
@@ -82,21 +75,6 @@ export default function EventPage() {
 		getAllAttendees()
 	}, [])
 
-	useEffect(() => {
-		const currentDate = new Date()
-		if (currentDate.getTime() >= endDate.getTime()) {
-			setApplyLinkClass(false)
-		}
-	}, [])
-
-	useEffect(() => {
-		const currentDate = new Date()
-		if (currentDate.getTime() >= startDate.getTime()) {
-			setApplyButtonClass(true)
-			setLogoLinkPath('/')
-		}
-	}, [])
-
 	// SHOW A LIST OF ATTENDEES
 	if (attendees.length !== 0) {
 		attendeeList = attendees.attendees.map((attendee) => (
@@ -129,41 +107,18 @@ export default function EventPage() {
 	return (
 		<div className="container event-page results-page">
 			<div className="event-page-container-top">
-				<Link className="link" to={logoLinkPath}>
+				<Link className="link" to="/">
 					<img className="event-logo" alt="logo" src={logo} />
 				</Link>
 
 				<p className="text submitTitle">2025 Results</p>
-		
-				<div className="heading-div">
-					{!applyButtonClass ? (
-						<>
-							<p id='dead' className="dead">Submissions Open 3/22</p>
-						</>
-					) : applyLinkClass ? (
-						<>
-							<Link className="link submitTitle" to="/access">
-								Submit Your Time
-							</Link>
 
-							<div className="closed">
-								<br />
-								<p className="close">Final Results Pending Verification</p>
-								<p className="close">Submissions Close 3/30/2025</p>
-							</div>
-							<div className="button-div">
-							<Link className="link results-back-button" to="/PastResults">
-								Past Results
-							</Link>
-						</div>
-						</>
-					) : (
-						<div className="button-div">
-							<Link className="link results-back-button" to="/PastResults">
-								Back To Past Results
-							</Link>
-						</div>
-					)}
+				<div className="heading-div">
+					<div className="button-div">
+						<Link className="link results-back-button" to="/PastResults">
+							Back To Past Results
+						</Link>
+					</div>
 				</div>
 			</div>
 
