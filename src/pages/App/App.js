@@ -6,7 +6,7 @@ import Results2023 from '../Results2023/Results2023'
 import Results2024 from '../Results2024/Results2024'
 import Results2025 from '../Results2025/Results2025'
 import Results2026 from '../Results2026/Results2026'
-import Results2027 from '../Results2027/Results2027'
+import Results2027, { isResults2027Live } from '../Results2027/Results2027'
 import PastResults from '../PastResults/PastResults'
 import Gallery from '../Gallery/Gallery'
 import RegistrationPage from '../Registration/RegistrationPage'
@@ -16,12 +16,7 @@ import AccessPage from '../AccessPage/AccessPage'
 
 function App() {
 
-const currentDate = new Date()
-
-const startDate = new Date('2027-03-20T12:00:00Z')
-const endDate   = new Date('2027-03-29T12:00:00Z')
-
-const isWithinDateRange = currentDate >= startDate && currentDate <= endDate;
+const isWithinDateRange = isResults2027Live()
 
 	return (
 		<main className="App">

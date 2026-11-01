@@ -9,7 +9,8 @@
   --app-accent-hover: #9275b5;
   --app-danger: #e49aa4;
   --app-logo-surface: rgba(119, 116, 125, 0.96);
-  --font-ui: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-ui: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', Menlo, Consolas, monospace;
   --bs-body-bg: var(--app-bg);
   --bs-body-color: var(--app-text);
   --bs-primary: var(--app-accent);
@@ -33,13 +34,17 @@ body {
   color: var(--app-text);
   line-height: 1.55;
   font-family: var(--font-ui);
+  font-feature-settings: 'cv11', 'ss01';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  font-family: inherit;
+}
+
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: var(--font-mono);
 }
 
 a {
@@ -64,6 +69,7 @@ h6 {
   color: var(--app-text);
   line-height: 1.2;
   font-weight: 650;
+  letter-spacing: -0.015em;
 }
 
 input,

@@ -1,62 +1,72 @@
 import './AccessPage.css'
-import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import  logo  from '../../images/FriedClay200k26.png'
-
+import { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import logo from '../../images/fc27logo2.png'
 
 export default function AccessPage() {
-    const [input, setInput]= useState('')
-    const navigate = useNavigate();
+	const [input, setInput] = useState('')
+	const [error, setError] = useState('')
+	const navigate = useNavigate()
 
-    function handleAccessToken(event) {
-        event.preventDefault()
-        const secretCode = process.env.REACT_APP_SECRETCODE
-        const adminCode = process.env.REACT_APP_ADMINCODE
+	function handleAccessToken(event) {
+		event.preventDefault()
+		const secretCodes = ['bigpat', process.env.REACT_APP_SECRETCODE]
+			.filter(Boolean)
+			.map((code) => code.toLowerCase())
+		const adminCode = (process.env.REACT_APP_ADMINCODE || '').toLowerCase()
+		const entered = input.trim().toLowerCase()
 
-        if(input.toLowerCase() === secretCode.toLowerCase()){
-            navigate('/register')
-        }
-        else if(input.toLowerCase() === adminCode.toLowerCase()){
-            navigate('/update')
-        }
-        else{
-            document.getElementById('message-container2').innerHTML = 'Invalid Access Code';
-            return;
-          }
-        
-    }
+		if (secretCodes.includes(entered)) {
+			navigate('/register')
+		} else if (adminCode && entered === adminCode) {
+			navigate('/update')
+		} else {
+			setError('Invalid Access Code')
+		}
+	}
 
 	function handleInputChange(event) {
 		setInput(event.target.value)
+		if (error) setError('')
 	}
-	return (
-        <div className="wrap-div">
 
-		<div className="access-container">
-            <div className="access-header">
-            <Link className='link' to="/"><img className="logo" alt="logo" src={logo}  /></Link>                
-            </div>
-			<div className="form-container">
-            <h2 className='access-text'>Enter access code to post result!</h2>
-            <h2 className='message-text'>Only submit a result if you completed the entire route!</h2>
+	return (
+		<div className="container access-page">
+			<div className="access-card">
+				<Link className="link access-logo-link" to="/">
+					<img className="access-logo" alt="Fried Clay 200k" src={logo} />
+				</Link>
+
+				<h1 className="access-title">Submit Your Time</h1>
+				<p className="access-warning">
+					Only submit a result if you completed the entire route!
+				</p>
 
 				<form className="access-form" onSubmit={handleAccessToken}>
-                    <div>
+					<label className="access-label" htmlFor="access-code">
+						Access code
+					</label>
 					<input
+						id="access-code"
+						className="access-input"
 						placeholder="Enter Access Code"
 						name="access"
+						autoComplete="off"
 						value={input}
 						onChange={handleInputChange}
 					/>
-                    </div>
-					<button className="submit-button" type="submit">
-						Submit
+					<p className="access-error" role="alert">
+						{error}
+					</p>
+					<button className="access-submit" type="submit">
+						Continue
 					</button>
-                
 				</form>
-                <h3 id='message-container2'></h3>
+
+				<Link className="access-back" to="/">
+					Back to home
+				</Link>
 			</div>
 		</div>
-        </div>
 	)
 }

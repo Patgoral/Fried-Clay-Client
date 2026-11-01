@@ -7,7 +7,7 @@ import 'react-calendar/dist/Calendar.css';
 import 'react-clock/dist/Clock.css';
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../../images/FriedClay200k26.png'
+import logo from '../../images/fc27logo2.png'
 
 export default function RegistrationPage() {
 	const navigate = useNavigate()
@@ -17,6 +17,7 @@ export default function RegistrationPage() {
 	// const [date, setDate] = useState('')
 	// const [image, setImage] = useState(undefined)
 	const [gpx, setGpx] = useState(undefined)
+	const [error, setError] = useState('')
 	const [isLoading, setIsLoading] = useState(false)
 	const [showGpxHelpModal, setShowGpxHelpModal] = useState(false)
 	const [showUploadDelayModal, setShowUploadDelayModal] = useState(false)
@@ -32,27 +33,24 @@ export default function RegistrationPage() {
 
 	async function handleAddAttendee(event) {
 		event.preventDefault()
+		setError('')
 		const formData = new FormData()
 
 		if (!name) {
-			document.getElementById('message-container').innerHTML =
-				'Name Field Is Required'
+			setError('Name Field Is Required')
 			return
 		}
 		if (!gender) {
-			document.getElementById('message-container').innerHTML =
-				'Gender Field Is Required'
+			setError('Gender Field Is Required')
 			return
 		}
 		if (!geared) {
-			document.getElementById('message-container').innerHTML =
-				'Geared Field Is Required'
+			setError('Geared Field Is Required')
 			return
 		}
 
 		if (!gpx) {
-			document.getElementById('message-container').innerHTML =
-				'GPX File Upload Is Required'
+			setError('GPX File Upload Is Required')
 			return
 		}
 
@@ -62,8 +60,7 @@ export default function RegistrationPage() {
 
 		const gpxFile = gpx && gpx.name.endsWith('.gpx') ? gpx : undefined
 		if (!gpxFile) {
-			document.getElementById('message-container').innerHTML =
-				'Invalid GPX File Type'
+			setError('Invalid GPX File Type')
 			return
 		}
 		formData.append('gpx', gpxFile)
@@ -99,16 +96,14 @@ export default function RegistrationPage() {
 	}
 
 	return (
-		<div className="wrap-div">
-			<div className="register-page">
+		<div className="container register-page">
+			<div className="register-card">
 				<div className="register-form-container">
-					<Link className="link" to="/">
-						<img className="logo" alt="logo" src={logo} />
+					<Link className="link register-logo-link" to="/">
+						<img className="register-logo" alt="Fried Clay 200k" src={logo} />
 					</Link>
 
-					<div className="register-header">
-						Submit Your Time
-					</div>
+					<h1 className="register-header">Submit Your Time</h1>
 
 					<form
 						className="register-form"
@@ -117,8 +112,9 @@ export default function RegistrationPage() {
 					>
 						<fieldset disabled={isLoading} className="register-fieldset">
 							<div className="input">
-								<p className="register-header2">Full Name</p>
+								<label className="register-header2" htmlFor="reg-name">Full Name</label>
 								<input
+									id="reg-name"
 									className="name"
 									placeholder="Full Name"
 									name="name"
@@ -126,8 +122,9 @@ export default function RegistrationPage() {
 									onChange={handleInputChange}
 								/>
 
-								<p className="register-header2">Gender</p>
+								<label className="register-header2" htmlFor="reg-gender">Gender</label>
 								<select
+									id="reg-gender"
 									className="selectClass"
 									name="gender"
 									value={gender}
@@ -140,8 +137,9 @@ export default function RegistrationPage() {
 									<option value="Not Disclosed">I Prefer Not to Say</option>
 								</select>
 
-								<p className="register-header2">Geared, SS, Fixed?</p>
+								<label className="register-header2" htmlFor="reg-geared">Geared, SS, Fixed?</label>
 								<select
+									id="reg-geared"
 									className="selectClass"
 									name="geared"
 									value={geared}
@@ -152,8 +150,10 @@ export default function RegistrationPage() {
 									<option value="Fixed">Fixed</option>
 								</select>
 
-								<p className="register-header2">Upload GPX File</p>
+								<label className="register-header2" htmlFor="reg-gpx">Upload GPX File</label>
 								<input
+									id="reg-gpx"
+									className="file-input"
 									type="file"
 									name="gpx"
 									onChange={(e) => setGpx(e.target.files[0])}
@@ -178,7 +178,7 @@ export default function RegistrationPage() {
 						</fieldset>
 					</form>
 
-					<h3 id="message-container">&nbsp;</h3>
+					<p className="register-error" role="alert">{error}</p>
 
 					{showGpxHelpModal && (
 						<div

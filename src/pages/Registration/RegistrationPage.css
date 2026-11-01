@@ -1,278 +1,273 @@
-
-.wrap-div{
-    display: grid;
-    grid-template-columns: 1fr;
-    border-radius: 10px;
-}
-.register-page{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--app-surface);
-    margin: 0px auto;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-}
-.register-form-container{
-    justify-content: center;
-    margin-top: 0px;
-    padding: 5px 0 25px 0;
-    background-color: var(--app-surface-raised);
-    border-radius: 5px;
-    min-height: auto;
-    max-width: 95vw;
-    min-width: 0;
+.register-page {
+	display: flex;
+	justify-content: center;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
 }
 
-@media (max-width: 600px) {
-    .register-form-container {
-        width: 70vw;
-        max-width: none;
-        min-width: 0;
-    }
-}
-.register-header{
-    font-size: 24px;
-    color: var(--app-text);
-    margin: 20px auto;
-    font-weight: bold;
-
+.register-page .register-card {
+	width: min(100%, 36rem);
+	padding: 2rem 1.5rem;
+	background: var(--app-surface);
+	border: 1px solid var(--app-border);
+	border-radius: 0.5rem;
 }
 
-.register-header2{
-    font-size: 20px;
-    color: var(--app-text);
-    font-weight: bold;
+.register-page .register-form-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	text-align: center;
 }
 
-.register-form{
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    width: 100%;
-    margin: auto;
-}
-.register-form > div {
-    display: grid;
-    justify-self: center;
-}
-.register-form > div > input{
-    width: 240px;
-    margin: 10px 0 10px 16px;
-    text-align: center;
+.register-page .register-logo {
+	display: block;
+	width: min(260px, 70vw);
+	height: auto;
 }
 
-.register-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--app-accent);
-    color: #fff;
-    margin: auto;
-    margin-top: 20px;
-    width: 70%;
-    font-size: 24px;
-    padding: 10px;
-    border-radius: 10px;
-    transition: background-color 0.2s ease;
+.register-page .register-header {
+	margin: 0.5rem 0 0;
+	color: var(--app-text);
+	font-size: 1.5rem;
+	font-weight: 600;
 }
 
-.button-spinner {
-    width: 20px;
-    height: 20px;
-    border: 3px solid rgba(238, 234, 242, 0.25);
-    border-top-color: var(--app-text);
-    border-radius: 50%;
-    animation: button-spin 0.8s linear infinite;
+.register-page .register-form {
+	width: 100%;
+	text-align: left;
 }
 
-@keyframes button-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Hover state */
-.register-button:hover {
-    background-color: var(--app-accent-hover);
-}
-
-@media (max-width: 600px) {
-    .register-button {
-        width: 80%;
-        font-size: 18px;
-    }
-}
-
-.register-form .input input[type="file"] {
-	margin-bottom: 2px;
-}
-
-
-.name{
-   
-    align-self: center;
-    height: 40px; 
-
-}
-
-.selectClass {
-    height: 40px; 
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-
-.date-time{
-    background-color: var(--app-surface-raised);
-    color: var(--app-text);
-    height: 40px;
-    max-width: 290px;
-   font-size: 19px;
-   margin-top: 10px;
-   margin-left: 10px;
-
-}
-
-
-
-.logo {
-    width: 100%;
-    max-width: 200px;
-  }
-  
-.register-fieldset {
-	border: none;
-	padding: 0;
-	margin: 0;
+.register-page .register-fieldset {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: 100%;
 	min-width: 0;
-    width: 100%;
+	margin: 0;
+	padding: 0;
+	border: none;
 }
 
-.register-fieldset:disabled {
+.register-page .register-fieldset:disabled {
 	opacity: 0.7;
 }
 
-
-
-.register-form .input input[type="file"] {
-    width: 240px;
-    margin: 10px 0 2px 0;
-    text-align: center;
-    box-sizing: border-box;
+.register-page .input {
+	display: flex;
+	flex-direction: column;
+	gap: 0.375rem;
 }
 
-.link-button {
-    display: block;
-    background-color: var(--app-accent);
-    color: #fff;
-    margin: 2px auto 0 auto;
-    width: 40%;
-    font-size: 12px;
-    padding: 4px;
-    border-radius: 10px;
-    text-align: center;
-    text-decoration: none;
-    box-sizing: border-box;
+.register-page .register-header2 {
+	margin: 0.5rem 0 0;
+	color: var(--app-muted);
+	font-size: 0.9rem;
+	font-weight: 600;
 }
 
-/* Hover state */
-.link-button:hover {
-    background-color: var(--app-accent-hover);
+.register-page .name,
+.register-page .selectClass,
+.register-page .file-input {
+	width: 100%;
+	min-height: 2.75rem;
+	margin: 0;
+	padding: 0.625rem 0.75rem;
+	background: var(--app-surface-raised);
+	border: 1px solid var(--app-border);
+	border-radius: 0.375rem;
+	color: var(--app-text);
+	font-size: 1.0625rem;
+	box-sizing: border-box;
+	transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
-@media (max-width: 600px) {
-    .link-button {
-        width: 90%;
-        font-size: 10px;
-        margin: 10px auto 0 auto;
+.register-page .name:focus,
+.register-page .selectClass:focus,
+.register-page .file-input:focus {
+	outline: none;
+	border-color: var(--app-accent);
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
 
-    }
+.register-page .file-input {
+	font-size: 0.95rem;
+}
+
+.register-page .file-input::file-selector-button {
+	margin-right: 0.75rem;
+	padding: 0.375rem 0.75rem;
+	background: var(--app-surface);
+	border: 1px solid var(--app-border);
+	border-radius: 0.375rem;
+	color: var(--app-text);
+	font-weight: 600;
+	cursor: pointer;
+}
+
+.register-page .register-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	min-height: 2.75rem;
+	padding: 0.625rem 1.5rem;
+	background: var(--app-surface-raised);
+	border: 1px solid var(--app-border);
+	border-radius: 0.375rem;
+	color: var(--app-text);
+	font-size: 1.0625rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
+}
+
+.register-page .register-button:hover {
+	background: var(--app-accent);
+	border-color: var(--app-accent);
+	color: #fff;
+}
+
+.register-page .register-button:active {
+	background: var(--app-accent-hover);
+	border-color: var(--app-accent-hover);
+}
+
+.register-page .link-button {
+	display: block;
+	align-self: flex-start;
+	padding: 0.25rem 0;
+	background: none;
+	border: none;
+	color: var(--app-muted);
+	font-size: 0.9rem;
+	text-align: left;
+	text-decoration: underline;
+	text-underline-offset: 0.2em;
+	cursor: pointer;
+}
+
+.register-page .link-button:hover {
+	color: var(--app-text);
+}
+
+.register-page .register-error {
+	min-height: 1.25rem;
+	margin: 0;
+	color: var(--app-danger);
+	font-size: 0.95rem;
+	font-weight: 600;
+}
+
+.register-page .button-spinner {
+	width: 20px;
+	height: 20px;
+	border: 3px solid rgba(238, 234, 242, 0.25);
+	border-top-color: var(--app-text);
+	border-radius: 50%;
+	animation: button-spin 0.8s linear infinite;
+}
+
+@keyframes button-spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .gpx-help-modal-overlay {
 	position: fixed;
 	inset: 0;
-	background: rgba(0, 0, 0, 0.7);
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 1.25rem;
+	background: rgba(0, 0, 0, 0.7);
 	z-index: 1000;
-	padding: 20px;
 }
 
 .gpx-help-modal {
-    background: var(--app-surface-raised);
-	border-radius: 10px;
-	padding: 20px;
-	width: 100%;
-	max-width: 500px;
 	display: flex;
 	flex-direction: column;
-	gap: 15px;
+	gap: 1rem;
+	width: 100%;
+	max-width: 500px;
+	padding: 1.5rem;
+	background: var(--app-surface);
+	border: 1px solid var(--app-border);
+	border-radius: 0.5rem;
 	text-align: center;
 }
 
 .gpx-help-modal h2 {
-    color: var(--app-text);
 	margin: 0;
-}
-
-.upload-delay-modal {
-    max-width: 420px;
-    align-items: center;
-    justify-content: center;
-    padding: 28px 24px;
-}
-
-.upload-delay-spinner {
-    width: 28px;
-    height: 28px;
-    border-width: 4px;
-    border-top-color: var(--app-text);
-    border-color: rgba(238, 234, 242, 0.25);
+	color: var(--app-text);
+	font-size: 1.25rem;
+	font-weight: 600;
 }
 
 .gpx-help-modal-buttons {
 	display: flex;
 	flex-direction: column;
-	gap: 10px;
+	gap: 0.5rem;
 }
 
-@media (min-width: 900px) {
-    .register-form-container {
-        width: min(100%, 1100px);
-        padding: 15px 60px 30px 60px;
-        box-sizing: border-box;
-    }
+.gpx-help-modal .link-button {
+	align-self: stretch;
+	padding: 0.625rem 0.75rem;
+	background: var(--app-surface-raised);
+	border: 1px solid var(--app-border);
+	border-radius: 0.375rem;
+	color: var(--app-text);
+	font-size: 1rem;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	transition: background-color 150ms ease, border-color 150ms ease;
+}
 
-    .register-form .input {
-        width: 100%;
-        max-width: 620px;
-        margin: 0 auto;
-    }
+.gpx-help-modal .link-button:hover {
+	background: var(--app-accent);
+	border-color: var(--app-accent);
+	color: #fff;
+}
 
-    .name,
-    .selectClass,
-    .register-form .input input[type="file"] {
-        width: 100%;
-        max-width: 620px;
-        box-sizing: border-box;
-        margin-left: 0;
-        margin-right: 0;
-    }
+.gpx-help-modal .register-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 2.75rem;
+	padding: 0.625rem 1.5rem;
+	background: var(--app-surface-raised);
+	border: 1px solid var(--app-border);
+	border-radius: 0.375rem;
+	color: var(--app-text);
+	font-size: 1.0625rem;
+	font-weight: 600;
+	cursor: pointer;
+}
 
-    .register-button {
-        width: min(60%, 420px);
-    }
+.gpx-help-modal .register-button:hover {
+	background: var(--app-accent);
+	border-color: var(--app-accent);
+	color: #fff;
+}
 
-    .link-button {
-        width: min(60%, 420px);
-        font-size: 14px;
-        padding: 8px;
-    }
+.upload-delay-modal {
+	max-width: 420px;
+	align-items: center;
+	justify-content: center;
+	padding: 1.75rem 1.5rem;
+}
+
+.upload-delay-spinner {
+	width: 28px;
+	height: 28px;
+	border: 4px solid rgba(238, 234, 242, 0.25);
+	border-top-color: var(--app-text);
+	border-radius: 50%;
+	animation: button-spin 0.8s linear infinite;
 }
