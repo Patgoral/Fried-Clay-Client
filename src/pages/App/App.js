@@ -13,12 +13,15 @@ import RegistrationPage from '../Registration/RegistrationPage'
 // import NavBar from '../components/NavBar/NavBar'
 import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
 import AccessPage from '../AccessPage/AccessPage'
+import PixelBackground from '../components/PixelBackground/PixelBackground'
 
 function App() {
 
 const isWithinDateRange = isResults2027Live()
 
 	return (
+		<>
+		<PixelBackground />
 		<main className="App">
 			<>
 				<Routes>
@@ -46,6 +49,7 @@ const isWithinDateRange = isResults2027Live()
 				</Routes>
 			</>
 		</main>
+		</>
 	)
 }
 
