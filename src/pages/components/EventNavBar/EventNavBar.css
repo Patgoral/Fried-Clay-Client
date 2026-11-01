@@ -12,7 +12,7 @@
 	position: relative;
 }
 
-.event-site-header #logo-container {
+header.event-site-header #logo-container {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -96,7 +96,7 @@
 		padding: 1rem;
 	}
 
-	.event-site-header #logo-container {
+	header.event-site-header #logo-container {
 		justify-content: center;
 	}
 

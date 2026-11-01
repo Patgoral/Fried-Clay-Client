@@ -114,14 +114,18 @@ export default function EventPage() {
 		<div className="container past-results-page">
 			<div className="past-results-page-container-top">
 				<Link className="link" to="/">
-					<img className="event-logo" alt="logo" src={logo} />
+					<img width="300px" alt="logo" src={logo} />
 				</Link>
-				<p className="text submitTitle">2024 Results</p>
-				<div className="button-div">
+
+				<p className="text submitTitle">
+					2024 Results
+				</p>
+				<div className="button-div">						
 					<Link className="link results-back-button" to="/PastResults">
-						Back To Past Results
+					 	Back To Past Results
 					</Link>
 				</div>
+
 			</div>
 			<div className="past-results-page-list-container">
 				<div className="attendees-container">

@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import '../ResultsShared.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
-import EventNavBar from '../components/EventNavBar/EventNavBar'
 import { Link } from 'react-router-dom'
+import logo from '../../images/FriedClay5_v1-01.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 
 const endDate = new Date('03/29/2025')
@@ -128,9 +128,13 @@ export default function EventPage() {
 
 	return (
 		<div className="container event-page results-page">
-			<EventNavBar logoTo={logoLinkPath} activeItem="past-results" />
-			<div className="results-year-toolbar">
-				<h1 className="text submitTitle">2025 Results</h1>
+			<div className="event-page-container-top">
+				<Link className="link" to={logoLinkPath}>
+					<img width="300px" alt="logo" src={logo} />
+				</Link>
+
+				<p className="text submitTitle">2025 Results</p>
+		
 				<div className="heading-div">
 					{!applyButtonClass ? (
 						<>
