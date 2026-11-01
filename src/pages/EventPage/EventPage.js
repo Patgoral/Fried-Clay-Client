@@ -1,19 +1,15 @@
 // import { checkToken } from '../../utilities/users-services'
 // import { useNavigate } from 'react-router-dom'
 import './EventPage.css'
-
-import { Link } from 'react-router-dom'
-import logo from '../../images/fc27logo2.png'
+import EventNavBar, { REGISTRATION_URL } from '../components/EventNavBar/EventNavBar'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 import Sponsors from '../components/Sponsors/Sponsors'
-import { useEffect } from 'react'
 
 
 export default function EventPage() {
 
 const currentDate = new Date();
 const blockedStart = new Date('2027-03-20');
-const registrationUrl = 'https://www.eventbrite.com/e/fried-clay-200k-2027-tickets-2004102106349?aff=oddtdtcreator&keep_tld=true';
 
 const isWithinDateRange = currentDate < blockedStart;
 localStorage.setItem("adminOverride", "false")
@@ -21,66 +17,7 @@ localStorage.setItem("adminOverride", "false")
 
 	return (
 		<div className="container event-page event-landing">
-			<div className="event-page-container-top">
-			<Link id="logo-container" className="link" to="/">
-				<img className="event-logo" alt="logo" src={logo} />
-			</Link>
-
-			<Link
-			to="/2027"
-			onClick={() => localStorage.setItem("adminOverride", "true")}
-			style={{
-				position: "absolute",
-				top: "5px",
-				right: "5px",
-				width: "20px",
-				height: "20px",
-				opacity: 0,
-				zIndex: 10
-			}}
-		/>
-				<div className="button-div">
-				{isWithinDateRange ? (
-					<a
-						className="link secondary-action"
-						href={registrationUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Register
-					</a>
-				) : null}
-				
-							
-
-				<Link className="link secondary-action" to="/PastResults">
-				  Past Results
-				</Link>
-
-				<a
-					className="link secondary-action"
-					href="https://friedclay200k.bigcartel.com/"
-					target="_blank"
-					rel="noopener noreferrer"
-					>
-					Merch
-				</a>
-
-
-				<a
-					className="link secondary-action"
-					href="mailto:patpattersonridesbikes@gmail.com"
-					target="_blank"
-					rel="noopener noreferrer"
-					>
-					Contact
-				</a>
-
-				
-
-					
-				</div>
-			</div>
+			<EventNavBar isWithinDateRange={isWithinDateRange} showAdminShortcut />
 			<div className="event-page-list-container">
 			<div className="event-details">
 				<div className="event-details-copy">
@@ -100,7 +37,7 @@ localStorage.setItem("adminOverride", "false")
 				</div>
 				<iframe
 					className="event-map"
-					src="https://www.google.com/maps?q=33.2294205,-83.5237188&z=15&output=embed"
+					src="https://www.google.com/maps?q=33.2294205,-83.5237188&t=k&z=15&output=embed"
 					title="Map showing Cedar Creek WMA Check Station"
 					loading="lazy"
 					referrerPolicy="no-referrer-when-downgrade"
@@ -119,7 +56,7 @@ localStorage.setItem("adminOverride", "false")
 					/>
 					<a
 						className="event-register-button"
-						href={registrationUrl}
+						href={REGISTRATION_URL}
 						target="_blank"
 						rel="noopener noreferrer"
 					>

@@ -8,43 +8,6 @@
     padding-bottom: 1rem;
 }
 
-.event-landing .event-page-container-top {
-    display: grid;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-	align-items: center;
-    gap: 2rem;
-	width: 100%;
-    margin: 0;
-    padding: 1rem 1.5rem;
-    background: var(--app-surface);
-    border: 1px solid var(--app-border);
-    border-radius: 0.5rem;
-	position: relative;
-}
-
-.event-landing #logo-container {
-	display: flex;
-    justify-content: flex-start;
-	align-items: center;
-    min-width: 0;
-}
-
-.event-landing .event-logo {
-	display: block;
-    width: min(320px, 100%);
-	height: auto;
-    margin: 0;
-}
-
-.event-landing .button-div {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    justify-content: flex-end;
-    gap: 0.5rem;
-    width: min(100%, 34rem);
-    justify-self: end;
-}
-
 .event-landing .event-details {
     width: min(100%, 600px);
     margin: 0.5rem auto 1rem;
@@ -114,36 +77,6 @@
     background: var(--app-accent-hover);
     border-color: var(--app-accent-hover);
     color: #fff;
-}
-
-.event-landing .button-div > .link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    min-width: 0;
-    min-height: 2.75rem;
-    padding: 0.625rem 0.75rem;
-    background: var(--app-surface-raised);
-    border: 1px solid var(--app-border);
-    border-radius: 0.375rem;
-    color: var(--app-text);
-    font-size: 1.0625rem;
-    font-weight: 600;
-    text-decoration: none;
-    white-space: nowrap;
-    transition: background-color 150ms ease, color 150ms ease, border-color 150ms ease;
-}
-
-.event-landing .button-div > .link:hover {
-    background: var(--app-accent);
-    border-color: var(--app-accent);
-    color: #fff;
-}
-
-.event-landing .button-div > .link:active {
-    background: var(--app-accent-hover);
-    border-color: var(--app-accent-hover);
 }
 
 .event-landing .event-page-list-container {
@@ -228,29 +161,14 @@
 }
 
 @media (max-width: 575.98px) {
-    .event-landing .event-page-container-top,
     .event-landing .event-page-list-container {
         padding: 1rem;
     }
 
-    .event-landing .event-page-container-top {
-        grid-template-columns: 1fr;
-        gap: 0.75rem;
-    }
-
-    .event-landing #logo-container {
-        justify-content: center;
-    }
-
-    .event-landing .event-logo {
-        width: min(320px, 85vw);
-    }
-
-    .event-landing .button-div {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        justify-self: center;
-        width: min(100%, 24rem);
-    }
+	.event-landing .event-site-header .event-logo {
+		width: auto;
+		height: min(30vw, 200px);
+	}
 
     .event-landing .event-page-list-container {
         grid-template-columns: minmax(0, 1fr);
