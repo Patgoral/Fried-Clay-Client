@@ -1,7 +1,33 @@
-body {
-  margin: 0;
-  padding: 0;
+ :root {
+  --app-bg: #17151b;
+  --app-surface: #211e27;
+  --app-surface-raised: #2b2733;
+  --app-border: #403a49;
+  --app-text: #eeeaf2;
+  --app-muted: #b7afc1;
+  --app-accent: #8062a3;
+  --app-accent-hover: #9275b5;
+  --bs-body-bg: var(--app-bg);
+  --bs-body-color: var(--app-text);
+  --bs-primary: var(--app-accent);
+  --bs-primary-rgb: 128, 98, 163;
+  --bs-border-color: var(--app-border);
+  --bs-link-color: #c9b4e2;
+  --bs-link-hover-color: #e0d1ef;
+}
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--app-bg);
+  color: var(--app-text);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -12,6 +38,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  color: var(--bs-link-color);
+}
+
+a:hover {
+  color: var(--bs-link-hover-color);
 }
 
 .background {

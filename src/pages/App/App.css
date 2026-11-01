@@ -1,23 +1,6 @@
-body {
-  background-color: #FF0000;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23ee1f19' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23dd3e32' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23cc5c4b' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23bb7b64' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23AA9A7D' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
-  background-attachment: fixed;
-  background-size: cover;
-
-  }
 .App {
+	min-height: 100vh;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .sponsors-section {
@@ -40,7 +23,7 @@ body {
 	display: block;
 	width: 60px;
 	height: 3px;
-	background: #ff5a2f;
+	background: var(--app-accent);
 	margin: 10px auto 0 auto;
 	border-radius: 2px;
 }
@@ -106,25 +89,3 @@ body {
 
 }
 
-.App-header {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

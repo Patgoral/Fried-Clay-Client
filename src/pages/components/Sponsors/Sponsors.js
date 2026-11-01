@@ -8,7 +8,7 @@ export default function Sponsors() {
 		<div className="sponsors-section">
 
 			<h2 className="sponsors-title">
-				Special Thanks to our 2026 Sponsors
+				Special Thanks to our 2027 Sponsors
 			</h2>
 
 			<div className="sponsors-container">
