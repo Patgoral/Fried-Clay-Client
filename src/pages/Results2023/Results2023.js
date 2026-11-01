@@ -93,7 +93,7 @@ export default function EventPage() {
 					2023 Results
 				</p>
 				<div className="button-div">						
-					<Link className="link" to="/PastResults">
+					<Link className="link results-back-button" to="/PastResults">
 					 	Back To Past Results
 					</Link>
 				</div>

@@ -61,10 +61,10 @@
 	padding: 0;
 }
 
-.results-page .button-div > .link,
-.results-page .heading-div > .link,
+.results-page .button-div > .link:not(.results-back-button),
+.results-page .heading-div > .link:not(.results-back-button),
 .results-page .heading-div > .dead,
-.past-results-page .button-div > .link,
+.past-results-page .button-div > .link:not(.results-back-button),
 .past-results-page .button-div > .dead {
 	display: inline-flex;
 	align-items: center;
@@ -82,10 +82,26 @@
 	transition: background-color 150ms ease, border-color 150ms ease;
 }
 
-.results-page .button-div > .link:hover,
-.results-page .heading-div > .link:hover,
-.past-results-page .button-div > .link:hover {
+.results-page .button-div > .link:not(.results-back-button):hover,
+.results-page .heading-div > .link:not(.results-back-button):hover,
+.past-results-page .button-div > .link:not(.results-back-button):hover {
 	background: var(--app-accent-hover);
+	color: #fff;
+}
+
+.results-page .button-div > .results-back-button,
+.results-page .heading-div > .results-back-button,
+.past-results-page .button-div > .results-back-button {
+	background: var(--app-surface-raised);
+	border-color: var(--app-border);
+	color: var(--app-text);
+}
+
+.results-page .button-div > .results-back-button:hover,
+.results-page .heading-div > .results-back-button:hover,
+.past-results-page .button-div > .results-back-button:hover {
+	background: var(--app-accent);
+	border-color: var(--app-accent);
 	color: #fff;
 }
 
@@ -100,7 +116,7 @@
 .past-results-page .past-results-page-list-container {
 	display: block;
 	width: 100%;
-	max-width: 74rem;
+	max-width: none;
 	margin: 0 auto;
 	padding: 1.25rem;
 	background: var(--app-surface);

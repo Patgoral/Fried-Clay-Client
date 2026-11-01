@@ -152,14 +152,14 @@ export default function EventPage() {
 								<p className="close">Submissions Close 3/30/2025</p>
 							</div>
 							<div className="button-div">
-							<Link className="link" to="/PastResults">
+							<Link className="link results-back-button" to="/PastResults">
 								Past Results
 							</Link>
 						</div>
 						</>
 					) : (
 						<div className="button-div">
-							<Link className="link" to="/PastResults">
+							<Link className="link results-back-button" to="/PastResults">
 								Back To Past Results
 							</Link>
 						</div>
