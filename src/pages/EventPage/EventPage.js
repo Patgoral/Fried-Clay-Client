@@ -3,7 +3,7 @@
 import './EventPage.css'
 
 import { Link } from 'react-router-dom'
-import logo from '../../images/FriedClay200k26.png'
+import logo from '../../images/fc27logo2.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 import Sponsors from '../components/Sponsors/Sponsors'
 import { useEffect } from 'react'
@@ -62,13 +62,13 @@ localStorage.setItem("adminOverride", "false")
 				</Link>
 
 				<a
-						className="link"
-						href="https://friedclay200k.bigcartel.com/"
-						target="_blank"
-						rel="noopener noreferrer"
+					className="link"
+					href="https://friedclay200k.bigcartel.com/"
+					target="_blank"
+					rel="noopener noreferrer"
 					>
-						Merch
-					</a>
+					Merch
+				</a>
 
 
 				<a
