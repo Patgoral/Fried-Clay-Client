@@ -1,63 +1,110 @@
-body {
-	background-color: rgb(0, 0, 0);
-	font-size: 16px;
-	margin: 0;
-	padding: 0;
-}
-
 .manage-page {
-	display: grid;
-	grid-template-columns: 1fr;
-	justify-items: center;
-	margin: 0 auto;
-	width: min(960px, 100%);
-	background-color: rgb(35, 35, 35);
-	border-radius: 10px;
-	border: 0;
-		background-color: var(--app-surface);
-		border-radius: 0.5rem;
-}
-.manage-page {
-	display: grid;
-	grid-template-columns: 1fr;
-	justify-items: center;
+	display: flex;
+	flex-direction: column;
 	gap: 1rem;
-	width: min(960px, 100%);
+	width: min(1100px, 100%);
 	margin: 0 auto;
-	padding: 1rem;
+	padding: 1.25rem;
 	background: var(--app-surface);
 	border: 1px solid var(--app-border);
 	border-radius: 0.5rem;
 }
 
-.manage-page .logo {
-	display: block;
-	width: min(200px, 90vw);
-	height: auto;
-	margin: 0 auto 0.5rem;
+.manage-page .manage-header {
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid var(--app-border);
 }
 
-#message-container {
-	min-height: 1.5em;
-	margin: 0.5rem 0 0;
-	padding: 0 0.5rem;
+.manage-page .logo {
+	display: block;
+	width: 9rem;
+	height: 5.5rem;
+	max-width: 100%;
+	object-fit: contain;
+}
+
+.manage-page .manage-heading h1 {
+	margin: 0;
+	font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+	font-weight: 600;
+}
+
+.manage-page .manage-count {
+	margin: 0.25rem 0 0;
 	color: var(--app-muted);
-	font-weight: 700;
+	font-size: 0.9rem;
+}
+
+.manage-page .manage-search {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.manage-page .manage-search-input {
+	flex: 1 1 auto;
+	min-width: 0;
+	min-height: 2.75rem;
+	padding: 0.625rem 0.75rem;
+	background: var(--app-surface-raised);
+	border: 1px solid var(--app-border);
+	border-radius: 0.375rem;
+	color: var(--app-text);
+	font-size: 1.0625rem;
+	transition: border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.manage-page .manage-search-input:focus {
+	outline: none;
+	border-color: var(--app-accent);
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+.manage-page .manage-search-clear {
+	min-height: 2.75rem;
+	padding: 0.625rem 1rem;
+	background: var(--app-surface-raised);
+	border: 1px solid var(--app-border);
+	border-radius: 0.375rem;
+	color: var(--app-text);
+	font-weight: 600;
+	cursor: pointer;
+	transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.manage-page .manage-search-clear:hover {
+	background: var(--app-accent);
+	border-color: var(--app-accent);
+	color: #fff;
+}
+
+.manage-page .manage-message {
+	min-height: 1.5em;
+	margin: 0;
+	color: var(--app-muted);
+	font-weight: 600;
 	text-align: center;
 }
 
-.user-attendee-list {
-	display: grid;
-	grid-template-columns: 1fr;
-	gap: 1rem;
-	width: 100%;
-	padding: 0.5rem 0 1rem;
+.manage-page .manage-empty {
+	margin: 1rem 0;
+	color: var(--app-muted);
+	text-align: center;
 }
 
-.user-attendees {
+.manage-page .user-attendee-list {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+	width: 100%;
+}
+
+.manage-page .user-attendees {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
-	gap: 0.625rem;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 0.25rem 0.75rem;
 	width: 100%;
 	margin: 0;
 	padding: 1rem;
@@ -66,88 +113,122 @@ body {
 	border-radius: 0.5rem;
 }
 
-.name-container,
-.date-container {
+.manage-page .name-container,
+.manage-page .date-container {
 	min-width: 0;
 	text-align: left;
 }
 
-.manage-labels {
-	display: block;
-	padding: 0.3rem 0.5rem;
+.manage-page .manage-labels {
+	display: flex;
+	flex-direction: column;
+	gap: 0.125rem;
+	padding: 0.25rem 0;
 	color: var(--app-text);
-	font-size: 1rem;
-	line-height: 1.4;
+	line-height: 1.35;
 	word-break: break-word;
 }
 
-.current-field-desc {
-	color: #c3a9df;
-	font-weight: 700;
+.manage-page .current-field-desc {
+	color: var(--app-muted);
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
 }
 
-.current-field-value {
+.manage-page .current-field-value {
 	color: var(--app-text);
+	font-weight: 600;
 }
 
-.input-container {
+.manage-page .input-container {
 	min-width: 0;
-	padding: 0.3rem 0.5rem;
+	padding: 0.25rem 0 0.5rem;
 }
 
-.input-container > input,
-.input-container > select {
+.manage-page .input-container > input,
+.manage-page .input-container > select {
 	width: 100%;
 	min-height: 2.625rem;
-	padding: 0.625rem 0.75rem;
+	padding: 0.5rem 0.75rem;
+	background: var(--app-surface);
 	border: 1px solid var(--app-border);
 	border-radius: 0.375rem;
-	background: var(--app-bg);
 	color: var(--app-text);
 	font-size: 1rem;
+	transition: border-color 150ms ease, box-shadow 150ms ease;
 }
 
-.button-container {
-	display: grid;
-	grid-column: span 2;
-	grid-template-columns: 1fr;
-	gap: 0.625rem;
-	padding: 0.3rem 0.5rem 0;
+.manage-page .input-container > input:focus,
+.manage-page .input-container > select:focus {
+	outline: none;
+	border-color: var(--app-accent);
+	box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
 }
 
-.edit-button,
-.delete-button {
-	width: 100%;
+.manage-page .button-container {
+	display: flex;
+	grid-column: 1 / -1;
+	justify-content: flex-end;
+	gap: 0.5rem;
+	padding-top: 0.25rem;
+}
+
+.manage-page .edit-button,
+.manage-page .delete-button {
+	min-width: 6rem;
+	min-height: 2.5rem;
 	margin: 0;
-	padding: 0.625rem 0.75rem;
-	border: 1px solid transparent;
+	padding: 0.5rem 1.25rem;
+	background: var(--app-surface);
+	border: 1px solid var(--app-border);
 	border-radius: 0.375rem;
-	background: var(--app-accent);
-	color: #fff;
+	color: var(--app-text);
 	font-size: 1rem;
-	text-align: center;
+	font-weight: 600;
 	cursor: pointer;
+	transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }
 
-.edit-button:hover {
-	background: var(--app-accent-hover);
+.manage-page .edit-button:hover {
+	background: var(--app-accent);
+	border-color: var(--app-accent);
+	color: #fff;
 }
 
-.delete-button {
+.manage-page .delete-button {
+	color: var(--app-danger);
+}
+
+.manage-page .delete-button:hover {
 	background: #70404b;
+	border-color: #70404b;
+	color: #fff;
 }
 
-.delete-button:hover {
-	background: #86505c;
+@media (max-width: 991.98px) {
+	.manage-page .user-attendees {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
 }
 
-@media (max-width: 767.98px) {
-	.user-attendees {
+@media (max-width: 575.98px) {
+	.manage-page {
+		padding: 0.875rem;
+	}
+
+	.manage-page .manage-header {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.manage-page .user-attendees {
 		grid-template-columns: 1fr;
 		padding: 0.875rem;
 	}
 
-	.button-container {
-		grid-column: span 1;
+	.manage-page .button-container > button {
+		flex: 1 1 0;
 	}
 }

@@ -2,7 +2,7 @@ import './UpdatePage.css'
 import { useState, useEffect } from 'react'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import { dateFormatter } from '../utils/dateFormatter'
-import logo from '../../images/FriedClay200k26.png'
+import logo from '../../images/fc27logo2.png'
 import { Link } from 'react-router-dom'
 
 export default function ManagePage() {
@@ -10,6 +10,7 @@ export default function ManagePage() {
 	const [copy, setCopy] = useState({ attendees: [] })
 	const [message, setMessage] = useState('')
 	const [isLoading, setIsLoading] = useState(true)
+	const [search, setSearch] = useState('')
 
 	const year = new Date().getFullYear()
 
@@ -244,7 +245,16 @@ export default function ManagePage() {
 		return null
 	}
 
-	const attendeeList = attendees.attendees.map((attendee) => {
+	const normalizedSearch = search.trim().toLowerCase()
+	const visibleAttendees = normalizedSearch
+		? attendees.attendees.filter((attendee) =>
+				(copy.attendees.find((p) => p._id === attendee._id)?.name || attendee.name || '')
+					.toLowerCase()
+					.includes(normalizedSearch)
+			)
+		: attendees.attendees
+
+	const attendeeList = visibleAttendees.map((attendee) => {
 		const usesFinishTime =
 			attendee.finishTime !== undefined && attendee.finishTime !== null
 
@@ -358,10 +368,41 @@ export default function ManagePage() {
 	})
 
 	return (
-		<div className="manage-page">
-			<Link className="link" to="/">
-				<img className="logo" alt="logo" src={logo} />
-			</Link>
+		<div className="container manage-page">
+			<header className="manage-header">
+				<Link className="link manage-logo-link" to="/">
+					<img className="logo" alt="Fried Clay 200k" src={logo} />
+				</Link>
+				<div className="manage-heading">
+					<h1>Manage {year} Entries</h1>
+					<p className="manage-count">
+						{normalizedSearch
+							? `${visibleAttendees.length} of ${attendees.attendees.length}`
+							: attendees.attendees.length}{' '}
+						entries
+					</p>
+				</div>
+			</header>
+
+			<div className="manage-search">
+				<input
+					type="search"
+					className="manage-search-input"
+					placeholder="Search by name"
+					aria-label="Search entries by name"
+					value={search}
+					onChange={(event) => setSearch(event.target.value)}
+				/>
+				{search && (
+					<button
+						type="button"
+						className="manage-search-clear"
+						onClick={() => setSearch('')}
+					>
+						Clear
+					</button>
+				)}
+			</div>
 
 			{isLoading && (
 				<div className="lds-roller">
@@ -376,9 +417,14 @@ export default function ManagePage() {
 				</div>
 			)}
 
-			<h3 id="message-container">{message || '\u00A0'}</h3>
+			<p className="manage-message" role="status">{message || '\u00A0'}</p>
 
-			<div className="user-attendee-list">{attendeeList}</div>
+			<div className="user-attendee-list">
+				{attendeeList}
+				{!isLoading && attendeeList.length === 0 && (
+					<p className="manage-empty">No entries found.</p>
+				)}
+			</div>
 		</div>
 	)
 }

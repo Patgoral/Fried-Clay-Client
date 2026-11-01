@@ -61,8 +61,6 @@ export default function EventNavBar({
 				<a
 					className="link secondary-action"
 					href="mailto:patpattersonridesbikes@gmail.com"
-					target="_blank"
-					rel="noopener noreferrer"
 				>
 					Contact
 				</a>

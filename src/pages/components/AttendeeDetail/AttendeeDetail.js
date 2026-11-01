@@ -135,7 +135,7 @@ export default function AttendeeDetailPage() {
 						{hasTimingError && (
 							<div className="attendee-timing-error" role="status">
 								<p>We couldn’t verify this finish time.</p>
-								<a className="contact-button" href={contactHref} target="_blank" rel="noopener noreferrer">
+								<a className="contact-button" href={contactHref}>
 									Contact to resolve
 								</a>
 							</div>
