@@ -20,6 +20,14 @@ export default function AttendeeDetailPage() {
 		gpx: '',
 	})
 	const [isDataReady, setIsDataReady] = useState(false)
+	const [isPhotoOpen, setIsPhotoOpen] = useState(false)
+
+	useEffect(() => {
+		if (!isPhotoOpen) return
+		const onKeyDown = (e) => e.key === 'Escape' && setIsPhotoOpen(false)
+		window.addEventListener('keydown', onKeyDown)
+		return () => window.removeEventListener('keydown', onKeyDown)
+	}, [isPhotoOpen])
 
 	const { id } = useParams()
 	const location = useLocation()
@@ -133,9 +141,40 @@ export default function AttendeeDetailPage() {
 							</div>
 						)}
 						{attendee.image && (
-							<div className="attendee-photo">
-								<img alt={`${attendee.name} at the event`} src={attendee.image} />
-							</div>
+							<>
+								<button
+									type="button"
+									className="attendee-photo"
+									onClick={() => setIsPhotoOpen(true)}
+									aria-label="View full size photo"
+								>
+									<img alt={`${attendee.name} at the event`} src={attendee.image} />
+								</button>
+								{isPhotoOpen && (
+									<div
+										className="photo-modal-overlay"
+										role="dialog"
+										aria-modal="true"
+										aria-label="Full size photo"
+										onClick={() => setIsPhotoOpen(false)}
+									>
+										<button
+											type="button"
+											className="photo-modal-close"
+											onClick={() => setIsPhotoOpen(false)}
+											aria-label="Close photo"
+										>
+											×
+										</button>
+										<img
+											className="photo-modal-image"
+											alt={`${attendee.name} at the event`}
+											src={attendee.image}
+											onClick={(e) => e.stopPropagation()}
+										/>
+									</div>
+								)}
+							</>
 						)}
 
 						<section className="attendee-route-section" aria-labelledby="route-title">
