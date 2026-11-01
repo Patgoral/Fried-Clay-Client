@@ -41,7 +41,7 @@ localStorage.setItem("adminOverride", "false")
 				<div className="button-div">
 				{isWithinDateRange ? (
 					<a
-						className="link primary-action"
+						className="link secondary-action"
 						href="https://www.eventbrite.com/e/fried-clay-200k-2026-tickets-1739216727049?aff=oddtdtcreator"
 						target="_blank"
 						rel="noopener noreferrer"
@@ -52,12 +52,12 @@ localStorage.setItem("adminOverride", "false")
 				
 							
 
-				<Link className="link" to="/PastResults">
+				<Link className="link secondary-action" to="/PastResults">
 				  Past Results
 				</Link>
 
 				<a
-					className="link"
+					className="link secondary-action"
 					href="https://friedclay200k.bigcartel.com/"
 					target="_blank"
 					rel="noopener noreferrer"
@@ -67,7 +67,7 @@ localStorage.setItem("adminOverride", "false")
 
 
 				<a
-					className="link"
+					className="link secondary-action"
 					href="mailto:patpattersonridesbikes@gmail.com"
 					target="_blank"
 					rel="noopener noreferrer"
@@ -81,15 +81,12 @@ localStorage.setItem("adminOverride", "false")
 				</div>
 			</div>
 			<div className="event-page-list-container">
-			<h1 className="event-title">
-				Fried Clay 2027 Is Coming!
-			</h1>
-
 			<div className="event-details">
 				<h2>Cedar Creek Checking Station</h2>
 				<p>Eatonton, GA</p>
 				<p>03/20/2027 – 8:00 AM</p>
 			</div>
+			<div className="event-story">
 			{isWithinDateRange ? (
 									<iframe className="video-frame"
 						src="https://www.youtube.com/embed/Mjfxqt8pZbw"
@@ -109,7 +106,7 @@ localStorage.setItem("adminOverride", "false")
 					<p>You will receive more details via email once registered.</p>
 					<p><b>This event will take place rain or shine.</b></p>
 				</div>
-
+			</div>
 
 
 			</div>

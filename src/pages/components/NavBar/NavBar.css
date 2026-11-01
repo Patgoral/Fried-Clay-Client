@@ -61,6 +61,7 @@
 	padding: 8px 16px;
 	text-align: center;
   font-size: clamp(1.125rem, 5vw, 1.5rem);
+  font-weight: 600;
 	text-decoration: none;
 	transition-duration: 0.4s;
 	cursor: pointer;

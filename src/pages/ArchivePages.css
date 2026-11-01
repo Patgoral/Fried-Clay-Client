@@ -60,6 +60,7 @@
 	background: var(--app-surface-raised);
 	color: var(--app-text);
 	font-size: clamp(1.125rem, 5vw, 1.5rem);
+	font-weight: 600;
 	text-decoration: none;
 	transition: background-color 150ms ease, border-color 150ms ease;
 }
