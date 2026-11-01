@@ -6,7 +6,9 @@
 	width: 100%;
 	margin: 0;
 	padding: 1rem 1.5rem;
-	background: var(--app-surface);
+	background: rgba(39, 36, 45, 0.6);
+	-webkit-backdrop-filter: blur(2px);
+	backdrop-filter: blur(2px);
 	border: 1px solid var(--app-border);
 	border-radius: 0.5rem;
 	position: relative;
