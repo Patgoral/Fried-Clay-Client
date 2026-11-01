@@ -40,7 +40,33 @@
 }
 
 .attendee-heading {
+	flex: 1 1 auto;
 	min-width: 0;
+}
+
+.attendee-back-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 auto;
+	min-height: 2.5rem;
+	margin-left: auto;
+	padding: 0.5rem 0.75rem;
+	border: 1px solid var(--app-border);
+	border-radius: 0.375rem;
+	background: var(--app-surface-raised);
+	color: var(--app-text);
+	font-size: 0.875rem;
+	font-weight: 600;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.attendee-back-link:hover {
+	background: var(--app-accent);
+	border-color: var(--app-accent);
+	color: #fff;
 }
 
 .attendee-eyebrow {
@@ -224,14 +250,30 @@
 	}
 
 	.attendee-header {
-		align-items: flex-start;
+		display: grid;
+		grid-template-columns: 5.5rem minmax(0, 1fr);
+		align-items: start;
 		gap: 0.875rem;
 		padding-bottom: 1rem;
 	}
 
 	.attendee-brand {
+		grid-column: 1;
+		grid-row: 1 / span 2;
 		width: 5.5rem;
 		min-height: 3.5rem;
+	}
+
+	.attendee-heading {
+		grid-column: 2;
+		grid-row: 1;
+	}
+
+	.attendee-back-link {
+		grid-column: 2;
+		grid-row: 2;
+		justify-self: start;
+		margin: 0;
 	}
 
 	.attendee-logo {

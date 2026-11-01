@@ -47,14 +47,16 @@ export default function AttendeeCard({ attendee, position }) {
       <span className={`attendee-card-position${position === 1 ? ' is-first' : ''}`}>
         {position ?? '—'}
       </span>
-      <span className="attendee-card-name">{attendee.name}</span>
+      <span className="attendee-card-name-group">
+        <span className="attendee-card-name">{attendee.name}</span>
+        {suffix && <span className="attendee-card-badge">{suffix}</span>}
+      </span>
       <time
         className={`attendee-card-time${isValidYear ? '' : ' is-error'}`}
         dateTime={isValidYear ? new Date(eventTime).toISOString() : undefined}
       >
         {formattedTime}
       </time>
-      {suffix && <span className="attendee-card-badge">{suffix}</span>}
     </div>
   );
 }

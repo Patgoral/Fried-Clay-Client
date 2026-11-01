@@ -105,6 +105,9 @@ export default function AttendeeDetailPage() {
 								<h1>{attendee.name}</h1>
 								{attendee.gender && <p className="attendee-gender">{attendee.gender}</p>}
 							</div>
+							<Link className="attendee-back-link" to={linkTo}>
+								Back to results
+							</Link>
 						</header>
 
 						<section className="attendee-stats" aria-label="Finish results">
