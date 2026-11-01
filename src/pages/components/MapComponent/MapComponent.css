@@ -1,6 +1,6 @@
 .leaflet-container {
     height: 400px;
-    width: 600px;
+    width: 100%;
   }
 
 
@@ -8,6 +8,6 @@
 @media (max-width: 480px) {
     .leaflet-container {
       height: 180px;
-      width: 280px;
+      width: 100%;
     }
   }

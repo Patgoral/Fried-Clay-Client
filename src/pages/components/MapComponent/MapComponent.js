@@ -10,7 +10,6 @@ const decodePolyline = require('decode-google-map-polyline')
 export default function MapComponent({ gpx, year }) {
   const [polyline, setPolyline] = useState(null)
   const [basePolyline, setBasePolyline] = useState(null)
-  const [isMobile, setIsMobile] = useState(false)
 
   const baseRoute = useMemo(() => {
     return year < 2026 ? routePolylineOld : routePolyline
@@ -34,22 +33,16 @@ export default function MapComponent({ gpx, year }) {
     setBasePolyline(positions)
   }, [baseRoute])
 
-  useEffect(() => {
-    if (window.innerWidth < 600) {
-      setIsMobile(true)
-    }
-  }, [])
-
   if (!polyline || !basePolyline) {
     return null
   }
 
-  const middleIndex = Math.floor(polyline.length / 25)
+  const bounds = [...basePolyline, ...polyline].map((p) => [p.lat, p.lng])
 
   return (
     <MapContainer
-      zoom={isMobile ? 9 : 10.49}
-      center={polyline[middleIndex]}
+      bounds={bounds}
+      boundsOptions={{ padding: [16, 16] }}
       scrollWheelZoom={true}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
