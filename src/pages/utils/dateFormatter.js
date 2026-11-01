@@ -14,7 +14,7 @@ export const dateFormatter = (date) => {
 		.toString()
 		.padStart(2, '0')}:${seconds.toString().padStart(2, '0')} ${meridian}`
 }
-export const elapsedTime = (dateInput) => {
+export const elapsedTime = (dateInput, { compact = false } = {}) => {
 	const date = new Date(dateInput)
 	const year = date.getFullYear()
 
@@ -44,6 +44,10 @@ export const elapsedTime = (dateInput) => {
 	const elapsedHours = Math.floor(totalSeconds / 3600)
 	const elapsedMinutes = Math.floor((totalSeconds % 3600) / 60)
 	const elapsedSeconds = totalSeconds % 60
+
+	if (compact) {
+		return `${elapsedHours}h ${elapsedMinutes}m ${elapsedSeconds}s`
+	}
 
 	return `${elapsedHours} hours, ${elapsedMinutes} minutes, ${elapsedSeconds} seconds`
 }

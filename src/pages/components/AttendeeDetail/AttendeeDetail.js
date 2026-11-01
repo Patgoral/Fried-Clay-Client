@@ -8,6 +8,7 @@ import logo2023 from '../../../images/fc23logo.png'
 import logo2024 from '../../../images/fried-clay.png'
 import logo2025 from '../../../images/FriedClay5_v1-01.png'
 import logo2026 from '../../../images/FriedClay200k26.png'
+import logo2027 from '../../../images/fc27logo2.png'
 
 import { Link } from 'react-router-dom'
 
@@ -62,22 +63,9 @@ export default function AttendeeDetailPage() {
 	}, [id])
 
 	const year = attendee.createdAt ? new Date(attendee.createdAt).getFullYear() : null;
-	const logoToShow =
-	year === 2023
-		? logo2023
-		: year === 2024
-		? logo2024
-		: year === 2025
-		? logo2025
-		: logo2026;
-
-	const linkTo = year === 2023 
-		? '/2023' 
-		: year === 2024 
-		? '/2024' 
-		: year === 2025 
-		? '/2025' 
-		: '/2026';
+	const logosByYear = { 2023: logo2023, 2024: logo2024, 2025: logo2025, 2026: logo2026, 2027: logo2027 }
+	const logoToShow = logosByYear[year] || logo2027
+	const linkTo = `/${logosByYear[year] ? year : 2027}`
 
 	return (
 		<>
@@ -113,7 +101,7 @@ export default function AttendeeDetailPage() {
 						<section className="attendee-stats" aria-label="Finish results">
 							<div className="attendee-stat attendee-stat-time">
 								<span className="attendee-stat-label">Finishing time</span>
-								<strong>{hasTimingError ? 'Needs verification' : elapsedTime(attendee.finishTime || attendee.date)}</strong>
+								<strong>{hasTimingError ? 'Needs verification' : elapsedTime(attendee.finishTime || attendee.date, { compact: true })}</strong>
 							</div>
 
 							{!hasTimingError && (

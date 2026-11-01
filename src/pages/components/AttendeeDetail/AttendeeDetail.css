@@ -34,8 +34,9 @@
 
 .attendee-logo {
 	display: block;
-	width: 100%;
-	max-height: 6rem;
+	width: 9rem;
+	height: 5.5rem;
+	max-width: 100%;
 	object-fit: contain;
 }
 
@@ -166,17 +167,23 @@
 }
 
 .attendee-photo {
-	width: fit-content;
-	max-width: 100%;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 0.75rem;
 	overflow: hidden;
+	background: var(--app-surface-raised);
 	border: 1px solid var(--app-border);
 	border-radius: 0.375rem;
 }
 
 .attendee-photo img {
 	display: block;
-	width: min(100%, 20rem);
-	height: auto;
+	width: auto;
+	max-width: 100%;
+	max-height: 32rem;
+	border-radius: 0.25rem;
+	object-fit: contain;
 }
 
 .attendee-route-section {
