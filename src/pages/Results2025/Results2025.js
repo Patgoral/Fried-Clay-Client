@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import './Results2025.css'
+import '../ResultsShared.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
@@ -127,7 +127,7 @@ export default function EventPage() {
 	}
 
 	return (
-		<div className="event-page">
+		<div className="container event-page results-page">
 			<div className="event-page-container-top">
 				<Link className="link" to={logoLinkPath}>
 					<img width="300px" alt="logo" src={logo} />

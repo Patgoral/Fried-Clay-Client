@@ -19,7 +19,7 @@ localStorage.setItem("adminOverride", "false")
 
 
 	return (
-		<div className="event-page">
+		<div className="container event-page event-landing">
 			<div className="event-page-container-top">
 			<Link id="logo-container" className="link" to="/">
 				<img className="event-logo" alt="logo" src={logo} />

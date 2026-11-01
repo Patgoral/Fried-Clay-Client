@@ -1,7 +1,7 @@
 // import { checkToken } from '../../utilities/users-services'
 // import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import './Results2024.css'
+import '../ResultsShared.css'
 import * as attendeesAPI from '../../utilities/attendees-api'
 import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
@@ -111,7 +111,7 @@ export default function EventPage() {
 		messagecontainer = 'Loading Results'
 	}
 	return (
-		<div className="past-results-page">
+		<div className="container past-results-page">
 			<div className="past-results-page-container-top">
 				<Link className="link" to="/">
 					<img width="300px" alt="logo" src={logo} />
