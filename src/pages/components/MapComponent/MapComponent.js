@@ -38,11 +38,13 @@ export default function MapComponent({ gpx, year }) {
   }
 
   const bounds = [...basePolyline, ...polyline].map((p) => [p.lat, p.lng])
+  const isMobile = window.innerWidth < 600
 
   return (
     <MapContainer
       bounds={bounds}
-      boundsOptions={{ padding: [16, 16] }}
+      boundsOptions={{ padding: isMobile ? [2, 2] : [16, 16] }}
+      zoomSnap={isMobile ? 0.1 : 1}
       scrollWheelZoom={true}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
