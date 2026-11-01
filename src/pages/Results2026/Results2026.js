@@ -7,8 +7,6 @@ import logo from '../../images/FriedClay200k26.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 import Sponsors from '../components/Sponsors/Sponsors'
 
-const endDate = new Date('2026-03-29T08:00:00-04:00')
-
 export default function EventPage() {
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
@@ -173,9 +171,6 @@ export default function EventPage() {
 		messagecontainer = 'Loading Results'
 	}
 
-	const isAfterSubmissionCutoff = Date.now() > endDate.getTime()
-	const showSubmitSection = adminOverride || !isAfterSubmissionCutoff
-
 	return (
 		<div className="container event-page results-page">
 			<div className="event-page-container-top">
@@ -186,30 +181,11 @@ export default function EventPage() {
 				<p className="text submitTitle">2026 Results</p>
 
 				<div className="heading-div">
-					{showSubmitSection ? (
-						<>
-							<Link className="link submitTitle" to="/access">
-								Submit Your Time
-							</Link>
-
-							<div className="closed">
-								<br />
-								<p className="close">Final Results Pending Verification</p>
-								<p className="close">Submissions Close 3/29/2026</p>
-							</div>
-							<div className="button-div">
-							<Link className="link results-back-button" to="/PastResults">
-								Past Results
-							</Link>
-						</div>
-						</>
-					) : (
-						<div className="button-div">
-							<Link className="link results-back-button" to="/PastResults">
-								Back To Past Results
-							</Link>
-						</div>
-					)}
+					<div className="button-div">
+						<Link className="link results-back-button" to="/PastResults">
+							Back To Past Results
+						</Link>
+					</div>
 				</div>
 			</div>
 
