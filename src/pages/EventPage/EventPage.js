@@ -13,6 +13,7 @@ export default function EventPage() {
 
 const currentDate = new Date();
 const blockedStart = new Date('2027-03-20');
+const registrationUrl = 'https://www.eventbrite.com/e/fried-clay-200k-2026-tickets-1739216727049?aff=oddtdtcreator';
 
 const isWithinDateRange = currentDate < blockedStart;
 localStorage.setItem("adminOverride", "false")
@@ -42,7 +43,7 @@ localStorage.setItem("adminOverride", "false")
 				{isWithinDateRange ? (
 					<a
 						className="link secondary-action"
-						href="https://www.eventbrite.com/e/fried-clay-200k-2026-tickets-1739216727049?aff=oddtdtcreator"
+						href={registrationUrl}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
@@ -88,13 +89,24 @@ localStorage.setItem("adminOverride", "false")
 			</div>
 			<div className="event-story">
 			{isWithinDateRange ? (
-									<iframe className="video-frame"
+				<div className="video-feature">
+					<iframe
+						className="video-frame"
 						src="https://www.youtube.com/embed/Mjfxqt8pZbw"
-						title="YouTube video player" 
-							frameBorder="0" 
-						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-							allowFullScreen>
-					</iframe>
+						title="YouTube video player"
+						frameBorder="0"
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+						allowFullScreen
+					/>
+					<a
+						className="event-register-button"
+						href={registrationUrl}
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						Register
+					</a>
+				</div>
 				) : null}							
 			
 				<div className="event-desc">

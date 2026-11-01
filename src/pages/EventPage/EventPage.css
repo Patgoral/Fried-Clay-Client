@@ -70,9 +70,38 @@
 .event-landing .video-frame {
     width: min(100%, 600px);
     aspect-ratio: 16 / 9;
-    margin-bottom: 1rem;
+    margin: 0 0 0.75rem;
     border: 0;
     border-radius: 0.5rem;
+}
+
+.event-landing .video-feature {
+    float: right;
+    width: min(52%, 600px);
+    margin: 0 0 1rem 1.5rem;
+}
+
+.event-landing .event-register-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 3.5rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--app-accent);
+    border-radius: 0.375rem;
+    background: var(--app-accent);
+    color: #fff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.event-landing .event-register-button:hover {
+    background: var(--app-accent-hover);
+    border-color: var(--app-accent-hover);
+    color: #fff;
 }
 
 .event-landing .button-div > .link {
@@ -145,12 +174,6 @@
     text-align: left;
 }
 
-.event-landing .video-frame {
-    float: right;
-    width: min(52%, 600px);
-    margin: 0 0 1rem 1.5rem;
-}
-
 .event-landing .event-story {
     grid-column: 1 / -1;
     display: flow-root;
@@ -202,7 +225,7 @@
         grid-column: 1;
     }
 
-    .event-landing .video-frame {
+    .event-landing .video-feature {
         float: none;
         width: 100%;
         margin: 0 0 1rem;
