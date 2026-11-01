@@ -13,7 +13,7 @@ export default function EventPage() {
 
 const currentDate = new Date();
 const blockedStart = new Date('2027-03-20');
-const registrationUrl = 'https://www.eventbrite.com/e/fried-clay-200k-2026-tickets-1739216727049?aff=oddtdtcreator';
+const registrationUrl = 'https://www.eventbrite.com/e/fried-clay-200k-2027-tickets-2004102106349?aff=oddtdtcreator&keep_tld=true';
 
 const isWithinDateRange = currentDate < blockedStart;
 localStorage.setItem("adminOverride", "false")
@@ -83,9 +83,28 @@ localStorage.setItem("adminOverride", "false")
 			</div>
 			<div className="event-page-list-container">
 			<div className="event-details">
-				<h2>Cedar Creek Checking Station</h2>
-				<p>Eatonton, GA</p>
-				<p>03/20/2027 – 8:00 AM</p>
+				<div className="event-details-copy">
+					<h2>Fried Clay 200k</h2>
+					<h2>
+						<a
+							className="event-location-link"
+							href="https://maps.app.goo.gl/zFMjvRwQDw8kGrFWA"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							Cedar Creek WMA Check Station
+						</a>
+					</h2>
+					<p>Eatonton, GA</p>
+					<p>03/20/2027 – 8:00 AM</p>
+				</div>
+				<iframe
+					className="event-map"
+					src="https://www.google.com/maps?q=33.2294205,-83.5237188&z=15&output=embed"
+					title="Map showing Cedar Creek WMA Check Station"
+					loading="lazy"
+					referrerPolicy="no-referrer-when-downgrade"
+				/>
 			</div>
 			<div className="event-story">
 			{isWithinDateRange ? (

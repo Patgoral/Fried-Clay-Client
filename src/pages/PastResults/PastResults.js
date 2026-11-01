@@ -25,7 +25,9 @@ const isWithinDateRange = currentDate >= startDate;
 					</Link>
 				</div>
 		
-				<br></br>
+				<Link className="archive-home-button" to="/">
+					Home
+				</Link>
 				<div className="button-div-results past-results-links">
 					
 	
