@@ -28,18 +28,18 @@ form > button {
 }
 
 input {
-    background-color: white;
-    border: solid grey;
-    color: black;
+    background-color: var(--app-surface-raised);
+    border-color: var(--app-border);
+    color: var(--app-text);
     padding: 1vmin 0 1vmin 0;
     text-shadow: none;
     font-size: larger;
 }
 
 .sign-up-button {
-    background-color: darkslategray;
+    background-color: var(--app-accent);
     border-radius: 10px;
-    color: yellowgreen;
+    color: #fff;
     padding: 10px 32px;
     text-align: center;
     text-decoration: none;
@@ -53,8 +53,8 @@ input {
 }
 
 .sign-up-button:hover {
-    background-color: yellowgreen;
-    color: darkslategray;
+    background-color: var(--app-accent-hover);
+    color: #fff;
 }
 
 .close:hover {
@@ -71,7 +71,7 @@ span {
     padding: 2px;
     border-radius: 0;
     font-size: 20px;
-    color: yellowgreen;
+    color: var(--app-text);
     border: none;
     cursor: pointer;
 }

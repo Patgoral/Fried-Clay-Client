@@ -1,7 +1,4 @@
 
-body{
-    background-color: black;
-}
 .wrap-div{
     display: grid;
     grid-template-columns: 1fr;
@@ -12,7 +9,7 @@ body{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: rgb(112, 111, 111);
+    background-color: var(--app-surface);
     margin: 0px auto;
     margin-bottom: 10px;
     padding: 10px;
@@ -22,7 +19,7 @@ body{
     justify-content: center;
     margin-top: 0px;
     padding: 5px 0 25px 0;
-    background-color: rgb(65, 65, 65);
+    background-color: var(--app-surface-raised);
     border-radius: 5px;
     min-height: auto;
     max-width: 95vw;
@@ -38,16 +35,15 @@ body{
 }
 .register-header{
     font-size: 24px;
-    color: white;
+    color: var(--app-text);
     margin: 20px auto;
     font-weight: bold;
-    text-shadow: 1px 1px 2px antiquewhite;
 
 }
 
 .register-header2{
     font-size: 20px;
-    color: white;
+    color: var(--app-text);
     font-weight: bold;
 }
 
@@ -72,7 +68,8 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(202, 201, 201);
+    background-color: var(--app-accent);
+    color: #fff;
     margin: auto;
     margin-top: 20px;
     width: 70%;
@@ -85,8 +82,8 @@ body{
 .button-spinner {
     width: 20px;
     height: 20px;
-    border: 3px solid rgba(60, 60, 60, 0.25);
-    border-top-color: rgb(60, 60, 60);
+    border: 3px solid rgba(238, 234, 242, 0.25);
+    border-top-color: var(--app-text);
     border-radius: 50%;
     animation: button-spin 0.8s linear infinite;
 }
@@ -102,7 +99,7 @@ body{
 
 /* Hover state */
 .register-button:hover {
-    background-color: rgb(150, 150, 150);
+    background-color: var(--app-accent-hover);
 }
 
 @media (max-width: 600px) {
@@ -131,8 +128,8 @@ body{
   }
 
 .date-time{
-    background-color: white;
-    color: black;
+    background-color: var(--app-surface-raised);
+    color: var(--app-text);
     height: 40px;
     max-width: 290px;
    font-size: 19px;
@@ -171,7 +168,8 @@ body{
 
 .link-button {
     display: block;
-    background-color: rgb(158, 196, 236);
+    background-color: var(--app-accent);
+    color: #fff;
     margin: 2px auto 0 auto;
     width: 40%;
     font-size: 12px;
@@ -184,7 +182,7 @@ body{
 
 /* Hover state */
 .link-button:hover {
-    background-color: rgb(141, 159, 163);
+    background-color: var(--app-accent-hover);
 }
 
 @media (max-width: 600px) {
@@ -208,7 +206,7 @@ body{
 }
 
 .gpx-help-modal {
-	background: rgb(65, 65, 65);
+    background: var(--app-surface-raised);
 	border-radius: 10px;
 	padding: 20px;
 	width: 100%;
@@ -220,7 +218,7 @@ body{
 }
 
 .gpx-help-modal h2 {
-	color: white;
+    color: var(--app-text);
 	margin: 0;
 }
 
@@ -235,9 +233,8 @@ body{
     width: 28px;
     height: 28px;
     border-width: 4px;
-    border-top-color: rgb(202, 201, 201);
-    border-color: rgba(202, 201, 201, 0.25);
-    border-top-color: rgb(202, 201, 201);
+    border-top-color: var(--app-text);
+    border-color: rgba(238, 234, 242, 0.25);
 }
 
 .gpx-help-modal-buttons {

@@ -1,7 +1,7 @@
 
 .top-nav-container {
     display: grid;
-    background-color: black;
+  background-color: var(--app-surface);
   }
   
   .top-nav {
@@ -48,14 +48,14 @@
 .welcome{
     font-size: min(4vw, 24px);
     font-style: italic;
-    color: green;
-    background-color: black;
+    color: var(--app-text);
+    background-color: var(--app-surface);
     padding: 0 1rem;
 }
 .nav > .link{
     width: 80%;
-	background-color: darkslategray;
-	color: antiquewhite;
+  background-color: var(--app-accent);
+  color: #fff;
 	border: none;
 	border-radius: 10px;
 	padding: 8px 16px;
@@ -67,9 +67,9 @@
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .nav > .link:hover{
-	color: rgb(65, 65, 65);
+  color: #fff;
 }
 .divider{
-    color: green;
+  color: var(--app-muted);
     font-size: x-large;
 }

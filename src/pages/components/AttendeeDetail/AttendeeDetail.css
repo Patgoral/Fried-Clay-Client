@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(110, 41, 41);
+	background-color: var(--app-surface);
     min-height: auto;
     max-width: 80vw;
     min-width: 40vw;
@@ -17,11 +17,11 @@
 }
 
 .attendee-info {
-	border: 2px solid antiquewhite;
+	border: 1px solid var(--app-border);
 	margin: 4px;
 	padding: 12px;
 	padding-bottom: 18px;
-	background-color: gray;
+	background-color: var(--app-surface-raised);
 	text-align: center;
 }
 
@@ -33,7 +33,7 @@ h2 {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
-	color: black;
+	color: var(--app-text);
 	
 }
 
@@ -55,10 +55,10 @@ margin-top: 3px;
 	justify-content: center;
 	align-items: center;
 	margin-top: 10px;
-	border: 2px solid antiquewhite;
+	border: 1px solid var(--app-border);
 	padding: 8px;
-	color: black;
-	background-color: gray;
+	color: var(--app-text);
+	background-color: var(--app-surface-raised);
 	font-weight: bold;
   }
 
@@ -66,7 +66,7 @@ margin-top: 3px;
   .box {
 	width: 20px;
 	height: 20px;
-	border: 1px solid white;
+	border: 1px solid var(--app-border);
 	margin: 5px;
   }
 
@@ -83,8 +83,8 @@ margin-top: 3px;
 .contact-button {
 	display: inline-block;
 	margin-top: 10px;
-	background-color: rgb(255, 13, 0);
-	color: rgb(225, 255, 0);
+	background-color: var(--app-accent);
+	color: #fff;
 	border: none;
 	border-radius: 10px;
 	padding: 8px 16px;
@@ -100,7 +100,7 @@ margin-top: 3px;
 
 /* Hover effect */
 .contact-button:hover {
-	background-color: rgb(128, 0, 32); /* burgundy */
+	background-color: var(--app-accent-hover);
 	box-shadow: 0 14px 28px rgba(0,0,0,0.35), 0 10px 24px rgba(0,0,0,0.30);
 	transform: translateY(-2px); /* subtle lift */
 }

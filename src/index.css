@@ -7,6 +7,7 @@
   --app-muted: #b7afc1;
   --app-accent: #8062a3;
   --app-accent-hover: #9275b5;
+  --app-danger: #e49aa4;
   --bs-body-bg: var(--app-bg);
   --bs-body-color: var(--app-text);
   --bs-primary: var(--app-accent);
@@ -48,6 +49,20 @@ a:hover {
   color: var(--bs-link-hover-color);
 }
 
+input,
+select,
+textarea {
+  border: 1px solid var(--app-border);
+  border-radius: 0.375rem;
+  background: var(--app-surface-raised);
+  color: var(--app-text);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--app-muted);
+}
+
 .background {
   position: absolute;
   display: block;
@@ -57,7 +72,7 @@ a:hover {
 }
 
 .detailDescDiv {
-  color: yellow; 
+  color: var(--app-muted);
 }
 
 /* LOADING SPINNER */

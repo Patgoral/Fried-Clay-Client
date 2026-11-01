@@ -13,25 +13,22 @@
     margin: 0;
     padding: 20px;
     font-size: 30px;
-    color: rgb(255, 255, 255);
+    color: var(--app-text);
     font-weight: 100;
     border-radius: 10px;
     text-shadow: 3px 4px 0 #00000099;
 }
 body{
-    font-family:Arial, Helvetica, sans-serif;
-    margin: 0px;
-    padding: 0px;
-    color: white;
+    color: var(--app-text);
 }
 .h-divider{
     height: 3px;
-    background-color: rgb(30, 30, 30);
+    background-color: var(--app-border);
     margin: 10px 0;
 }
 .header-container{
     padding: 10px 0;
-    background-color: rgb(0, 0, 0);
+    background-color: var(--app-bg);
 }
 .sign-in-form{
     display: grid;
@@ -40,5 +37,5 @@ body{
     margin: 0 auto;
     border-radius: 10px;
     padding: 10px;
-    background-color: rgb(65, 65, 65);
+    background-color: var(--app-surface-raised);
 }

@@ -10,7 +10,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: rgb(124, 124, 124);
+    background-color: var(--app-surface);
     margin: 10px auto;
     padding: 10px;
     padding-bottom: 20px;
@@ -24,7 +24,7 @@
 }
 
 .message-text {
-    color: red;
+    color: var(--app-danger);
     margin: 5px;
   
 }
@@ -33,7 +33,7 @@
     justify-content: center;
     margin-top: 10px;
     padding: 5px 0 25px 0;
-    background-color: rgb(65, 65, 65);
+    background-color: var(--app-surface-raised);
     border-radius: 5px;
     min-height: auto;
     max-width: 80vw;
@@ -42,7 +42,7 @@
 
 .access-header{
     font-size: 24px;
-    color: white;
+    color: var(--app-text);
     margin: 20px auto;
 }
 .access-form{
@@ -63,8 +63,8 @@
 }
 
 .submit-button {
-    background-color: rgb(158, 196, 236);
-    color: black;
+    background-color: var(--app-accent);
+    color: #fff;
     border: none;
     border-radius: 10px;
     padding: 10px 24px;
@@ -74,7 +74,7 @@
 }
 
 .submit-button:hover {
-    background-color: rgb(141, 159, 163);
+    background-color: var(--app-accent-hover);
 }
 
 .logo {

@@ -14,205 +14,140 @@ body {
 	background-color: rgb(35, 35, 35);
 	border-radius: 10px;
 	border: 0;
-	box-sizing: border-box;
-	padding: 16px;
+		background-color: var(--app-surface);
+		border-radius: 0.5rem;
+}
+.manage-page {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-items: center;
+	gap: 1rem;
+	width: min(960px, 100%);
+	margin: 0 auto;
+	padding: 1rem;
+	background: var(--app-surface);
+	border: 1px solid var(--app-border);
+	border-radius: 0.5rem;
 }
 
-.logo {
+.manage-page .logo {
+	display: block;
 	width: min(200px, 90vw);
 	height: auto;
-	display: block;
-	margin: 0 auto 10px;
+	margin: 0 auto 0.5rem;
 }
 
 #message-container {
-	margin: 10px 0 0;
-	font-weight: bold;
-	color: olive;
-	text-align: center;
 	min-height: 1.5em;
-	padding: 0 10px;
+	margin: 0.5rem 0 0;
+	padding: 0 0.5rem;
+	color: var(--app-muted);
+	font-weight: 700;
+	text-align: center;
 }
 
 .user-attendee-list {
-	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 16px;
-	padding: 10px 0 20px;
-	box-sizing: border-box;
+	gap: 1rem;
+	width: 100%;
+	padding: 0.5rem 0 1rem;
 }
 
 .user-attendees {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 10px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.625rem;
 	width: 100%;
 	margin: 0;
-	background-color: rgb(65, 65, 65);
-	padding: 20px;
-	border-radius: 8px;
-	box-sizing: border-box;
+	padding: 1rem;
+	background: var(--app-surface-raised);
+	border: 1px solid var(--app-border);
+	border-radius: 0.5rem;
 }
 
 .name-container,
 .date-container {
-	text-align: left;
 	min-width: 0;
+	text-align: left;
 }
 
 .manage-labels {
 	display: block;
-	padding: 5px 8px;
-	font-size: 19px;
-	color: white;
+	padding: 0.3rem 0.5rem;
+	color: var(--app-text);
+	font-size: 1rem;
 	line-height: 1.4;
 	word-break: break-word;
 }
 
 .current-field-desc {
-	color: yellowgreen;
-	font-weight: bold;
+	color: #c3a9df;
+	font-weight: 700;
 }
 
 .current-field-value {
-	color: white;
+	color: var(--app-text);
 }
 
 .input-container {
-	padding: 5px 8px;
 	min-width: 0;
+	padding: 0.3rem 0.5rem;
 }
 
 .input-container > input,
 .input-container > select {
 	width: 100%;
-	min-height: 42px;
-	box-sizing: border-box;
-	padding: 10px 12px;
-	font-size: 16px;
-	border-radius: 6px;
-	border: 1px solid #444;
-	background-color: white;
-	color: black;
+	min-height: 2.625rem;
+	padding: 0.625rem 0.75rem;
+	border: 1px solid var(--app-border);
+	border-radius: 0.375rem;
+	background: var(--app-bg);
+	color: var(--app-text);
+	font-size: 1rem;
 }
 
 .button-container {
 	display: grid;
 	grid-column: span 2;
 	grid-template-columns: 1fr;
-	gap: 10px;
-	padding: 5px 8px 0;
+	gap: 0.625rem;
+	padding: 0.3rem 0.5rem 0;
 }
 
 .edit-button,
 .delete-button {
-	background-color: rgb(17, 67, 17);
-	color: antiquewhite;
-	margin: 0;
-	padding: 10px 12px;
-	text-align: center;
-	font-size: 18px;
 	width: 100%;
-	transition-duration: 0.4s;
-	border: none;
-	border-radius: 10px;
+	margin: 0;
+	padding: 0.625rem 0.75rem;
+	border: 1px solid transparent;
+	border-radius: 0.375rem;
+	background: var(--app-accent);
+	color: #fff;
+	font-size: 1rem;
+	text-align: center;
 	cursor: pointer;
-	box-shadow:
-		0 8px 16px 0 rgba(0, 0, 0, 0.2),
-		0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	box-sizing: border-box;
 }
 
 .edit-button:hover {
-	background-color: green;
-	color: darkslategray;
+	background: var(--app-accent-hover);
 }
 
 .delete-button {
-	background-color: darkred;
-	color: rgb(255, 180, 130);
+	background: #70404b;
 }
 
 .delete-button:hover {
-	background-color: rgb(255, 180, 130);
-	color: darkred;
+	background: #86505c;
 }
 
-/* Tablet */
-@media (max-width: 768px) {
-	.manage-page {
-		padding: 12px;
-		border-radius: 0;
-	}
-
+@media (max-width: 767.98px) {
 	.user-attendees {
 		grid-template-columns: 1fr;
-		padding: 16px;
+		padding: 0.875rem;
 	}
 
 	.button-container {
 		grid-column: span 1;
-	}
-
-	.manage-labels {
-		font-size: 17px;
-	}
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-	body {
-		font-size: 15px;
-	}
-
-	.manage-page {
-		width: 100%;
-		min-width: 0;
-		padding: 10px;
-		border-radius: 0;
-	}
-
-	.user-attendee-list {
-		gap: 12px;
-	}
-
-	.user-attendees {
-		display: grid;
-		grid-template-columns: 1fr;
-		padding: 14px;
-		border-radius: 6px;
-	}
-
-	.name-container,
-	.date-container {
-		text-align: left;
-	}
-
-	.manage-labels {
-		padding: 4px 2px;
-		font-size: 16px;
-	}
-
-	.input-container {
-		padding: 4px 2px;
-	}
-
-	.input-container > input,
-	.input-container > select {
-		font-size: 16px;
-		min-height: 44px;
-	}
-
-	.button-container {
-		grid-column: span 1;
-		padding: 6px 2px 0;
-	}
-
-	.edit-button,
-	.delete-button {
-		font-size: 16px;
-		padding: 12px;
-		width: 100%;
 	}
 }

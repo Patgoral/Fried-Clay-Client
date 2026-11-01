@@ -8,9 +8,9 @@ form{
     display: grid;
 }
 form > button{
-    background-color: darkslategray;
+    background-color: var(--app-accent);
     border-radius: 10px;
-    color: yellowgreen;
+    color: #fff;
     padding: 10px 32px;
     text-align: center;
     text-decoration: none;
@@ -22,8 +22,8 @@ form > button{
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 form > button:hover {
-    background-color: yellowgreen;
-    color: darkslategray;
+    background-color: var(--app-accent-hover);
+    color: #fff;
 }
 .login-labels{
     align-content: center;
@@ -33,7 +33,7 @@ form > button:hover {
 }
 
 .error-message {
-    color: #ff5f5f;
+    color: var(--app-danger);
     font-size: 14px;
     text-align: center;
     margin-top: 10px;

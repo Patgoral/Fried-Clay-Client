@@ -13,7 +13,7 @@
 	font-weight: 600;
 	letter-spacing: 0.05em;
 	margin-bottom: 25px;
-	color: rgb(197, 197, 197);
+	color: var(--app-text);
 	position: relative;
 	display: inline-block;
 }

@@ -1,6 +1,6 @@
 // import { checkToken } from '../../utilities/users-services'
 // import { useNavigate } from 'react-router-dom'
-import './Gallery.css'
+import '../ArchivePages.css'
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
@@ -11,7 +11,7 @@ export default function Gallery() {
 
 
 	return (
-		<div className="event-page">
+		<div className="container event-page archive-page">
 			<div className="event-page-container-top">
 				<div className="link" id="logo-container" to="/">
 					<Link className="link" to="/">
