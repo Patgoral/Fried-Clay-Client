@@ -12,7 +12,7 @@ import { useEffect } from 'react'
 export default function EventPage() {
 
 const currentDate = new Date();
-const blockedStart = new Date('2026-03-21');
+const blockedStart = new Date('2027-03-20');
 
 const isWithinDateRange = currentDate < blockedStart;
 localStorage.setItem("adminOverride", "false")
@@ -26,7 +26,7 @@ localStorage.setItem("adminOverride", "false")
 			</Link>
 
 			<Link
-			to="/2026"
+			to="/2027"
 			onClick={() => localStorage.setItem("adminOverride", "true")}
 			style={{
 				position: "absolute",
@@ -97,7 +97,7 @@ localStorage.setItem("adminOverride", "false")
 			</div>
 			{isWithinDateRange ? (
 					<iframe className="video-frame" 
-						src="https://www.youtube.com/embed/mbBdRVkyhhY" 
+						src="https://www.youtube.com/embed/Mjfxqt8pZbw"
 						title="YouTube video player" 
 						frameborder="0" 
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
