@@ -96,63 +96,69 @@ export default function AttendeeDetailPage() {
 				)}
 				{isDataReady && (
 					<div className="attendee-detail">
-						<Link className="link" to={linkTo}>
-							<img className="logo" alt="logo" src={logoToShow} />
-						</Link>
-			
-					<div className="attendee-info">
-						<h2>Name: {attendee.name}</h2>
-						{attendee.gender && <h2>Gender: {attendee.gender}</h2>}
+						<header className="attendee-header">
+							<Link className="attendee-brand" to={linkTo} aria-label={`Back to ${year} results`}>
+								<img className="attendee-logo" alt="" src={logoToShow} />
+							</Link>
+							<div className="attendee-heading">
+								<p className="attendee-eyebrow">Finisher profile</p>
+								<h1>{attendee.name}</h1>
+								{attendee.gender && <p className="attendee-gender">{attendee.gender}</p>}
+							</div>
+						</header>
 
-						<h2>
-							Finishing Time: <br />{" "}
-							{hasTimingError
-								? "Error!"
-								: elapsedTime(attendee.finishTime || attendee.date)}
-						</h2>
+						<section className="attendee-stats" aria-label="Finish results">
+							<div className="attendee-stat attendee-stat-time">
+								<span className="attendee-stat-label">Finishing time</span>
+								<strong>{hasTimingError ? 'Needs verification' : elapsedTime(attendee.finishTime || attendee.date)}</strong>
+							</div>
 
-						{hasTimingError ? (
-							<a className="contact-button" href={contactHref} target="_blank" rel="noopener noreferrer">
-								Contact To Fix
-							</a>
-						) : (
-							<>
-								<h2>Overall Position: {position}</h2>
+							{!hasTimingError && (
+								<>
+									<div className="attendee-stat">
+										<span className="attendee-stat-label">Overall position</span>
+										<strong>{position ?? '—'}</strong>
+									</div>
+									{(genderPosition || gearedPosition) && (
+										<div className="attendee-stat">
+											<span className="attendee-stat-label">Category position</span>
+											<strong>
+												{genderPosition}
+												{genderPosition && gearedPosition && ' / '}
+												{gearedPosition}
+											</strong>
+										</div>
+									)}
+								</>
+							)}
+						</section>
 
-								{(genderPosition || gearedPosition) && (
-									<h2>
-										Category Position:
-										<br />
-										{genderPosition && <span>{genderPosition}</span>}
-										{genderPosition && gearedPosition && <br />}
-										{gearedPosition && <span>{gearedPosition}</span>}
-									</h2>
-								)}
-							</>
+						{hasTimingError && (
+							<div className="attendee-timing-error" role="status">
+								<p>We couldn’t verify this finish time.</p>
+								<a className="contact-button" href={contactHref} target="_blank" rel="noopener noreferrer">
+									Contact to resolve
+								</a>
+							</div>
 						)}
-					</div>
 						{attendee.image && (
-							<div className="img">
-								<img
-								alt="attendeeimage"
-								width="250px"
-								src={attendee.image}
-								/>
+							<div className="attendee-photo">
+								<img alt={`${attendee.name} at the event`} src={attendee.image} />
 							</div>
 						)}
 
-			<div className='key'>
-            
-            <div className="box red"></div>
-            <p className='key-text' style={{marginRight: "10px"}}>Official Route</p>
-          
-              <div className="box blue"></div>
-              <p className='key-text'> Uploaded Route</p>
-
-              </div>
-						<div className="map">
-							<MapComponent year = {year} gpx={attendee.gpx} />
-						</div>
+						<section className="attendee-route-section" aria-labelledby="route-title">
+							<div className="attendee-route-heading">
+								<h2 id="route-title">Route comparison</h2>
+								<div className="attendee-route-legend" aria-label="Route legend">
+									<span className="attendee-legend-item"><span className="attendee-swatch official-route" />Official route</span>
+									<span className="attendee-legend-item"><span className="attendee-swatch uploaded-route" />Uploaded route</span>
+								</div>
+							</div>
+							<div className="attendee-map">
+								<MapComponent year={year} gpx={attendee.gpx} />
+							</div>
+						</section>
 					</div>
 				)}				
 			</div>
