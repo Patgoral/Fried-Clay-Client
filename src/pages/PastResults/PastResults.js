@@ -4,8 +4,20 @@ import '../ArchivePages.css'
 import { Link } from 'react-router-dom'
 import EventNavBar from '../components/EventNavBar/EventNavBar'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
+import { useEffect } from 'react'
+import logo2023 from '../../images/fc23logo.png'
+import logo2024 from '../../images/fried-clay.png'
+import logo2025 from '../../images/FriedClay5_v1-01.png'
+import logo2026 from '../../images/FriedClay200k26.png'
 
 export default function PastResults() {
+
+useEffect(() => {
+	;[logo2023, logo2024, logo2025, logo2026].forEach((src) => {
+		const img = new Image()
+		img.src = src
+	})
+}, [])
 
 // const targetDate = new Date("2026-03-29T08:00:00-04:00");
 // const now = new Date();
