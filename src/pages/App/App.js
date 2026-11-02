@@ -14,6 +14,7 @@ import RegistrationPage from '../Registration/RegistrationPage'
 import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
 import AccessPage from '../AccessPage/AccessPage'
 import PixelBackground from '../components/PixelBackground/PixelBackground'
+import ClickSparkle from '../components/ClickSparkle/ClickSparkle'
 
 function App() {
 
@@ -22,6 +23,7 @@ const isWithinDateRange = isResults2027Live()
 	return (
 		<>
 		<PixelBackground />
+		<ClickSparkle />
 		<main className="App">
 			<>
 				<Routes>

@@ -7,19 +7,28 @@ import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/fried-clay.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
+import LoadStatus from '../components/LoadStatus/LoadStatus'
 
 export default function EventPage() {
 	// const navigate = useNavigate()
 	const [attendees, setAttendees] = useState([])
 	const [isPageLoaded, setIsPageLoaded] = useState(false)
+	const [loadError, setLoadError] = useState(false)
+	const [reloadKey, setReloadKey] = useState(0)
 
 	let attendeeList
 
 	// READ ATTENDEES
 	useEffect(() => {
+		let cancelled = false
+		setIsPageLoaded(false)
+		setLoadError(false)
+
 		async function getAllAttendees() {
+			try {
 			const year = 2024  
 			const attendees = await attendeesAPI.showAttendees(year)
+			if (cancelled) return
 
 			// Sort attendees by date first
 			attendees.attendees.sort((a, b) => new Date(a.date) - new Date(b.date))
@@ -71,11 +80,19 @@ export default function EventPage() {
 
 			// Set attendees with both position and genderPosition
 			setAttendees({ attendees: attendees.attendees })
-			setIsPageLoaded(true)
+			} catch (error) {
+				console.error('Error loading attendees:', error)
+				if (!cancelled) setLoadError(true)
+			} finally {
+				if (!cancelled) setIsPageLoaded(true)
+			}
 		}
 
 		getAllAttendees()
-	}, [])
+		return () => {
+			cancelled = true
+		}
+	}, [reloadKey])
 
 
 
@@ -124,21 +141,14 @@ export default function EventPage() {
 					<p class="detailDescDiv">We did not gather gearing info this year.</p>
 					<p class="detailDescDiv">Click a name to view details</p>
 
-					{isPageLoaded && (
+					{isPageLoaded && !loadError && (
 						<div className="list-container-overflow">{attendeeList}</div>
 					)}
-					{!isPageLoaded && (
-						<div className="lds-roller">
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-							<div></div>
-						</div>
-					)}
+					<LoadStatus
+						isLoading={!isPageLoaded}
+						hasError={loadError}
+						onRetry={() => setReloadKey((key) => key + 1)}
+					/>
 
 				</div>
 			</div>

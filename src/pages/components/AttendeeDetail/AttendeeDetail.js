@@ -149,6 +149,7 @@ export default function AttendeeDetailPage() {
 									aria-label="View full size photo"
 								>
 									<img alt={`${attendee.name} at the event`} src={attendee.image} />
+									<span className="attendee-photo-hint">Click to enlarge</span>
 								</button>
 								{isPhotoOpen && (
 									<div

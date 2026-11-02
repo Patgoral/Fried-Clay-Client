@@ -1,0 +1,92 @@
+.privacy-modal-overlay {
+	position: fixed;
+	inset: 0;
+	z-index: 10000;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	background: rgba(10, 8, 14, 0.8);
+}
+
+.privacy-modal {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: min(100%, 720px);
+	max-height: min(85vh, 800px);
+	background: var(--app-surface);
+	border: 1px solid var(--app-border);
+	border-radius: 0.5rem;
+	color: var(--app-text);
+	text-align: left;
+}
+
+.privacy-modal-close {
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	background: var(--app-surface-raised);
+	border: 1px solid var(--app-border);
+	border-radius: 0.375rem;
+	color: var(--app-text);
+	font-size: 1.5rem;
+	line-height: 1;
+	cursor: pointer;
+	transition: background-color 150ms ease, border-color 150ms ease;
+}
+
+.privacy-modal-close:hover {
+	background: var(--app-accent);
+	border-color: var(--app-accent);
+	color: #fff;
+}
+
+.privacy-modal-body {
+	padding: 1.5rem;
+	overflow-y: auto;
+}
+
+.privacy-modal-body h2 {
+	margin: 0;
+	padding-right: 3rem;
+	font-size: clamp(1.25rem, 3vw, 1.75rem);
+	font-weight: 600;
+}
+
+.privacy-modal-body .privacy-updated {
+	margin: 0.25rem 0 1.25rem;
+	color: var(--app-muted);
+	font-size: 0.875rem;
+}
+
+.privacy-modal-body h3 {
+	margin: 1.5rem 0 0.5rem;
+	font-size: 1.0625rem;
+	font-weight: 600;
+}
+
+.privacy-modal-body p,
+.privacy-modal-body li {
+	color: var(--app-text);
+	line-height: 1.6;
+}
+
+.privacy-modal-body ul {
+	padding-left: 1.25rem;
+}
+
+.privacy-modal-body li {
+	margin-bottom: 0.5rem;
+}
+
+@media (max-width: 575.98px) {
+	.privacy-modal-body {
+		padding: 1rem;
+	}
+}

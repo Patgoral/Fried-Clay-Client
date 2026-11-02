@@ -192,6 +192,15 @@
 	object-fit: contain;
 }
 
+.attendee-photo-hint {
+	display: block;
+	margin-top: 0.25rem;
+	color: var(--app-muted);
+	font-size: 0.625rem;
+	line-height: 1.2;
+	text-align: center;
+}
+
 .photo-modal-overlay {
 	position: fixed;
 	inset: 0;
