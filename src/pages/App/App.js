@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import UpdatePage from '../UpdatePage/UpdatePage'
 import EventPage from '../EventPage/EventPage'
 import Results2023 from '../Results2023/Results2023'
@@ -16,17 +16,13 @@ import AccessPage from '../AccessPage/AccessPage'
 import PixelBackground from '../components/PixelBackground/PixelBackground'
 
 function App() {
-const { pathname } = useLocation()
 
 const isWithinDateRange = isResults2027Live()
 
 	return (
 		<>
 		<PixelBackground />
-		<main
-			className={pathname === '/update' ? 'App' : 'App page-fade'}
-			key={pathname}
-		>
+		<main className="App">
 			<>
 				<Routes>
 					{/* <Route path="/" element={<EventPage />} /> */}
