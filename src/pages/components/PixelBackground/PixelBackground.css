@@ -5,6 +5,7 @@
 	height: 100vh;
 	z-index: 0;
 	pointer-events: none;
+	image-rendering: pixelated;
 }
 
 .App {
