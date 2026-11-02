@@ -1,6 +1,7 @@
 import './AttendeeDetail.css'
-import { useParams, useLocation } from 'react-router-dom'
-import { indexEachAttendee } from '../../../utilities/attendees-api'
+import { useParams, useLocation, useNavigate } from 'react-router-dom'
+import { indexEachAttendee, showAttendees } from '../../../utilities/attendees-api'
+import { computeRanks } from '../../utils/rankings'
 import { useState, useEffect } from 'react'
 import { elapsedTime } from '../../utils/dateFormatter'
 import MapComponent from '../MapComponent/MapComponent'
@@ -31,7 +32,16 @@ export default function AttendeeDetailPage() {
 
 	const { id } = useParams()
 	const location = useLocation()
-	const { position, genderPosition, gearedPosition } = location.state || {};
+	const navigate = useNavigate()
+	const [fetchedRanks, setFetchedRanks] = useState({})
+	const { position, genderPosition, gearedPosition } = location.state || fetchedRanks
+	const goBack = (e) => {
+		// location.key is 'default' on a direct visit, so fall back to the year link
+		if (location.key !== 'default') {
+			e.preventDefault()
+			navigate(-1)
+		}
+	}
 	const resultDate = attendee.finishTime || attendee.date
 
 	const hasTimingError =
@@ -70,6 +80,24 @@ export default function AttendeeDetailPage() {
 		}
 	}, [id])
 
+	useEffect(() => {
+		if (location.state || !attendee._id || !attendee.createdAt) return
+		let cancelled = false
+		const attendeeYear = new Date(attendee.createdAt).getFullYear()
+		showAttendees(attendeeYear)
+			.then((res) => {
+				if (!cancelled) setFetchedRanks(computeRanks(res.attendees || [], attendee._id, attendeeYear))
+			})
+			.catch(() => {})
+		return () => {
+			cancelled = true
+		}
+	}, [attendee._id, attendee.createdAt, location.state])
+
+	useEffect(() => {
+		if (attendee.name) document.title = `${attendee.name} | Fried Clay 200K`
+	}, [attendee.name])
+
 	const year = attendee.createdAt ? new Date(attendee.createdAt).getFullYear() : null;
 	const logosByYear = { 2023: logo2023, 2024: logo2024, 2025: logo2025, 2026: logo2026, 2027: logo2027 }
 	const logoToShow = logosByYear[year] || logo2027
@@ -101,7 +129,7 @@ export default function AttendeeDetailPage() {
 								<h1>{attendee.name}</h1>
 								{attendee.gender && <p className="attendee-gender">{attendee.gender}</p>}
 							</div>
-							<Link className="attendee-back-link" to={linkTo}>
+							<Link className="attendee-back-link" to={linkTo} onClick={goBack}>
 								Back to results
 							</Link>
 						</header>

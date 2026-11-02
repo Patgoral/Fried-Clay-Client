@@ -15,6 +15,8 @@ import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
 import AccessPage from '../AccessPage/AccessPage'
 import PixelBackground from '../components/PixelBackground/PixelBackground'
 import ClickSparkle from '../components/ClickSparkle/ClickSparkle'
+import RouteEffects from '../components/RouteEffects/RouteEffects'
+import NotFound from '../NotFound/NotFound'
 
 function App() {
 
@@ -24,6 +26,7 @@ const isWithinDateRange = isResults2027Live()
 		<>
 		<PixelBackground />
 		<ClickSparkle />
+		<RouteEffects />
 		<main className="App">
 			<>
 				<Routes>
@@ -40,13 +43,7 @@ const isWithinDateRange = isResults2027Live()
 					<Route path="/update" element={<UpdatePage />} />
 					<Route path="/access" element={<AccessPage />} />
 					<Route path="/attendees/:id" element={<AttendeeDetail />} />
-					<Route path="*" element={<EventPage />} />
-					<Route path="/attendees/*" element={<EventPage />} />
-					<Route path="/access/*" element={<EventPage />} />
-					<Route path="/register/*" element={<EventPage />} />
-
-
-					
+					<Route path="*" element={<NotFound />} />
 
 				</Routes>
 			</>
