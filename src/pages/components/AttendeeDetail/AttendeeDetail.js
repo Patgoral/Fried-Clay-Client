@@ -12,6 +12,7 @@ import logo2026 from '../../../images/FriedClay200k26.png'
 import logo2027 from '../../../images/fc27logo2.png'
 
 import { Link } from 'react-router-dom'
+import Breadcrumbs from '../Breadcrumbs/Breadcrumbs'
 
 export default function AttendeeDetailPage() {
 	const [attendee, setAttendee] = useState({
@@ -120,6 +121,13 @@ export default function AttendeeDetailPage() {
 				)}
 				{isDataReady && (
 					<div className="attendee-detail">
+						<Breadcrumbs
+							items={[
+								{ label: 'Past Results', to: '/PastResults' },
+								{ label: String(logosByYear[year] ? year : 2027), to: linkTo },
+								{ label: attendee.name || 'Finisher' },
+							]}
+						/>
 						<header className="attendee-header">
 							<Link className="attendee-brand" to={linkTo} aria-label={`Back to ${year} results`}>
 								<img className="attendee-logo" alt="" src={logoToShow} />

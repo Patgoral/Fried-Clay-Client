@@ -5,6 +5,7 @@ import AttendeeCard from '../components/AttendeeCard/AttendeeCard'
 import { Link } from 'react-router-dom'
 import logo from '../../images/FriedClay200k26.png'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
+import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs'
 import LoadStatus from '../components/LoadStatus/LoadStatus'
 import Sponsors from '../components/Sponsors/Sponsors'
 
@@ -177,6 +178,7 @@ export default function EventPage() {
 
 	return (
 		<div className="container event-page results-page">
+			<Breadcrumbs items={[{ label: 'Home', to: '/' }, { label: 'Past Results', to: '/PastResults' }, { label: '2026' }]} />
 			<div className="event-page-container-top">
 				<Link className="link" to="/">
 					<img className="event-logo" alt="logo" src={logo} />
