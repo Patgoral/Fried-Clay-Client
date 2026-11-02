@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { useLocation } from 'react-router-dom'
 import './PixelBackground.css'
 
-const CELL = 8
+const CELL = 6
 const COLORS = ['128, 98, 163', '146, 117, 181', '90, 120, 170', '170, 90, 120']
 
 function PixelBackground() {
@@ -40,7 +40,7 @@ function PixelBackground() {
 		const draw = () => {
 			ctx.clearRect(0, 0, width, height)
 			for (const p of particles) {
-				const alpha = Math.sin(Math.min(p.life, 1) * Math.PI) * 0.7
+				const alpha = Math.sin(Math.min(p.life, 1) * Math.PI) * 0.55
 				ctx.fillStyle = `rgba(${p.color}, ${alpha})`
 				ctx.fillRect(p.x, p.y, CELL - 1, CELL - 1)
 			}
@@ -76,7 +76,7 @@ function PixelBackground() {
 		resize()
 		burstRef.current = () => {
 			if (reducedMotion || pathRef.current === '/update') return
-			const burst = Math.min(180, Math.floor((width * height) / 10000))
+			const burst = Math.min(90, Math.floor((width * height) / 20000))
 			for (let i = 0; i < burst; i++) {
 				const p = spawn(false)
 				p.speed = 0.02 + Math.random() * 0.02
