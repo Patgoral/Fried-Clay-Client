@@ -103,8 +103,8 @@ header.event-site-header #logo-container {
 	}
 
 	.event-site-header #logo-container .event-logo {
-		width: min(320px, 85vw);
-		height: auto;
+		width: auto;
+		height: min(30vw, 200px);
 	}
 
 	.event-site-header .event-nav-actions {
