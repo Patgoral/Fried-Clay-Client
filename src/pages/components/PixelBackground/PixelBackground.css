@@ -11,3 +11,26 @@
 	position: relative;
 	z-index: 1;
 }
+
+.App.page-fade {
+	animation: page-pixel-in 450ms steps(8, end) both;
+}
+
+@keyframes page-pixel-in {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+		filter: blur(2px);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+		filter: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.App.page-fade {
+		animation: none;
+	}
+}

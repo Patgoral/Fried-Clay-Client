@@ -1,4 +1,5 @@
 :root {
+  scrollbar-gutter: stable;
   --app-bg: #1c1a20;
   --app-surface: #27242d;
   --app-surface-raised: #322e39;
