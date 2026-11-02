@@ -8,6 +8,13 @@
 	padding-bottom: 1rem;
 }
 
+.results-page .breadcrumbs,
+.past-results-page .breadcrumbs {
+	max-width: none;
+	margin: 0;
+	padding: 0 0.25rem;
+}
+
 .results-page .event-page-container-top,
 .past-results-page .past-results-page-container-top {
 	display: grid;

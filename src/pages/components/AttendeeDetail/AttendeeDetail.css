@@ -14,6 +14,12 @@
 	border-radius: 0.5rem;
 }
 
+.attendee-detail .breadcrumbs {
+	max-width: none;
+	margin: 0;
+	padding: 0;
+}
+
 .attendee-header {
 	display: flex;
 	align-items: center;
