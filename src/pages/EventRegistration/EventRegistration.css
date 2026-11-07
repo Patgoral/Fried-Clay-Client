@@ -1,3 +1,12 @@
+.event-registration-preload {
+	position: fixed;
+	top: 0;
+	left: -10000px;
+	width: 100%;
+	visibility: hidden;
+	pointer-events: none;
+}
+
 .event-registration-page {
 	display: flex;
 	flex-direction: column;

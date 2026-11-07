@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import EventNavBar, { REGISTRATION_URL } from '../components/EventNavBar/EventNavBar'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 import { loadEventbriteWidget } from '../../utilities/eventbrite-widget'
@@ -6,13 +6,25 @@ import './EventRegistration.css'
 
 const WIDGET_CONTAINER_ID = 'eventbrite-widget-container-2004102106349'
 
-export default function EventRegistration() {
+export default function EventRegistration({ isActive = true }) {
 	const [widgetStatus, setWidgetStatus] = useState('loading')
+	const [attempt, setAttempt] = useState(0)
+	const wasActive = useRef(isActive)
 	const isHttps = window.location.protocol === 'https:'
+
+	useEffect(() => {
+		if (isActive && !wasActive.current && widgetStatus === 'error') {
+			setWidgetStatus('loading')
+			setAttempt((previous) => previous + 1)
+		}
+		wasActive.current = isActive
+	}, [isActive, widgetStatus])
 
 	useEffect(() => {
 		let cancelled = false
 		let iframe
+		const container = document.getElementById(WIDGET_CONTAINER_ID)
+		container.replaceChildren()
 		const timeout = window.setTimeout(() => {
 			if (!cancelled) setWidgetStatus('slow')
 		}, 10000)
@@ -37,7 +49,7 @@ export default function EventRegistration() {
 						background: '#ede9e9',
 					},
 				})
-				iframe = document.getElementById(WIDGET_CONTAINER_ID).querySelector('iframe')
+				iframe = container.querySelector('iframe')
 				if (!iframe) throw new Error('Eventbrite checkout iframe was not created')
 				iframe.title = 'Eventbrite registration checkout'
 				iframe.addEventListener('load', handleIframeLoad)
@@ -62,7 +74,7 @@ export default function EventRegistration() {
 			window.clearTimeout(timeout)
 			if (iframe) iframe.removeEventListener('load', handleIframeLoad)
 		}
-	}, [])
+	}, [attempt])
 
 	return (
 		<div className="container event-registration-page">

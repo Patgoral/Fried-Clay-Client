@@ -1,9 +1,7 @@
 // import { checkToken } from '../../utilities/users-services'
 // import { useNavigate } from 'react-router-dom'
 import './EventPage.css'
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { loadEventbriteWidget } from '../../utilities/eventbrite-widget'
 import EventNavBar from '../components/EventNavBar/EventNavBar'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 import Sponsors from '../components/Sponsors/Sponsors'
@@ -16,14 +14,6 @@ const blockedStart = new Date('2027-03-20');
 
 const isWithinDateRange = currentDate < blockedStart;
 localStorage.setItem("adminOverride", "false")
-
-	useEffect(() => {
-		if (isWithinDateRange) {
-			loadEventbriteWidget().catch((error) => {
-				console.warn('Unable to preload Eventbrite checkout:', error)
-			})
-		}
-	}, [isWithinDateRange])
 
 
 	return (

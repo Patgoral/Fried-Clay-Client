@@ -78,8 +78,8 @@ export default function PrivacyModal({ onClose }) {
 						Registration is handled by Eventbrite and merchandise by Big
 						Cartel. Those services collect their own information under their own
 						privacy policies, and we do not receive your payment details. The
-						home page loads Eventbrite's checkout script, and the registration
-						page embeds its checkout. This site also links
+						home page loads Eventbrite's embedded checkout in the background,
+						and the registration page displays it. This site also links
 						to Instagram and Facebook and may embed videos. These services may
 						use cookies or tracking technologies when loaded or used.
 					</p>
