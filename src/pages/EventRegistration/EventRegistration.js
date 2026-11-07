@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import EventNavBar, { REGISTRATION_URL } from '../components/EventNavBar/EventNavBar'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
+import { loadEventbriteWidget } from '../../utilities/eventbrite-widget'
 import './EventRegistration.css'
 
 const WIDGET_CONTAINER_ID = 'eventbrite-widget-container-2004102106349'
@@ -11,7 +12,6 @@ export default function EventRegistration() {
 
 	useEffect(() => {
 		let cancelled = false
-		let script
 		let iframe
 		const timeout = window.setTimeout(() => {
 			if (!cancelled) setWidgetStatus('slow')
@@ -23,13 +23,10 @@ export default function EventRegistration() {
 			setWidgetStatus('ready')
 		}
 
-		function createWidget() {
+		function createWidget(widget) {
 			if (cancelled) return
 			try {
-				if (!window.EBWidgets || typeof window.EBWidgets.createWidget !== 'function') {
-					throw new Error('Eventbrite checkout is unavailable')
-				}
-				window.EBWidgets.createWidget({
+				widget.createWidget({
 					widgetType: 'checkout',
 					eventId: '2004102106349',
 					iframeContainerId: WIDGET_CONTAINER_ID,
@@ -51,33 +48,19 @@ export default function EventRegistration() {
 			}
 		}
 
-		function handleScriptError() {
+		function handleScriptError(error) {
 			if (cancelled) return
-			console.error('Unable to load the Eventbrite checkout script')
+			console.error('Unable to load the Eventbrite checkout script:', error)
 			window.clearTimeout(timeout)
 			setWidgetStatus('error')
 		}
 
-		if (window.EBWidgets && typeof window.EBWidgets.createWidget === 'function') {
-			createWidget()
-		} else {
-			script = document.createElement('script')
-			script.src = 'https://www.eventbrite.com/static/widgets/eb_widgets.js'
-			script.async = true
-			script.addEventListener('load', createWidget)
-			script.addEventListener('error', handleScriptError)
-			document.body.appendChild(script)
-		}
+		loadEventbriteWidget().then(createWidget, handleScriptError)
 
 		return () => {
 			cancelled = true
 			window.clearTimeout(timeout)
 			if (iframe) iframe.removeEventListener('load', handleIframeLoad)
-			if (script) {
-				script.removeEventListener('load', createWidget)
-				script.removeEventListener('error', handleScriptError)
-				script.remove()
-			}
 		}
 	}, [])
 
