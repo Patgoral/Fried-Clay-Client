@@ -12,9 +12,16 @@ export default function EventRegistration() {
 	useEffect(() => {
 		let cancelled = false
 		let script
+		let iframe
 		const timeout = window.setTimeout(() => {
 			if (!cancelled) setWidgetStatus('slow')
 		}, 10000)
+
+		function handleIframeLoad() {
+			if (cancelled) return
+			window.clearTimeout(timeout)
+			setWidgetStatus('ready')
+		}
 
 		function createWidget() {
 			if (cancelled) return
@@ -26,15 +33,17 @@ export default function EventRegistration() {
 					widgetType: 'checkout',
 					eventId: '2004102106349',
 					iframeContainerId: WIDGET_CONTAINER_ID,
-					iframeContainerHeight: 425,
+					iframeContainerHeight: 700,
 					themeSettings: {
 						brandColor: '#7c468b',
 						fontColor: '#000000',
 						background: '#ede9e9',
 					},
 				})
-				window.clearTimeout(timeout)
-				setWidgetStatus('ready')
+				iframe = document.getElementById(WIDGET_CONTAINER_ID).querySelector('iframe')
+				if (!iframe) throw new Error('Eventbrite checkout iframe was not created')
+				iframe.title = 'Eventbrite registration checkout'
+				iframe.addEventListener('load', handleIframeLoad)
 			} catch (error) {
 				console.error('Unable to initialize Eventbrite checkout:', error)
 				window.clearTimeout(timeout)
@@ -63,6 +72,7 @@ export default function EventRegistration() {
 		return () => {
 			cancelled = true
 			window.clearTimeout(timeout)
+			if (iframe) iframe.removeEventListener('load', handleIframeLoad)
 			if (script) {
 				script.removeEventListener('load', createWidget)
 				script.removeEventListener('error', handleScriptError)
@@ -80,7 +90,7 @@ export default function EventRegistration() {
 				{!isHttps && widgetStatus !== 'error' && (
 					<p role="status">Embedded checkout requires HTTPS. Please use the Eventbrite link below.</p>
 				)}
-				{isHttps && widgetStatus === 'loading' && <p role="status">Loading checkout...</p>}
+				{isHttps && widgetStatus === 'loading' && <p role="status">Loading Eventbrite checkout...</p>}
 				{isHttps && widgetStatus === 'slow' && (
 					<p role="status">Checkout is taking longer than expected to load.</p>
 				)}

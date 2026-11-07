@@ -19,7 +19,9 @@ afterEach(() => {
 test('initializes the requested checkout and keeps a direct fallback link', () => {
 	renderRegistration()
 	const script = document.querySelector('script[src="https://www.eventbrite.com/static/widgets/eb_widgets.js"]')
-	const createWidget = jest.fn()
+	const createWidget = jest.fn(({ iframeContainerId }) => {
+		document.getElementById(iframeContainerId).appendChild(document.createElement('iframe'))
+	})
 	window.EBWidgets = { createWidget }
 	fireEvent.load(script)
 
@@ -27,7 +29,7 @@ test('initializes the requested checkout and keeps a direct fallback link', () =
 		widgetType: 'checkout',
 		eventId: '2004102106349',
 		iframeContainerId: 'eventbrite-widget-container-2004102106349',
-		iframeContainerHeight: 425,
+		iframeContainerHeight: 700,
 		themeSettings: {
 			brandColor: '#7c468b',
 			fontColor: '#000000',
@@ -36,7 +38,17 @@ test('initializes the requested checkout and keeps a direct fallback link', () =
 	})
 	expect(screen.getByRole('link', { name: 'Register on Eventbrite' }).href)
 		.toContain('2004102106349')
+	const iframe = document.querySelector('#eventbrite-widget-container-2004102106349 iframe')
+	expect(iframe.title).toBe('Eventbrite registration checkout')
+	fireEvent.load(iframe)
 	expect(screen.getByRole('status').textContent).toContain('requires HTTPS')
+})
+
+test('reports an initialization failure when no iframe is created', () => {
+	jest.spyOn(console, 'error').mockImplementation(() => {})
+	window.EBWidgets = { createWidget: jest.fn() }
+	renderRegistration()
+	expect(screen.getByRole('alert').textContent).toContain('could not be loaded')
 })
 
 test('reports script load failures and offers the Eventbrite link', () => {
@@ -50,7 +62,9 @@ test('reports script load failures and offers the Eventbrite link', () => {
 })
 
 test('reuses the widget library after navigating back to the page', () => {
-	const createWidget = jest.fn()
+	const createWidget = jest.fn(({ iframeContainerId }) => {
+		document.getElementById(iframeContainerId).appendChild(document.createElement('iframe'))
+	})
 	window.EBWidgets = { createWidget }
 	const { unmount } = renderRegistration()
 	unmount()

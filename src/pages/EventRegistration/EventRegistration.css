@@ -8,7 +8,7 @@
 }
 
 .event-registration-card {
-	width: min(100%, 48rem);
+	width: min(100%, 68rem);
 	padding: clamp(1rem, 3vw, 2rem);
 	background: var(--app-surface);
 	border: 1px solid var(--app-border);
