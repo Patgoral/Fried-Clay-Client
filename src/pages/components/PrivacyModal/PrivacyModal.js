@@ -37,7 +37,7 @@ export default function PrivacyModal({ onClose }) {
 
 				<div className="privacy-modal-body">
 					<h2 id="privacy-modal-title">Privacy Policy</h2>
-					<p className="privacy-updated">Last updated: November 2, 2026</p>
+					<p className="privacy-updated">Last updated: November 7, 2026</p>
 
 					<p>
 						This site is run by Fried Clay LLC, 2620 Rockcliff Rd. SE, Atlanta,
@@ -77,15 +77,16 @@ export default function PrivacyModal({ onClose }) {
 					<p>
 						Registration is handled by Eventbrite and merchandise by Big
 						Cartel. Those services collect their own information under their own
-						privacy policies, and we do not receive your payment details. This
-						site also links to Instagram and Facebook and may embed videos.
-						Those services may set their own cookies when you use them.
+						privacy policies, and we do not receive your payment details. The
+						registration page embeds Eventbrite's checkout. This site also links
+						to Instagram and Facebook and may embed videos. These services may
+						use cookies or tracking technologies when loaded or used.
 					</p>
 
 					<h3>Cookies and tracking</h3>
 					<p>
-						This site does not use advertising trackers. We do not sell your
-						information.
+						We do not use our own advertising trackers or sell your information.
+						Third-party services may use their own tracking technologies.
 					</p>
 
 					<h3>How long we keep it</h3>

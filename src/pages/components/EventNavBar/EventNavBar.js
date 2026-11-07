@@ -12,6 +12,7 @@ export default function EventNavBar({
 	logoTo = '/',
 }) {
 	const pastResultsIsActive = activeItem === 'past-results'
+	const registerIsActive = activeItem === 'register'
 	const pastResultsClassName = `link secondary-action${pastResultsIsActive ? ' is-active' : ''}`
 
 	return (
@@ -31,14 +32,13 @@ export default function EventNavBar({
 
 			<nav className="event-nav-actions" aria-label="Main navigation">
 				{isWithinDateRange && (
-					<a
-						className="link secondary-action"
-						href={REGISTRATION_URL}
-						target="_blank"
-						rel="noopener noreferrer"
+					<Link
+						className={`link secondary-action${registerIsActive ? ' is-active' : ''}`}
+						to="/register"
+						aria-current={registerIsActive ? 'page' : undefined}
 					>
 						Register
-					</a>
+					</Link>
 				)}
 
 				<Link

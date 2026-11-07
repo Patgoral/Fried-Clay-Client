@@ -10,6 +10,7 @@ import Results2027, { isResults2027Live } from '../Results2027/Results2027'
 import PastResults from '../PastResults/PastResults'
 import Gallery from '../Gallery/Gallery'
 import RegistrationPage from '../Registration/RegistrationPage'
+import EventRegistration from '../EventRegistration/EventRegistration'
 // import NavBar from '../components/NavBar/NavBar'
 import AttendeeDetail from '../components/AttendeeDetail/AttendeeDetail'
 import AccessPage from '../AccessPage/AccessPage'
@@ -39,7 +40,8 @@ const isWithinDateRange = isResults2027Live()
 					<Route path="/2027" element={<Results2027/>} />
 					<Route path="/PastResults" element={<PastResults/>} />
 					<Route path="/gallery" element={<Gallery/>} />
-					<Route path="/register" element={<RegistrationPage />} />
+					<Route path="/register" element={<EventRegistration />} />
+					<Route path="/submit-time" element={<RegistrationPage />} />
 					<Route path="/update" element={<UpdatePage />} />
 					<Route path="/access" element={<AccessPage />} />
 					<Route path="/attendees/:id" element={<AttendeeDetail />} />

@@ -8,6 +8,7 @@ const TITLES = {
 	'/PastResults': 'Past Results | Fried Clay 200K',
 	'/gallery': 'Gallery | Fried Clay 200K',
 	'/register': 'Register | Fried Clay 200K',
+	'/submit-time': 'Submit Your Time | Fried Clay 200K',
 	'/access': 'Access | Fried Clay 200K',
 	'/update': 'Manage | Fried Clay 200K',
 }

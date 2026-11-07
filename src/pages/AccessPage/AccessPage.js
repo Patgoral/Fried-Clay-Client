@@ -17,7 +17,7 @@ export default function AccessPage() {
 		const entered = input.trim().toLowerCase()
 
 		if (secretCodes.includes(entered)) {
-			navigate('/register')
+			navigate('/submit-time')
 		} else if (adminCode && entered === adminCode) {
 			navigate('/update')
 		} else {

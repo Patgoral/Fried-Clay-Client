@@ -1,7 +1,8 @@
 // import { checkToken } from '../../utilities/users-services'
 // import { useNavigate } from 'react-router-dom'
 import './EventPage.css'
-import EventNavBar, { REGISTRATION_URL } from '../components/EventNavBar/EventNavBar'
+import { Link } from 'react-router-dom'
+import EventNavBar from '../components/EventNavBar/EventNavBar'
 import SocialLinks from '../components/SocialLinks/SocialLinks'
 import Sponsors from '../components/Sponsors/Sponsors'
 
@@ -54,14 +55,12 @@ localStorage.setItem("adminOverride", "false")
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 						allowFullScreen
 					/>
-					<a
+					<Link
 						className="event-register-button"
-						href={REGISTRATION_URL}
-						target="_blank"
-						rel="noopener noreferrer"
+						to="/register"
 					>
 						Register
-					</a>
+					</Link>
 				</div>
 				) : null}							
 			
